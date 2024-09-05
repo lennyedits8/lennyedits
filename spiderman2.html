@@ -94,7 +94,7 @@
 						<div>
 							<div>
 								<div class="work-detail__entry">
-									<p>All photos are shot using photo mode on Playstation 5</p>
+									<p> test All photos are shot using photo mode on Playstation 5</p>
 									<br>
 									<!-- Gallery of images -->
 									<div class="work-img">
@@ -219,82 +219,119 @@
 					</div>
 				</section>
 
-							<!-- Lightbox2 CSS for custom styling -->
-				<style>
-					/* Remove white border around the images in Lightbox2 */
-					.lb-image {
-						padding: 0 !important;
-						border: none !important;
+			<!-- Lightbox2 CSS for custom styling -->
+			<style>
+				/* Remove white border around the images in Lightbox2 */
+				.lb-image {
+					padding: 0 !important;
+					border: none !important;
+				}
+
+				/* Hide the close (X) button in Lightbox2 */
+				.lb-close {
+					display: none !important;
+				}
+
+				/* Hide the image number (e.g., "Image 1 of 2") */
+				.lb-number {
+					display: none !important;
+				}
+
+				/* Hide the caption text */
+				.lb-caption {
+					display: none !important;
+				}
+
+				/* Invisible click zones for desktop navigation */
+				.lb-nav-zone {
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					width: 50%;
+					cursor: pointer;
+					z-index: 1000; /* Ensure the zones are above the image */
+				}
+
+				.lb-prev-zone {
+					left: 0;
+				}
+
+				.lb-next-zone {
+					right: 0;
+				}
+			</style>
+
+			<!-- Include Lightbox2 JS and CSS -->
+			<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" />
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+
+			<!-- JavaScript for touch swipe and invisible zones -->
+			<script>
+				document.addEventListener('DOMContentLoaded', function () {
+					// Function to add navigation zones
+					function addNavZones() {
+						var container = document.querySelector('.lb-container');
+
+						if (container && !container.querySelector('.lb-nav-zone')) {
+							// Create previous zone (left side)
+							var prevZone = document.createElement('div');
+							prevZone.classList.add('lb-nav-zone', 'lb-prev-zone');
+							container.appendChild(prevZone);
+
+							// Create next zone (right side)
+							var nextZone = document.createElement('div');
+							nextZone.classList.add('lb-nav-zone', 'lb-next-zone');
+							container.appendChild(nextZone);
+
+							// Handle click on the left (previous) side
+							prevZone.addEventListener('click', function () {
+								lightbox.prev();
+							});
+
+							// Handle click on the right (next) side
+							nextZone.addEventListener('click', function () {
+								lightbox.next();
+							});
+						}
 					}
 
-					/* Hide the close (X) button in Lightbox2 */
-					.lb-close {
-						display: none !important;
-					}
-
-					/* Hide the image number (e.g., "Image 1 of 2") */
-					.lb-number {
-						display: none !important;
-					}
-
-					/* Hide the caption text */
-					.lb-caption {
-						display: none !important;
-					}
-
-					/* Swipe support */
-					.swipebox-active .swipebox-container {
-						touch-action: pan-y;
-					}
-				</style>
-
-				<!-- Include Lightbox2 JS and CSS -->
-				<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" />
-				<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
-
-				<!-- Include Lazy Loading library -->
-				<script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async=""></script>
-
-				<!-- Add Swipe Support for Lightbox2 -->
-				<script>
-					// Add touch event listeners for swiping
-					document.querySelectorAll('.lb-image').forEach(img => {
-						img.addEventListener('touchstart', handleTouchStart, false);
-						img.addEventListener('touchmove', handleTouchMove, false);
+					// Trigger adding the zones every time a lightbox opens
+					lightbox.option({
+						alwaysShowNavOnTouchDevices: true,
+						onImageLoad: function() {
+							addNavZones();
+						}
 					});
 
-					let xDown = null;
+					// Touch swipe functionality for mobile
+					var touchstartX = 0;
+					var touchendX = 0;
 
-					function handleTouchStart(evt) {
-						const firstTouch = (evt.touches || evt.originalEvent.touches)[0];
-						xDown = firstTouch.clientX;
-					};
-
-					function handleTouchMove(evt) {
-						if (!xDown) return;
-
-						let xUp = evt.touches[0].clientX;
-						let xDiff = xDown - xUp;
-
-						if (Math.abs(xDiff) > 0) {
-							if (xDiff > 0) {
-								// Swiped left
-								lightbox.nextImage();
-							} else {
-								// Swiped right
-								lightbox.prevImage();
-							}
+					function handleGesture() {
+						if (touchendX < touchstartX - 50) { // Swipe left (next image)
+							lightbox.next();
 						}
-						xDown = null;
+						if (touchendX > touchstartX + 50) { // Swipe right (previous image)
+							lightbox.prev();
+						}
 					}
 
-					// Close Lightbox2 when clicking outside the image (on overlay)
-					document.addEventListener('click', function(event) {
-						if (event.target.classList.contains('lightboxOverlay')) {
-							lightbox.end();
+					document.addEventListener('touchstart', function (event) {
+						if (event.target.classList.contains('lb-image')) {
+							touchstartX = event.changedTouches[0].screenX;
 						}
 					});
-				</script>
+
+					document.addEventListener('touchend', function (event) {
+						if (event.target.classList.contains('lb-image')) {
+							touchendX = event.changedTouches[0].screenX;
+							handleGesture();
+						}
+					});
+				});
+			</script>
+
+
 
 
 
