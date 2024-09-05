@@ -94,7 +94,7 @@
 						<div>
 							<div>
 								<div class="work-detail__entry">
-									<p> test All photos are shot using photo mode on Playstation 5</p>
+									<p>hello All photos are shot using photo mode on Playstation 5</p>
 									<br>
 									<!-- Gallery of images -->
 									<div class="work-img">
@@ -219,113 +219,111 @@
 					</div>
 				</section>
 
-			<!-- Lightbox2 CSS for custom styling -->
-			<style>
-				/* Remove white border around the images in Lightbox2 */
-				.lb-image {
-					padding: 0 !important;
-					border: none !important;
-				}
+							<!-- Lightbox2 CSS for custom styling -->
+				<style>
+					/* Remove white border around the images in Lightbox2 */
+					.lb-image {
+						padding: 0 !important;
+						border: none !important;
+					}
 
-				/* Hide the close (X) button in Lightbox2 */
-				.lb-close {
-					display: none !important;
-				}
+					/* Hide the close (X) button in Lightbox2 */
+					.lb-close {
+						display: none !important;
+					}
 
-				/* Hide the image number (e.g., "Image 1 of 2") */
-				.lb-number {
-					display: none !important;
-				}
+					/* Hide the image number (e.g., "Image 1 of 2") */
+					.lb-number {
+						display: none !important;
+					}
 
-				/* Hide the caption text */
-				.lb-caption {
-					display: none !important;
-				}
+					/* Hide the caption text */
+					.lb-caption {
+						display: none !important;
+					}
 
-				/* Invisible click zones for desktop navigation */
-				.lb-nav-zone {
-					position: absolute;
-					top: 0;
-					bottom: 0;
-					width: 50%;
-					cursor: pointer;
-					z-index: 1000; /* Ensure the zones are above the image */
-				}
+					/* Custom styles for invisible click zones */
+					.lb-container {
+						position: relative;
+						
+					}
 
-				.lb-prev-zone {
-					left: 0;
-				}
+					.lb-nav-zone {
+						position: absolute;
+						top: 0;
+						bottom: 0;
+						width: 50%;
+						cursor: pointer;
+					}
 
-				.lb-next-zone {
-					right: 0;
-				}
-			</style>
+					.lb-prev-zone {
+						left: 0;
+					}
 
-			<!-- Include Lightbox2 JS and CSS -->
-			<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" />
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+					.lb-next-zone {
+						right: 0;
+					}
 
-			<!-- JavaScript for touch swipe and invisible zones -->
+				</style>
+
+				<!-- Include Lightbox2 JS and CSS -->
+				<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" />
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+
+			<!-- JavaScript for swipe and navigation zones -->
 			<script>
 				document.addEventListener('DOMContentLoaded', function () {
-					// Function to add navigation zones
-					function addNavZones() {
-						var container = document.querySelector('.lb-container');
+					// Add previous and next zones
+					var container = document.querySelector('.lb-container');
 
-						if (container && !container.querySelector('.lb-nav-zone')) {
-							// Create previous zone (left side)
-							var prevZone = document.createElement('div');
-							prevZone.classList.add('lb-nav-zone', 'lb-prev-zone');
-							container.appendChild(prevZone);
+					if (container) {
+						var prevZone = document.createElement('div');
+						prevZone.classList.add('lb-nav-zone', 'lb-prev-zone');
+						container.appendChild(prevZone);
 
-							// Create next zone (right side)
-							var nextZone = document.createElement('div');
-							nextZone.classList.add('lb-nav-zone', 'lb-next-zone');
-							container.appendChild(nextZone);
+						var nextZone = document.createElement('div');
+						nextZone.classList.add('lb-nav-zone', 'lb-next-zone');
+						container.appendChild(nextZone);
 
-							// Handle click on the left (previous) side
-							prevZone.addEventListener('click', function () {
-								lightbox.prev();
-							});
-
-							// Handle click on the right (next) side
-							nextZone.addEventListener('click', function () {
-								lightbox.next();
-							});
-						}
-					}
-
-					// Trigger adding the zones every time a lightbox opens
-					lightbox.option({
-						alwaysShowNavOnTouchDevices: true,
-						onImageLoad: function() {
-							addNavZones();
-						}
-					});
-
-					// Touch swipe functionality for mobile
-					var touchstartX = 0;
-					var touchendX = 0;
-
-					function handleGesture() {
-						if (touchendX < touchstartX - 50) { // Swipe left (next image)
-							lightbox.next();
-						}
-						if (touchendX > touchstartX + 50) { // Swipe right (previous image)
+						// Handle click on the left (previous) side
+						prevZone.addEventListener('click', function () {
 							lightbox.prev();
+						});
+
+						// Handle click on the right (next) side
+						nextZone.addEventListener('click', function () {
+							lightbox.next();
+						});
+
+						// Handle swipe events for mobile
+						let touchStartX = 0;
+						let touchEndX = 0;
+
+						function handleSwipe() {
+							if (touchEndX < touchStartX - 50) {
+								// Swiped left
+								lightbox.next();
+							} else if (touchEndX > touchStartX + 50) {
+								// Swiped right
+								lightbox.prev();
+							}
 						}
+
+						// Add touch event listeners to detect swipe gestures
+						container.addEventListener('touchstart', function (event) {
+							touchStartX = event.changedTouches[0].screenX;
+						});
+
+						container.addEventListener('touchend', function (event) {
+							touchEndX = event.changedTouches[0].screenX;
+							handleSwipe();
+						});
 					}
 
-					document.addEventListener('touchstart', function (event) {
-						if (event.target.classList.contains('lb-image')) {
-							touchstartX = event.changedTouches[0].screenX;
-						}
-					});
-
-					document.addEventListener('touchend', function (event) {
-						if (event.target.classList.contains('lb-image')) {
-							touchendX = event.changedTouches[0].screenX;
-							handleGesture();
+					// Close Lightbox2 when clicking outside the image (on overlay)
+					document.addEventListener('click', function (event) {
+						if (event.target.classList.contains('lightboxOverlay')) {
+							lightbox.end();
 						}
 					});
 				});
