@@ -66,8 +66,7 @@
 						
 						<!-- page-title -->
 						<div class="page-title pb-40">
-							<h2 class="page-title__title">About me</h2>
-							<p class="page-title__text">Curabitur elementum urna augue, eu porta</p>
+							<h2 class="page-title__title">About Me</h2>
 							<div class="page-title__divider"></div>
 						</div><!-- End / page-title -->
 						
@@ -80,108 +79,164 @@
 				<section class="awe-section bg-gray">
 					<div class="container">
 						<div class="row">
-							<div class="col-md-6 col-lg-5 "><img src="https://images.pexels.com/photos/797558/pexels-photo-797558.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" alt="">
+							<div class="col-md-6 col-lg-5 "><img src="assets/img/lennyedits8.jpeg" alt=""/>
 							</div>
 							<div class="col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-1 ">
 								
 								<!--  -->
 								<div class="mt-30">
-									<h2 class="about__title">Erik Minimis</h2>
-									<p class="about__subtitle">Just Keep Scrolling! How To Design Lengthy, Lengthy Pages</p>
-									<p class="about__text">Maecenas lorem ex, euismod eget pulvinar non, facilisis ut leo. Quisque placerat purus in neque efficitur ornare. Nam at justo magna. Aliquam venenatis odio ante, non euismod augue porttitor eget. Maecenas nec viverra eros, eget euismod felis. Integer cursus libero sed lorem euismod, vel iaculis felis placerat. Pellentesque augue lacus, sodales et eros sed, molestie rhoncus ligula. Vivamus sed massa lorem. Suspendisse mollis lectus nec ex fermentum, in consectetur dolor egestas. Phasellus quis ipsum quis nisl ultricies sollicitudin id in dolor. Proin at consequat dui.</p>
-									
-									<!-- progress -->
-									<div class="progress">
-										<h5 class="progress__title">design</h5>
-										<div class="progress__wrap">
-											<div class="progress__bar" data-progress-percent="33" data-timing="ease" data-duration="1000" data-delay="500"></div><span class="progress__number">39%</span>
-										</div>
-									</div><!-- End / progress -->
-									
-									
-									<!-- progress -->
-									<div class="progress">
-										<h5 class="progress__title">photography</h5>
-										<div class="progress__wrap">
-											<div class="progress__bar" data-progress-percent="59" data-timing="ease" data-duration="1000" data-delay="500"></div><span class="progress__number">47%</span>
-										</div>
-									</div><!-- End / progress -->
-									
-									
-									<!-- progress -->
-									<div class="progress">
-										<h5 class="progress__title">web development</h5>
-										<div class="progress__wrap">
-											<div class="progress__bar" data-progress-percent="53" data-timing="ease" data-duration="1000" data-delay="500"></div><span class="progress__number">59%</span>
-										</div>
-									</div><!-- End / progress -->
-									
-								</div><!-- End /  -->
-								
-							</div>
-						</div>
-					</div>
-				</section>
-				<!-- End / Section -->
-				
+									<h2 class="about__title">Lenny Edits</h2>
+									<p class="about__subtitle">About Me</p>
+									<p class="about__text">I take in-game photos using photo mode. Including a number of games such as Spider-Man 2, Fallout 4, Gran Turismo 7, Cyberpunk 2077. I post these on my TikTok, Instagram and Pinterest regularly.</p>
+																	
+								<!-- TikTok Button -->
+								<div class="button-container">
+									<a href="https://www.tiktok.com/@lennyedits8?_t=8p7Mtyc9oX2&_r=1" target="_blank" class="cool-button tiktok">
+										<img src="assets/img/tiktok.png" alt="TikTok Icon" class="icon"> TikTok
+									</a>
+								</div><!-- End / TikTok Button -->
+
+								<!-- Instagram Button -->
+								<div class="button-container">
+									<a href="https://www.instagram.com/lennyedits8?igsh=M25haDVoMG1yemNk&utm_source=qr" target="_blank" class="cool-button instagram">
+										<img src="assets/img/instagram.png" alt="Instagram Icon" class="icon"> Instagram
+									</a>
+								</div><!-- End / Instagram Button -->
+
+								<!-- Pinterest Button -->
+								<div class="button-container">
+									<a href="https://pin.it/3ahwciaBA" target="_blank" class="cool-button pinterest">
+										<img src="assets/img/pinterest.png" alt="Pinterest Icon" class="icon"> Pinterest
+									</a>
+								</div><!-- End / Pinterest Button -->
+
+								<!-- CSS Styling -->
+								<style>
+									.button-container {
+										text-align: center;
+										margin: 20px 0;
+									}
+
+									.cool-button {
+										display: inline-flex;
+										align-items: center;
+										justify-content: center;
+										padding: 15px;
+										font-size: 18px;
+										font-weight: bold;
+										color: white;
+										background-color: #333;
+										border-radius: 50px;
+										text-decoration: none;
+										box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+										transition: all 0.3s ease;
+										position: relative;
+										overflow: hidden;
+										width: 40%; /* Set a fixed width for all buttons */
+									}
+
+									.cool-button img.icon {
+										width: 25px;
+										height: 25px;
+										margin-right: 15px;
+										filter: brightness(0) invert(1); /* Makes the image white */
+									}
+
+									.cool-button::before {
+										content: '';
+										position: absolute;
+										width: 120%;
+										height: 120%;
+										background: rgba(255, 255, 255, 0.2);
+										top: 50%;
+										left: 50%;
+										transform: translate(-50%, -50%) rotate(45deg);
+										transition: width 0.4s ease, height 0.4s ease;
+										z-index: 1;
+									}
+
+									.cool-button:hover::before {
+										width: 300%;
+										height: 300%;
+									}
+
+									.cool-button:hover {
+										box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+										text-decoration: none; /* Removes underline on hover */
+									}
+
+									/* Platform-Specific Colors */
+									.tiktok {
+										background-color: #ff0050;
+									}
+
+									.instagram {
+										background-color: #c13584;
+									}
+
+									.pinterest {
+										background-color: #bd081c;
+									}
+
+									/* Hover Colors */
+									.cool-button.tiktok:hover {
+										background-color: #e60045;
+									}
+
+									.cool-button.instagram:hover {
+										background-color: #b02e76;
+									}
+
+									.cool-button.pinterest:hover {
+										background-color: #a3061b;
+									}
+								</style>
+
+			
+<!-- footer -->
+<div class="footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-lg-6 ">
+				<p class="footer__coppy">2024 &copy; Copyright <a href="http://lennyedits.com/">LennyEdits</a>. All rights Reserved.</p>
 			</div>
-			<!-- End / Content-->
-			
-			<!-- footer -->
-			<div class="footer">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-6 col-lg-6 ">
-							<p class="footer__coppy">2018 &copy; Copyright <a href="http://awe7.com/">Awe7</a>. All rights Reserved.</p>
-						</div>
-						<div class="col-md-6 col-lg-6 ">
-							<div class="footer__social">
-								
-								<!-- social-icon -->
-								<a class="social-icon" href="#"><i class="social-icon__icon fa fa-facebook"></i>
-								</a><!-- End / social-icon -->
-								
-								
-								<!-- social-icon -->
-								<a class="social-icon" href="#"><i class="social-icon__icon fa fa-twitter"></i>
-								</a><!-- End / social-icon -->
-								
-								
-								<!-- social-icon -->
-								<a class="social-icon" href="#"><i class="social-icon__icon fa fa-linkedin"></i>
-								</a><!-- End / social-icon -->
-								
-								
-								<!-- social-icon -->
-								<a class="social-icon" href="#"><i class="social-icon__icon fa fa-behance"></i>
-								</a><!-- End / social-icon -->
-								
-								
-								<!-- social-icon -->
-								<a class="social-icon" href="#"><i class="social-icon__icon fa fa-vimeo"></i>
-								</a><!-- End / social-icon -->
-								
-							</div>
-						</div>
-					</div>
+			<div class="col-md-6 col-lg-6 ">
+				<div class="footer__social">
+					
+					<!-- social-icon -->
+					<a class="social-icon" href="https://www.tiktok.com/@lennyedits8?_t=8p7Mtyc9oX2&_r=1"><img class="social-icon__icon" src="assets/img/tiktok.png" alt="TikTok" style="width: 55%;"></a><!-- End / social-icon -->
+					
+					
+					<!-- social-icon -->
+					<a class="social-icon" href="https://www.instagram.com/lennyedits8?igsh=M25haDVoMG1yemNk&utm_source=qr"><img class="social-icon__icon" src="assets/img/instagram.png" alt="instagram" style="width: 55%;"></a><!-- End / social-icon -->
+
+					<!-- social-icon -->
+					<a class="social-icon" href="https://youtube.com/@lennyedits8?si=l5Khbyjd-_uldYLe"><img class="social-icon__icon" src="assets/img/youtube.png" alt="youtube" style="width: 55%;"></a><!-- End / social-icon -->
+
+					<!-- social-icon -->
+					<a class="social-icon" href="https://pin.it/3ahwciaBA"><img class="social-icon__icon" src="assets/img/pinterest.png" alt="pinterest" style="width: 55%;"></a><!-- End / social-icon -->
+					
 				</div>
-			</div><!-- End / footer -->
-			
+			</div>
 		</div>
-		<!-- Vendors-->
-		<script type="text/javascript" src="assets/vendors/jquery/jquery.min.js"></script>
-		<script type="text/javascript" src="assets/vendors/imagesloaded/imagesloaded.pkgd.js"></script>
-		<script type="text/javascript" src="assets/vendors/isotope-layout/isotope.pkgd.js"></script>
-		<script type="text/javascript" src="assets/vendors/jquery-one-page/jquery.nav.min.js"></script>
-		<script type="text/javascript" src="assets/vendors/jquery.easing/jquery.easing.min.js"></script>
-		<script type="text/javascript" src="assets/vendors/jquery.matchHeight/jquery.matchHeight.min.js"></script>
-		<script type="text/javascript" src="assets/vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
-		<script type="text/javascript" src="assets/vendors/masonry-layout/masonry.pkgd.js"></script>
-		<script type="text/javascript" src="assets/vendors/jquery.waypoints/jquery.waypoints.min.js"></script>
-		<script type="text/javascript" src="assets/vendors/swiper/swiper.jquery.js"></script>
-		<script type="text/javascript" src="assets/vendors/menu/menu.js"></script>
-		<script type="text/javascript" src="assets/vendors/typed/typed.min.js"></script>
-		<!-- App-->
-		<script type="text/javascript" src="assets/js/main.js"></script>
-	</body>
+	</div>
+</div><!-- End / footer -->
+
+</div>
+<!-- Vendors-->
+<script type="text/javascript" src="assets/vendors/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="assets/vendors/imagesloaded/imagesloaded.pkgd.js"></script>
+<script type="text/javascript" src="assets/vendors/isotope-layout/isotope.pkgd.js"></script>
+<script type="text/javascript" src="assets/vendors/jquery-one-page/jquery.nav.min.js"></script>
+<script type="text/javascript" src="assets/vendors/jquery.easing/jquery.easing.min.js"></script>
+<script type="text/javascript" src="assets/vendors/jquery.matchHeight/jquery.matchHeight.min.js"></script>
+<script type="text/javascript" src="assets/vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript" src="assets/vendors/masonry-layout/masonry.pkgd.js"></script>
+<script type="text/javascript" src="assets/vendors/jquery.waypoints/jquery.waypoints.min.js"></script>
+<script type="text/javascript" src="assets/vendors/swiper/swiper.jquery.js"></script>
+<script type="text/javascript" src="assets/vendors/menu/menu.js"></script>
+<script type="text/javascript" src="assets/vendors/typed/typed.min.js"></script>
+<!-- App-->
+<script type="text/javascript" src="assets/js/main.js"></script>
+</body>
 </html>
