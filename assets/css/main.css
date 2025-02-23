@@ -829,26 +829,6 @@ ul {
 /* 8. fullscreenmenu
 --------------------------------------------------------------------------------*/
 
-@media (max-width: 768px) {
-    [data-col-xs="1"].grid-css .grid-item, [data-col-xs="1"].grid-css .grid-sizer {
-        width: 50%; /* Change from 100% to 50% to display two items per row */
-    }
-
-    [data-col-xs="2"].grid-css .grid-item, [data-col-xs="2"].grid-css .grid-sizer {
-        width: 50%; /* Ensure that this applies when the grid-item is a "2" column size */
-    }
-
-    [data-col-xs="2"].grid-css .grid-item.wide,
-    [data-col-xs="2"].grid-css .grid-item.large {
-        width: 50%; /* Force items that are wide or large to display 2 per row as well */
-    }
-
-    [data-col-xs="3"].grid-css .grid-item,
-    [data-col-xs="3"].grid-css .grid-sizer {
-        width: 50%; /* For 3 column items, this is reduced to 50% for two items per row */
-    }
-}
-
 .fullscreenmenu__module {
     position: fixed;
     background-color: rgba(0, 0, 0, .8);
