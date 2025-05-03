@@ -33,7 +33,18 @@
   gtag('js', new Date());
 
   gtag('config', 'G-3WD6FZML3W');
+
+  
 </script>
+
+<style>
+	@media (max-width: 576px) {
+		.grid-css .grid-item {
+			width: 50% !important;
+		}
+	}
+	</style>
+	
 	
 	<body>
 		<div class="page-wrap" id="root">
@@ -96,7 +107,7 @@
 							<div class="col-lg-6 ">
 							</div>
 						</div>
-						<div class="grid-css grid-css--masonry" data-col-lg="3" data-col-md="2" data-col-sm="2" data-col-xs="1" data-gap="30">
+						<div class="grid-css grid-css--masonry" data-col-lg="3" data-col-md="2" data-col-sm="2" data-col-xs="2" data-gap="30">
 							<div class="grid__inner">
 								<div class="grid-sizer"></div>
 								<div class="grid-item">
@@ -404,5 +415,35 @@
 		<script type="text/javascript" src="assets/vendors/typed/typed.min.js"></script>
 		<!-- App-->
 		<script type="text/javascript" src="assets/js/main.js"></script>
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				const hoverboxes = document.querySelectorAll('.hoverbox');
+			
+				// Only activate touch behavior on mobile/touch devices
+				if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+					hoverboxes.forEach(hoverbox => {
+						hoverbox.addEventListener('touchend', function (e) {
+							if (!hoverbox.classList.contains('touch-active')) {
+								e.preventDefault(); // Prevent link navigation
+								hoverboxes.forEach(hb => hb.classList.remove('touch-active'));
+								hoverbox.classList.add('touch-active');
+							} else {
+								hoverbox.classList.remove('touch-active'); // Allow navigation on 2nd tap
+							}
+						});
+			
+						// Tap outside to clear the active state
+						document.addEventListener('touchstart', function (e) {
+							if (!hoverbox.contains(e.target)) {
+								hoverbox.classList.remove('touch-active');
+							}
+						});
+					});
+				}
+			});
+			</script>
+			
+			
+			
 	</body>
 </html>

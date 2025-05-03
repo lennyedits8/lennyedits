@@ -39,6 +39,10 @@
 
 /* 1. base
 --------------------------------------------------------------------------------*/
+.hoverbox.touch-active .hb_back {
+    opacity: 1;
+    pointer-events: auto;
+}
 
 a[disabled], input[disabled], button[disabled], textarea[disabled] {
     cursor: not-allowed !important;
