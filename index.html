@@ -90,8 +90,10 @@
         transform: scale(1.05);
     }
 
-	.hoverbox.touch-active {
-    transform: scale(1.05);
+
+.hoverbox:hover,
+.hoverbox.touch-active {
+    transform: scale(1.20);
 }
 
 </style>
@@ -283,7 +285,7 @@
 			
 	</body>
 
-	<script>
+	<!-- <script>
 document.addEventListener("DOMContentLoaded", function () {
     const hoverboxes = document.querySelectorAll('.hoverbox');
 
@@ -311,6 +313,26 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+</script> -->
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const hoverboxes = document.querySelectorAll('.hoverbox');
+
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+        hoverboxes.forEach(hoverbox => {
+            hoverbox.addEventListener('touchstart', function () {
+                hoverbox.classList.add('touch-active');
+
+                // Remove the zoom effect shortly after tap (so it doesn't stay active)
+                setTimeout(() => {
+                    hoverbox.classList.remove('touch-active');
+                }, 300); // Duration matches CSS transition
+            });
+        });
+    }
+});
 </script>
+
 
 </html>
