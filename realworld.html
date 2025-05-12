@@ -43,62 +43,7 @@
 			width: 50% !important;
 		}
 	}
-
-.always-hover .hb_back {
-    background-color: rgba(103, 103, 103, 0.7) !important; /* Dark gray overlay */
-    color: #fff !important; /* White text */
-    opacity: 1 !important;
-    transform: none !important;
-    visibility: visible !important;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-}
-
-.hb_back h2,
-.hb_back span,
-.hb_back .work__text {
-    color: #ffffff !important;
-	text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
-}
-
-
-
-
-
-
-
-    .always-hover .hb_front {
-        opacity: 1;
-    }
-
-    /* Add simple zoom effect on hover */
-    .hoverbox {
-        transition: transform 0.3s ease;
-    }
-
-    .hoverbox:hover {
-        transform: scale(1.05);
-    }
-
-
-.hoverbox:hover,
-.hoverbox.touch-active {
-    transform: scale(1.05);
-}
-
-</style>
-
-
+	</style>
 	
 	
 	<body>
@@ -146,8 +91,8 @@
 						
 						<!-- page-title -->
 						<div class="page-title pb-40">
-							<h2 class="page-title__title">Welcome!</h2>
-							<p class="page-title__text">Please select from the galleries below to explore recent in-game and real world photographs</p>
+							<h2 class="page-title__title">Real World Photography</h2>
+							<p class="page-title__text">Please click on the photos below to view that gallery</p>
 							<div class="page-title__divider"></div>
 						</div><!-- End / page-title -->
 						
@@ -162,7 +107,7 @@
 							<div class="col-lg-6 ">
 							</div>
 						</div>
-						<div class="grid-css grid-css--masonry" data-col-lg="2" data-col-md="2" data-col-sm="2" data-col-xs="2" data-gap="30">
+						<div class="grid-css grid-css--masonry" data-col-lg="3" data-col-md="2" data-col-sm="2" data-col-xs="2" data-gap="30">
 							<div class="grid__inner">
 								<div class="grid-sizer"></div>
 								<div class="grid-item">
@@ -170,37 +115,10 @@
 										<div class="grid-item__content-wrapper">
 											
 											<!-- work -->
-											<div class="work"><a href="allwork.html">
+											<div class="work"><a href="japfest.html">
 													
 													<!-- hoverbox ef-slide-bottom -->
-													<div class="hoverbox ef-move-right light always-hover">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><img src="assets/img/spiderman2/sm37.jpeg" alt=""/>
-														</div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">In-Game Photography</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-slide-bottom -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="realworld.html">
-													
-													<!-- hoverbox ef-slide-bottom -->
-													<div class="hoverbox ef-move-right light always-hover">
+													<div class="hoverbox ef-move-right light">
 														
 														<!-- hb_front -->
 														<div class="hb_front"><img src="assets/img/reallife/rl10.jpg" alt=""/>
@@ -209,7 +127,7 @@
 														
 														<!-- hb_back -->
 														<div class="hb_back">
-															<h2 class="work__title">Real World Photography</h2><span class="work__text">View Photos</span>
+															<h2 class="work__title">Japfest Mondello Park 2025</h2><span class="work__text">View Photos</span>
 														</div><!-- End / hb_back -->
 														
 													</div><!-- End / hoverbox ef-slide-bottom -->
@@ -219,12 +137,65 @@
 										</div>
 									</div>
 								</div>
-
+								<div class="grid-item">
+									<div class="grid-item__inner">
+										<div class="grid-item__content-wrapper">
+											
+											<!-- work -->
+											<div class="work"><a href="herbertpark.html">
+													
+													<!-- hoverbox ef-move-top -->
+													<div class="hoverbox ef-move-top light">
+														
+														<!-- hb_front -->
+														<div class="hb_front"><img src="assets/img/herbertpark/hp (13).jpeg" alt=""/>
+														</div><!-- End / hb_front -->
+														
+														
+														<!-- hb_back -->
+														<div class="hb_back">
+															<h2 class="work__title">Herbert Park Car Show 2025</h2><span class="work__text">View Photos</span>
+														</div><!-- End / hb_back -->
+														
+													</div><!-- End / hoverbox ef-move-top -->
+													</a>
+											</div><!-- End / work -->
+											
+										</div>
+									</div>
+								</div>
+								<div class="grid-item">
+									<div class="grid-item__inner">
+										<div class="grid-item__content-wrapper">
+											
+											<!-- work -->
+											<div class="work"><a href="reallife.html">
+													
+													<!-- hoverbox ef-slide-right -->
+													<div class="hoverbox ef-move-left light">
+														
+														<!-- hb_front -->
+														<div class="hb_front"><img src="assets/img/reallife/rl2.jpeg" alt=""/>
+														</div><!-- End / hb_front -->
+														
+														
+														<!-- hb_back -->
+														<div class="hb_back">
+															<h2 class="work__title">Other</h2><span class="work__text">View Photos</span>
+														</div><!-- End / hb_back -->
+														
+													</div><!-- End / hoverbox ef-slide-right -->
+													</a>
+											</div><!-- End / work -->
+											
+										</div>
+									</div>
+								</div>
 
 							</div>
 						</div>
 						<div class="awe-text-center mt-50">
-							<!-- <a class="md-btn md-btn--outline-primary" href="allwork.html">all work-->
+							<a class="md-btn md-btn--outline-primary" href="allwork.html">all work
 							</a>
 						</div>
 					</div>
@@ -279,60 +250,35 @@
 		<script type="text/javascript" src="assets/vendors/typed/typed.min.js"></script>
 		<!-- App-->
 		<script type="text/javascript" src="assets/js/main.js"></script>
-		
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				const hoverboxes = document.querySelectorAll('.hoverbox');
+			
+				// Only activate touch behavior on mobile/touch devices
+				if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+					hoverboxes.forEach(hoverbox => {
+						hoverbox.addEventListener('touchend', function (e) {
+							if (!hoverbox.classList.contains('touch-active')) {
+								e.preventDefault(); // Prevent link navigation
+								hoverboxes.forEach(hb => hb.classList.remove('touch-active'));
+								hoverbox.classList.add('touch-active');
+							} else {
+								hoverbox.classList.remove('touch-active'); // Allow navigation on 2nd tap
+							}
+						});
+			
+						// Tap outside to clear the active state
+						document.addEventListener('touchstart', function (e) {
+							if (!hoverbox.contains(e.target)) {
+								hoverbox.classList.remove('touch-active');
+							}
+						});
+					});
+				}
+			});
+			</script>
 			
 			
 			
 	</body>
-
-	<!-- <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const hoverboxes = document.querySelectorAll('.hoverbox');
-
-    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
-        hoverboxes.forEach(hoverbox => {
-            hoverbox.addEventListener('touchend', function (e) {
-                if (!hoverbox.classList.contains('touch-active')) {
-                    e.preventDefault(); // Prevent immediate navigation
-                    hoverboxes.forEach(hb => hb.classList.remove('touch-active'));
-                    hoverbox.classList.add('touch-active');
-                } else {
-                    // Allow navigation on 2nd tap
-                    hoverbox.classList.remove('touch-active');
-                }
-            });
-        });
-
-        // Tap outside to remove all touch-active classes
-        document.addEventListener('touchstart', function (e) {
-            hoverboxes.forEach(hb => {
-                if (!hb.contains(e.target)) {
-                    hb.classList.remove('touch-active');
-                }
-            });
-        });
-    }
-});
-</script> -->
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const hoverboxes = document.querySelectorAll('.hoverbox');
-
-    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
-        hoverboxes.forEach(hoverbox => {
-            hoverbox.addEventListener('touchstart', function () {
-                hoverbox.classList.add('touch-active');
-
-                // Remove the zoom effect shortly after tap (so it doesn't stay active)
-                setTimeout(() => {
-                    hoverbox.classList.remove('touch-active');
-                }, 300); // Duration matches CSS transition
-            });
-        });
-    }
-});
-</script>
-
-
 </html>
