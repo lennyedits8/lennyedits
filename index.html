@@ -89,6 +89,11 @@
     .hoverbox:hover {
         transform: scale(1.05);
     }
+
+	.hoverbox.touch-active {
+    transform: scale(1.05);
+}
+
 </style>
 
 
@@ -277,4 +282,35 @@
 			
 			
 	</body>
+
+	<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const hoverboxes = document.querySelectorAll('.hoverbox');
+
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+        hoverboxes.forEach(hoverbox => {
+            hoverbox.addEventListener('touchend', function (e) {
+                if (!hoverbox.classList.contains('touch-active')) {
+                    e.preventDefault(); // Prevent immediate navigation
+                    hoverboxes.forEach(hb => hb.classList.remove('touch-active'));
+                    hoverbox.classList.add('touch-active');
+                } else {
+                    // Allow navigation on 2nd tap
+                    hoverbox.classList.remove('touch-active');
+                }
+            });
+        });
+
+        // Tap outside to remove all touch-active classes
+        document.addEventListener('touchstart', function (e) {
+            hoverboxes.forEach(hb => {
+                if (!hb.contains(e.target)) {
+                    hb.classList.remove('touch-active');
+                }
+            });
+        });
+    }
+});
+</script>
+
 </html>
