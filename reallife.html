@@ -119,7 +119,7 @@
 						</div><!-- End /  -->
 						
 						<div class="awe-text-center mt-50">
-							<a class="md-btn md-btn--outline-primary" href="allwork.html">all work
+							<a class="md-btn md-btn--outline-primary" href="realworld.html">all work
 							</a>
 						</div>
 					</div>
@@ -174,5 +174,13 @@
 		<script type="text/javascript" src="assets/vendors/typed/typed.min.js"></script>
 		<!-- App-->
 		<script type="text/javascript" src="assets/js/main.js"></script>
+
+		<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			document.querySelectorAll('img').forEach(img => {
+			img.loading = "lazy";
+			});
+		});
+		</script>
 	</body>
 </html>

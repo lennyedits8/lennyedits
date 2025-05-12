@@ -180,5 +180,13 @@
 		<script type="text/javascript" src="assets/vendors/typed/typed.min.js"></script>
 		<!-- App-->
 		<script type="text/javascript" src="assets/js/main.js"></script>
+
+		<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			document.querySelectorAll('img').forEach(img => {
+			img.loading = "lazy";
+			});
+		});
+		</script>
 	</body>
 </html>
