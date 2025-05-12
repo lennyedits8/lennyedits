@@ -38,11 +38,14 @@
 </script>
 
 <style>
-	@media (max-width: 576px) {
-		.grid-css .grid-item {
-			width: 50% !important;
-		}
+@media (max-width: 576px) {
+	.grid-css.grid-css--masonry .grid-item {
+		width: 48% !important;  /* Two items per row, with 4% total gap */
+		margin: 1% !important;  /* 1% margin on each side gives you a 2% gap between tiles */
+		padding: 0 !important;  /* Remove internal padding if not needed */
 	}
+}
+
 
 .always-hover .hb_back {
     background-color: rgba(103, 103, 103, 0.7) !important; /* Dark gray overlay */
