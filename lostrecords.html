@@ -34,7 +34,34 @@
 
   gtag('config', 'G-3WD6FZML3W');
 </script>
-	
+
+	<style>
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .gallery-grid .work-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Responsive adjustments */
+  @media (min-width: 1400px) {
+    .gallery-grid {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
+
 	<body>
 		<div class="page-wrap" id="root">
 			
@@ -62,7 +89,7 @@
 							</li>
 							<li><a href="allwork.html">In-Game</a>
                             </li>
-							<li><a href="reallife.html">Real Life</a>
+							<li><a href="realworld.html">Real Life</a>
 							</li>
 							<li><a href="film.html">35mm Film</a>
 							</li>
@@ -99,9 +126,8 @@
 						
 						<!--  -->
 						<div>
-							<div class="work-detail__entry">
-								<p>All photos are shot using the in game photo mode feature</p>
-								<br>				
+							<p>All photos are shot using the in game photo mode feature</p>
+							<div class="work-detail__entry gallery-grid">			
 								<div class="work-img"><a href="assets/img/lostrecords/lr2.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr2.jpeg" alt=""></a></div>					
 								<div class="work-img"><a href="assets/img/lostrecords/lr4.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr4.jpeg" alt=""></a></div>					
 								<div class="work-img"><a href="assets/img/lostrecords/lr6.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr6.jpeg" alt=""></a></div>								
@@ -114,8 +140,6 @@
 								<div class="work-img"><a href="assets/img/lostrecords/lr34.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr34.jpeg" alt=""></a></div>
 								<div class="work-img"><a href="assets/img/lostrecords/lr35.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr35.jpeg" alt=""></a></div>
 								<div class="work-img"><a href="assets/img/lostrecords/lr25.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr25.jpeg" alt=""></a></div>	
-								<div class="work-img"><a href="assets/img/lostrecords/lr27.JPG" data-lightbox="gallery"><img src="assets/img/lostrecords/lr27.JPG" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/lostrecords/lr28.JPG" data-lightbox="gallery"><img src="assets/img/lostrecords/lr28.JPG" alt=""></a></div>
 								<div class="work-img"><a href="assets/img/lostrecords/lr36.jpg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr36.jpg" alt=""></a></div>	
 								<div class="work-img"><a href="assets/img/lostrecords/lr38.jpg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr38.jpg" alt=""></a></div>
 								<div class="work-img"><a href="assets/img/lostrecords/lr40.jpg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr40.jpg" alt=""></a></div>
@@ -125,7 +149,6 @@
 								<div class="work-img"><a href="assets/img/lostrecords/lr46.jpg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr46.jpg" alt=""></a></div>
 								<div class="work-img"><a href="assets/img/lostrecords/lr47.jpg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr47.jpg" alt=""></a></div>
 								<div class="work-img"><a href="assets/img/lostrecords/lr48.jpg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr48.jpg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/lostrecords/lr49.jpg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr49.jpg" alt=""></a></div>
 								<div class="work-img"><a href="assets/img/lostrecords/lr30.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr30.jpeg" alt=""></a></div>
 								<div class="work-img"><a href="assets/img/lostrecords/lr31.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr31.jpeg" alt=""></a></div>
 								<div class="work-img"><a href="assets/img/lostrecords/lr32.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr32.jpeg" alt=""></a></div>
@@ -144,12 +167,13 @@
 								<div class="work-img"><a href="assets/img/lostrecords/lr8.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr8.jpeg" alt=""></a></div>		
 								<div class="work-img"><a href="assets/img/lostrecords/lr9.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr9.jpeg" alt=""></a></div>
 								<div class="work-img"><a href="assets/img/lostrecords/lr14.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr14.jpeg" alt=""></a></div>-->
+								<div class="work-img"><a href="assets/img/lostrecords/lr27.JPG" data-lightbox="gallery"><img src="assets/img/lostrecords/lr27.JPG" alt=""></a></div>
+								<div class="work-img"><a href="assets/img/lostrecords/lr28.JPG" data-lightbox="gallery"><img src="assets/img/lostrecords/lr28.JPG" alt=""></a></div>
+								<div class="work-img"><a href="assets/img/lostrecords/lr49.jpg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr49.jpg" alt=""></a></div>
 							</div>
 
-
-							<div class="work-detail__entry">
-								<h4>B&W Photographs</h4>
-								<br>
+							<h4>B&W Photographs</h4>
+							<div class="work-detail__entry gallery-grid">	
 								<div class="work-img"><a href="assets/img/lostrecords/lr1.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr1.jpeg" alt=""></a></div>						
 								<div class="work-img"><a href="assets/img/lostrecords/lr3.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr3.jpeg" alt=""></a></div>
 								<div class="work-img"><a href="assets/img/lostrecords/lr37.jpg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr37.jpg" alt=""></a></div>	

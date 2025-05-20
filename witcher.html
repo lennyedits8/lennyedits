@@ -34,6 +34,36 @@
 
   gtag('config', 'G-3WD6FZML3W');
 </script>
+
+
+	<style>
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .gallery-grid .work-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Responsive adjustments */
+  @media (min-width: 1400px) {
+    .gallery-grid {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
+
+
 	
 	<body>
 		<div class="page-wrap" id="root">
@@ -62,7 +92,7 @@
 							</li>
 							<li><a href="allwork.html">In-Game</a>
                             </li>
-							<li><a href="reallife.html">Real Life</a>
+							<li><a href="realworld.html">Real Life</a>
 							</li>
 							<li><a href="film.html">35mm Film</a>
 							</li>
@@ -99,10 +129,9 @@
 						
 						<!--  -->
 						<div>
-							<div class="work-detail__entry">
-								<p>All photos are shot using photo mode on Playstation 5</p>
-								<br>
-								<div class="work-img"><img src="assets/img/witcher.jpeg" data-lightbox="gallery"><img src="assets/img/witcher.jpeg" alt=""></div>
+							<p>All photos are shot using photo mode on Playstation 5</p>
+							<div class="work-detail__entry gallery-grid">
+								<div class="work-img"><a href="assets/img/witcher.jpeg" data-lightbox="gallery"><img src="assets/img/witcher.jpeg" alt=""></a></div>
 							</div>
 						
 						</div><!-- End /  -->

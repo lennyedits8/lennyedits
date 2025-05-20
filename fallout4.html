@@ -34,7 +34,35 @@
 
   gtag('config', 'G-3WD6FZML3W');
 </script>
-	
+
+	<style>
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .gallery-grid .work-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Responsive adjustments */
+  @media (min-width: 1400px) {
+    .gallery-grid {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
+
+
 	<body>
 		<div class="page-wrap" id="root">
 			
@@ -62,7 +90,7 @@
 							</li>
 							<li><a href="allwork.html">In-Game</a>
                             </li>
-							<li><a href="reallife.html">Real Life</a>
+							<li><a href="realworld.html">Real Life</a>
 							</li>
 							<li><a href="film.html">35mm Film</a>
 							</li>
@@ -99,9 +127,8 @@
 						
 						<!--  -->
 						<div>
-							<div class="work-detail__entry">
-								<p>All photos are shot using FO4 photo mode mod on Nexus Mods</p>
-								<br>
+							<p>All photos are shot using FO4 photo mode mod on Nexus Mods</p>
+							<div class="work-detail__entry gallery-grid">
 								<div class="work-img"><a href="assets/img/fallout4/f_1.jpeg" data-lightbox="gallery"><img src="assets/img/fallout4/f_1.jpeg" alt=""></a></div>
 								<div class="work-img"><a href="assets/img/fallout4/f_2.jpeg" data-lightbox="gallery"><img src="assets/img/fallout4/f_2.jpeg" alt=""></a></div>
 								<div class="work-img"><a href="assets/img/fallout4/f_3.jpeg" data-lightbox="gallery"><img src="assets/img/fallout4/f_3.jpeg" alt=""></a></div>
@@ -110,7 +137,6 @@
 								<div class="work-img"><a href="assets/img/fallout4/f_6.jpeg" data-lightbox="gallery"><img src="assets/img/fallout4/f_6.jpeg" alt=""></a></div>
 								<div class="work-img"><a href="assets/img/fallout4/f_7.jpeg" data-lightbox="gallery"><img src="assets/img/fallout4/f_7.jpeg" alt=""></a></div>
 								<div class="work-img"><a href="assets/img/fallout4/f_8.jpeg" data-lightbox="gallery"><img src="assets/img/fallout4/f_8.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/fallout4/f_10.jpeg" data-lightbox="gallery"><img src="assets/img/fallout4/f_10.jpeg" alt=""></a></div>
 								<div class="work-img"><a href="assets/img/fallout4/f_11.jpeg" data-lightbox="gallery"><img src="assets/img/fallout4/f_11.jpeg" alt=""></a></div>
 								<div class="work-img"><a href="assets/img/fallout4/f_12.jpeg" data-lightbox="gallery"><img src="assets/img/fallout4/f_12.jpeg" alt=""></a></div>
 								<div class="work-img"><a href="assets/img/fallout4/f_13.jpeg" data-lightbox="gallery"><img src="assets/img/fallout4/f_13.jpeg" alt=""></a></div>
@@ -120,6 +146,7 @@
 								<div class="work-img"><a href="assets/img/fallout4/f_17.jpeg" data-lightbox="gallery"><img src="assets/img/fallout4/f_17.jpeg" alt=""></a></div>
 								<div class="work-img"><a href="assets/img/fallout4/f_18.jpeg" data-lightbox="gallery"><img src="assets/img/fallout4/f_18.jpeg" alt=""></a></div>
 								<div class="work-img"><a href="assets/img/fallout4/f_19.jpeg" data-lightbox="gallery"><img src="assets/img/fallout4/f_19.jpeg" alt=""></a></div>
+								<div class="work-img"><a href="assets/img/fallout4/f_10.jpeg" data-lightbox="gallery"><img src="assets/img/fallout4/f_10.jpeg" alt=""></a></div>
 							</div>
 						
 						</div><!-- End /  -->
