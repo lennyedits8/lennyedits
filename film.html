@@ -35,28 +35,34 @@
 </script>
 
 <style>
+  /* Container for the image gallery */
   .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    display: block; /* Required for Masonry */
   }
 
-  .gallery-grid .work-img img {
+  /* Individual image wrapper */
+  .work-img {
+    width: 23%; /* ~4 per row on desktop */
+    margin-bottom: 20px;
+  }
+
+  .gallery-grid img {
     width: 100%;
     height: auto;
     display: block;
   }
 
-  /* Responsive adjustments */
-  @media (min-width: 1400px) {
-    .gallery-grid {
-      grid-template-columns: repeat(5, 1fr);
+  /* Tablet: 3 per row */
+  @media (max-width: 1024px) {
+    .work-img {
+      width: 31%; /* Adjusted for spacing */
     }
   }
 
-  @media (max-width: 768px) {
-    .gallery-grid {
-      grid-template-columns: repeat(2, 1fr);
+  /* Mobile: 2 per row */
+  @media (max-width: 600px) {
+    .work-img {
+      width: 48%; /* 2 per row with margin */
     }
   }
 </style>
@@ -127,7 +133,7 @@
 						<!--  -->
 						<div>
 							<p>Shot by me on 35mm 200 iso film on olympus af-10 XB </p>
-							<div class="work-detail__entry gallery-grid">
+							<div class="gallery-grid" data-masonry='{ "itemSelector": ".work-img", "columnWidth": ".work-img", "percentPosition": true, "gutter": 20 }'>
 								<div class="work-img"><img src="assets/img/film/f1.jpeg" alt=""></div>
                                 <div class="work-img"><img src="assets/img/film/f2.jpeg" alt=""></div>
                                 <div class="work-img"><img src="assets/img/film/f3.jpeg" alt=""></div>
@@ -207,6 +213,20 @@
 		document.addEventListener("DOMContentLoaded", function () {
 			document.querySelectorAll('img').forEach(img => {
 			img.loading = "lazy";
+			});
+		});
+		</script>
+
+		
+				<!-- App-->
+		<script type="text/javascript" src="assets/js/main.js"></script>
+
+		<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			new Masonry('.gallery-grid', {
+			itemSelector: '.work-img',
+			percentPosition: true,
+			gutter: 20
 			});
 		});
 		</script>

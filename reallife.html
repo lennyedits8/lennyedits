@@ -35,28 +35,38 @@
 </script>
 
 <style>
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-  }
+  /* Container for the image gallery */
+.gallery-grid {
+  display: block; /* Masonry controls layout */
+  margin: 0 auto;
+  position: relative;
+}
 
-  .gallery-grid .work-img img {
+
+.work-img {
+  width: 23%;
+  margin-bottom: 20px;
+  float: none; /* <-- important */
+}
+
+
+  .gallery-grid img {
     width: 100%;
     height: auto;
     display: block;
   }
 
-  /* Responsive adjustments */
-  @media (min-width: 1400px) {
-    .gallery-grid {
-      grid-template-columns: repeat(5, 1fr);
+  /* Tablet: 3 per row */
+  @media (max-width: 1024px) {
+    .work-img {
+      width: 31%; /* Adjusted for spacing */
     }
   }
 
-  @media (max-width: 768px) {
-    .gallery-grid {
-      grid-template-columns: repeat(2, 1fr);
+  /* Mobile: 2 per row */
+  @media (max-width: 600px) {
+    .work-img {
+      width: 48%; /* 2 per row with margin */
     }
   }
 </style>
@@ -127,7 +137,7 @@
 						<div>
 
 							<p>All photos are shot on Panasonic Lumix G85</p>
-							<div class="work-detail__entry gallery-grid">
+							<div class="gallery-grid" data-masonry='{ "itemSelector": ".work-img", "percentPosition": true, "gutter": 20 }'>
 								<div class="work-img"><img src="assets/img/reallife/rl1.jpeg" alt=""></div>
                                 <div class="work-img"><img src="assets/img/reallife/rl2.jpeg" alt=""></div>
 								<div class="work-img"><img src="assets/img/reallife/rl4.jpeg" alt=""></div>
@@ -200,12 +210,22 @@
 		<!-- App-->
 		<script type="text/javascript" src="assets/js/main.js"></script>
 
-		<script>
-		document.addEventListener("DOMContentLoaded", function () {
-			document.querySelectorAll('img').forEach(img => {
-			img.loading = "lazy";
-			});
-		});
-		</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const grid = document.querySelector('.gallery-grid');
+
+    imagesLoaded(grid, function () {
+      new Masonry(grid, {
+        itemSelector: '.work-img',
+        percentPosition: true,
+        gutter: 20
+      });
+    });
+  });
+</script>
+
+
+
 	</body>
 </html>

@@ -36,13 +36,14 @@
 </script>
 
 <style>
+  /* Container for the image gallery */
   .gallery-grid {
-    column-count: 4;
-    column-gap: 20px;
+    display: block; /* Required for Masonry */
   }
 
-  .gallery-grid .work-img {
-    break-inside: avoid;
+  /* Individual image wrapper */
+  .work-img {
+    width: 23%; /* ~4 per row on desktop */
     margin-bottom: 20px;
   }
 
@@ -50,22 +51,24 @@
     width: 100%;
     height: auto;
     display: block;
-    /*border-radius: 6px;*/
   }
 
+  /* Tablet: 3 per row */
   @media (max-width: 1024px) {
-    .gallery-grid {
-      column-count: 2;
+    .work-img {
+      width: 31%; /* Adjusted for spacing */
     }
   }
 
+  /* Mobile: 2 per row */
   @media (max-width: 600px) {
-    .gallery-grid {
-      column-count: 2;
+    .work-img {
+      width: 48%; /* 2 per row with margin */
     }
   }
 </style>
-	
+
+
 	<body>
 		<div class="page-wrap" id="root">
 			
@@ -131,7 +134,7 @@
 						<!--  -->
 						<div>
 							<p>All photos are shot on Panasonic Lumix G85</p>
-							<div class="work-detail__entry gallery-grid">
+							<div class="gallery-grid" data-masonry='{ "itemSelector": ".work-img", "columnWidth": ".work-img", "percentPosition": true, "gutter": 20 }'>
 								<div class="work-img"><img src="assets/img/reallife/rl10.jpg" alt=""></div>
 								<div class="work-img"><img src="assets/img/reallife/rl15.jpg" alt=""></div>
 								<div class="work-img"><img src="assets/img/reallife/rl12.jpg" alt=""></div>
@@ -203,6 +206,19 @@
 		document.addEventListener("DOMContentLoaded", function () {
 			document.querySelectorAll('img').forEach(img => {
 			img.loading = "lazy";
+			});
+		});
+		</script>
+
+				<!-- App-->
+		<script type="text/javascript" src="assets/js/main.js"></script>
+
+		<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			new Masonry('.gallery-grid', {
+			itemSelector: '.work-img',
+			percentPosition: true,
+			gutter: 20
 			});
 		});
 		</script>

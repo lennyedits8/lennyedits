@@ -22,6 +22,8 @@
 		<link rel="stylesheet" type="text/css" id="app-stylesheet" href="assets/css/main.css"><!--[if lt IE 9]>
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<![endif]-->
+		<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+
 	</head>
 
 
@@ -37,13 +39,14 @@
 
 
 <style>
+  /* Container for the image gallery */
   .gallery-grid {
-    column-count: 4;
-    column-gap: 20px;
+    display: block; /* Required for Masonry */
   }
 
-  .gallery-grid .work-img {
-    break-inside: avoid;
+  /* Individual image wrapper */
+  .work-img {
+    width: 23%; /* ~4 per row on desktop */
     margin-bottom: 20px;
   }
 
@@ -51,21 +54,23 @@
     width: 100%;
     height: auto;
     display: block;
-    /*border-radius: 6px;*/
   }
 
+  /* Tablet: 3 per row */
   @media (max-width: 1024px) {
-    .gallery-grid {
-      column-count: 2;
+    .work-img {
+      width: 31%; /* Adjusted for spacing */
     }
   }
 
+  /* Mobile: 2 per row */
   @media (max-width: 600px) {
-    .gallery-grid {
-      column-count: 2;
+    .work-img {
+      width: 48%; /* 2 per row with margin */
     }
   }
 </style>
+
 
 	
 	<body>
@@ -133,7 +138,7 @@
 						<!--  -->
 						<div>
 							<p>All photos are shot on Panasonic Lumix G85</p>
-							<div class="work-detail__entry gallery-grid">
+							<div class="gallery-grid" data-masonry='{ "itemSelector": ".work-img", "columnWidth": ".work-img", "percentPosition": true, "gutter": 20 }'>
 								<div class="work-img"><img src="assets/img/herbertpark/hp (9).jpeg" alt=""></div>
 								<div class="work-img"><img src="assets/img/herbertpark/hp (13).jpeg" alt=""></div>
 								<div class="work-img"><img src="assets/img/herbertpark/hp (5).jpeg" alt=""></div>
@@ -218,5 +223,21 @@
 			});
 		});
 		</script>
+		
+		<!-- App-->
+		<script type="text/javascript" src="assets/js/main.js"></script>
+
+		<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			new Masonry('.gallery-grid', {
+			itemSelector: '.work-img',
+			percentPosition: true,
+			gutter: 20
+			});
+		});
+		</script>
+
+		
+		
 	</body>
 </html>
