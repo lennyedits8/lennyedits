@@ -38,12 +38,15 @@
 <style>
   /* Container for the image gallery */
   .gallery-grid {
-    display: block; /* Required for Masonry */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
   /* Individual image wrapper */
   .work-img {
-    width: 23%; /* ~4 per row on desktop */
+    box-sizing: border-box;
+    width: 23%;
     margin-bottom: 20px;
   }
 
@@ -56,17 +59,19 @@
   /* Tablet: 3 per row */
   @media (max-width: 1024px) {
     .work-img {
-      width: 31%; /* Adjusted for spacing */
+      width: 31%;
     }
   }
 
   /* Mobile: 2 per row */
   @media (max-width: 600px) {
     .work-img {
-      width: 48%; /* 2 per row with margin */
+      width: calc(50% - 10px);
+      margin-bottom: 10px;
     }
   }
 </style>
+
 
 
 	<body>
@@ -202,25 +207,22 @@
 		<script type="text/javascript" src="assets/vendors/typed/typed.min.js"></script>
 		<!-- App-->
 		<script type="text/javascript" src="assets/js/main.js"></script>
-		<script>
-		document.addEventListener("DOMContentLoaded", function () {
-			document.querySelectorAll('img').forEach(img => {
-			img.loading = "lazy";
-			});
-		});
-		</script>
 
-				<!-- App-->
-		<script type="text/javascript" src="assets/js/main.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('img').forEach(img => {
+      img.loading = "lazy";
+    });
 
-		<script>
-		document.addEventListener('DOMContentLoaded', function () {
-			new Masonry('.gallery-grid', {
-			itemSelector: '.work-img',
-			percentPosition: true,
-			gutter: 20
-			});
-		});
-		</script>
+    imagesLoaded('.gallery-grid', function () {
+      new Masonry('.gallery-grid', {
+        itemSelector: '.work-img',
+        percentPosition: true,
+        gutter: 20
+      });
+    });
+  });
+</script>
+
 	</body>
 </html>
