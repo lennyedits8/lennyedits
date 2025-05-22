@@ -47,19 +47,28 @@
     display: block;
   }
 
-  /* Responsive adjustments */
+  /* Large screens: 4 columns */
   @media (min-width: 1400px) {
     .gallery-grid {
       grid-template-columns: repeat(4, 1fr);
     }
   }
 
+  /* Tablet: 3 columns */
+  @media (max-width: 1024px) and (min-width: 769px) {
+    .gallery-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* Mobile: 2 columns */
   @media (max-width: 768px) {
     .gallery-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
 </style>
+
 
 	<body>
 		<div class="page-wrap" id="root">
