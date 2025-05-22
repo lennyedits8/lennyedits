@@ -35,38 +35,66 @@
 </script>
 
 <style>
+  /* Container for the image gallery */
   .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
-  .gallery-grid .work-img img {
+  /* Individual image wrapper */
+  .work-img {
+    box-sizing: border-box;
+    width: 23%;
+    margin-bottom: 20px;
+  }
+
+  .gallery-grid img {
     width: 100%;
     height: auto;
     display: block;
   }
 
-  /* Large screens: 4 columns */
-  @media (min-width: 1400px) {
-    .gallery-grid {
-      grid-template-columns: repeat(4, 1fr);
+  /* Tablet: 3 per row */
+  @media (max-width: 1024px) {
+    .work-img {
+      width: 31%;
     }
   }
 
-  /* Tablet: 3 columns */
-  @media (max-width: 1024px) and (min-width: 769px) {
-    .gallery-grid {
-      grid-template-columns: repeat(3, 1fr);
+  /* Mobile: 2 per row */
+  @media (max-width: 600px) {
+    .work-img {
+      width: calc(50% - 10px);
+      margin-bottom: 10px;
     }
   }
 
-  /* Mobile: 2 columns */
-  @media (max-width: 768px) {
-    .gallery-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
+  .img-wrapper {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.aspect-2-3 {
+  aspect-ratio: 2 / 3;
+}
+
+.aspect-4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+.aspect-3-4 {
+  aspect-ratio: 3 / 4;
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* or use 'contain' if you prefer */
+  display: block;
+}
+
 </style>
 
 	<body>
@@ -75,7 +103,7 @@
 			<!-- header -->
 			<header class="header header--fixed">
 				<div class="header__inner">
-					<div class="header__logo"><a href="index.html"><img src="assets/img/logo.png" alt="" style="width: 122px;"/></a></div>
+					<div class="header__logo"><a href="index.html"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928077/logo_q6oh0r.png" alt="" style="width: 122px;"/></a></div>
 					<div class="navbar-toggle" id="fs-button">
 						<div class="navbar-icon"><span></span></div>
 					</div>
@@ -134,21 +162,21 @@
 						<!--  -->
 						<div>
 							<p>Shot by me on 35mm 200 iso film on olympus af-10 XB </p>
-							<div class="work-detail__entry gallery-grid">
-								<div class="work-img"><img src="assets/img/film/f1.jpeg" alt=""></div>
-                                <div class="work-img"><img src="assets/img/film/f2.jpeg" alt=""></div>
-                                <div class="work-img"><img src="assets/img/film/f3.jpeg" alt=""></div>
-                                <div class="work-img"><img src="assets/img/film/f4.jpeg" alt=""></div>
-                                <div class="work-img"><img src="assets/img/film/f5.jpeg" alt=""></div>
-                                <div class="work-img"><img src="assets/img/film/f6.jpeg" alt=""></div>
-                                <div class="work-img"><img src="assets/img/film/f7.jpeg" alt=""></div>
-                                <div class="work-img"><img src="assets/img/film/f8.jpeg" alt=""></div>
-                                <div class="work-img"><img src="assets/img/film/f9.jpeg" alt=""></div>
-                                <div class="work-img"><img src="assets/img/film/f10.jpeg" alt=""></div>
-                                <div class="work-img"><img src="assets/img/film/f11.jpeg" alt=""></div>
-                                <div class="work-img"><img src="assets/img/film/f12.jpeg" alt=""></div>
-                                <div class="work-img"><img src="assets/img/film/f13.jpeg" alt=""></div>
-                                <div class="work-img"><img src="assets/img/film/f14.jpeg" alt=""></div>
+								<div class="gallery-grid" data-masonry='{ "itemSelector": ".work-img", "columnWidth": ".work-img", "percentPosition": true, "gutter": 20 }'>
+								<div class="work-img"><div class="img-wrapper aspect-4-3"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747946248/f1_byuexe.jpg" alt=""></div></div>
+                                <div class="work-img"><div class="img-wrapper aspect-4-3"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747946238/f2_o1zofa.jpg" alt=""></div></div>
+                                <div class="work-img"><div class="img-wrapper aspect-4-3"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747946246/f3_sl0y9q.jpg" alt=""></div></div>
+                                <div class="work-img"><div class="img-wrapper aspect-4-3"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747946245/f4_tkl80d.jpg" alt=""></div></div>
+                                <div class="work-img"><div class="img-wrapper aspect-4-3"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747946244/f5_k0ppse.jpg" alt=""></div></div>
+                                <div class="work-img"><div class="img-wrapper aspect-4-3"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747946250/f6_ggfymv.jpg" alt=""></div></div>
+                                <div class="work-img"><div class="img-wrapper aspect-4-3"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747946243/f7_dctcaf.jpg" alt=""></div></div>
+                                <div class="work-img"><div class="img-wrapper aspect-4-3"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747946238/f8_rprnt5.jpg" alt=""></div></div>
+                                <div class="work-img"><div class="img-wrapper aspect-4-3"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747946237/f9_mnij0z.jpg" alt=""></div></div>
+                                <div class="work-img"><div class="img-wrapper aspect-4-3"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747946242/f10_wewgnj.jpg" alt=""></div></div>
+                                <div class="work-img"><div class="img-wrapper aspect-4-3"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747946241/f11_sq2hhi.jpg" alt=""></div></div>
+                                <div class="work-img"><div class="img-wrapper aspect-4-3"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747946250/f12_myhljc.jpg" alt=""></div></div>
+                                <div class="work-img"><div class="img-wrapper aspect-4-3"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747946240/f13_fwsn1g.jpg" alt=""></div></div>
+                                <div class="work-img"><div class="img-wrapper aspect-4-3"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747946247/f14_utazlw.jpg" alt=""></div></div>
 							</div>
 						
 						</div><!-- End /  -->
@@ -174,18 +202,18 @@
 					<div class="col-md-6 col-lg-6 ">
 						<div class="footer__social">
 							
-							<!-- social-icon -->
-							<a class="social-icon" href="https://www.tiktok.com/@lennyedits8?_t=8p7Mtyc9oX2&_r=1"><img class="social-icon__icon" src="assets/img/tiktok.png" alt="TikTok" style="width: 55%;"></a><!-- End / social-icon -->
-							
-							
-							<!-- social-icon -->
-							<a class="social-icon" href="https://www.instagram.com/lennyedits8?igsh=M25haDVoMG1yemNk&utm_source=qr"><img class="social-icon__icon" src="assets/img/instagram.png" alt="instagram" style="width: 55%;"></a><!-- End / social-icon -->
+								<!-- social-icon -->
+								<a class="social-icon" href="https://www.tiktok.com/@lennyedits8?_t=8p7Mtyc9oX2&_r=1"><img class="social-icon__icon" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928144/tiktok_n5ifbv.png" alt="TikTok" style="width: 55%;"></a><!-- End / social-icon -->
+								
+								
+								<!-- social-icon -->
+								<a class="social-icon" href="https://www.instagram.com/lennyedits8?igsh=M25haDVoMG1yemNk&utm_source=qr"><img class="social-icon__icon" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928143/instagram_i46xmx.png" alt="instagram" style="width: 55%;"></a><!-- End / social-icon -->
 
-							<!-- social-icon -->
-							<a class="social-icon" href="https://youtube.com/@lennyedits8?si=l5Khbyjd-_uldYLe"><img class="social-icon__icon" src="assets/img/youtube.png" alt="youtube" style="width: 55%;"></a><!-- End / social-icon -->
+								<!-- social-icon -->
+								<a class="social-icon" href="https://youtube.com/@lennyedits8?si=l5Khbyjd-_uldYLe"><img class="social-icon__icon" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928151/youtube_ai5o5l.png" alt="youtube" style="width: 55%;"></a><!-- End / social-icon -->
 
-							<!-- social-icon -->
-							<a class="social-icon" href="https://pin.it/3ahwciaBA"><img class="social-icon__icon" src="assets/img/pinterest.png" alt="pinterest" style="width: 55%;"></a><!-- End / social-icon -->
+								<!-- social-icon -->
+								<a class="social-icon" href="https://pin.it/3ahwciaBA"><img class="social-icon__icon" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928143/pinterest_jnjszj.png" alt="pinterest" style="width: 55%;"></a><!-- End / social-icon -->
 							
 						</div>
 					</div>
@@ -210,17 +238,25 @@
 		<!-- App-->
 		<script type="text/javascript" src="assets/js/main.js"></script>
 
-		<script>
-		document.addEventListener("DOMContentLoaded", function () {
-			document.querySelectorAll('img').forEach(img => {
-			img.loading = "lazy";
-			});
-		});
-		</script>
-
 		
 				<!-- App-->
 		<script type="text/javascript" src="assets/js/main.js"></script>
 
 	</body>
+
+
+	<script>
+  /*document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('img').forEach(img => {
+      img.loading = "lazy";
+    });*/
+
+    imagesLoaded('.gallery-grid', function () {
+      new Masonry('.gallery-grid', {
+        itemSelector: '.work-img',
+        percentPosition: true,
+        gutter: 20
+      });
+    });
+</script>
 </html>

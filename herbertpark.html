@@ -73,6 +73,32 @@
       margin-bottom: 10px;
     }
   }
+
+  .img-wrapper {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.aspect-2-3 {
+  aspect-ratio: 2 / 3;
+}
+
+.aspect-4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+.aspect-3-4 {
+  aspect-ratio: 3 / 4;
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* or use 'contain' if you prefer */
+  display: block;
+}
+
 </style>
 
 
@@ -83,7 +109,7 @@
 			<!-- header -->
 			<header class="header header--fixed">
 				<div class="header__inner">
-					<div class="header__logo"><a href="index.html"><img src="assets/img/logo.png" alt="" style="width: 122px;"/></a></div>
+					<div class="header__logo"><a href="index.html"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928077/logo_q6oh0r.png" alt="" style="width: 122px;"/></a></div>
 					<div class="navbar-toggle" id="fs-button">
 						<div class="navbar-icon"><span></span></div>
 					</div>
@@ -143,22 +169,24 @@
 						<div>
 							<p>All photos are shot on Panasonic Lumix G85</p>
 							<div class="gallery-grid" data-masonry='{ "itemSelector": ".work-img", "columnWidth": ".work-img", "percentPosition": true, "gutter": 20 }'>
-								<div class="work-img"><img src="assets/img/herbertpark/hp (9).jpeg" alt=""></div>
-								<div class="work-img"><img src="assets/img/herbertpark/hp (13).jpeg" alt=""></div>
-								<div class="work-img"><img src="assets/img/herbertpark/hp (5).jpeg" alt=""></div>
-								<div class="work-img"><img src="assets/img/herbertpark/hp (6).jpeg" alt=""></div>
-								<div class="work-img"><img src="assets/img/herbertpark/hp (3).jpeg" alt=""></div>
-								<div class="work-img"><img src="assets/img/herbertpark/hp (4).jpeg" alt=""></div>
-								<div class="work-img"><img src="assets/img/herbertpark/hp (8).jpeg" alt=""></div>
-								<div class="work-img"><img src="assets/img/herbertpark/hp (1).jpeg" alt=""></div>
-								<div class="work-img"><img src="assets/img/herbertpark/hp (2).jpeg" alt=""></div>
-								<div class="work-img"><img src="assets/img/herbertpark/hp (10).jpeg" alt=""></div>
-								<div class="work-img"><img src="assets/img/herbertpark/hp (11).jpeg" alt=""></div>
-								<div class="work-img"><img src="assets/img/herbertpark/hp (12).jpeg" alt=""></div>
-								<div class="work-img"><img src="assets/img/herbertpark/hp (14).jpeg" alt=""></div>
-								<div class="work-img"><img src="assets/img/herbertpark/hp (15).jpeg" alt=""></div>
-								<div class="work-img"><img src="assets/img/herbertpark/hp (16).jpeg" alt=""></div>
-								<div class="work-img"><img src="assets/img/herbertpark/hp (7).jpeg" alt=""></div>			
+								<div class="work-img"><div class="img-wrapper aspect-4-3"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747943557/hp_9_kl4gjj.jpg" alt=""></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-3-4"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747943555/hp_13_drcp0m.jpg" alt=""></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-4-3"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747943560/hp_5_z7u9ca.jpg" alt=""></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-4-3"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747943562/hp_6_ervxwb.jpg" alt=""></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-4-3"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747943547/hp_8_grekoe.jpg" alt=""></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-4-3"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747943565/hp_3_nhnt6h.jpg" alt=""></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-3-4"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747943555/hp_4_yzhpk5.jpg" alt=""></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-3-4"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747943555/hp_10_u06fz6.jpg" alt=""></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-3-4"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747943550/hp_1_y0ubde.jpg" alt=""></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-3-3"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747943549/hp_2_itlauw.jpg" alt=""></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-3-4"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747943547/hp_11_ybh2m7.jpg" alt=""></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-4-3"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747943548/hp_15_wrgjvc.jpg" alt=""></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-3-4"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747943554/hp_12_wl5s0l.jpg" alt=""></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-3-4"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747943544/hp_14_u3dkm4.jpg" alt=""></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-4-3"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747943559/hp_16_vu9i2r.jpg" alt=""></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-4-3"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747943543/hp_7_zieisb.jpg" alt=""></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-4-3"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747943560/hp_18_tscbv4.jpg" alt=""></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-4-3"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747943554/hp_17_pijed4.jpg" alt=""></div></div>
 							</div>
 						
 						</div><!-- End /  -->
@@ -185,17 +213,17 @@
 							<div class="footer__social">
 								
 								<!-- social-icon -->
-								<a class="social-icon" href="https://www.tiktok.com/@lennyedits8?_t=8p7Mtyc9oX2&_r=1"><img class="social-icon__icon" src="assets/img/tiktok.png" alt="TikTok" style="width: 55%;"></a><!-- End / social-icon -->
+								<a class="social-icon" href="https://www.tiktok.com/@lennyedits8?_t=8p7Mtyc9oX2&_r=1"><img class="social-icon__icon" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928144/tiktok_n5ifbv.png" alt="TikTok" style="width: 55%;"></a><!-- End / social-icon -->
 								
 								
 								<!-- social-icon -->
-								<a class="social-icon" href="https://www.instagram.com/lennyedits8?igsh=M25haDVoMG1yemNk&utm_source=qr"><img class="social-icon__icon" src="assets/img/instagram.png" alt="instagram" style="width: 55%;"></a><!-- End / social-icon -->
+								<a class="social-icon" href="https://www.instagram.com/lennyedits8?igsh=M25haDVoMG1yemNk&utm_source=qr"><img class="social-icon__icon" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928143/instagram_i46xmx.png" alt="instagram" style="width: 55%;"></a><!-- End / social-icon -->
 
 								<!-- social-icon -->
-								<a class="social-icon" href="https://youtube.com/@lennyedits8?si=l5Khbyjd-_uldYLe"><img class="social-icon__icon" src="assets/img/youtube.png" alt="youtube" style="width: 55%;"></a><!-- End / social-icon -->
+								<a class="social-icon" href="https://youtube.com/@lennyedits8?si=l5Khbyjd-_uldYLe"><img class="social-icon__icon" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928151/youtube_ai5o5l.png" alt="youtube" style="width: 55%;"></a><!-- End / social-icon -->
 
 								<!-- social-icon -->
-								<a class="social-icon" href="https://pin.it/3ahwciaBA"><img class="social-icon__icon" src="assets/img/pinterest.png" alt="pinterest" style="width: 55%;"></a><!-- End / social-icon -->
+								<a class="social-icon" href="https://pin.it/3ahwciaBA"><img class="social-icon__icon" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928143/pinterest_jnjszj.png" alt="pinterest" style="width: 55%;"></a><!-- End / social-icon -->
 								
 							</div>
 						</div>
@@ -221,10 +249,10 @@
 		<script type="text/javascript" src="assets/js/main.js"></script>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  /*document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll('img').forEach(img => {
       img.loading = "lazy";
-    });
+    });*/
 
     imagesLoaded('.gallery-grid', function () {
       new Masonry('.gallery-grid', {
@@ -233,7 +261,6 @@
         gutter: 20
       });
     });
-  });
 </script>
 
 		
