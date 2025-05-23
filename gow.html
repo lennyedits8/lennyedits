@@ -35,31 +35,71 @@
 </script>
 
 
-	<style>
+<style>
+  /* Container for the image gallery */
   .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
-  .gallery-grid .work-img img {
+  /* Individual image wrapper */
+  .work-img {
+    box-sizing: border-box;
+    width: 23%;
+    margin-bottom: 20px;
+  }
+
+  .gallery-grid img {
     width: 100%;
     height: auto;
     display: block;
   }
 
-  /* Responsive adjustments */
-  @media (min-width: 1400px) {
-    .gallery-grid {
-      grid-template-columns: repeat(5, 1fr);
+  /* Tablet: 3 per row */
+  @media (max-width: 1024px) {
+    .work-img {
+      width: 31%;
     }
   }
 
-  @media (max-width: 768px) {
-    .gallery-grid {
-      grid-template-columns: repeat(2, 1fr);
+  /* Mobile: 2 per row */
+  @media (max-width: 600px) {
+    .work-img {
+      width: calc(50% - 10px);
+      margin-bottom: 10px;
     }
   }
+
+  .img-wrapper {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.aspect-2-3 {
+  aspect-ratio: 2 / 3;
+}
+
+.aspect-4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+.aspect-3-4 {
+  aspect-ratio: 3 / 4;
+}
+
+.aspect-9-16 {
+  aspect-ratio: 9 / 16;
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* or use 'contain' if you prefer */
+  display: block;
+}
+
 </style>
 
 
@@ -128,23 +168,24 @@
 						<!--  -->
 						<div>
 							<p>All photos are shot using photo mode on Playstation 5</p>
-							<div class="work-detail__entry gallery-grid">
-								<div class="work-img"><a href="assets/img/gow/g1.jpeg" data-lightbox="gallery"><img src="assets/img/gow/g1.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/gow/g2.jpeg" data-lightbox="gallery"><img src="assets/img/gow/g2.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/gow/g3.jpeg" data-lightbox="gallery"><img src="assets/img/gow/g3.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/gow.jpeg" data-lightbox="gallery"><img src="assets/img/gow.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/gow/g5.jpeg" data-lightbox="gallery"><img src="assets/img/gow/g5.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/gow/g6.jpeg" data-lightbox="gallery"><img src="assets/img/gow/g6.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/gow/g7.jpeg" data-lightbox="gallery"><img src="assets/img/gow/g7.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/gow/g8.jpeg" data-lightbox="gallery"><img src="assets/img/gow/g8.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/gow/g9.jpeg" data-lightbox="gallery"><img src="assets/img/gow/g9.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/gow/g10.jpeg" data-lightbox="gallery"><img src="assets/img/gow/g10.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/gow/g11.jpeg" data-lightbox="gallery"><img src="assets/img/gow/g11.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/gow/g12.jpeg" data-lightbox="gallery"><img src="assets/img/gow/g12.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/gow/g13.jpeg" data-lightbox="gallery"><img src="assets/img/gow/g13.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/gow/g14.jpeg" data-lightbox="gallery"><img src="assets/img/gow/g14.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/gow/g15.jpeg" data-lightbox="gallery"><img src="assets/img/gow/g15.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/gow/g16.jpeg" data-lightbox="gallery"><img src="assets/img/gow/g16.jpeg" alt=""></a></div>								
+							<br>
+							<div class="gallery-grid" data-masonry='{ "itemSelector": ".work-img", "columnWidth": ".work-img", "percentPosition": true, "gutter": 20 }'>
+								<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/gow/g1.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/g1_ll5avx.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/gow/g2.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/g2_v4e7vi.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/gow/g3.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/g3_sy1anf.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/gow.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/gow_ou84uo.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/gow/g5.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/g5_mr633f.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-9-16"><a href=assets/img/gow/g6.jpeg data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/g6_ng8o4c.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-9-16"><a href=assets/img/gow/g7.jpeg data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/g7_hxckrx.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-9-16"><a href=assets/img/gow/g8.jpeg data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/g8_jwucyb.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-9-16"><a href=assets/img/gow/g9.jpeg data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/g9_morovk.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-9-16"><a href=assets/img/gow/g10.jpeg data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/g10_wlmqfp.jpg" alt=""></a></div></div>	
+								<div class="work-img"><div class="img-wrapper aspect-9-16"><a href=assets/img/gow/g11.jpeg data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/g11_hmteiz.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-9-16"><a href=assets/img/gow/g12.jpeg data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/g12_af9zip.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-9-16"><a href=assets/img/gow/g13.jpeg data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/g13_r4d6lm.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-9-16"><a href=assets/img/gow/g14.jpeg data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/g14_fu9ncm.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-9-16"><a href=assets/img/gow/g15.jpeg data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/g15_dziau7.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-9-16"><a href=assets/img/gow/g16.jpeg data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/g16_setxuk.jpg" alt=""></a></div></div>										
 							</div>
 						
 						</div><!-- End /  -->

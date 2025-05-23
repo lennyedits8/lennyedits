@@ -35,31 +35,71 @@
 </script>
 
 
-	<style>
+<style>
+  /* Container for the image gallery */
   .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
-  .gallery-grid .work-img img {
+  /* Individual image wrapper */
+  .work-img {
+    box-sizing: border-box;
+    width: 23%;
+    margin-bottom: 20px;
+  }
+
+  .gallery-grid img {
     width: 100%;
     height: auto;
     display: block;
   }
 
-  /* Responsive adjustments */
-  @media (min-width: 1400px) {
-    .gallery-grid {
-      grid-template-columns: repeat(5, 1fr);
+  /* Tablet: 3 per row */
+  @media (max-width: 1024px) {
+    .work-img {
+      width: 31%;
     }
   }
 
-  @media (max-width: 768px) {
-    .gallery-grid {
-      grid-template-columns: repeat(2, 1fr);
+  /* Mobile: 2 per row */
+  @media (max-width: 600px) {
+    .work-img {
+      width: calc(50% - 10px);
+      margin-bottom: 10px;
     }
   }
+
+  .img-wrapper {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.aspect-2-3 {
+  aspect-ratio: 2 / 3;
+}
+
+.aspect-4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+.aspect-3-4 {
+  aspect-ratio: 3 / 4;
+}
+
+.aspect-9-16 {
+  aspect-ratio: 9 / 16;
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* or use 'contain' if you prefer */
+  display: block;
+}
+
 </style>
 
 
@@ -128,22 +168,23 @@
 						<!--  -->
 						<div>
 							<p>All photos are shot using photo mode on Playstation 5</p>
-							<div class="work-detail__entry gallery-grid">
-								<div class="work-img"><a href="assets/img/gt7/gt10.jpeg" data-lightbox="gallery"><img src="assets/img/gt7/gt10.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/gt7/gt11.jpeg" data-lightbox="gallery"><img src="assets/img/gt7/gt11.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/gt7/gt12.jpeg" data-lightbox="gallery"><img src="assets/img/gt7/gt12.jpeg" alt=""></a></div>		
-								<div class="work-img"><a href="assets/img/gt7/gt5.jpeg" data-lightbox="gallery"><img src="assets/img/gt7/gt5.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/gt7/gt6.jpeg" data-lightbox="gallery"><img src="assets/img/gt7/gt6.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/gt7/gt7.jpeg" data-lightbox="gallery"><img src="assets/img/gt7/gt7.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/gt7/gt8.jpeg" data-lightbox="gallery"><img src="assets/img/gt7/gt8.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/gt7/gt9.jpeg" data-lightbox="gallery"><img src="assets/img/gt7/gt9.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/gt7/gt9.jpeg" data-lightbox="gallery"><img src="assets/img/gt7/gt13.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/gt7/gt9.jpeg" data-lightbox="gallery"><img src="assets/img/gt7/gt14.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/gt7/gt1.jpg" data-lightbox="gallery"><img src="assets/img/gt7/gt1.jpg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/GT7.jpeg" data-lightbox="gallery"><img src="assets/img/GT7.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/gt7/gt2.jpg" data-lightbox="gallery"><img src="assets/img/gt7/gt2.jpg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/gt7/gt3.jpg" data-lightbox="gallery"><img src="assets/img/gt7/gt3.jpg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/gt7/gt4.jpg" data-lightbox="gallery"><img src="assets/img/gt7/gt4.jpg" alt=""></a></div>								
+							<br>
+							<div class="gallery-grid" data-masonry='{ "itemSelector": ".work-img", "columnWidth": ".work-img", "percentPosition": true, "gutter": 20 }'>
+								<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/gt7/gt10.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/gt10_tu2hxv.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/gt7/gt11.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/gt11_eopmcv.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/gt7/gt12.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/gt12_y1si9j.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/gt7/gt5.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/gt5_neasqg.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/gt7/gt6.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/gt6_gw7q7m.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/gt7/gt7.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/gt7_ccehq8.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/gt7/gt8.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/gt8_mqoxw4.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/gt7/gt9.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/gt9_nbadjo.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/gt7/gt13.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/gt13_bktpjv.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/gt7/gt14.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/gt14_w8thft.jpg" alt=""></a></div></div>	
+								<div class="work-img"><div class="img-wrapper aspect-16-9"><a href="assets/img/gt7/gt1.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/GT7_vzrdzq.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/GT7.jpeg" 	data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/gt1_h986j3.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-16-9"><a href="assets/img/gt7/gt2.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/gt2_hcn0by.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-16-9"><a href="assets/img/gt7/gt3.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/gt3_ltlbe1.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-16-9"><a href="assets/img/gt7/gt4.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/gt4_qvkftl.jpg" alt=""></a></div></div>					
 							</div>
 						
 						</div><!-- End /  -->
