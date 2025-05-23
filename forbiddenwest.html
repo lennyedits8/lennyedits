@@ -35,31 +35,71 @@
   gtag('config', 'G-3WD6FZML3W');
 </script>
 
-	<style>
+<style>
+  /* Container for the image gallery */
   .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
-  .gallery-grid .work-img img {
+  /* Individual image wrapper */
+  .work-img {
+    box-sizing: border-box;
+    width: 23%;
+    margin-bottom: 20px;
+  }
+
+  .gallery-grid img {
     width: 100%;
     height: auto;
     display: block;
   }
 
-  /* Responsive adjustments */
-  @media (min-width: 1400px) {
-    .gallery-grid {
-      grid-template-columns: repeat(5, 1fr);
+  /* Tablet: 3 per row */
+  @media (max-width: 1024px) {
+    .work-img {
+      width: 31%;
     }
   }
 
-  @media (max-width: 768px) {
-    .gallery-grid {
-      grid-template-columns: repeat(2, 1fr);
+  /* Mobile: 2 per row */
+  @media (max-width: 600px) {
+    .work-img {
+      width: calc(50% - 10px);
+      margin-bottom: 10px;
     }
   }
+
+  .img-wrapper {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.aspect-2-3 {
+  aspect-ratio: 2 / 3;
+}
+
+.aspect-4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+.aspect-3-4 {
+  aspect-ratio: 3 / 4;
+}
+
+.aspect-9-16 {
+  aspect-ratio: 9 / 16;
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* or use 'contain' if you prefer */
+  display: block;
+}
+
 </style>
 	
 	<body>
@@ -127,12 +167,13 @@
 						<!--  -->
 						<div>
 							<p>All photos are shot using photo mode on Playstation 5</p>
-							<div class="work-detail__entry gallery-grid">
-								<div class="work-img"><a href="assets/img/forbiddenwest/fw1.jpeg" data-lightbox="gallery"><img src="assets/img/forbiddenwest/fw1.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/forbiddenwest/fw2.jpeg" data-lightbox="gallery"><img src="assets/img/forbiddenwest/fw2.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/forbiddenwest/fw3.jpeg" data-lightbox="gallery"><img src="assets/img/forbiddenwest/fw3.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/forbiddenwest/fw4.jpeg" data-lightbox="gallery"><img src="assets/img/forbiddenwest/fw4.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/forbiddenwest/fw5.jpeg" data-lightbox="gallery"><img src="assets/img/forbiddenwest/fw5.jpeg" alt=""></a></div>								
+								<br>
+								<div class="gallery-grid" data-masonry='{ "itemSelector": ".work-img", "columnWidth": ".work-img", "percentPosition": true, "gutter": 20 }'>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/forbiddenwest/fw1.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/fw1_ldwwbv.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/forbiddenwest/fw2.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/fw2_ugju8k.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/forbiddenwest/fw3.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/fw3_bfvox7.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/forbiddenwest/fw4.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/fw4_vs6eub.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/forbiddenwest/fw5.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/fw5_rmqvch.jpg" alt=""></a></div></div>					
 							</div>
 						
 						</div><!-- End /  -->
