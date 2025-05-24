@@ -35,31 +35,71 @@
   gtag('config', 'G-3WD6FZML3W');
 </script>
 
-	<style>
+<style>
+  /* Container for the image gallery */
   .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
-  .gallery-grid .work-img img {
+  /* Individual image wrapper */
+  .work-img {
+    box-sizing: border-box;
+    width: 23%;
+    margin-bottom: 20px;
+  }
+
+  .gallery-grid img {
     width: 100%;
     height: auto;
     display: block;
   }
 
-  /* Responsive adjustments */
-  @media (min-width: 1400px) {
-    .gallery-grid {
-      grid-template-columns: repeat(5, 1fr);
+  /* Tablet: 3 per row */
+  @media (max-width: 1024px) {
+    .work-img {
+      width: 31%;
     }
   }
 
-  @media (max-width: 768px) {
-    .gallery-grid {
-      grid-template-columns: repeat(2, 1fr);
+  /* Mobile: 2 per row */
+  @media (max-width: 600px) {
+    .work-img {
+      width: calc(50% - 10px);
+      margin-bottom: 10px;
     }
   }
+
+  .img-wrapper {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.aspect-2-3 {
+  aspect-ratio: 2 / 3;
+}
+
+.aspect-4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+.aspect-3-4 {
+  aspect-ratio: 3 / 4;
+}
+
+.aspect-9-16 {
+  aspect-ratio: 9 / 16;
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* or use 'contain' if you prefer */
+  display: block;
+}
+
 </style>
 
 	<body>
@@ -127,60 +167,51 @@
 						<!--  -->
 						<div>
 							<p>All photos are shot using the in game photo mode feature</p>
-							<div class="work-detail__entry gallery-grid">			
-								<div class="work-img"><a href="assets/img/lostrecords/lr2.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr2.jpeg" alt=""></a></div>					
-								<div class="work-img"><a href="assets/img/lostrecords/lr4.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr4.jpeg" alt=""></a></div>					
-								<div class="work-img"><a href="assets/img/lostrecords/lr6.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr6.jpeg" alt=""></a></div>								
-								<div class="work-img"><a href="assets/img/lostrecords/lr20.jpg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr20.jpg" alt=""></a></div>		
-								<div class="work-img"><a href="assets/img/lostrecords/lr22.jpg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr22.jpg" alt=""></a></div>		
-								<div class="work-img"><a href="assets/img/lostrecords/lr23.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr23.jpeg" alt=""></a></div>		
-								<div class="work-img"><a href="assets/img/lostrecords/lr24.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr24.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/lostrecords/lr29.jpg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr29.jpg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/lostrecords/lr33.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr33.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/lostrecords/lr34.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr34.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/lostrecords/lr35.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr35.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/lostrecords/lr25.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr25.jpeg" alt=""></a></div>	
-								<div class="work-img"><a href="assets/img/lostrecords/lr36.jpg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr36.jpg" alt=""></a></div>	
-								<div class="work-img"><a href="assets/img/lostrecords/lr38.jpg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr38.jpg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/lostrecords/lr40.jpg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr40.jpg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/lostrecords/lr42.jpg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr42.jpg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/lostrecords/lr44.jpg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr44.jpg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/lostrecords/lr45.jpg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr45.jpg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/lostrecords/lr46.jpg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr46.jpg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/lostrecords/lr47.jpg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr47.jpg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/lostrecords/lr48.jpg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr48.jpg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/lostrecords/lr30.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr30.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/lostrecords/lr31.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr31.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/lostrecords/lr32.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr32.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/lostrecords/lr21.jpg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr21.jpg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/lostrecords/lr26.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr26.jpeg" alt=""></a></div>		
-								<div class="work-img"><a href="assets/img/lostrecords/lr19.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr19.jpeg" alt=""></a></div>	
-								<div class="work-img"><a href="assets/img/lostrecords/lr13.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr13.jpeg" alt=""></a></div>					
-								<!-- <div class="work-img"><a href="assets/img/lostrecords/lr15.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr15.jpeg" alt=""></a></div>		
-								<div class="work-img"><a href="assets/img/lostrecords/lr16.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr16.jpeg" alt=""></a></div>-->
-								<div class="work-img"><a href="assets/img/lostrecords/lr17.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr17.jpeg" alt=""></a></div>	
-								<div class="work-img"><a href="assets/img/lostrecords/lr18.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr18.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/lostrecords/lr5.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr5.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/lostrecords/lr21.jpg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr21.jpg" alt=""></a></div>
-								<!-- <div class="work-img"><a href="assets/img/lostrecords/lr10.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr10.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/lostrecords/lr7.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr7.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/lostrecords/lr8.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr8.jpeg" alt=""></a></div>		
-								<div class="work-img"><a href="assets/img/lostrecords/lr9.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr9.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/lostrecords/lr14.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr14.jpeg" alt=""></a></div>-->
-								<div class="work-img"><a href="assets/img/lostrecords/lr27.JPG" data-lightbox="gallery"><img src="assets/img/lostrecords/lr27.JPG" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/lostrecords/lr28.JPG" data-lightbox="gallery"><img src="assets/img/lostrecords/lr28.JPG" alt=""></a></div>
-								<!--<div class="work-img"><a href="assets/img/lostrecords/lr49.jpg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr49.jpg" alt=""></a></div>-->
-							</div>
-
-							<h4>B&W Photographs</h4>
-							<div class="work-detail__entry gallery-grid">	
-								<div class="work-img"><a href="assets/img/lostrecords/lr1.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr1.jpeg" alt=""></a></div>						
-								<div class="work-img"><a href="assets/img/lostrecords/lr3.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr3.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/lostrecords/lr37.jpg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr37.jpg" alt=""></a></div>	
-								<div class="work-img"><a href="assets/img/lostrecords/lr39.jpg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr39.jpg" alt=""></a></div>						
-								<div class="work-img"><a href="assets/img/lostrecords/lr41.jpg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr41.jpg" alt=""></a></div>	
-								<div class="work-img"><a href="assets/img/lostrecords/lr43.jpg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr43.jpg" alt=""></a></div>					
-								<!-- <div class="work-img"><a href="assets/img/lostrecords/lr12.jpeg" data-lightbox="gallery"><img src="assets/img/lostrecords/lr12.jpeg" alt=""></a></div>	-->
+							<br>
+							<div class="gallery-grid" data-masonry='{ "itemSelector": ".work-img", "columnWidth": ".work-img", "percentPosition": true, "gutter": 20 }'>
+									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/lostrecords/lr2.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018891/lr2_cfdcao.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/lostrecords/lr4.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/lr4_aiuh0y.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/lostrecords/lr6.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018893/lr6_kxzoqf.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/lostrecords/lr20.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/lr20_cpmd9c.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/lostrecords/lr22.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018891/lr22_cwjs0j.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/lostrecords/lr23.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/lr23_rqklyw.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/lostrecords/lr29.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/lr29_w5d7y9.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/lostrecords/lr33.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018893/lr33_h25jau.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/lostrecords/lr34.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018894/lr34_wloppl.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/lostrecords/lr35.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018892/lr35_tj9uz1.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/lostrecords/lr25.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018892/lr25_mymxy9.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/lostrecords/lr36.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018893/lr36_u1hyoj.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/lostrecords/lr38.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/lr38_xlrxne.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/lostrecords/lr40.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/lr40_s0ltox.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/lostrecords/lr42.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018891/lr42_loezsc.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/lostrecords/lr44.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018891/lr44_uubs7f.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/lostrecords/lr45.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018894/lr45_mgpz8l.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/lostrecords/lr46.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018891/lr46_gqrbmz.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/lostrecords/lr47.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018895/lr47_ejjel0.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/lostrecords/lr48.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018894/lr48_dgxbaf.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/lostrecords/lr30.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018892/lr30_wtctvj.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/lostrecords/lr31.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018892/lr31_hmvnqi.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/lostrecords/lr32.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018893/lr32_iumpgx.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/lostrecords/lr21.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/lr21_fgas1b.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/lostrecords/lr26.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/lr26_fkh5y2.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/lostrecords/lr19.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018891/lr19_ml5o6s.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/lostrecords/lr13.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018891/lr13_f8ijro.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/lostrecords/lr17.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018894/lr17_iodl5n.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/lostrecords/lr18.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018891/lr18_a9e04v.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/lostrecords/lr5.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018895/lr5_houusv.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-16-9"><a href="assets/img/lostrecords/lr21.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018891/lr27_g1jlta.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-16-9"><a href="assets/img/lostrecords/lr28.JPG" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018891/lr28_ofklnj.jpg" alt=""></a></div></div>
+									</div>
+<br>
+									<h4>B&W Photographs</h4>
+									<br>
+									<div class="gallery-grid" data-masonry='{ "itemSelector": ".work-img", "columnWidth": ".work-img", "percentPosition": true, "gutter": 20 }'>
+									<div class="work-img"><div class="img-wrapper aspect-16-9"><a href="assets/img/lostrecords/lr1.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018895/lr1_ol6bqp.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-16-9"><a href="assets/img/lostrecords/lr3.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018895/lr3_nmv7fk.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-16-9"><a href="assets/img/lostrecords/lr37.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018891/lr37_kqelut.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-16-9"><a href="assets/img/lostrecords/lr39.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018894/lr39_v9tbht.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-16-9"><a href="assets/img/lostrecords/lr41.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018891/lr41_pl3vab.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-16-9"><a href="assets/img/lostrecords/lr43.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018891/lr43_lqq68z.jpg" alt=""></a></div></div>			
 							</div>
 						
 						</div><!-- End /  -->

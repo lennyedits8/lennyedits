@@ -39,30 +39,70 @@
 </script>
 	
 <style>
+  /* Container for the image gallery */
   .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
-  .gallery-grid .work-img img {
+  /* Individual image wrapper */
+  .work-img {
+    box-sizing: border-box;
+    width: 23%;
+    margin-bottom: 20px;
+  }
+
+  .gallery-grid img {
     width: 100%;
     height: auto;
     display: block;
   }
 
-  /* Responsive adjustments */
-  @media (min-width: 1400px) {
-    .gallery-grid {
-      grid-template-columns: repeat(5, 1fr);
+  /* Tablet: 3 per row */
+  @media (max-width: 1024px) {
+    .work-img {
+      width: 31%;
     }
   }
 
-  @media (max-width: 768px) {
-    .gallery-grid {
-      grid-template-columns: repeat(2, 1fr);
+  /* Mobile: 2 per row */
+  @media (max-width: 600px) {
+    .work-img {
+      width: calc(50% - 10px);
+      margin-bottom: 10px;
     }
   }
+
+  .img-wrapper {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.aspect-2-3 {
+  aspect-ratio: 2 / 3;
+}
+
+.aspect-4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+.aspect-3-4 {
+  aspect-ratio: 3 / 4;
+}
+
+.aspect-9-16 {
+  aspect-ratio: 9 / 16;
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* or use 'contain' if you prefer */
+  display: block;
+}
+
 </style>
 
 	<body>
@@ -130,45 +170,45 @@
 						<!--  -->
 						<div>
 							<p>All photos are shot using photo mode on Playstation 5</p>
-							<div class="work-detail__entry gallery-grid">
-								<div class="work-img"><a href="assets/img/spiderman2/sm_1.jpeg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm_1.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm_2.jpeg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm_2.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm_3.jpeg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm_3.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm_4.jpg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm_4.jpg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2.jpeg" data-lightbox="gallery"><img src="assets/img/spiderman2.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm6.jpg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm6.jpg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm7.jpg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm7.jpg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm8.jpg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm8.jpg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm9.JPG" data-lightbox="gallery"><img src="assets/img/spiderman2/sm9.JPG" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm10.jpeg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm10.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm11.jpeg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm11.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm12.jpeg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm12.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm13.jpeg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm13.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm14.jpeg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm14.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm15.jpeg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm15.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm16.jpeg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm16.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm17.jpeg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm17.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm18.jpeg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm18.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm19.jpeg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm19.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm20.jpeg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm20.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm21.jpeg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm21.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm22.jpeg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm22.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm23.jpeg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm23.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm24.jpeg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm24.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm25.jpeg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm25.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm26.jpeg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm26.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm27.jpeg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm27.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm28.jpeg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm28.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm29.jpeg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm29.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm30.jpeg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm30.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm31.jpeg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm31.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm32.jpeg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm32.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm33.jpeg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm33.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm34.jpeg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm34.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm35.jpeg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm35.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm36.jpeg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm36.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm37.jpeg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm37.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/spiderman2/sm38.jpeg" data-lightbox="gallery"><img src="assets/img/spiderman2/sm38.jpeg" alt=""></a></div>
+							<br>
+							<div class="gallery-grid" data-masonry='{ "itemSelector": ".work-img", "columnWidth": ".work-img", "percentPosition": true, "gutter": 20 }'>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/spiderman2/sm_1.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018891/sm_1_yfp6pr.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/spiderman2/sm_2.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/sm_2_kbd7ej.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/spiderman2/sm_3.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018893/sm_3_n2lmqf.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/spiderman2/sm_4.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/sm_4_qxjz9l.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/spiderman2/sm37.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018893/sm37_qtstu9.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/spiderman2.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018891/spiderman2_ekvtja.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/spiderman2/sm6.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/sm6_tfpvmt.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/spiderman2/sm38.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018894/sm38_mcpnwm.jpg" alt=""></a></div></div>	
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/spiderman2/sm7.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/sm7_ylhufq.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/spiderman2/sm8.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018893/sm8_ayadea.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/spiderman2/sm9.JPG" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018894/sm10_aso6kp.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/spiderman2/sm10.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/s6_izvima.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/spiderman2/sm11.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/sm11_uo4pmx.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/spiderman2/sm12.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018893/sm12_c589ul.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/spiderman2/sm13.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018894/sm13_qruomk.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/spiderman2/sm14.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/sm14_cojhdc.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/spiderman2/sm15.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/sm15_lucnuo.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/spiderman2/sm16.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/sm16_duqyxg.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/spiderman2/sm17.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018893/sm17_fia8l2.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/spiderman2/sm18.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018894/sm18_uovozs.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/spiderman2/sm20.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/sm20_gvctiy.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/spiderman2/sm21.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018893/sm21_u83soy.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/spiderman2/sm22.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018894/sm22_fip6ao.jpg" alt=""></a></div></div>	
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/spiderman2/sm23.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/sm23_g0qyao.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/spiderman2/sm24.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/sm24_jmuxnm.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/spiderman2/sm25.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018893/sm25_xc2gjf.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/spiderman2/sm26.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018894/sm26_zjdjcy.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/spiderman2/sm27.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/sm27_atku06.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/spiderman2/sm28.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/sm28_yv0cj3.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/spiderman2/sm29.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018893/sm29_omrzr3.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/spiderman2/sm30.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018894/sm30_qtw9ek.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/spiderman2/sm31.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/sm31_vvsnsc.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/spiderman2/sm32.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/sm32_jb4wdi.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/spiderman2/sm33.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018893/sm33_h0nk8q.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/spiderman2/sm34.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018894/sm34_tof8p8.jpg" alt=""></a></div></div>	
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/spiderman2/sm35.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/sm35_y3m3oa.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/spiderman2/sm36.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/sm36_bybth5.jpg" alt=""></a></div></div>
 							</div>
 						
 						</div><!-- End /  -->

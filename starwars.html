@@ -34,31 +34,71 @@
   gtag('config', 'G-3WD6FZML3W');
 </script>
 
-	<style>
+<style>
+  /* Container for the image gallery */
   .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
-  .gallery-grid .work-img img {
+  /* Individual image wrapper */
+  .work-img {
+    box-sizing: border-box;
+    width: 23%;
+    margin-bottom: 20px;
+  }
+
+  .gallery-grid img {
     width: 100%;
     height: auto;
     display: block;
   }
 
-  /* Responsive adjustments */
-  @media (min-width: 1400px) {
-    .gallery-grid {
-      grid-template-columns: repeat(5, 1fr);
+  /* Tablet: 3 per row */
+  @media (max-width: 1024px) {
+    .work-img {
+      width: 31%;
     }
   }
 
-  @media (max-width: 768px) {
-    .gallery-grid {
-      grid-template-columns: repeat(2, 1fr);
+  /* Mobile: 2 per row */
+  @media (max-width: 600px) {
+    .work-img {
+      width: calc(50% - 10px);
+      margin-bottom: 10px;
     }
   }
+
+  .img-wrapper {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.aspect-2-3 {
+  aspect-ratio: 2 / 3;
+}
+
+.aspect-4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+.aspect-3-4 {
+  aspect-ratio: 3 / 4;
+}
+
+.aspect-9-16 {
+  aspect-ratio: 9 / 16;
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* or use 'contain' if you prefer */
+  display: block;
+}
+
 </style>
 	
 	<body>
@@ -126,19 +166,25 @@
 						<!--  -->
 						<div>
 							<p>All photos are shot using photo mode on Playstation 5</p>
-							<div class="work-detail__entry gallery-grid">
-								<div class="work-img"><a href="assets/img/starwars/sw1.jpeg" data-lightbox="gallery"><img src="assets/img/starwars/sw1.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/starwars/sw2.jpeg" data-lightbox="gallery"><img src="assets/img/starwars/sw2.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/starwars/sw3.jpeg" data-lightbox="gallery"><img src="assets/img/starwars/sw3.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/starwars/sw4.jpeg" data-lightbox="gallery"><img src="assets/img/starwars/sw4.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/starwars/sw5.jpeg" data-lightbox="gallery"><img src="assets/img/starwars/sw5.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/starwars/sw6.jpeg" data-lightbox="gallery"><img src="assets/img/starwars/sw6.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/starwars/sw7.jpeg" data-lightbox="gallery"><img src="assets/img/starwars/sw7.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/starwars/sw8.jpeg" data-lightbox="gallery"><img src="assets/img/starwars/sw8.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/starwars/sw9.jpeg" data-lightbox="gallery"><img src="assets/img/starwars/sw9.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/starwars/sw10.jpeg" data-lightbox="gallery"><img src="assets/img/starwars/sw10.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/starwars/sw11.jpeg" data-lightbox="gallery"><img src="assets/img/starwars/sw11.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/starwars/sw12.jpeg" data-lightbox="gallery"><img src="assets/img/starwars/sw12.jpeg" alt=""></a></div>								
+							<br>
+							<div class="gallery-grid" data-masonry='{ "itemSelector": ".work-img", "columnWidth": ".work-img", "percentPosition": true, "gutter": 20 }'>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/starwars/sw1.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018891/sw1_dioebp.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/starwars/sw2.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/sw2_jh0qyc.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/starwars/sw3.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018893/sw3_s2z2es.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/starwars/sw4.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/sw4_g2shqp.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/starwars/sw5.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018891/sw5_jtiuov.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/starwars/sw6.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/sw6_d3tdks.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/starwars/sw7.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/sw7_ououv7.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/starwars/sw8.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018893/sw8_xrpgsf.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/starwars/sw9.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018894/sw9_sruyyj.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/starwars/sw10.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018892/sw10_ma4t0z.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/starwars/sw11.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018894/sw11_nqoerz.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/starwars/sw12.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018892/sw12_gmgavx.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/starwars/sw13.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/sw13_jwkuyx.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/starwars/sw14.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018893/sw14_v9498e.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/starwars/sw15.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018894/sw15_mugvqh.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/starwars/sw16.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018892/sw16_e9pnre.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/starwars/sw17.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018894/sw17_xlstbx.jpg" alt=""></a></div></div>
 							</div>
 						
 						</div><!-- End /  -->

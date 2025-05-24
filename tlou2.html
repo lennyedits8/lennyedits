@@ -36,31 +36,71 @@
 </script>
 
 
-	<style>
+<style>
+  /* Container for the image gallery */
   .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
-  .gallery-grid .work-img img {
+  /* Individual image wrapper */
+  .work-img {
+    box-sizing: border-box;
+    width: 23%;
+    margin-bottom: 20px;
+  }
+
+  .gallery-grid img {
     width: 100%;
     height: auto;
     display: block;
   }
 
-  /* Responsive adjustments */
-  @media (min-width: 1400px) {
-    .gallery-grid {
-      grid-template-columns: repeat(5, 1fr);
+  /* Tablet: 3 per row */
+  @media (max-width: 1024px) {
+    .work-img {
+      width: 31%;
     }
   }
 
-  @media (max-width: 768px) {
-    .gallery-grid {
-      grid-template-columns: repeat(2, 1fr);
+  /* Mobile: 2 per row */
+  @media (max-width: 600px) {
+    .work-img {
+      width: calc(50% - 10px);
+      margin-bottom: 10px;
     }
   }
+
+  .img-wrapper {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.aspect-2-3 {
+  aspect-ratio: 2 / 3;
+}
+
+.aspect-4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+.aspect-3-4 {
+  aspect-ratio: 3 / 4;
+}
+
+.aspect-9-16 {
+  aspect-ratio: 9 / 16;
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* or use 'contain' if you prefer */
+  display: block;
+}
+
 </style>
 
 
@@ -129,23 +169,29 @@
 						<!--  -->
 						<div>
 							<p>All photos are shot using photo mode on Playstation 5</p>
-							<div class="work-detail__entry gallery-grid">
-								<div class="work-img"><a href="assets/img/lastofus2.jpeg" data-lightbox="gallery"><img src="assets/img/lastofus2.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/tlou2/t5.jpeg" data-lightbox="gallery"><img src="assets/img/tlou2/t5.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/tlou2/t6.jpeg" data-lightbox="gallery"><img src="assets/img/tlou2/t6.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/tlou2/t7.jpeg" data-lightbox="gallery"><img src="assets/img/tlou2/t7.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/tlou2/t8.jpeg" data-lightbox="gallery"><img src="assets/img/tlou2/t8.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/tlou2/t1.jpg" data-lightbox="gallery"><img src="assets/img/tlou2/t1.jpg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/tlou2/t2.jpg" data-lightbox="gallery"><img src="assets/img/tlou2/t2.jpg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/tlou2/t3.jpg" data-lightbox="gallery"><img src="assets/img/tlou2/t3.jpg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/tlou2/t4.jpg" data-lightbox="gallery"><img src="assets/img/tlou2/t4.jpg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/tlou2/t9.jpeg" data-lightbox="gallery"><img src="assets/img/tlou2/t9.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/tlou2/t10.jpeg" data-lightbox="gallery"><img src="assets/img/tlou2/t10.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/tlou2/t12.jpeg" data-lightbox="gallery"><img src="assets/img/tlou2/t12.jpeg" alt=""></a></div>
-								<div class="work-img"><a href="assets/img/tlou2/t13.jpeg" data-lightbox="gallery"><img src="assets/img/tlou2/t13.jpeg" alt=""></a></div>								
+							<br>
+							<div class="gallery-grid" data-masonry='{ "itemSelector": ".work-img", "columnWidth": ".work-img", "percentPosition": true, "gutter": 20 }'>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/lastofus2.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018891/lastofus2_wvtrtx.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t5.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/t5_w0skay.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t6.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018893/t6_tzzosk.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t8.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018891/t8_vczrr6.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t2.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/t2_odthgj.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t3.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018893/t3_yvra0l.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t4.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/t4_a7c34r.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t9.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018894/t9_rtf3t0.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t13.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018892/t13_xhy5ys.jpg" alt=""></a></div></div>									
 							</div>
-						
-						</div><!-- End /  -->
+<br>
+									<h4>B&W Photographs</h4>
+									<br>
+									<div class="gallery-grid" data-masonry='{ "itemSelector": ".work-img", "columnWidth": ".work-img", "percentPosition": true, "gutter": 20 }'>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t7.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/t7_gmy86t.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t1.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/t1_ugrvmr.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t12.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018894/t12_rmygm2.jpg" alt=""></a></div></div>						
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t10.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018892/t10_czscf9.jpg" alt=""></a></div></div>						
+								
+								</div>
+								</div><!-- End /  -->
 						
 						<div class="awe-text-center mt-50">
 							<a class="md-btn md-btn--outline-primary" href="allwork.html">all work
