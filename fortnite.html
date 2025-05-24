@@ -22,6 +22,9 @@
 		<link rel="stylesheet" type="text/css" id="app-stylesheet" href="assets/css/main.css"><!--[if lt IE 9]>
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<![endif]-->
+
+				<!-- PhotoSwipe -->
+		<link rel="stylesheet" href="https://unpkg.com/photoswipe@5/dist/photoswipe.css" />
 	</head>
 
 	<!-- Google tag (gtag.js) -->
@@ -231,6 +234,18 @@
       });
     });
   });
+</script>
+
+<script type="module">
+  import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.esm.min.js';
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: '.gallery-grid',
+    children: 'a',
+    pswpModule: () => import('https://unpkg.com/photoswipe@5/dist/photoswipe.esm.min.js')
+  });
+
+  lightbox.init();
 </script>
 	</body>
 </html>

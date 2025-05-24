@@ -22,6 +22,9 @@
 		<link rel="stylesheet" type="text/css" id="app-stylesheet" href="assets/css/main.css"><!--[if lt IE 9]>
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<![endif]-->
+
+				<!-- PhotoSwipe -->
+		<link rel="stylesheet" href="https://unpkg.com/photoswipe@5/dist/photoswipe.css" />
 	</head>
 
 	<!-- Google tag (gtag.js) -->
@@ -166,7 +169,7 @@
 								<p>All photos are shot using photo mode on Playstation 5</p>
 								<div class="gallery-grid" data-masonry='{ "itemSelector": ".work-img", "columnWidth": ".work-img", "percentPosition": true, "gutter": 20 }'>
 									
-									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/horizon.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747947724/horizon_ut1r8c.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/horizon.jpeg" data-pswp-width="900" data-pswp-height="1600"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747947724/horizon_ut1r8c.jpg" alt=""></a></div></div>
 									
 								</div>
 							</div>
@@ -243,6 +246,18 @@
         gutter: 20
       });
     });
+</script>
+
+<script type="module">
+  import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.esm.min.js';
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: '.gallery-grid',
+    children: 'a',
+    pswpModule: () => import('https://unpkg.com/photoswipe@5/dist/photoswipe.esm.min.js')
+  });
+
+  lightbox.init();
 </script>
 	</body>
 </html>

@@ -22,6 +22,9 @@
 		<link rel="stylesheet" type="text/css" id="app-stylesheet" href="assets/css/main.css"><!--[if lt IE 9]>
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<![endif]-->
+
+				<!-- PhotoSwipe -->
+		<link rel="stylesheet" href="https://unpkg.com/photoswipe@5/dist/photoswipe.css" />
 	</head>
 
 
@@ -167,13 +170,13 @@
 							<p>All photos are shot on Panasonic Lumix G85</p>
 							<br>
 							<div class="gallery-grid" data-masonry='{ "itemSelector": ".work-img", "columnWidth": ".work-img", "percentPosition": true, "gutter": 20 }'>
-								<div class="work-img"><div class="img-wrapper aspect-3-4"><a href="assets/img/reallife/rl10.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747914402/rl10_cksrjj.jpg" alt=""></a></div></div>
-								<div class="work-img"><div class="img-wrapper aspect-3-4"><a href="assets/img/reallife/rl15.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747942545/rl15_wfqjbm.jpg" alt=""></a></div></div>
-								<div class="work-img"><div class="img-wrapper aspect-3-4"><a href="assets/img/reallife/rl12.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747942539/rl12_hhg0il.jpg" alt=""></a></div></div>
-								<div class="work-img"><div class="img-wrapper aspect-4-3"><a href="assets/img/reallife/rl13.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747942539/rl13_cuf80h.jpg" alt=""></a></div></div>
-								<div class="work-img"><div class="img-wrapper aspect-4-3"><a href="assets/img/reallife/rl16.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747942543/rl16_opt18o.jpg" alt=""></a></div></div>
-								<div class="work-img"><div class="img-wrapper aspect-3-4"><a href="assets/img/reallife/rl14.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747942540/rl14_axcugf.jpg" alt=""></a></div></div>
-								<div class="work-img"><div class="img-wrapper aspect-4-3"><a href="assets/img/reallife/rl11.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747942538/rl11_nmijdf.jpg" alt=""></a></div></div>		
+								<div class="work-img"><div class="img-wrapper aspect-3-4"><a href="assets/img/reallife/rl10.jpg" data-pswp-width="750" data-pswp-height="1000"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747914402/rl10_cksrjj.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-3-4"><a href="assets/img/reallife/rl15.jpg" data-pswp-width="750" data-pswp-height="1000"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747942545/rl15_wfqjbm.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-3-4"><a href="assets/img/reallife/rl12.jpg" data-pswp-width="750" data-pswp-height="1000"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747942539/rl12_hhg0il.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-4-3"><a href="assets/img/reallife/rl13.jpg" data-pswp-width="1000" data-pswp-height="750"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747942539/rl13_cuf80h.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-4-3"><a href="assets/img/reallife/rl16.jpg" data-pswp-width="1000" data-pswp-height="750"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747942543/rl16_opt18o.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-3-4"><a href="assets/img/reallife/rl14.jpg" data-pswp-width="750" data-pswp-height="1000"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747942540/rl14_axcugf.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-4-3"><a href="assets/img/reallife/rl11.jpg" data-pswp-width="1000" data-pswp-height="750"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747942538/rl11_nmijdf.jpg" alt=""></a></div></div>		
 						</div><!-- End /  -->
 						
 						<div class="awe-text-center mt-50">
@@ -239,14 +242,26 @@
       img.loading = "lazy";
     });-->
 
-    imagesLoaded('.gallery-grid', function () {
+<script>  imagesLoaded('.gallery-grid', function () {
       new Masonry('.gallery-grid', {
         itemSelector: '.work-img',
         percentPosition: true,
         gutter: 20
       });
     });
+</script>
+
+
+<script type="module">
+  import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.esm.min.js';
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: '.gallery-grid',
+    children: 'a',
+    pswpModule: () => import('https://unpkg.com/photoswipe@5/dist/photoswipe.esm.min.js')
   });
+
+  lightbox.init();
 </script>
 
 	</body>

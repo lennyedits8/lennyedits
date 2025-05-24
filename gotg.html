@@ -22,6 +22,9 @@
 		<link rel="stylesheet" type="text/css" id="app-stylesheet" href="assets/css/main.css"><!--[if lt IE 9]>
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<![endif]-->
+
+				<!-- PhotoSwipe -->
+		<link rel="stylesheet" href="https://unpkg.com/photoswipe@5/dist/photoswipe.css" />
 	</head>
 
 
@@ -169,11 +172,11 @@
 							<p>All photos are shot using photo mode on Playstation 5</p>
 							<br>
 							<div class="gallery-grid" data-masonry='{ "itemSelector": ".work-img", "columnWidth": ".work-img", "percentPosition": true, "gutter": 20 }'>
-								<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/gotg/gotg1.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/gotg1_pz9mqh.jpg" alt=""></a></div></div>
-								<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/gotg/gotg2.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/gotg2_ysq4wg.jpg" alt=""></a></div></div>
-								<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/gotg/gotg3.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/gotg3_ppqseo.jpg" alt=""></a></div></div>
-								<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/gotg/gotg4.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/gotg4_ln8t6z.jpg" alt=""></a></div></div>
-								<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/gotg/gotg5.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/gotg5_qhjjpm.jpg" alt=""></a></div></div>					
+								<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/gotg/gotg1.jpg" data-pswp-width="900" data-pswp-height="1600"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/gotg1_pz9mqh.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/gotg/gotg2.jpeg" data-pswp-width="900" data-pswp-height="1600"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/gotg2_ysq4wg.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/gotg/gotg3.jpeg" data-pswp-width="900" data-pswp-height="1600"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/gotg3_ppqseo.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/gotg/gotg4.jpeg" data-pswp-width="900" data-pswp-height="1600"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/gotg4_ln8t6z.jpg" alt=""></a></div></div>
+								<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/gotg/gotg5.jpeg" data-pswp-width="900" data-pswp-height="1600"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/gotg5_qhjjpm.jpg" alt=""></a></div></div>					
 							</div>
 						
 						</div><!-- End /  -->
@@ -241,5 +244,18 @@
 			});
 		});
 		</script>
+
+
+<script type="module">
+  import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.esm.min.js';
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: '.gallery-grid',
+    children: 'a',
+    pswpModule: () => import('https://unpkg.com/photoswipe@5/dist/photoswipe.esm.min.js')
+  });
+
+  lightbox.init();
+</script>
 	</body>
 </html>
