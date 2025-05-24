@@ -15,13 +15,17 @@
 		<link rel="stylesheet" type="text/css" href="assets/fonts/pe-icon/pe-icon.css">
 		<!-- Vendors-->
 		<link rel="stylesheet" type="text/css" href="assets/vendors/bootstrap/grid.css">
-		<link rel="stylesheet" type="text/css" href="assets/vendors/magnific-popup/magnific-popup.min.css">
 		<link rel="stylesheet" type="text/css" href="assets/vendors/swiper/swiper.css">
 		<!-- App & fonts-->
 		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Open+Sans:400,700">
 		<link rel="stylesheet" type="text/css" id="app-stylesheet" href="assets/css/main.css"><!--[if lt IE 9]>
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<![endif]-->
+
+
+		<!-- PhotoSwipe -->
+		<link rel="stylesheet" href="https://unpkg.com/photoswipe@5/dist/photoswipe.css" />
+
 	</head>
 
 
@@ -101,6 +105,15 @@
   display: block;
 }
 
+
+
+
+
+
+
+
+
+
 </style>
 
 
@@ -171,24 +184,24 @@
 							<p>All photos are shot using photo mode on Playstation 5</p>
 							<br>
 							<div class="gallery-grid" data-masonry='{ "itemSelector": ".work-img", "columnWidth": ".work-img", "percentPosition": true, "gutter": 20 }'>
-									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/lastofus2.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018891/lastofus2_wvtrtx.jpg" alt=""></a></div></div>
-									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t5.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/t5_w0skay.jpg" alt=""></a></div></div>
-									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t6.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018893/t6_tzzosk.jpg" alt=""></a></div></div>
-									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t8.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018891/t8_vczrr6.jpg" alt=""></a></div></div>
-									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t2.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/t2_odthgj.jpg" alt=""></a></div></div>
-									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t3.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018893/t3_yvra0l.jpg" alt=""></a></div></div>
-									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t4.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/t4_a7c34r.jpg" alt=""></a></div></div>
-									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t9.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018894/t9_rtf3t0.jpg" alt=""></a></div></div>
-									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t13.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018892/t13_xhy5ys.jpg" alt=""></a></div></div>									
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/lastofus2.jpeg" data-pswp-width="900" data-pswp-height="1600"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018891/lastofus2_wvtrtx.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t5.jpeg" data-pswp-width="900" data-pswp-height="1600"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/t5_w0skay.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t6.jpeg" data-pswp-width="900" data-pswp-height="1600"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018893/t6_tzzosk.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t8.jpeg" data-pswp-width="900" data-pswp-height="1600"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018891/t8_vczrr6.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t2.jpg" data-pswp-width="900" data-pswp-height="1600"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/t2_odthgj.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t3.jpg" data-pswp-width="900" data-pswp-height="1600"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018893/t3_yvra0l.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t4.jpg" data-pswp-width="900" data-pswp-height="1600"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/t4_a7c34r.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t9.jpeg" data-pswp-width="900" data-pswp-height="1600"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018894/t9_rtf3t0.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t13.jpeg" data-pswp-width="900" data-pswp-height="1600"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018892/t13_xhy5ys.jpg" alt=""></a></div></div>									
 							</div>
 <br>
 									<h4>B&W Photographs</h4>
 									<br>
 									<div class="gallery-grid" data-masonry='{ "itemSelector": ".work-img", "columnWidth": ".work-img", "percentPosition": true, "gutter": 20 }'>
-									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t7.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/t7_gmy86t.jpg" alt=""></a></div></div>
-									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t1.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/t1_ugrvmr.jpg" alt=""></a></div></div>
-									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t12.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018894/t12_rmygm2.jpg" alt=""></a></div></div>						
-									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t10.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018892/t10_czscf9.jpg" alt=""></a></div></div>						
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t7.jpeg" data-pswp-width="900" data-pswp-height="1600"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/t7_gmy86t.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t1.jpg" data-pswp-width="900" data-pswp-height="1600"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/t1_ugrvmr.jpg" alt=""></a></div></div>
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t12.jpeg" data-pswp-width="900" data-pswp-height="1600"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018894/t12_rmygm2.jpg" alt=""></a></div></div>						
+									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/tlou2/t10.jpeg" data-pswp-width="900" data-pswp-height="1600"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018892/t10_czscf9.jpg" alt=""></a></div></div>						
 								
 								</div>
 								</div><!-- End /  -->
@@ -241,7 +254,6 @@
 		<script type="text/javascript" src="assets/vendors/jquery-one-page/jquery.nav.min.js"></script>
 		<script type="text/javascript" src="assets/vendors/jquery.easing/jquery.easing.min.js"></script>
 		<script type="text/javascript" src="assets/vendors/jquery.matchHeight/jquery.matchHeight.min.js"></script>
-		<script type="text/javascript" src="assets/vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
 		<script type="text/javascript" src="assets/vendors/masonry-layout/masonry.pkgd.js"></script>
 		<script type="text/javascript" src="assets/vendors/jquery.waypoints/jquery.waypoints.min.js"></script>
 		<script type="text/javascript" src="assets/vendors/swiper/swiper.jquery.js"></script>
@@ -256,5 +268,19 @@
 			});
 		});
 		</script>
+
+<script type="module">
+  import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.esm.min.js';
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: '.gallery-grid',
+    children: 'a',
+    pswpModule: () => import('https://unpkg.com/photoswipe@5/dist/photoswipe.esm.min.js')
+  });
+
+  lightbox.init();
+</script>
+
+
 	</body>
 </html>
