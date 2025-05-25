@@ -107,13 +107,21 @@
   display: block;
 }
 
+/* Ensure PhotoSwipe always aligns to viewport */
 .pswp {
-  z-index: 1000000 !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  transform: none !important;
 }
 
-.lightboxOverlay, .lightbox {
-  z-index: 10000 !important;
+/* Remove overflow and transform from parents */
+.page-wrap, .wil-content, .content-area {
+  overflow: visible !important;
+  transform: none !important;
 }
+
+
 
 
 </style>
