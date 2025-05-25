@@ -19,6 +19,100 @@
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<![endif]-->
 	</head>
+
+
+<style>
+/* Shared styles */
+.modal-popup {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.modal-popup.fade-out {
+  animation: fadeOut 0.3s ease forwards;
+}
+
+.modal-content-box {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 12px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transform: scale(0.8);
+  animation: popIn 0.3s ease forwards;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@keyframes popIn {
+  to { transform: scale(1); }
+}
+
+/* Checkmark and X styles */
+.icon-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 4px solid #4CAF50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  position: relative;
+}
+
+.icon-circle.fail {
+  border-color: #f44336;
+}
+
+.checkmark {
+  width: 25px;
+  height: 12px;
+  border-left: 4px solid #4CAF50;
+  border-bottom: 4px solid #4CAF50;
+  transform: rotate(-45deg);
+  animation: checkmark 0.4s ease forwards;
+}
+
+@keyframes checkmark {
+  0% { width: 0; height: 0; }
+  100% { width: 25px; height: 12px; }
+}
+
+.fail-x:before,
+.fail-x:after {
+  content: "";
+  position: absolute;
+  width: 35px;
+  height: 4px;
+  background: #f44336;
+  top: 38px;
+  left: 22px;
+}
+.fail-x:before {
+  transform: rotate(45deg);
+}
+.fail-x:after {
+  transform: rotate(-45deg);
+}
+</style>
+
+
 	
 	<body>
 		<div class="page-wrap" id="root">
@@ -68,8 +162,8 @@
 						
 						<!-- page-title -->
 						<div class="page-title pb-40">
-							<h2 class="page-title__title">Get in touch</h2>
-							<p class="page-title__text">Curabitur elementum urna augue, eu porta</p>
+							<h2 class="page-title__title">Book a Photo Shoot</h2>
+							<p class="page-title__text"></p>
 							<div class="page-title__divider"></div>
 						</div><!-- End / page-title -->
 						
@@ -87,59 +181,45 @@
 								<!-- contact -->
 								<div class="contact">
 									<div class="contact__icon"><i class="pe-7s-note"></i></div>
-									<h3 class="contact__title">address</h3>
-									<div class="contact__text">Nam suscipit nisi risus, et porttitor metus molest</div>
+									<h3 class="contact__title">location</h3>
+									<div class="contact__text">Dublin, Ireland</div>
 								</div><!-- End / contact -->
-								
-								
-								<!-- contact -->
-								<div class="contact">
-									<div class="contact__icon"><i class="pe-7s-back"></i></div>
-									<h3 class="contact__title">call us</h3>
-									<div class="contact__text">+1-202-555-0177</div>
-								</div><!-- End / contact -->
+
 								
 								
 								<!-- contact -->
 								<div class="contact">
 									<div class="contact__icon"><i class="pe-7s-voicemail"></i></div>
 									<h3 class="contact__title">e-mail</h3>
-									<div class="contact__text"><a href="#">info@awethemes.com</a></div>
+									<div class="contact__text"><a href="#">lennyedits8@gmail.com</a></div>
 								</div><!-- End / contact -->
 								
 							</div>
 							<div class="col-md-7 col-lg-8 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-1 ">
 								<div class="form-wrapper">
 									
-									<!-- form-item -->
+									<form id="contact-form">
 									<div class="form-item form-item--half">
-										<input class="form-control" type="text" name="input" placeholder="Your name"/>
-									</div><!-- End / form-item -->
-									
-									
-									<!-- form-item -->
+										<input class="form-control" type="text" name="from_name" placeholder="Your name" required />
+									</div>
+
 									<div class="form-item form-item--half">
-										<input class="form-control" type="text" name="input" placeholder="Your emai"/>
-									</div><!-- End / form-item -->
-									
-									
-									<!-- form-item -->
+										<input class="form-control" type="email" name="reply_to" placeholder="Your email" required />
+									</div>
+
 									<div class="form-item">
-										<input class="form-control" type="text" name="input" placeholder="Subject"/>
-									</div><!-- End / form-item -->
-									
-									
-									<!-- form-item -->
+										<input class="form-control" type="text" name="subject" placeholder="Subject" required />
+									</div>
+
 									<div class="form-item">
-										<textarea class="form-control" placeholder="Your message" style="min-height:200px;"></textarea>
-									</div><!-- End / form-item -->
-									
-									
-									<!-- form-item -->
+										<textarea class="form-control" name="message" placeholder="Your message" style="min-height:200px;" required></textarea>
+									</div>
+
 									<div class="form-item">
-										<a class="md-btn md-btn--primary md-btn--lg " href="#">Send message
-										</a>
-									</div><!-- End / form-item -->
+										<button type="submit" class="md-btn md-btn--primary md-btn--lg">Send message</button>
+									</div>
+									</form>
+
 									
 								</div>
 							</div>
@@ -151,44 +231,24 @@
 			</div>
 			<!-- End / Content-->
 			
-			<!-- footer -->
-			<div class="footer">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-6 col-lg-6 ">
-							<p class="footer__coppy">2018 &copy; Copyright <a href="http://awe7.com/">Awe7</a>. All rights Reserved.</p>
-						</div>
-						<div class="col-md-6 col-lg-6 ">
-							<div class="footer__social">
-								
-								<!-- social-icon -->
-								<a class="social-icon" href="#"><i class="social-icon__icon fa fa-facebook"></i>
-								</a><!-- End / social-icon -->
-								
-								
-								<!-- social-icon -->
-								<a class="social-icon" href="#"><i class="social-icon__icon fa fa-twitter"></i>
-								</a><!-- End / social-icon -->
-								
-								
-								<!-- social-icon -->
-								<a class="social-icon" href="#"><i class="social-icon__icon fa fa-linkedin"></i>
-								</a><!-- End / social-icon -->
-								
-								
-								<!-- social-icon -->
-								<a class="social-icon" href="#"><i class="social-icon__icon fa fa-behance"></i>
-								</a><!-- End / social-icon -->
-								
-								
-								<!-- social-icon -->
-								<a class="social-icon" href="#"><i class="social-icon__icon fa fa-vimeo"></i>
-								</a><!-- End / social-icon -->
-								
-							</div>
-						</div>
-					</div>
-				</div>
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <p class="footer__coppy">Please tag me if reposting any of these photos.</p>
+            </div>
+            <div class="col-md-6 footer__social">
+              <a class="social-icon" href="https://www.tiktok.com/@lennyedits8"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928144/tiktok_n5ifbv.png" style="width: 55%;" alt="TikTok" /></a>
+              <a class="social-icon" href="https://www.instagram.com/lennyedits8"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928143/instagram_i46xmx.png" style="width: 55%;" alt="Instagram" /></a>
+              <a class="social-icon" href="https://youtube.com/@lennyedits8"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928151/youtube_ai5o5l.png" style="width: 55%;" alt="YouTube" /></a>
+              <a class="social-icon" href="https://pin.it/3ahwciaBA"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928143/pinterest_jnjszj.png" style="width: 55%;" alt="Pinterest" /></a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
 			</div><!-- End / footer -->
 			
 		</div>
@@ -207,5 +267,112 @@
 		<script type="text/javascript" src="assets/vendors/typed/typed.min.js"></script>
 		<!-- App-->
 		<script type="text/javascript" src="assets/js/main.js"></script>
+
+
+		<!-- App-->
+<script type="text/javascript" src="assets/js/main.js"></script>
+
+<!-- EmailJS SDK -->
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script type="text/javascript">
+  (function() {
+    emailjs.init('o4FzP7S_OrCnuenhE'); // Your EmailJS public key
+  })();
+</script>
+
+<script>
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm('lenny_edits8', 'template_q8fff9h', this)
+      .then(function(response) {
+        alert('Message sent successfully!');
+        document.getElementById('contact-form').reset();
+      }, function(error) {
+        alert('FAILED... ' + JSON.stringify(error));
+      });
+  });
+</script>
+
+
+
+<!-- Success Modal -->
+<div class="modal-popup" id="successModal">
+  <div class="modal-content-box">
+    <div class="icon-circle">
+      <div class="checkmark"></div>
+    </div>
+    <h3 style="margin-top: 20px;">Message sent!</h3>
+  </div>
+</div>
+
+<!-- Failure Modal -->
+<div class="modal-popup" id="failModal">
+  <div class="modal-content-box">
+    <div class="icon-circle fail">
+      <div class="fail-x"></div>
+    </div>
+    <h3 style="margin-top: 20px; color: #f44336;">Failed to send. Please try again.</h3>
+  </div>
+</div>
+
+
+<!-- EmailJS SDK -->
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script type="text/javascript">
+  (function() {
+    emailjs.init('o4FzP7S_OrCnuenhE'); // Your EmailJS public key
+  })();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5/js/md5.min.js"></script>
+<script>
+function showModal(modalId) {
+  const modal = document.getElementById(modalId);
+  modal.style.display = "flex";
+  setTimeout(() => {
+    modal.classList.remove("fade-out");
+  }, 10);
+
+  setTimeout(() => {
+    modal.classList.add("fade-out");
+    setTimeout(() => {
+      modal.style.display = "none";
+      modal.classList.remove("fade-out");
+    }, 300);
+  }, 3000); // Modal stays for 3s
+}
+
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const form = this;
+  const email = form.reply_to.value;
+  const emailHash = md5(email.trim().toLowerCase());
+
+  const hashInput = document.createElement('input');
+  hashInput.type = 'hidden';
+  hashInput.name = 'email_hash';
+  hashInput.value = emailHash;
+  form.appendChild(hashInput);
+
+  emailjs.sendForm('lenny_edits8', 'template_q8fff9h', form)
+    .then(function(response) {
+      showModal("successModal");
+      form.reset();
+      form.removeChild(hashInput);
+    }, function(error) {
+      showModal("failModal");
+      form.removeChild(hashInput);
+    });
+});
+</script>
+
+
+
+
+</body>
+</html>
+
 	</body>
 </html>

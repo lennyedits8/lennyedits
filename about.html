@@ -1,261 +1,336 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>About</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<meta name="format-detection" content="telephone=no">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<!-- Fonts-->
-		<link rel="stylesheet" type="text/css" href="assets/fonts/fontawesome/font-awesome.min.css">
-		<link rel="stylesheet" type="text/css" href="assets/fonts/pe-icon/pe-icon.css">
-		<!-- Vendors-->
-		<link rel="stylesheet" type="text/css" href="assets/vendors/bootstrap/grid.css">
-		<link rel="stylesheet" type="text/css" href="assets/vendors/magnific-popup/magnific-popup.min.css">
-		<link rel="stylesheet" type="text/css" href="assets/vendors/swiper/swiper.css">
-		<!-- App & fonts-->
-		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Open+Sans:400,700">
-		<link rel="stylesheet" type="text/css" id="app-stylesheet" href="assets/css/main.css"><!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-		<![endif]-->
-	</head>
+<html lang="en">
+<head>
+  <title>About - Lenny Edits</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
 
-	<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3WD6FZML3W"></script>
+  <!-- Fonts -->
+  <link rel="stylesheet" href="assets/fonts/fontawesome/font-awesome.min.css" />
+  <link rel="stylesheet" href="assets/fonts/pe-icon/pe-icon.css" />
+  <!-- Vendors -->
+  <link rel="stylesheet" href="assets/vendors/bootstrap/grid.css" />
+  <link rel="stylesheet" href="assets/vendors/magnific-popup/magnific-popup.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Open+Sans:400,700" />
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="assets/css/main.css" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3WD6FZML3W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-3WD6FZML3W');
+  </script>
+
+  <style>
+    .cool-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      margin: 10px 0;
+      width: 60%;
+    }
+
+    .cool-button img.icon {
+      width: 25px;
+      height: 25px;
+      margin-right: 10px;
+      filter: brightness(0) invert(1);
+    }
+
+    .cool-button:hover {
+      text-decoration: none;
+      transform: scale(1.03);
+    }
+
+    .tiktok { background-color: #ff0050; }
+    .tiktok:hover { background-color: #e60045; }
+
+    .instagram { background-color: #c13584; }
+    .instagram:hover { background-color: #b02e76; }
+
+    .pinterest { background-color: #bd081c; }
+    .pinterest:hover { background-color: #a3061b; }
+
+    .email-btn {
+      background-color: #007bff;
+    }
+
+    .email-btn:hover {
+      background-color: #0056b3;
+    }
+
+
+
+	.lenny-carousel {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.lenny-carousel img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
+
+
+.swiper-pagination-bullets {
+  bottom: 10px !important;
+  text-align: center;
+}
+
+.swiper-pagination-bullet {
+  background: #666;
+  opacity: 0.7;
+  width: 10px;
+  height: 10px;
+  margin: 0 4px;
+  transition: background 0.3s;
+}
+
+.swiper-pagination-bullet-active {
+  background: #000;
+  opacity: 1;
+}
+
+
+  </style>
+
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-3WD6FZML3W');
+  (function() {
+    emailjs.init("YOUR_USER_ID"); // Replace with your EmailJS public key
+  })();
 </script>
-	
-	<body>
-		<div class="page-wrap" id="root">
-			
-			<!-- header -->
-			<header class="header header--fixed">
-				<div class="header__inner">
-					<div class="header__logo"><a href="index.html"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928077/logo_q6oh0r.png" alt="" style="width: 122px;"/></a></div>
-					<div class="navbar-toggle" id="fs-button">
-						<div class="navbar-icon"><span></span></div>
-					</div>
-				</div>
-				
-				<!-- fullscreenmenu__module -->
-				<div class="fullscreenmenu__module" trigger="#fs-button">
-					
-					<!-- overlay-menu -->
-					<nav class="overlay-menu">
-						
-						<!--  -->
-						<ul class="wil-menu-list">
-							<li class="current-menu-item"><a href="index.html">Home</a>
-							</li>
-							</li>
-							<li><a href="about.html">About</a>
-							</li>
-							<li><a href="allwork.html">In-Game</a>
-                            </li>
-							<li><a href="realworld.html">Real Life</a>
-							</li>
-							<li><a href="film.html">35mm Film</a>
-							</li>
-						</ul><!--  -->
-						
-					</nav><!-- End / overlay-menu -->
-					
-				</div><!-- End / fullscreenmenu__module -->
-				
-			</header><!-- End / header -->
-			
-			<!-- Content-->
-			<div class="wil-content">
-				
-				<!-- Section -->
-				<section class="awe-section">
-					<div class="container">
-						
-						<!-- page-title -->
-						<div class="page-title pb-40">
-							<h2 class="page-title__title">About Me</h2>
-							<div class="page-title__divider"></div>
-						</div><!-- End / page-title -->
-						
-					</div>
-				</section>
-				<!-- End / Section -->
-				
-				
-				<!-- Section -->
-				<section class="awe-section bg-gray">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-6 col-lg-5 "><img src="assets/img/lennyedits8.jpeg" alt=""/>
-							</div>
-							<div class="col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-1 ">
-								
-								<!--  -->
-								<div class="mt-30">
-									<h2 class="about__title">Lenny Edits</h2>
-									<p class="about__subtitle">What I Do</p>
-									<p class="about__text">I take photos in-game using photo mode. Including a number of games such as Spider-Man 2, Fallout 4, Gran Turismo 7, Cyberpunk 2077 and much more. I usually post these on my TikTok, Instagram and Pinterest regularly.</p>
-																	
-								<!-- TikTok Button -->
-								<div class="button-container">
-									<a href="https://www.tiktok.com/@lennyedits8?_t=8p7Mtyc9oX2&_r=1" target="_blank" class="cool-button tiktok">
-										<img src="assets/img/tiktok.png" alt="TikTok Icon" class="icon"> TikTok
-									</a>
-								</div><!-- End / TikTok Button -->
 
-								<!-- Instagram Button -->
-								<div class="button-container">
-									<a href="https://www.instagram.com/lennyedits8?igsh=M25haDVoMG1yemNk&utm_source=qr" target="_blank" class="cool-button instagram">
-										<img src="assets/img/instagram.png" alt="Instagram Icon" class="icon"> Instagram
-									</a>
-								</div><!-- End / Instagram Button -->
+</head>
 
-								<!-- Pinterest Button -->
-								<div class="button-container">
-									<a href="https://pin.it/3ahwciaBA" target="_blank" class="cool-button pinterest">
-										<img src="assets/img/pinterest.png" alt="Pinterest Icon" class="icon"> Pinterest
-									</a>
-								</div><!-- End / Pinterest Button -->
+<body>
+  <div class="page-wrap" id="root">
+    <!-- Header -->
+    <header class="header header--fixed">
+      <div class="header__inner">
+        <div class="header__logo">
+          <a href="index.html">
+            <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928077/logo_q6oh0r.png" alt="Logo" style="width: 122px;" />
+          </a>
+        </div>
+        <div class="navbar-toggle" id="fs-button">
+          <div class="navbar-icon"><span></span></div>
+        </div>
+      </div>
 
-								<!-- CSS Styling -->
-								<style>
-									.button-container {
-										text-align: center;
-										margin: 20px 0;
-									}
+      <div class="fullscreenmenu__module" trigger="#fs-button">
+        <nav class="overlay-menu">
+          <ul class="wil-menu-list">
+            <li><a href="index.html">Home</a></li>
+            <li class="current-menu-item"><a href="about.html">About</a></li>
+            <li><a href="allwork.html">In-Game</a></li>
+            <li><a href="realworld.html">Real Life</a></li>
+            <li><a href="film.html">35mm Film</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-									.cool-button {
-										display: inline-flex;
-										align-items: center;
-										justify-content: center;
-										padding: 15px;
-										font-size: 18px;
-										font-weight: bold;
-										color: white;
-										background-color: #333;
-										border-radius: 50px;
-										text-decoration: none;
-										box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-										transition: all 0.3s ease;
-										position: relative;
-										overflow: hidden;
-										width: 40%; /* Set a fixed width for all buttons */
-									}
+    <!-- Content -->
+    <div class="wil-content">
+      <section class="awe-section">
+        <div class="container">
+          <div class="page-title pb-40">
+            <h2 class="page-title__title">About Me</h2>
+            <div class="page-title__divider"></div>
+          </div>
+        </div>
+      </section>
 
-									.cool-button img.icon {
-										width: 25px;
-										height: 25px;
-										margin-right: 15px;
-										filter: brightness(0) invert(1); /* Makes the image white */
-									}
-
-									.cool-button::before {
-										content: '';
-										position: absolute;
-										width: 120%;
-										height: 120%;
-										background: rgba(255, 255, 255, 0.2);
-										top: 50%;
-										left: 50%;
-										transform: translate(-50%, -50%) rotate(45deg);
-										transition: width 0.4s ease, height 0.4s ease;
-										z-index: 1;
-									}
-
-									.cool-button:hover::before {
-										width: 300%;
-										height: 300%;
-									}
-
-									.cool-button:hover {
-										box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
-										text-decoration: none; /* Removes underline on hover */
-									}
-
-									/* Platform-Specific Colors */
-									.tiktok {
-										background-color: #ff0050;
-									}
-
-									.instagram {
-										background-color: #c13584;
-									}
-
-									.pinterest {
-										background-color: #bd081c;
-									}
-
-									/* Hover Colors */
-									.cool-button.tiktok:hover {
-										background-color: #e60045;
-									}
-
-									.cool-button.instagram:hover {
-										background-color: #b02e76;
-									}
-
-									.cool-button.pinterest:hover {
-										background-color: #a3061b;
-									}
-								</style>
-
-	<br>
-	<br>
-	
-	
-	<div class="awe-text-center mt-50">
-	</div>
+      <section class="awe-section bg-gray">
+        <div class="container">
+          <div class="row">
+<div class="col-md-6 col-lg-5">
+  <!-- Swiper -->
+  <div class="swiper lenny-carousel">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747912698/m1_hybndk.jpg" alt="Slide 1" />
+      </div>
+      <div class="swiper-slide">
+        <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747912980/m2_pfnixc.jpg" alt="Slide 2" />
+      </div>
+      <div class="swiper-slide">
+        <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747912978/m3_uex5gb.jpg" alt="Slide 3" />
+      </div>
+      <div class="swiper-slide">
+        <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747912975/m4_q9ajv2.jpg" alt="Slide 4" />
+      </div>
+      <div class="swiper-slide">
+        <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747912976/m5_yysfw3.jpg" alt="Slide 5" />
+      </div>
+      <div class="swiper-slide">
+        <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747912979/m6_lkamdh.jpg" alt="Slide 6" />
+      </div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
 </div>
-<!-- End / Section -->
-<!-- footer -->
-<div class="footer">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6 col-lg-6 ">
-				<p class="footer__coppy">Please tag me if reposting any of these photos</p>
-			</div>
-			<div class="col-md-6 col-lg-6 ">
-				<div class="footer__social">
-					
-								<!-- social-icon -->
-								<a class="social-icon" href="https://www.tiktok.com/@lennyedits8?_t=8p7Mtyc9oX2&_r=1"><img class="social-icon__icon" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928144/tiktok_n5ifbv.png" alt="TikTok" style="width: 55%;"></a><!-- End / social-icon -->
-								
-								
-								<!-- social-icon -->
-								<a class="social-icon" href="https://www.instagram.com/lennyedits8?igsh=M25haDVoMG1yemNk&utm_source=qr"><img class="social-icon__icon" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928143/instagram_i46xmx.png" alt="instagram" style="width: 55%;"></a><!-- End / social-icon -->
 
-								<!-- social-icon -->
-								<a class="social-icon" href="https://youtube.com/@lennyedits8?si=l5Khbyjd-_uldYLe"><img class="social-icon__icon" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928151/youtube_ai5o5l.png" alt="youtube" style="width: 55%;"></a><!-- End / social-icon -->
 
-								<!-- social-icon -->
-								<a class="social-icon" href="https://pin.it/3ahwciaBA"><img class="social-icon__icon" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928143/pinterest_jnjszj.png" alt="pinterest" style="width: 55%;"></a><!-- End / social-icon -->
-					
-				</div>
-			</div>
-		</div>
-	</div>
-</div><!-- End / footer -->
+            <div class="col-md-6 col-lg-6 col-lg-offset-1 mt-30">
+              <h2 class="about__title">Lenny Edits</h2>
+              <p class="about__subtitle">What I Do</p>
+              <p class="about__text">
+                -Car and Street photography
+				-Virtual/In-Game photography
+              </p>
 
+              <!-- Social Buttons -->
+              <div class="button-container text-center">
+                <a href="https://www.tiktok.com/@lennyedits8" target="_blank" class="cool-button tiktok">
+                  <img src="assets/img/tiktok.png" class="icon" alt="TikTok" /> TikTok
+                </a>
+                <a href="https://www.instagram.com/lennyedits8" target="_blank" class="cool-button instagram">
+                  <img src="assets/img/instagram.png" class="icon" alt="Instagram" /> Instagram
+                </a>
+                <a href="https://pin.it/3ahwciaBA" target="_blank" class="cool-button pinterest">
+                  <img src="assets/img/pinterest.png" class="icon" alt="Pinterest" /> Pinterest
+                </a>
+
+                <!-- Email Button -->
+				<a href="javascript:void(0);" onclick="openModal()" class="cool-button email-btn">
+				📸 Book a Photoshoot
+				</a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <p class="footer__coppy">Please tag me if reposting any of these photos.</p>
+            </div>
+            <div class="col-md-6 footer__social">
+              <a class="social-icon" href="https://www.tiktok.com/@lennyedits8"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928144/tiktok_n5ifbv.png" style="width: 55%;" alt="TikTok" /></a>
+              <a class="social-icon" href="https://www.instagram.com/lennyedits8"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928143/instagram_i46xmx.png" style="width: 55%;" alt="Instagram" /></a>
+              <a class="social-icon" href="https://youtube.com/@lennyedits8"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928151/youtube_ai5o5l.png" style="width: 55%;" alt="YouTube" /></a>
+              <a class="social-icon" href="https://pin.it/3ahwciaBA"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928143/pinterest_jnjszj.png" style="width: 55%;" alt="Pinterest" /></a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/vendors/jquery/jquery.min.js"></script>
+  <script src="assets/vendors/imagesloaded/imagesloaded.pkgd.js"></script>
+  <script src="assets/vendors/isotope-layout/isotope.pkgd.js"></script>
+  <script src="assets/vendors/jquery-one-page/jquery.nav.min.js"></script>
+  <script src="assets/vendors/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/vendors/jquery.matchHeight/jquery.matchHeight.min.js"></script>
+  <script src="assets/vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
+  <script src="assets/vendors/masonry-layout/masonry.pkgd.js"></script>
+  <script src="assets/vendors/jquery.waypoints/jquery.waypoints.min.js"></script>
+  <script src="assets/vendors/menu/menu.js"></script>
+  <script src="assets/vendors/typed/typed.min.js"></script>
+  <script src="assets/js/main.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+<script>
+  const swiper = new Swiper('.lenny-carousel', {
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+      type: 'bullets', // default, but made explicit
+    },
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true, // ⏸️ pauses on hover
+    },
+    spaceBetween: 10,
+    grabCursor: true,
+    simulateTouch: true,
+    touchRatio: 1,
+    touchAngle: 45,
+    threshold: 5,
+    speed: 600,
+  });
+</script>
+
+
+<!-- Modal HTML -->
+<div id="emailModal" style="display:none; position:fixed; z-index:1000; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6);">
+  <div style="background:#fff; padding:20px; max-width:500px; margin:100px auto; border-radius:8px; position:relative;">
+    <h2>Book a Photoshoot</h2>
+<form id="contact-form">
+  <input type="text" name="from_name" placeholder="Your Name" required>
+  <input type="email" name="reply_to" placeholder="Your Email" required>
+  <textarea name="message" placeholder="Message" required></textarea>
+  <button type="submit">Send</button>
+</form>
+
+  </div>
 </div>
-<!-- Vendors-->
-<script type="text/javascript" src="assets/vendors/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="assets/vendors/imagesloaded/imagesloaded.pkgd.js"></script>
-<script type="text/javascript" src="assets/vendors/isotope-layout/isotope.pkgd.js"></script>
-<script type="text/javascript" src="assets/vendors/jquery-one-page/jquery.nav.min.js"></script>
-<script type="text/javascript" src="assets/vendors/jquery.easing/jquery.easing.min.js"></script>
-<script type="text/javascript" src="assets/vendors/jquery.matchHeight/jquery.matchHeight.min.js"></script>
-<script type="text/javascript" src="assets/vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
-<script type="text/javascript" src="assets/vendors/masonry-layout/masonry.pkgd.js"></script>
-<script type="text/javascript" src="assets/vendors/jquery.waypoints/jquery.waypoints.min.js"></script>
-<script type="text/javascript" src="assets/vendors/swiper/swiper.jquery.js"></script>
-<script type="text/javascript" src="assets/vendors/menu/menu.js"></script>
-<script type="text/javascript" src="assets/vendors/typed/typed.min.js"></script>
-<!-- App-->
-<script type="text/javascript" src="assets/js/main.js"></script>
+
+<!-- EmailJS SDK -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("YOUR_USER_ID"); // Replace with your actual user ID
+  })();
+
+  function openModal() {
+    document.getElementById('emailModal').style.display = 'block';
+  }
+
+  function closeModal() {
+    document.getElementById('emailModal').style.display = 'none';
+  }
+
+</script>
+
+<script>
+  document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    
+    emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
+      .then(function() {
+        alert("Email sent successfully!");
+      }, function(error) {
+        alert("Failed to send email: " + error.text);
+      });
+  });
+</script>
+
+
+
 </body>
 </html>
