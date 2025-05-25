@@ -286,5 +286,35 @@
   lightbox.init();
 </script>
 
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: '.gallery-grid',
+      children: 'a',
+      pswpModule: () => import('https://unpkg.com/photoswipe@5/dist/photoswipe.esm.js'),
+      paddingFn: () => ({ top: 0, bottom: 0, left: 0, right: 0 })
+    });
+    lightbox.init();
+  });
+
+
+  const options = {
+  showHideAnimationType: 'fade',
+  bgOpacity: 0.9,
+  padding: { top: 0, bottom: 0, left: 0, right: 0 },
+  // Prevent scroll affecting popup alignment
+  scrollWrap: true,
+  maxZoomLevel: 2,
+  // These are the key lines:
+  topGap: 0,
+  bottomGap: 0
+};
+
+</script>
+
+
+
+
 	</body>
 </html>
