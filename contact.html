@@ -198,7 +198,7 @@
 							<div class="col-md-7 col-lg-8 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-1 ">
 								<div class="form-wrapper">
 									
-									<form id="contact-form">
+									<form id="contact-form" method="POST" action="send_email.php">
 									<div class="form-item form-item--half">
 										<input class="form-control" type="text" name="from_name" placeholder="Your name" required />
 									</div>
@@ -272,42 +272,6 @@
 		<!-- App-->
 <script type="text/javascript" src="assets/js/main.js"></script>
 
-<!-- EmailJS SDK -->
-<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script type="text/javascript">
-  (function() {
-    emailjs.init('o4FzP7S_OrCnuenhE'); // Your EmailJS public key
-  })();
-</script>
-
-<script>
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-
-  const form = this;
-  const email = form.reply_to.value;
-  const emailHash = md5(email.trim().toLowerCase());
-
-  const hashInput = document.createElement('input');
-  hashInput.type = 'hidden';
-  hashInput.name = 'email_hash';
-  hashInput.value = emailHash;
-  form.appendChild(hashInput);
-
-  emailjs.sendForm('lenny_edits8', 'template_q8fff9h', form)
-    .then(function(response) {
-      showModal("successModal");  // Show your success modal
-      form.reset();
-      form.removeChild(hashInput);
-    }, function(error) {
-      showModal("failModal");  // Show your failure modal
-      form.removeChild(hashInput);
-    });
-});
-
-  });
-</script>
-
 
 
 <!-- Success Modal -->
@@ -330,16 +294,6 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
   </div>
 </div>
 
-
-<!-- EmailJS SDK -->
-<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script type="text/javascript">
-  (function() {
-    emailjs.init('o4FzP7S_OrCnuenhE'); // Your EmailJS public key
-  })();
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/blueimp-md5/js/md5.min.js"></script>
 <script>
 function showModal(modalId) {
   const modal = document.getElementById(modalId);
@@ -356,32 +310,33 @@ function showModal(modalId) {
     }, 300);
   }, 3000); // Modal stays for 3s
 }
-
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-
-  const form = this;
-  const email = form.reply_to.value;
-  const emailHash = md5(email.trim().toLowerCase());
-
-  const hashInput = document.createElement('input');
-  hashInput.type = 'hidden';
-  hashInput.name = 'email_hash';
-  hashInput.value = emailHash;
-  form.appendChild(hashInput);
-
-  emailjs.sendForm('lenny_edits8', 'template_q8fff9h', form)
-    .then(function(response) {
-      showModal("successModal");
-      form.reset();
-      form.removeChild(hashInput);
-    }, function(error) {
-      showModal("failModal");
-      form.removeChild(hashInput);
-    });
-});
 </script>
 
+<script>
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const form = this;
+  const formData = new FormData(form);
+
+  fetch('send_email.php', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.text())
+  .then(responseText => {
+    if (responseText.toLowerCase().includes("message sent")) {
+      showModal("successModal");
+      form.reset();
+    } else {
+      showModal("failModal");
+    }
+  })
+  .catch(error => {
+    console.error(error);
+    showModal("failModal");
+  });
+});
+</script>
 
 
 
