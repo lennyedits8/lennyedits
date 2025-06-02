@@ -22,6 +22,7 @@
 		<link rel="stylesheet" type="text/css" id="app-stylesheet" href="assets/css/main.css"><!--[if lt IE 9]>
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<![endif]-->
+		<link rel="preload" as="image" href="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748819411/lennylogo_upscale_transparent_lzjpoq.png">
 		<link rel="preload" as="image" href="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748890593/lennylogo_upscale_transparent_inverted_ooolex.png">
 
 	</head>
@@ -849,27 +850,63 @@
 
 
 <script>
-  const menuTrigger = document.getElementById("fs-button");
   const logo = document.getElementById("site-logo");
-  let menuOpen = false;
+  const menuTrigger = document.getElementById("fs-button");
+  const fullscreenMenu = document.querySelector(".fullscreenmenu__module");
 
-  menuTrigger.addEventListener("click", () => {
-    menuOpen = !menuOpen;
+  const originalLogo = "https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748819411/lennylogo_upscale_transparent_lzjpoq.png";
+  const invertedLogo = "https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748890593/lennylogo_upscale_transparent_inverted_ooolex.png";
 
-    // Quick fade out
+  function setLogo(isMenuOpen) {
     logo.style.opacity = 0.3;
-
-    // Change image after 100ms
+    logo.src = isMenuOpen ? invertedLogo : originalLogo;
     setTimeout(() => {
-      logo.src = menuOpen
-        ? "https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748890593/lennylogo_upscale_transparent_inverted_ooolex.png"
-        : "https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748819411/lennylogo_upscale_transparent_lzjpoq.png";
-
-      // Quick fade in
       logo.style.opacity = 1;
-    }, 100); // faster swap
+    }, 100);
+  }
+
+  // Toggle menu on button click
+  menuTrigger.addEventListener("click", (e) => {
+    e.stopPropagation();
+    fullscreenMenu.classList.toggle("active");
+    const isNowOpen = fullscreenMenu.classList.contains("active");
+    setLogo(isNowOpen);
   });
+
+  // Close menu when clicking outside
+  document.addEventListener("click", (e) => {
+    if (
+      fullscreenMenu.classList.contains("active") &&
+      !fullscreenMenu.contains(e.target) &&
+      !menuTrigger.contains(e.target)
+    ) {
+      fullscreenMenu.classList.remove("active");
+      // DO NOT set logo here — let MutationObserver handle it
+    }
+  });
+
+  // 👇 Observe menu for class changes
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (
+        mutation.attributeName === "class" &&
+        !fullscreenMenu.classList.contains("active")
+      ) {
+        // Menu just closed
+        setLogo(false); // Reset logo to original
+      }
+    });
+  });
+
+  observer.observe(fullscreenMenu, { attributes: true });
 </script>
+
+
+
+
+
+
+
 
 
 
