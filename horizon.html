@@ -274,14 +274,15 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function closeMenu() {
+    menuModule.style.display = 'none';
     header.classList.remove('nav-active');
     toggle.classList.remove('open');
-    menuModule.style.display = 'none';
     menuIsOpen = false;
   }
 
+  // Toggle menu on burger click
   toggle.addEventListener('click', function (e) {
-    e.stopPropagation(); // prevent bubbling to document
+    e.stopPropagation();
     if (menuIsOpen) {
       closeMenu();
     } else {
@@ -289,34 +290,29 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  // Close menu on nav link click
   links.forEach(link => {
-    link.addEventListener('click', () => {
-      closeMenu();
-    });
+    link.addEventListener('click', closeMenu);
   });
 
+  // Close menu when clicking anywhere outside, including header
   document.addEventListener('click', function (e) {
     const clickedInsideToggle = toggle.contains(e.target);
     const clickedLink = e.target.closest('.overlay-menu a');
     const clickedInsideMenu = menuModule.contains(e.target);
-    const clickedLogo = e.target.closest('.header__logo');
+    const clickedInsideHeader = header.contains(e.target);
 
-    // Skip if clicked on toggle or link or logo
-    if (clickedInsideToggle || clickedLink || clickedLogo) return;
+    if (clickedInsideToggle || clickedLink) return;
 
-    // If menu is open and clicked inside the fullscreen menu (anywhere blank)
-    if (menuIsOpen && clickedInsideMenu) {
-      closeMenu();
-      return;
-    }
-
-    // Clicked completely outside
-    if (menuIsOpen && !clickedInsideMenu) {
+    // Always close menu if open and clicked outside of the actual menu
+    if (menuIsOpen && (!clickedInsideMenu || clickedInsideHeader)) {
       closeMenu();
     }
   });
 });
 </script>
+
+
 
 
 

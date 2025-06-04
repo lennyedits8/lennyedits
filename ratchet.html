@@ -74,33 +74,121 @@
   }
 
   .img-wrapper {
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-}
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
 
-.aspect-2-3 {
-  aspect-ratio: 2 / 3;
-}
+  .aspect-2-3 {
+    aspect-ratio: 2 / 3;
+  }
 
-.aspect-4-3 {
-  aspect-ratio: 4 / 3;
-}
+  .aspect-4-3 {
+    aspect-ratio: 4 / 3;
+  }
 
-.aspect-3-4 {
-  aspect-ratio: 3 / 4;
-}
+  .aspect-3-4 {
+    aspect-ratio: 3 / 4;
+  }
 
-.aspect-9-16 {
-  aspect-ratio: 9 / 16;
-}
+  .aspect-9-16 {
+    aspect-ratio: 9 / 16;
+  }
 
-.img-wrapper img {
+  .img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .header__logo img.inverted {
+    filter: invert(100%);
+  }
+
+ /* Fullscreen menu base state */
+.fullscreenmenu__module {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* or use 'contain' if you prefer */
-  display: block;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 2100; /* Above header (2000) */
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
+
+/* Fullscreen menu active/open */
+.fullscreenmenu__module.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Header base */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2000; /* Below fullscreen menu */
+  background: transparent;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+}
+
+/* Push logo and toggle icon above fullscreen menu and header */
+.header__logo-wrapper,
+.header__toggle-wrapper {
+  position: fixed; /* fixed so it stays on top */
+  top: 15px;       /* same as header padding */
+  z-index: 3000;   /* highest */
+}
+
+/* Position logo on the left */
+.header__logo-wrapper {
+  left: 20px;
+  flex: 0 0 auto;
+}
+
+.header__toggle-wrapper {
+  position: fixed; /* fixed so it stays on top */
+  top: 50px;       /* moved down from 15px to 25px */
+  right: 20px;
+  z-index: 3000;   /* highest */
+  flex: 0 0 auto;
+}
+
+
+/* Header inner can remain normally positioned */
+.header__inner {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 140px; /* leave space so fixed logo/toggle don't overlap center content */
+}
+
+/* Logo image size */
+.header__logo img {
+  width: 122px;
+}
+
+.navbar-toggle {
+  cursor: pointer;
+}
+
+
+
+
+
+
+
 
 </style>
 
@@ -109,38 +197,41 @@
 		<div class="page-wrap" id="root">
 			
 			<!-- header -->
-			<header class="header header--fixed">
-				<div class="header__inner">
-					<div class="header__logo"><a href="index.html"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928077/logo_q6oh0r.png" alt="" style="width: 122px;"/></a></div>
-					<div class="navbar-toggle" id="fs-button">
-						<div class="navbar-icon"><span></span></div>
+				<header class="header header--fixed">
+
+				<div class="header__logo-wrapper">
+					<div class="header__logo">
+					<a href="index.html">
+						<img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748819411/lennylogo_upscale_transparent_lzjpoq.png" alt="" style="width: 122px;"/>
+					</a>
 					</div>
 				</div>
-				
+
+				<div class="header__toggle-wrapper">
+					<div class="navbar-toggle" id="fs-button">
+					<div class="navbar-icon"><span></span></div>
+					</div>
+				</div>
+
+				<div class="header__inner">
+					<!-- Other header content can go here -->
+				</div>
+
 				<!-- fullscreenmenu__module -->
 				<div class="fullscreenmenu__module" trigger="#fs-button">
-					
-					<!-- overlay-menu -->
 					<nav class="overlay-menu">
-						
-						<!--  -->
-						<ul class="wil-menu-list">
-							<li class="current-menu-item"><a href="index.html">Home</a>
-							</li>
-							</li>
-							<li><a href="about.html">About</a>
-							</li>
-							<li><a href="allwork.html">In-Game</a>
-                            </li>
-							<li><a href="realworld.html">Real Life</a>
-							</li>
-							<li><a href="film.html">35mm Film</a>
-							</li>
-						</ul><!--  -->
-						
-					</nav><!-- End / overlay-menu -->
-					
-				</div><!-- End / fullscreenmenu__module -->
+					<ul class="wil-menu-list">
+						<li class="current-menu-item"><a href="index.html">Home</a></li>
+						<li><a href="about.html">About</a></li>
+						<li><a href="allwork.html">In-Game</a></li>
+						<li><a href="realworld.html">Real Life</a></li>
+						<li><a href="film.html">35mm Film</a></li>
+					</ul>
+					</nav>
+				</div>
+
+
+
 				
 			</header><!-- End / header -->
 			
@@ -253,5 +344,47 @@
 
   lightbox.init();
 </script>
+
+
+<script>
+$(document).ready(function () {
+  const $fsButton = $('#fs-button');
+  const $menuOverlay = $('.fullscreenmenu__module');
+  const $header = $('.header');
+  const $logoImg = $('.header__logo img');
+
+  function toggleMenu() {
+    $menuOverlay.toggleClass('active');
+    $logoImg.toggleClass('inverted');
+  }
+
+  function closeMenu() {
+    $menuOverlay.removeClass('active');
+    $logoImg.removeClass('inverted');
+  }
+
+  $fsButton.on('click', function (e) {
+    e.stopPropagation();
+    toggleMenu();
+  });
+
+  $header.on('click', function (e) {
+    if (!$(e.target).closest('#fs-button').length) {
+      closeMenu();
+    }
+  });
+
+  $(document).on('click', function (e) {
+    if (
+      $menuOverlay.hasClass('active') &&
+      !$(e.target).closest('.fullscreenmenu__module, #fs-button, .header').length
+    ) {
+      closeMenu();
+    }
+  });
+});
+</script>
+
+
 	</body>
 </html>
