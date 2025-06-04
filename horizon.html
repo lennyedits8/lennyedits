@@ -264,55 +264,62 @@ document.addEventListener('DOMContentLoaded', function () {
   const menu = document.querySelector('.overlay-menu');
   const links = menu.querySelectorAll('a');
 
+  let menuIsOpen = false;
+
   function openMenu() {
+    menuModule.style.display = 'block';
     header.classList.add('nav-active');
     toggle.classList.add('open');
+    menuIsOpen = true;
   }
 
   function closeMenu() {
     header.classList.remove('nav-active');
     toggle.classList.remove('open');
+    menuModule.style.display = 'none';
+    menuIsOpen = false;
   }
 
-  toggle.addEventListener('click', function () {
-    const isActive = header.classList.contains('nav-active');
-    if (isActive) {
+  toggle.addEventListener('click', function (e) {
+    e.stopPropagation(); // prevent bubbling to document
+    if (menuIsOpen) {
       closeMenu();
     } else {
       openMenu();
     }
   });
 
-  // Close on menu link click
   links.forEach(link => {
     link.addEventListener('click', () => {
       closeMenu();
     });
   });
 
-  // Close when clicking on non-link area of the menu, or outside entirely
   document.addEventListener('click', function (e) {
-    const isActive = header.classList.contains('nav-active');
-    const clickedLink = e.target.closest('.overlay-menu a');
     const clickedInsideToggle = toggle.contains(e.target);
-    const clickedInsideMenuModule = menuModule.contains(e.target);
+    const clickedLink = e.target.closest('.overlay-menu a');
+    const clickedInsideMenu = menuModule.contains(e.target);
+    const clickedLogo = e.target.closest('.header__logo');
 
-    // Clicked on a menu link: handled above — skip
-    if (clickedLink) return;
+    // Skip if clicked on toggle or link or logo
+    if (clickedInsideToggle || clickedLink || clickedLogo) return;
 
-    // Clicked in empty space of menu module: close menu
-    if (isActive && !clickedInsideToggle && clickedInsideMenuModule) {
+    // If menu is open and clicked inside the fullscreen menu (anywhere blank)
+    if (menuIsOpen && clickedInsideMenu) {
       closeMenu();
       return;
     }
 
-    // Clicked completely outside menu + toggle: close menu
-    if (isActive && !clickedInsideToggle && !clickedInsideMenuModule) {
+    // Clicked completely outside
+    if (menuIsOpen && !clickedInsideMenu) {
       closeMenu();
     }
   });
 });
 </script>
+
+
+
 
 
 
