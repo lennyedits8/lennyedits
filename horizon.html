@@ -107,22 +107,6 @@
   transition: filter 0.3s ease;
 }
 
-.menu-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: transparent;
-  z-index: 9;
-  display: none;
-}
-.header.nav-active .menu-backdrop {
-  display: block;
-}
-
-
-
 
 
 </style>
@@ -134,7 +118,7 @@
 			<!-- header -->
 			<header class="header header--fixed">
 				<div class="header__inner">
-					<div class="header__logo"><a href="index.html"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928077/logo_q6oh0r.png" alt="" style="width: 122px;"/></a></div>
+					<div class="header__logo"><a href="index.html"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/v1748819411/lennylogo_upscale_transparent_lzjpoq.png" alt="" style="width: 122px;"/></a></div>
 					<div class="navbar-toggle" id="fs-button">
 						<div class="navbar-icon"><span></span></div>
 					</div>
@@ -142,8 +126,6 @@
 				
 				<!-- fullscreenmenu__module -->
 				<div class="fullscreenmenu__module" trigger="#fs-button">
-					<div class="menu-backdrop"></div>
-
 					
 					<!-- overlay-menu -->
 					<nav class="overlay-menu">
@@ -164,6 +146,7 @@
 						</ul><!--  -->
 						
 					</nav><!-- End / overlay-menu -->
+					
 					
 				</div><!-- End / fullscreenmenu__module -->
 				
@@ -277,9 +260,9 @@
 document.addEventListener('DOMContentLoaded', function () {
   const toggle = document.getElementById('fs-button');
   const header = document.querySelector('.header');
+  const menuModule = document.querySelector('.fullscreenmenu__module');
   const menu = document.querySelector('.overlay-menu');
   const links = menu.querySelectorAll('a');
-  const backdrop = document.querySelector('.menu-backdrop');
 
   function openMenu() {
     header.classList.add('nav-active');
@@ -300,21 +283,36 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  // Close on menu link click
   links.forEach(link => {
     link.addEventListener('click', () => {
       closeMenu();
     });
   });
 
-  // 🧼 Use backdrop for outside click
-  backdrop.addEventListener('click', () => {
-    closeMenu();
+  // Close when clicking on non-link area of the menu, or outside entirely
+  document.addEventListener('click', function (e) {
+    const isActive = header.classList.contains('nav-active');
+    const clickedLink = e.target.closest('.overlay-menu a');
+    const clickedInsideToggle = toggle.contains(e.target);
+    const clickedInsideMenuModule = menuModule.contains(e.target);
+
+    // Clicked on a menu link: handled above — skip
+    if (clickedLink) return;
+
+    // Clicked in empty space of menu module: close menu
+    if (isActive && !clickedInsideToggle && clickedInsideMenuModule) {
+      closeMenu();
+      return;
+    }
+
+    // Clicked completely outside menu + toggle: close menu
+    if (isActive && !clickedInsideToggle && !clickedInsideMenuModule) {
+      closeMenu();
+    }
   });
 });
-
-
 </script>
-
 
 
 
