@@ -102,6 +102,29 @@
   display: block;
 }
 
+.header.nav-active .header__logo img {
+  filter: invert(1);
+  transition: filter 0.3s ease;
+}
+
+.menu-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  z-index: 9;
+  display: none;
+}
+.header.nav-active .menu-backdrop {
+  display: block;
+}
+
+
+
+
+
 </style>
 
 
@@ -119,6 +142,8 @@
 				
 				<!-- fullscreenmenu__module -->
 				<div class="fullscreenmenu__module" trigger="#fs-button">
+					<div class="menu-backdrop"></div>
+
 					
 					<!-- overlay-menu -->
 					<nav class="overlay-menu">
@@ -248,16 +273,59 @@
     });
 </script>
 
-<script type="module">
-  import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.esm.min.js';
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const toggle = document.getElementById('fs-button');
+  const header = document.querySelector('.header');
+  const menu = document.querySelector('.overlay-menu');
+  const links = menu.querySelectorAll('a');
+  const backdrop = document.querySelector('.menu-backdrop');
 
-  const lightbox = new PhotoSwipeLightbox({
-    gallery: '.gallery-grid',
-    children: 'a',
-    pswpModule: () => import('https://unpkg.com/photoswipe@5/dist/photoswipe.esm.min.js')
+  function openMenu() {
+    header.classList.add('nav-active');
+    toggle.classList.add('open');
+  }
+
+  function closeMenu() {
+    header.classList.remove('nav-active');
+    toggle.classList.remove('open');
+  }
+
+  toggle.addEventListener('click', function () {
+    const isActive = header.classList.contains('nav-active');
+    if (isActive) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
   });
 
-  lightbox.init();
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      closeMenu();
+    });
+  });
+
+  // 🧼 Use backdrop for outside click
+  backdrop.addEventListener('click', () => {
+    closeMenu();
+  });
+});
+
+
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 	</body>
 </html>
