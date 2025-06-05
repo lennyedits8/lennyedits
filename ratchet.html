@@ -398,12 +398,13 @@ $(document).ready(function () {
     }
   });
 
-  // ✅ Add this: Close menu if logo is clicked
-  $('.header__logo a').on('click', function () {
-    if ($menuOverlay.hasClass('active')) {
-      closeMenu();
-    }
-  });
+$('.header__logo a').on('click', function (e) {
+  // Emulate exact close action
+  if ($menuOverlay.hasClass('active')) {
+    closeMenu(); // Close menu like 'X' was clicked
+  }
+});
+
 });
 </script>
 
