@@ -215,7 +215,7 @@
 
 				<div class="header__logo-wrapper">
 					<div class="header__logo">
-					<a href="index.html" id="logo-link">
+					<a href="index.html">
 						<img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748819411/lennylogo_upscale_transparent_lzjpoq.png" alt="" style="width: 122px;"/>
 					</a>
 					</div>
@@ -366,7 +366,6 @@ $(document).ready(function () {
   const $menuOverlay = $('.fullscreenmenu__module');
   const $header = $('.header');
   const $logoImg = $('.header__logo img');
-  const $logoLink = $('#logo-link');
 
   function toggleMenu() {
     $menuOverlay.toggleClass('active');
@@ -378,20 +377,17 @@ $(document).ready(function () {
     $logoImg.removeClass('inverted');
   }
 
-  // Toggle nav menu on button click
   $fsButton.on('click', function (e) {
     e.stopPropagation();
     toggleMenu();
   });
 
-  // Close nav menu if header clicked (not on toggle)
   $header.on('click', function (e) {
     if (!$(e.target).closest('#fs-button').length) {
       closeMenu();
     }
   });
 
-  // Close nav menu if clicking outside
   $(document).on('click', function (e) {
     if (
       $menuOverlay.hasClass('active') &&
@@ -400,29 +396,16 @@ $(document).ready(function () {
       closeMenu();
     }
   });
+});
+</script>
 
-  // Custom logo click handling
-  $logoLink.on('click', function (e) {
-    if ($menuOverlay.hasClass('active')) {
-      e.preventDefault(); // prevent normal navigation
-
-      // Push state with nav open flag
-      history.pushState({ navOpen: true }, '', 'index.html');
-
-      // Manually redirect
-      window.location.href = 'index.html';
-    }
-  });
-
-  // Restore menu state when navigating back
-  window.addEventListener('popstate', function (event) {
-    if (event.state && event.state.navOpen) {
-      $menuOverlay.addClass('active');
-      $logoImg.addClass('inverted');
-    } else {
-      closeMenu();
-    }
-  });
+<script>
+window.addEventListener('pageshow', function (event) {
+  // On page load via history navigation (like back button), always close menu
+  const $menuOverlay = $('.fullscreenmenu__module');
+  const $logoImg = $('.header__logo img');
+  $menuOverlay.removeClass('active');
+  $logoImg.removeClass('inverted');
 });
 </script>
 
