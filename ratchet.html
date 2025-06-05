@@ -411,13 +411,16 @@ $('.header__logo a').on('click', function (e) {
 
 <script>
 window.addEventListener('pageshow', function (event) {
-  // On page load via history navigation (like back button), always close menu
   const $menuOverlay = $('.fullscreenmenu__module');
   const $logoImg = $('.header__logo img');
+  const $toggleWrapper = $('.header__toggle-wrapper');
+
   $menuOverlay.removeClass('active');
   $logoImg.removeClass('inverted');
+  $toggleWrapper.show(); // Ensures toggle icon is visible again
 });
 </script>
+
 
 
 
