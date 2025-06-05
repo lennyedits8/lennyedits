@@ -411,11 +411,18 @@ $('.header__logo a').on('click', function (e) {
 
 <script>
   window.addEventListener('pageshow', function (event) {
-    $('.fullscreenmenu__module').removeClass('active');
-    $('.header__logo img').removeClass('inverted');
-    $('.header__toggle-wrapper').css('display', 'block');
+    // This triggers when Safari returns from bfcache
+    if (event.persisted) {
+      // Force a reflow to make Safari repaint elements correctly
+      document.body.offsetHeight;
+
+      $('.fullscreenmenu__module').removeClass('active');
+      $('.header__logo img').removeClass('inverted');
+      $('.header__toggle-wrapper').css('display', 'block');
+    }
   });
 
+  // Also fallback for other browsers or tabs becoming visible again
   document.addEventListener('visibilitychange', function () {
     if (document.visibilityState === 'visible') {
       $('.fullscreenmenu__module').removeClass('active');
@@ -423,7 +430,17 @@ $('.header__logo a').on('click', function (e) {
       $('.header__toggle-wrapper').css('display', 'block');
     }
   });
+
+  window.addEventListener('pageshow', function (event) {
+  if (event.persisted) {
+    window.location.reload();
+  }
+});
+
 </script>
+
+
+
 
 
 
