@@ -184,6 +184,18 @@
 }
 
 
+.header-spacer {
+  height: 130px; /* Adjust to match the vertical space needed */
+}
+
+.overlay-menu ul li a:hover,
+.overlay-menu ul li a:focus,
+.overlay-menu ul li a:active {
+  color: #ff594f;
+}
+
+
+
 
 
 
@@ -198,10 +210,12 @@
 			
 			<!-- header -->
 				<header class="header header--fixed">
+				<div class="header-spacer"></div>
+
 
 				<div class="header__logo-wrapper">
 					<div class="header__logo">
-					<a href="index.html">
+					<a href="index.html" id="logo-link">
 						<img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748819411/lennylogo_upscale_transparent_lzjpoq.png" alt="" style="width: 122px;"/>
 					</a>
 					</div>
@@ -352,6 +366,7 @@ $(document).ready(function () {
   const $menuOverlay = $('.fullscreenmenu__module');
   const $header = $('.header');
   const $logoImg = $('.header__logo img');
+  const $logoLink = $('#logo-link');
 
   function toggleMenu() {
     $menuOverlay.toggleClass('active');
@@ -363,17 +378,20 @@ $(document).ready(function () {
     $logoImg.removeClass('inverted');
   }
 
+  // Toggle nav menu on button click
   $fsButton.on('click', function (e) {
     e.stopPropagation();
     toggleMenu();
   });
 
+  // Close nav menu if header clicked (not on toggle)
   $header.on('click', function (e) {
     if (!$(e.target).closest('#fs-button').length) {
       closeMenu();
     }
   });
 
+  // Close nav menu if clicking outside
   $(document).on('click', function (e) {
     if (
       $menuOverlay.hasClass('active') &&
@@ -382,8 +400,35 @@ $(document).ready(function () {
       closeMenu();
     }
   });
+
+  // Custom logo click handling
+  $logoLink.on('click', function (e) {
+    if ($menuOverlay.hasClass('active')) {
+      e.preventDefault(); // prevent normal navigation
+
+      // Push state with nav open flag
+      history.pushState({ navOpen: true }, '', 'index.html');
+
+      // Manually redirect
+      window.location.href = 'index.html';
+    }
+  });
+
+  // Restore menu state when navigating back
+  window.addEventListener('popstate', function (event) {
+    if (event.state && event.state.navOpen) {
+      $menuOverlay.addClass('active');
+      $logoImg.addClass('inverted');
+    } else {
+      closeMenu();
+    }
+  });
 });
 </script>
+
+
+
+
 
 
 	</body>
