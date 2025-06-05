@@ -410,15 +410,19 @@ $('.header__logo a').on('click', function (e) {
 
 
 <script>
-window.addEventListener('pageshow', function (event) {
-  const $menuOverlay = $('.fullscreenmenu__module');
-  const $logoImg = $('.header__logo img');
-  const $toggleWrapper = $('.header__toggle-wrapper');
+  window.addEventListener('pageshow', function (event) {
+    $('.fullscreenmenu__module').removeClass('active');
+    $('.header__logo img').removeClass('inverted');
+    $('.header__toggle-wrapper').css('display', 'block');
+  });
 
-  $menuOverlay.removeClass('active');
-  $logoImg.removeClass('inverted');
-  $toggleWrapper.show(); // Ensures toggle icon is visible again
-});
+  document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState === 'visible') {
+      $('.fullscreenmenu__module').removeClass('active');
+      $('.header__logo img').removeClass('inverted');
+      $('.header__toggle-wrapper').css('display', 'block');
+    }
+  });
 </script>
 
 
