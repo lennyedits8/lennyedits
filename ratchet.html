@@ -202,6 +202,7 @@
 
 
 
+
 </style>
 
 
@@ -396,8 +397,16 @@ $(document).ready(function () {
       closeMenu();
     }
   });
+
+  // ✅ Add this: Close menu if logo is clicked
+  $('.header__logo a').on('click', function () {
+    if ($menuOverlay.hasClass('active')) {
+      closeMenu();
+    }
+  });
 });
 </script>
+
 
 <script>
 window.addEventListener('pageshow', function (event) {
