@@ -104,6 +104,16 @@
   display: block;
 }
 
+.logo-img {
+  transition: filter 0.3s ease;
+  filter: invert(0%) !important;
+}
+
+body.nav-open .logo-img {
+  filter: invert(100%) !important;
+}
+
+
 </style>
 
 
@@ -114,7 +124,7 @@
 			<!-- header -->
 			<header class="header header--fixed">
 				<div class="header__inner">
-					<div class="header__logo"><a href="index.html"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928077/logo_q6oh0r.png" alt="" style="width: 122px;"/></a></div>
+					<div class="header__logo"><a href="index.html"><img class="logo-img" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928077/logo_q6oh0r.png" alt="Logo" style="width: 122px;" /></a></div>
 					<div class="navbar-toggle" id="fs-button">
 						<div class="navbar-icon"><span></span></div>
 					</div>
@@ -256,5 +266,40 @@
 
   lightbox.init();
 </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuButton = document.getElementById('fs-button');
+    const fullscreenMenu = document.querySelector('.fullscreenmenu__module');
+
+    // Toggle nav-open class on menu toggle click
+    menuButton.addEventListener('click', function (e) {
+      e.stopPropagation();
+      document.body.classList.toggle('nav-open');
+    });
+
+    // Clicking outside the menu closes it
+    document.addEventListener('click', function (e) {
+      const isClickInsideMenu = fullscreenMenu.contains(e.target);
+      const isClickOnButton = menuButton.contains(e.target);
+
+      if (!isClickInsideMenu && !isClickOnButton) {
+        document.body.classList.remove('nav-open');
+      }
+    });
+
+    // Clicking any nav link closes the menu
+    document.querySelectorAll('.wil-menu-list a').forEach(link => {
+      link.addEventListener('click', function () {
+        document.body.classList.remove('nav-open');
+      });
+    });
+  });
+</script>
+
+
+
+
+
 	</body>
 </html>
