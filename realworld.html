@@ -24,7 +24,6 @@
 		<![endif]-->
 
 		<link rel="preload" href="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748819411/lennylogo_upscale_transparent_lzjpoq.png" as="image" type="image/png">
-		<link rel="preload" href="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748890593/lennylogo_upscale_transparent_inverted_ooolex.png" as="image" type="image/png">
 
 	</head>
 
@@ -110,13 +109,15 @@
 }
 }*/
 
-#site-logo.inverted {
-  filter: invert(1);
+#site-logo {
+    filter: none;
 }
 
-#site-logo {
-    transition: filter 0.2s ease, opacity 0.2s ease; /* add opacity transition if needed */
+#site-logo.inverted {
+    filter: invert(1);
 }
+
+
 
 
 
@@ -129,7 +130,7 @@
 			<!-- header -->
 			<header class="header header--fixed">
 				<div class="header__inner">
-					<div class="header__logo"><a href="index.html"><img id="site-logo" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748819411/lennylogo_upscale_transparent_lzjpoq.png" alt="" style="width: 122px;"/></a></div>
+					<div class="header__logo"><a href="index.html"><img id="site-logo" loading="eager" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748819411/lennylogo_upscale_transparent_lzjpoq.png" alt="" style="width: 122px;" /></a></div>
 					<div class="navbar-toggle" id="fs-button">
 						<div class="navbar-icon"><span></span></div>
 					</div>
@@ -384,82 +385,103 @@
 		<script type="text/javascript" src="assets/vendors/typed/typed.min.js"></script>
 		<!-- App-->
 		<script type="text/javascript" src="assets/js/main.js"></script>
-		<script>
-			document.addEventListener("DOMContentLoaded", function () {
-				const hoverboxes = document.querySelectorAll('.hoverbox');
-			
-				// Only activate touch behavior on mobile/touch devices
-				if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
-					hoverboxes.forEach(hoverbox => {
-						hoverbox.addEventListener('touchend', function (e) {
-							if (!hoverbox.classList.contains('touch-active')) {
-								e.preventDefault(); // Prevent link navigation
-								hoverboxes.forEach(hb => hb.classList.remove('touch-active'));
-								hoverbox.classList.add('touch-active');
-							} else {
-								hoverbox.classList.remove('touch-active'); // Allow navigation on 2nd tap
-							}
-						});
-			
-						// Tap outside to clear the active state
-						document.addEventListener('touchstart', function (e) {
-							if (!hoverbox.contains(e.target)) {
-								hoverbox.classList.remove('touch-active');
-							}
-						});
-					});
-				}
-			});
-			</script>
-			
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+    // 1. Lazy-load all images
     document.querySelectorAll('img').forEach(img => {
         img.loading = "lazy";
     });
+
+    // 2. Initialize Masonry layout once images are loaded
+    imagesLoaded('.gallery-grid', function () {
+        new Masonry('.gallery-grid', {
+            itemSelector: '.work-img',
+            percentPosition: true,
+            gutter: 20
+        });
+    });
+
+    // 3. Touch support for .hoverbox (double-tap behavior)
+    const hoverboxes = document.querySelectorAll('.hoverbox');
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+        hoverboxes.forEach(hoverbox => {
+            hoverbox.addEventListener('touchend', function (e) {
+                if (!hoverbox.classList.contains('touch-active')) {
+                    e.preventDefault(); // First tap: show overlay
+                    hoverboxes.forEach(hb => hb.classList.remove('touch-active'));
+                    hoverbox.classList.add('touch-active');
+                } else {
+                    hoverbox.classList.remove('touch-active'); // Second tap: follow link
+                }
+            });
+
+            // Tap outside to remove hover state
+            document.addEventListener('touchstart', function (e) {
+                if (!hoverbox.contains(e.target)) {
+                    hoverbox.classList.remove('touch-active');
+                }
+            });
+        });
+    }
+	
+//invert logo toggle
+const menuModule = document.querySelector('.fullscreenmenu__module');
+const fsButton = document.getElementById('fs-button');
+const logo = document.getElementById('site-logo');
+
+// Track menu open state manually
+let menuIsOpen = false;
+
+// Toggle logo immediately based on tracked state
+fsButton.addEventListener('click', function () {
+    menuIsOpen = !menuIsOpen; // Flip state
+
+    // Apply logo class immediately
+    if (menuIsOpen) {
+        logo.classList.add('inverted');
+    } else {
+        logo.classList.remove('inverted');
+    }
 });
 
-
-    imagesLoaded('.gallery-grid', function () {
-      new Masonry('.gallery-grid', {
-        itemSelector: '.work-img',
-        percentPosition: true,
-        gutter: 20
-      });
-    });
-</script>	
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const menuModule = document.querySelector('.fullscreenmenu__module');
-    const fsButton = document.getElementById('fs-button');
-    const logo = document.getElementById('site-logo');
-
-    function checkMenuState() {
-        const style = getComputedStyle(menuModule);
-        if (style.visibility === 'visible' && style.opacity === '1') {
-            logo.classList.add('inverted');
-        } else {
+// Fallback in case something else closes the menu (e.g., clicking outside)
+menuModule.addEventListener('transitionend', function (event) {
+    if (event.propertyName === 'opacity') {
+        const isVisible = getComputedStyle(menuModule).visibility === 'visible' &&
+                          getComputedStyle(menuModule).opacity === '1';
+        if (!isVisible) {
             logo.classList.remove('inverted');
+            menuIsOpen = false;
         }
     }
-
-    // Handle click — run check immediately in case there's no transition
-    fsButton.addEventListener('click', function () {
-        checkMenuState();
-    });
-
-    // Monitor transitionend (best for CSS transitions)
-    menuModule.addEventListener('transitionend', function (event) {
-        if (event.propertyName === 'opacity') {
-            checkMenuState();
-        }
-    });
 });
 
+
+
+
+});
 </script>
 
 
+<!--    // 4. Fullscreen menu: check visibility and toggle logo inversion
+const menuModule = document.querySelector('.fullscreenmenu__module');
+const fsButton = document.getElementById('fs-button');
+const logo = document.getElementById('site-logo');
+
+fsButton.addEventListener('click', function () {
+    const isMenuOpen = getComputedStyle(menuModule).visibility === 'visible' && getComputedStyle(menuModule).opacity === '1';
+
+    // Invert logo BEFORE the menu animation starts
+    if (!isMenuOpen) {
+        logo.classList.add('inverted');
+    } else {
+        logo.classList.remove('inverted');
+    }
+
+    // You can still listen for transitionend if needed for other logic
+});
+
+});-->
 			
 	</body>
 </html>
