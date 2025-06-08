@@ -23,6 +23,9 @@
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<![endif]-->
 
+		<link rel="preload" href="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748819411/lennylogo_upscale_transparent_lzjpoq.png" as="image" type="image/png">
+		<link rel="preload" href="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748890593/lennylogo_upscale_transparent_inverted_ooolex.png" as="image" type="image/png">
+
 	</head>
 
 	<!-- Google tag (gtag.js) -->
@@ -100,11 +103,17 @@
 
 /*#site-logo {
   transition: opacity 0.3s ease-in-out;
-}*/
+
 
 #site-logo.fade-out {
   opacity: 0;
 }
+}*/
+
+#site-logo.inverted {
+  filter: invert(1);
+}
+
 
 </style>
 	
@@ -419,41 +428,30 @@ document.addEventListener("DOMContentLoaded", function () {
     const fsButton = document.getElementById('fs-button');
     const logo = document.getElementById('site-logo');
 
-    const originalLogo = "https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748819411/lennylogo_upscale_transparent_lzjpoq.png";
-    const invertedLogo = "https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748890593/lennylogo_upscale_transparent_inverted_ooolex.png";
-
-    function swapLogo(newSrc) {
-        // Add fade out
-        logo.classList.add('fade-out');
-
-        // After fade out completes (200ms), change src and fade back in
-        setTimeout(() => {
-            logo.src = newSrc;
-            logo.classList.remove('fade-out');
-        }, 0.0);
-    }
-
     function checkMenuState() {
         const style = getComputedStyle(menuModule);
         if (style.visibility === 'visible' && style.opacity === '1') {
-            swapLogo(invertedLogo);
+            logo.classList.add('inverted');
         } else {
-            swapLogo(originalLogo);
+            logo.classList.remove('inverted');
         }
     }
 
+    // Handle click
     fsButton.addEventListener('click', function () {
-        // no delay needed
+        setTimeout(checkMenuState, 50);
     });
 
+    // Also monitor transitionend in case menu has CSS transition
     menuModule.addEventListener('transitionend', function (event) {
         if (event.propertyName === 'opacity') {
             checkMenuState();
         }
     });
 });
-
 </script>
+
+
 			
 	</body>
 </html>
