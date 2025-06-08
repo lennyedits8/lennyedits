@@ -107,7 +107,7 @@
 }
 
 #site-logo.instant {
-  transition: none !important;
+    transition: none !important;
 }
 
 
@@ -165,7 +165,7 @@
 						
 						<!-- page-title -->
 						<div class="page-title pb-40">
-							<h2 class="page-title__title">Real World Photography</h2>
+							<h2 class="page-title__title">(new code)Real World Photography</h2>
 							<p class="page-title__text">Please click on the photos below to view that gallery</p>
 							<div class="page-title__divider"></div>
 						</div><!-- End / page-title -->
@@ -420,44 +420,46 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // 4. Invert logo toggle on fullscreen menu open/close
-    const menuModule = document.querySelector('.fullscreenmenu__module');
-    const fsButton = document.getElementById('fs-button');
-    const logo = document.getElementById('site-logo');
+const menuModule = document.querySelector('.fullscreenmenu__module');
+const fsButton = document.getElementById('fs-button');
+const logo = document.getElementById('site-logo');
 
-    let menuIsOpen = false;
+let menuIsOpen = false;
 
-    fsButton.addEventListener('click', function () {
-        menuIsOpen = !menuIsOpen;
+fsButton.addEventListener('click', function () {
+    menuIsOpen = !menuIsOpen;
 
-        if (menuIsOpen) {
-            logo.classList.remove('instant');
-            logo.classList.add('inverted');
-        } else {
-            // Mark for instant removal once transition finishes
+    if (menuIsOpen) {
+        // Add 'inverted' and allow transitions
+        logo.classList.remove('instant');
+        logo.classList.add('inverted');
+    } else {
+        // Remove 'inverted' and mark for instant removal post-transition
+        logo.classList.add('instant'); // disables transitions in CSS
+        logo.classList.remove('inverted');
+    }
+});
+
+menuModule.addEventListener('transitionend', function (event) {
+    if (event.propertyName === 'opacity') {
+        const isVisible = getComputedStyle(menuModule).visibility === 'visible' &&
+                          getComputedStyle(menuModule).opacity === '1';
+
+        if (!isVisible) {
+            // This is the "non-X" menu close case
             logo.classList.add('instant');
             logo.classList.remove('inverted');
+
+            // Remove 'instant' right after so future transitions work
+            requestAnimationFrame(() => {
+                logo.classList.remove('instant');
+            });
+
+            menuIsOpen = false;
         }
-    });
+    }
+});
 
-    menuModule.addEventListener('transitionend', function (event) {
-        if (event.propertyName === 'opacity') {
-            const isVisible = getComputedStyle(menuModule).visibility === 'visible' &&
-                              getComputedStyle(menuModule).opacity === '1';
-
-            if (!isVisible) {
-                // Force instant un-invert
-                logo.classList.add('instant');
-                logo.classList.remove('inverted');
-
-                // Remove 'instant' immediately after render (no fade-in)
-                setTimeout(() => {
-                    logo.classList.remove('instant');
-                }, 0);
-
-                menuIsOpen = false;
-            }
-        }
-    });
 });
 </script>
 
