@@ -165,7 +165,7 @@
 						
 						<!-- page-title -->
 						<div class="page-title pb-40">
-							<h2 class="page-title__title">(quick exit) Real World Photography</h2>
+							<h2 class="page-title__title">(quick exit 2...) Real World Photography</h2>
 							<p class="page-title__text">Please click on the photos below to view that gallery</p>
 							<div class="page-title__divider"></div>
 						</div><!-- End / page-title -->
@@ -419,44 +419,52 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     }
-	
 
-// Invert logo toggle
-const menuModule = document.querySelector('.fullscreenmenu__module');
-const fsButton = document.getElementById('fs-button');
-const logo = document.getElementById('site-logo');
+    // 4. Invert logo toggle on fullscreen menu open/close
+    const menuModule = document.querySelector('.fullscreenmenu__module');
+    const fsButton = document.getElementById('fs-button');
+    const logo = document.getElementById('site-logo');
 
-let menuIsOpen = false;
+    let menuIsOpen = false;
 
-fsButton.addEventListener('click', function () {
-    menuIsOpen = !menuIsOpen;
+    fsButton.addEventListener('click', function () {
+        menuIsOpen = !menuIsOpen;
 
-    // Only add transition when opening
-    if (menuIsOpen) {
-        logo.classList.remove('instant'); // ensure smooth transition
-        logo.classList.add('inverted');
-    } else {
-        logo.classList.add('instant'); // make exit instant
-        logo.classList.remove('inverted');
-    }
-});
-
-menuModule.addEventListener('transitionend', function (event) {
-    if (event.propertyName === 'opacity') {
-        const isVisible = getComputedStyle(menuModule).visibility === 'visible' &&
-                          getComputedStyle(menuModule).opacity === '1';
-
-        if (!isVisible && menuIsOpen) {
-            logo.classList.add('instant'); // make logo change instant
+        if (menuIsOpen) {
+            // Smooth transition when menu opens
+            logo.classList.remove('instant');
+            logo.classList.add('inverted');
+        } else {
+            // Prepare for instant logo reset after menu closes
+            logo.classList.add('instant');
             logo.classList.remove('inverted');
-            menuIsOpen = false;
         }
-    }
-});
+    });
 
+    menuModule.addEventListener('transitionend', function (event) {
+        if (event.propertyName === 'opacity') {
+            const isVisible = getComputedStyle(menuModule).visibility === 'visible' &&
+                              getComputedStyle(menuModule).opacity === '1';
 
+            if (!isVisible) {
+                // Menu is now hidden: reset logo instantly
+                logo.classList.add('instant');
+                logo.classList.remove('inverted');
+
+                // Optional: clean up 'instant' after a frame
+                requestAnimationFrame(() => {
+                    setTimeout(() => {
+                        logo.classList.remove('instant');
+                    }, 0);
+                });
+
+                menuIsOpen = false;
+            }
+        }
+    });
 });
 </script>
+
 
 
 <!--    // 4. Fullscreen menu: check visibility and toggle logo inversion
