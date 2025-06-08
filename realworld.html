@@ -100,22 +100,13 @@
   display: block;
 }
 
-/*#site-logo {
-  transition: opacity 0.3s ease-in-out;
 
-
-#site-logo.fade-out {
-  opacity: 0;
-}
-}*/
-
-#site-logo {
-    filter: none;
-}
 
 #site-logo.inverted {
     filter: invert(1);
 }
+
+
 
 
 
@@ -169,7 +160,7 @@
 						
 						<!-- page-title -->
 						<div class="page-title pb-40">
-							<h2 class="page-title__title">test Real World Photography</h2>
+							<h2 class="page-title__title">(logo) Real World Photography</h2>
 							<p class="page-title__text">Please click on the photos below to view that gallery</p>
 							<div class="page-title__divider"></div>
 						</div><!-- End / page-title -->
@@ -424,7 +415,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 	
-//invert logo toggle
+
+// Invert logo toggle
 const menuModule = document.querySelector('.fullscreenmenu__module');
 const fsButton = document.getElementById('fs-button');
 const logo = document.getElementById('site-logo');
@@ -449,16 +441,14 @@ menuModule.addEventListener('transitionend', function (event) {
     if (event.propertyName === 'opacity') {
         const isVisible = getComputedStyle(menuModule).visibility === 'visible' &&
                           getComputedStyle(menuModule).opacity === '1';
-        if (!isVisible) {
+
+        // If menu is hidden and wasn't manually closed via the button
+        if (!isVisible && menuIsOpen) {
             logo.classList.remove('inverted');
             menuIsOpen = false;
         }
     }
 });
-
-
-
-
 });
 </script>
 
