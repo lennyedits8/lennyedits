@@ -104,14 +104,14 @@
   display: block;
 }
 
-.logo-img {
-  transition: filter 0.3s ease;
-  filter: invert(0%) !important;
+/*#site-logo {
+  transition: opacity 0.3s ease-in-out;
+}*/
+
+#site-logo.fade-out {
+  opacity: 0;
 }
 
-body.nav-open .logo-img {
-  filter: invert(100%) !important;
-}
 
 
 </style>
@@ -124,7 +124,7 @@ body.nav-open .logo-img {
 			<!-- header -->
 			<header class="header header--fixed">
 				<div class="header__inner">
-					<div class="header__logo"><a href="index.html"><img class="logo-img" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928077/logo_q6oh0r.png" alt="Logo" style="width: 122px;" /></a></div>
+					<div class="header__logo"><a href="index.html"><img id="site-logo" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748819411/lennylogo_upscale_transparent_lzjpoq.png" alt="" style="width: 122px;"/></a></div>
 					<div class="navbar-toggle" id="fs-button">
 						<div class="navbar-icon"><span></span></div>
 					</div>
@@ -268,36 +268,46 @@ body.nav-open .logo-img {
 </script>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const menuButton = document.getElementById('fs-button');
-    const fullscreenMenu = document.querySelector('.fullscreenmenu__module');
+document.addEventListener("DOMContentLoaded", function () {
+    const menuModule = document.querySelector('.fullscreenmenu__module');
+    const fsButton = document.getElementById('fs-button');
+    const logo = document.getElementById('site-logo');
 
-    // Toggle nav-open class on menu toggle click
-    menuButton.addEventListener('click', function (e) {
-      e.stopPropagation();
-      document.body.classList.toggle('nav-open');
+    const originalLogo = "https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748819411/lennylogo_upscale_transparent_lzjpoq.png";
+    const invertedLogo = "https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748890593/lennylogo_upscale_transparent_inverted_ooolex.png";
+
+    function swapLogo(newSrc) {
+        // Add fade out
+        logo.classList.add('fade-out');
+
+        // After fade out completes (200ms), change src and fade back in
+        setTimeout(() => {
+            logo.src = newSrc;
+            logo.classList.remove('fade-out');
+        }, 0.0);
+    }
+
+    function checkMenuState() {
+        const style = getComputedStyle(menuModule);
+        if (style.visibility === 'visible' && style.opacity === '1') {
+            swapLogo(invertedLogo);
+        } else {
+            swapLogo(originalLogo);
+        }
+    }
+
+    fsButton.addEventListener('click', function () {
+        // no delay needed
     });
 
-    // Clicking outside the menu closes it
-    document.addEventListener('click', function (e) {
-      const isClickInsideMenu = fullscreenMenu.contains(e.target);
-      const isClickOnButton = menuButton.contains(e.target);
-
-      if (!isClickInsideMenu && !isClickOnButton) {
-        document.body.classList.remove('nav-open');
-      }
+    menuModule.addEventListener('transitionend', function (event) {
+        if (event.propertyName === 'opacity') {
+            checkMenuState();
+        }
     });
+});
 
-    // Clicking any nav link closes the menu
-    document.querySelectorAll('.wil-menu-list a').forEach(link => {
-      link.addEventListener('click', function () {
-        document.body.classList.remove('nav-open');
-      });
-    });
-  });
 </script>
-
-
 
 
 
