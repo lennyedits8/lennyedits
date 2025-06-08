@@ -130,6 +130,11 @@
   pointer-events: auto;
 }
 
+#site-logo {
+  transition: filter 0.3s ease;
+}
+
+
 
 
 
@@ -462,6 +467,15 @@ menuModule.addEventListener('transitionend', function (event) {
             logo.classList.remove('inverted');
             menuIsOpen = false;
         }
+    }
+});
+
+document.addEventListener('click', function (e) {
+    // Only run this if the menu is open
+    if (menuIsOpen && !menuModule.contains(e.target) && !fsButton.contains(e.target)) {
+        menuModule.classList.remove('open');
+        logo.classList.remove('inverted');
+        menuIsOpen = false;
     }
 });
 
