@@ -117,24 +117,6 @@
     filter: invert(1);
 }
 
-.fullscreenmenu__module {
-  transition: opacity 0.2s ease, visibility 0.2s ease;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.fullscreenmenu__module.open {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-}
-
-#site-logo {
-  transition: filter 0.3s ease;
-}
-
-
 
 
 
@@ -187,7 +169,7 @@
 						
 						<!-- page-title -->
 						<div class="page-title pb-40">
-							<h2 class="page-title__title">test again --- Real World Photography</h2>
+							<h2 class="page-title__title">test Real World Photography</h2>
 							<p class="page-title__text">Please click on the photos below to view that gallery</p>
 							<div class="page-title__divider"></div>
 						</div><!-- End / page-title -->
@@ -452,11 +434,15 @@ let menuIsOpen = false;
 
 // Toggle logo immediately based on tracked state
 fsButton.addEventListener('click', function () {
-    menuIsOpen = !menuIsOpen;
-    menuModule.classList.toggle('open', menuIsOpen);
-    logo.classList.toggle('inverted', menuIsOpen);
-});
+    menuIsOpen = !menuIsOpen; // Flip state
 
+    // Apply logo class immediately
+    if (menuIsOpen) {
+        logo.classList.add('inverted');
+    } else {
+        logo.classList.remove('inverted');
+    }
+});
 
 // Fallback in case something else closes the menu (e.g., clicking outside)
 menuModule.addEventListener('transitionend', function (event) {
@@ -467,15 +453,6 @@ menuModule.addEventListener('transitionend', function (event) {
             logo.classList.remove('inverted');
             menuIsOpen = false;
         }
-    }
-});
-
-document.addEventListener('click', function (e) {
-    // Only run this if the menu is open
-    if (menuIsOpen && !menuModule.contains(e.target) && !fsButton.contains(e.target)) {
-        menuModule.classList.remove('open');
-        logo.classList.remove('inverted');
-        menuIsOpen = false;
     }
 });
 
