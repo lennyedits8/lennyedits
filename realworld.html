@@ -165,7 +165,7 @@
 						
 						<!-- page-title -->
 						<div class="page-title pb-40">
-							<h2 class="page-title__title">(quick exit 2...) Real World Photography</h2>
+							<h2 class="page-title__title">Real World Photography</h2>
 							<p class="page-title__text">Please click on the photos below to view that gallery</p>
 							<div class="page-title__divider"></div>
 						</div><!-- End / page-title -->
@@ -383,12 +383,12 @@
 		<script type="text/javascript" src="assets/js/main.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-    // 1. Lazy-load all images
+    // 1. Lazy-load images
     document.querySelectorAll('img').forEach(img => {
         img.loading = "lazy";
     });
 
-    // 2. Initialize Masonry layout once images are loaded
+    // 2. Initialize Masonry after images loaded
     imagesLoaded('.gallery-grid', function () {
         new Masonry('.gallery-grid', {
             itemSelector: '.work-img',
@@ -397,21 +397,20 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // 3. Touch support for .hoverbox (double-tap behavior)
+    // 3. Double-tap hover fix for touch devices
     const hoverboxes = document.querySelectorAll('.hoverbox');
     if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
         hoverboxes.forEach(hoverbox => {
             hoverbox.addEventListener('touchend', function (e) {
                 if (!hoverbox.classList.contains('touch-active')) {
-                    e.preventDefault(); // First tap: show overlay
+                    e.preventDefault();
                     hoverboxes.forEach(hb => hb.classList.remove('touch-active'));
                     hoverbox.classList.add('touch-active');
                 } else {
-                    hoverbox.classList.remove('touch-active'); // Second tap: follow link
+                    hoverbox.classList.remove('touch-active');
                 }
             });
 
-            // Tap outside to remove hover state
             document.addEventListener('touchstart', function (e) {
                 if (!hoverbox.contains(e.target)) {
                     hoverbox.classList.remove('touch-active');
@@ -431,11 +430,10 @@ document.addEventListener("DOMContentLoaded", function () {
         menuIsOpen = !menuIsOpen;
 
         if (menuIsOpen) {
-            // Smooth transition when menu opens
             logo.classList.remove('instant');
             logo.classList.add('inverted');
         } else {
-            // Prepare for instant logo reset after menu closes
+            // Mark for instant removal once transition finishes
             logo.classList.add('instant');
             logo.classList.remove('inverted');
         }
@@ -447,16 +445,14 @@ document.addEventListener("DOMContentLoaded", function () {
                               getComputedStyle(menuModule).opacity === '1';
 
             if (!isVisible) {
-                // Menu is now hidden: reset logo instantly
+                // Force instant un-invert
                 logo.classList.add('instant');
                 logo.classList.remove('inverted');
 
-                // Optional: clean up 'instant' after a frame
-                requestAnimationFrame(() => {
-                    setTimeout(() => {
-                        logo.classList.remove('instant');
-                    }, 0);
-                });
+                // Remove 'instant' immediately after render (no fade-in)
+                setTimeout(() => {
+                    logo.classList.remove('instant');
+                }, 0);
 
                 menuIsOpen = false;
             }
@@ -464,6 +460,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 </script>
+
 
 
 
