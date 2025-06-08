@@ -114,6 +114,11 @@
   filter: invert(1);
 }
 
+#site-logo {
+    transition: filter 0.2s ease, opacity 0.2s ease; /* add opacity transition if needed */
+}
+
+
 
 </style>
 	
@@ -408,10 +413,12 @@
 			</script>
 			
 <script>
-  /*document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll('img').forEach(img => {
-      img.loading = "lazy";
-    });*/
+        img.loading = "lazy";
+    });
+});
+
 
     imagesLoaded('.gallery-grid', function () {
       new Masonry('.gallery-grid', {
@@ -437,18 +444,19 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Handle click
+    // Handle click — run check immediately in case there's no transition
     fsButton.addEventListener('click', function () {
-        setTimeout(checkMenuState, 50);
+        checkMenuState();
     });
 
-    // Also monitor transitionend in case menu has CSS transition
+    // Monitor transitionend (best for CSS transitions)
     menuModule.addEventListener('transitionend', function (event) {
         if (event.propertyName === 'opacity') {
             checkMenuState();
         }
     });
 });
+
 </script>
 
 
