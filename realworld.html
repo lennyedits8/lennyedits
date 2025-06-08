@@ -117,6 +117,20 @@
     filter: invert(1);
 }
 
+.fullscreenmenu__module {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: none; /* remove default transition */
+}
+
+.fullscreenmenu__module.opening {
+  transition: opacity 0.1s ease-in, visibility 0s linear;
+}
+
+.fullscreenmenu__module.closing {
+  transition: opacity 0.3s ease-out, visibility 0s linear 0.3s;
+}
 
 
 
@@ -169,7 +183,7 @@
 						
 						<!-- page-title -->
 						<div class="page-title pb-40">
-							<h2 class="page-title__title">Real World Photography</h2>
+							<h2 class="page-title__title">test -Real World Photography</h2>
 							<p class="page-title__text">Please click on the photos below to view that gallery</p>
 							<div class="page-title__divider"></div>
 						</div><!-- End / page-title -->
@@ -429,35 +443,29 @@ const menuModule = document.querySelector('.fullscreenmenu__module');
 const fsButton = document.getElementById('fs-button');
 const logo = document.getElementById('site-logo');
 
-// Track menu open state manually
 let menuIsOpen = false;
 
-// Toggle logo immediately based on tracked state
 fsButton.addEventListener('click', function () {
-    menuIsOpen = !menuIsOpen; // Flip state
-
-    // Apply logo class immediately
-    if (menuIsOpen) {
+    if (!menuIsOpen) {
+        menuModule.classList.remove('closing');
+        menuModule.classList.add('open', 'opening');
         logo.classList.add('inverted');
+        menuIsOpen = true;
     } else {
-        logo.classList.remove('inverted');
-    }
-});
+        menuModule.classList.remove('opening');
+        menuModule.classList.add('closing');
+        menuModule.style.pointerEvents = 'none';
+        menuModule.style.opacity = '0';
 
-// Fallback in case something else closes the menu (e.g., clicking outside)
-menuModule.addEventListener('transitionend', function (event) {
-    if (event.propertyName === 'opacity') {
-        const isVisible = getComputedStyle(menuModule).visibility === 'visible' &&
-                          getComputedStyle(menuModule).opacity === '1';
-        if (!isVisible) {
+        // Delay hiding visibility until fade-out is complete
+        setTimeout(() => {
+            menuModule.classList.remove('open', 'closing');
+            menuModule.style.visibility = 'hidden';
             logo.classList.remove('inverted');
             menuIsOpen = false;
-        }
+        }, 400); // match ease-out duration
     }
 });
-
-
-
 
 });
 </script>
