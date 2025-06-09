@@ -77,6 +77,57 @@ $('.fullscreenmenu__module').each(function () {
 
   function updateMenuState() {
     const isOpen = self.hasClass('open');
+
+    $body.toggleClass('menu-open', isOpen);
+    $logoImg.toggleClass('invert', isOpen);
+  }
+
+  // Only prevent default on the toggle button (to avoid weird mobile propagation)
+  trigger.on('click touchstart', function (e) {
+    e.preventDefault();
+    trigger.toggleClass('open');
+    self.toggleClass('open');
+    updateMenuState();
+  });
+
+  // Clicking the menu container itself should NOT prevent default,
+  // so that links inside it work normally.
+  // Remove this to avoid interference:
+  // self.on('click touchstart', function(e) {
+  //   e.preventDefault();
+  // });
+
+  // Close menu immediately on link click, but don't prevent navigation
+  self.find('a').on('click', function () {
+    trigger.removeClass('open');
+    self.removeClass('open');
+    $body.removeClass('menu-open');
+    $logoImg.removeClass('invert');
+    // No preventDefault here so the link works normally
+  });
+
+  // Close menu on ESC
+  $(document).on('keydown', function (e) {
+    if (e.key === 'Escape' && self.hasClass('open')) {
+      trigger.removeClass('open');
+      self.removeClass('open');
+      updateMenuState();
+    }
+  });
+
+  // Sync state on page load
+  updateMenuState();
+});
+
+
+/*$('.fullscreenmenu__module').each(function () {
+  const self     = $(this);
+  const trigger  = $(self.attr('trigger'));
+  const $logoImg = $('.header__logo img');
+  const $body    = $('body');
+
+  function updateMenuState() {
+    const isOpen = self.hasClass('open');
     $body.toggleClass('menu-open', isOpen);
     $logoImg.toggleClass('invert', isOpen);
   }
@@ -110,6 +161,7 @@ $('.fullscreenmenu__module').each(function () {
 
   updateMenuState();
 });
+*/
 
 
 
