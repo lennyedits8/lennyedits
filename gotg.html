@@ -116,6 +116,27 @@
   }
 }
 
+.fullscreenmenu__module.open,
+.fullscreenmenu__module.open .overlay-menu {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hide scrollbar for WebKit (Chrome, Safari) */
+.fullscreenmenu__module.open::-webkit-scrollbar,
+.fullscreenmenu__module.open .overlay-menu::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.fullscreenmenu__module.open,
+.fullscreenmenu__module.open .overlay-menu {
+  scrollbar-width: none; /* Firefox */
+}
+
+
+
+
 
 
 </style>
@@ -168,7 +189,7 @@
 						
 						<!-- page-title -->
 						<div class="page-title pb-40">
-							<h2 class="page-title__title">test Marvel's Guardians of the Galaxy</h2>
+							<h2 class="page-title__title">Marvel's Guardians of the Galaxy</h2>
 							<p class="page-title__text">Playstation 5 </p>
 							<div class="page-title__divider"></div>
 						</div><!-- End / page-title -->
