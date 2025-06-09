@@ -104,35 +104,38 @@
 }
 
 
-.header__logo img.invert {
-  filter: invert(1);
-  transition: filter 0.3s ease;
+.header__logo img {
+  transition: filter 0.6s ease; /* adjust speed here */
 }
 
+.header__logo img.invert {
+  filter: invert(1);
+}
+
+
 @media (max-width: 600px) {
-  .header__logo img.invert {
-    filter: invert(1) !important;
-	transition: filter 0.3s ease;
+  .header__logo img {
+    transition: filter 0.9s ease; /* slower on mobile */
+  }
+
+  .fullscreenmenu__module {
+    transition: opacity 1s ease, visibility 1s ease; /* slower on mobile */
   }
 }
 
-.fullscreenmenu__module.open,
-.fullscreenmenu__module.open .overlay-menu {
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+
+.fullscreenmenu__module {
+  transition: opacity 0.7s ease, visibility 0.7s ease;
+  opacity: 0;
+  visibility: hidden;
 }
 
-/* Hide scrollbar for WebKit (Chrome, Safari) */
-.fullscreenmenu__module.open::-webkit-scrollbar,
-.fullscreenmenu__module.open .overlay-menu::-webkit-scrollbar {
-  display: none;
+.fullscreenmenu__module.open {
+  opacity: 1;
+  visibility: visible;
 }
 
-/* Hide scrollbar for Firefox */
-.fullscreenmenu__module.open,
-.fullscreenmenu__module.open .overlay-menu {
-  scrollbar-width: none; /* Firefox */
-}
+
 
 
 
