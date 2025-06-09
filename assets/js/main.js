@@ -77,7 +77,7 @@ $('.fullscreenmenu__module').each(function () {
 
 function updateMenuState() {
   const isOpen = self.hasClass('open');
-  $body.toggleClass('menu-open', isOpen); // used only for styling now
+  /*$body.toggleClass('menu-open', isOpen); // used only for styling now*/
   $logoImg.toggleClass('invert', isOpen);
 }
 

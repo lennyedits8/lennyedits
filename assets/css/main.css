@@ -843,15 +843,9 @@ ul {
     height: 100%;
     opacity: 0;
     visibility: hidden;
-    overflow: auto;
+    overflow: hidden;
     transition: all .2s linear;
 }
-
-body.menu-open {
-  overflow: auto !important;
-  position: static !important;
-}
-
 
 .open {
     opacity: 1;
