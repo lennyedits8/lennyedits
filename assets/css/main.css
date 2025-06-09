@@ -843,7 +843,7 @@ ul {
     height: 100%;
     opacity: 0;
     visibility: hidden;
-    overflow: hidden;
+    overflow: auto;
     transition: all .2s linear;
 }
 
