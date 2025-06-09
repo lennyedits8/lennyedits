@@ -104,13 +104,16 @@
 
 
 #site-logo {
-    transition: filter 0.1s ease;
-    will-change: filter;
+  transition: none;
+  will-change: filter, opacity;
 }
 
 #site-logo.inverted {
-    filter: invert(1);
+  transition: none; /* or a very short one */
+  filter: invert(1); /* example */
 }
+
+
 
 #site-logo.instant {
     transition: none !important;
@@ -135,7 +138,7 @@
 			<!-- header -->
 			<header class="header header--fixed">
 				<div class="header__inner">
-					<div class="header__logo"><a href="index.html"><img id="site-logo" loading="eager" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748819411/lennylogo_upscale_transparent_lzjpoq.png" alt="" style="width: 122px;" /></a></div>
+					<div class="header__logo"><a href="index.html"><img id="site-logo" loading="eager" src="https://res.cloudinary.com/dm086zlrg/image/upload/v1747928077/logo_q6oh0r.png" alt="" style="width: 122px;" /></a></div>
 					<div class="navbar-toggle" id="fs-button">
 						<div class="navbar-icon"><span></span></div>
 					</div>
@@ -174,7 +177,7 @@
 						
 						<!-- page-title -->
 						<div class="page-title pb-40">
-							<h2 class="page-title__title">transition - Real World Photography</h2>
+							<h2 class="page-title__title">Real World Photography</h2>
 							<p class="page-title__text">Please click on the photos below to view that gallery</p>
 							<div class="page-title__divider"></div>
 						</div><!-- End / page-title -->
@@ -428,86 +431,59 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-// 4. Invert logo toggle on fullscreen menu open/close
+// === MENU & LOGO LOGIC ===
+
+// Element references
 const menuModule = document.querySelector('.fullscreenmenu__module');
 const fsButton = document.getElementById('fs-button');
 const logo = document.getElementById('site-logo');
 
 let menuIsOpen = false;
-let skipTransitionHandler = false;
 
-// 🔁 Centralized menu close logic
-function closeMenu() {
-    // Instantly revert logo BEFORE menu visually closes
-    logo.classList.add('instant');
-    logo.classList.remove('inverted');
-
-    // Force Safari repaint (iOS fix) — faster version
-    logo.style.display = 'none';
-    logo.offsetTop; // triggers reflow
-    logo.style.display = '';
-
-    // Remove menu open class (triggers transition)
-    menuModule.classList.remove('open');
-
-    // Restore transition capability on next frame
-    requestAnimationFrame(() => {
-        logo.classList.remove('instant');
-    });
-
-    menuIsOpen = false;
-
-    // 🔊 Dispatch custom event
-    window.dispatchEvent(new CustomEvent('menuClosed'));
-}
-
-// ✅ Main toggle button
-fsButton.addEventListener('click', function () {
+// Toggle fullscreen menu when button clicked
+fsButton.addEventListener('click', () => {
     menuIsOpen = !menuIsOpen;
 
     if (menuIsOpen) {
-        // Open menu: allow smooth transition
-        logo.classList.remove('instant');
-        logo.classList.add('inverted');
-
-        menuModule.classList.add('open');
+        logo.classList.add('inverted');       // Add class first
+        void logo.offsetWidth;                // Force reflow
+        menuModule.classList.add('open');     // Then trigger menu open
     } else {
-        closeMenu();
+        logo.classList.remove('inverted');    // Remove class immediately
+        void logo.offsetWidth;                // Force reflow so it takes effect now
+        menuModule.classList.remove('open');  // Start menu close
     }
 });
 
-// ✅ Handle menu close via non-X exits
-menuModule.addEventListener('transitionend', function (event) {
-    if (event.propertyName === 'opacity') {
-        if (skipTransitionHandler) {
-            skipTransitionHandler = false;
-            return;
+// Close menu instantly when link or overlay is clicked
+document.querySelectorAll('.fullscreenmenu__module a, .overlay').forEach(el => {
+    el.addEventListener('click', () => {
+        if (menuIsOpen) {
+            logo.classList.remove('inverted');    // Immediate logo revert
+            void logo.offsetWidth;                // Force reflow
+            menuModule.classList.remove('open');  // Begin menu close
+            menuIsOpen = false;
         }
+    });
+});
 
+// Fallback cleanup (in case transition is interrupted or skipped)
+menuModule.addEventListener('transitionend', (event) => {
+    if (event.propertyName === 'opacity') {
         const styles = getComputedStyle(menuModule);
         const isVisible = styles.visibility === 'visible' && styles.opacity === '1';
 
         if (!isVisible && menuIsOpen) {
-            closeMenu();
+            logo.classList.remove('inverted');  // Ensure logo is reset
+            menuIsOpen = false;                // Force-close menu state
         }
     }
 });
 
-// ✅ Example: handle overlay or links (optional)
-document.querySelectorAll('.fullscreenmenu__module a, .overlay').forEach(el => {
-    el.addEventListener('click', () => {
-        if (menuIsOpen) {
-            skipTransitionHandler = true;
-            closeMenu();
-        }
-    });
-});
-
-
-
 
 });
 </script>
+
 
 
 
