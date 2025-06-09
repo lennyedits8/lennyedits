@@ -168,7 +168,7 @@
 						
 						<!-- page-title -->
 						<div class="page-title pb-40">
-							<h2 class="page-title__title">Marvel's Guardians of the Galaxy</h2>
+							<h2 class="page-title__title">test Marvel's Guardians of the Galaxy</h2>
 							<p class="page-title__text">Playstation 5 </p>
 							<div class="page-title__divider"></div>
 						</div><!-- End / page-title -->
@@ -277,21 +277,6 @@
 $(document).ready(function () {
   const $logo = $('.header__logo img');
   const $menu = document.querySelector('.fullscreenmenu__module');
-
-  const observer = new MutationObserver(() => {
-    const isOpen = document.body.classList.contains('menu-open') || 
-                   $menu.classList.contains('active') || 
-                   $menu.style.display === 'block';
-
-    if (isOpen) {
-      $logo.addClass('invert');
-    } else {
-      $logo.removeClass('invert');
-    }
-  });
-
-  observer.observe($menu, { attributes: true, attributeFilter: ['class', 'style'] });
-
   if (document.body.classList.contains('menu-open')) {
     $logo.addClass('invert');
   }

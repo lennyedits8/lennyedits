@@ -75,11 +75,12 @@ $('.fullscreenmenu__module').each(function () {
   const $logoImg = $('.header__logo img');
   const $body    = $('body');
 
-  function updateMenuState() {
-    const isOpen = self.hasClass('open');
-    $body.toggleClass('menu-open', isOpen);
-    $logoImg.toggleClass('invert', isOpen);
-  }
+function updateMenuState() {
+  const isOpen = self.hasClass('open');
+  $body.toggleClass('menu-open', isOpen); // used only for styling now
+  $logoImg.toggleClass('invert', isOpen);
+}
+
 
   // Fix: only toggle menu if it's not a real <a> link
   trigger.add(self).on('click touchstart', function (e) {
