@@ -428,14 +428,40 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-
 // 4. Invert logo toggle on fullscreen menu open/close
 const menuModule = document.querySelector('.fullscreenmenu__module');
 const fsButton = document.getElementById('fs-button');
 const logo = document.getElementById('site-logo');
 
 let menuIsOpen = false;
+let skipTransitionHandler = false;
 
+// 🔁 Centralized menu close logic
+function closeMenu() {
+    // Instantly revert logo BEFORE menu visually closes
+    logo.classList.add('instant');
+    logo.classList.remove('inverted');
+
+    // Force Safari repaint (iOS fix) — faster version
+    logo.style.display = 'none';
+    logo.offsetTop; // triggers reflow
+    logo.style.display = '';
+
+    // Remove menu open class (triggers transition)
+    menuModule.classList.remove('open');
+
+    // Restore transition capability on next frame
+    requestAnimationFrame(() => {
+        logo.classList.remove('instant');
+    });
+
+    menuIsOpen = false;
+
+    // 🔊 Dispatch custom event
+    window.dispatchEvent(new CustomEvent('menuClosed'));
+}
+
+// ✅ Main toggle button
 fsButton.addEventListener('click', function () {
     menuIsOpen = !menuIsOpen;
 
@@ -443,47 +469,40 @@ fsButton.addEventListener('click', function () {
         // Open menu: allow smooth transition
         logo.classList.remove('instant');
         logo.classList.add('inverted');
+
+        menuModule.classList.add('open');
     } else {
-        // Close menu: instantly remove inversion (iOS-friendly)
-        logo.classList.add('instant');
-
-        // Force Safari to repaint/reflow
-        logo.style.display = 'none';
-        logo.offsetHeight; // trigger reflow
-        logo.style.display = '';
-
-        logo.classList.remove('inverted');
-
-        // Restore transition capability on next tick
-        requestAnimationFrame(() => {
-            logo.classList.remove('instant');
-        });
+        closeMenu();
     }
 });
 
+// ✅ Handle menu close via non-X exits
 menuModule.addEventListener('transitionend', function (event) {
     if (event.propertyName === 'opacity') {
+        if (skipTransitionHandler) {
+            skipTransitionHandler = false;
+            return;
+        }
+
         const styles = getComputedStyle(menuModule);
         const isVisible = styles.visibility === 'visible' && styles.opacity === '1';
 
-        if (!isVisible) {
-            // Menu closed via non-X (e.g. clicking outside)
-            logo.classList.add('instant');
-
-            logo.style.display = 'none';
-            logo.offsetHeight;
-            logo.style.display = '';
-
-            logo.classList.remove('inverted');
-
-            requestAnimationFrame(() => {
-                logo.classList.remove('instant');
-            });
-
-            menuIsOpen = false;
+        if (!isVisible && menuIsOpen) {
+            closeMenu();
         }
     }
 });
+
+// ✅ Example: handle overlay or links (optional)
+document.querySelectorAll('.fullscreenmenu__module a, .overlay').forEach(el => {
+    el.addEventListener('click', () => {
+        if (menuIsOpen) {
+            skipTransitionHandler = true;
+            closeMenu();
+        }
+    });
+});
+
 
 
 
