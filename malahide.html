@@ -104,6 +104,17 @@
   display: block;
 }
 
+.header__logo img.invert {
+  filter: invert(1);
+  transition: filter 0.3s ease;
+}
+
+@media (max-width: 600px) {
+  .header__logo img.invert {
+    filter: invert(1) !important;
+  }
+}
+
 </style>
 
 	
@@ -113,7 +124,7 @@
 			<!-- header -->
 			<header class="header header--fixed">
 				<div class="header__inner">
-					<div class="header__logo"><a href="index.html"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/v1748819415/lennylogo2_upscale_transparent_colour_fvza0m.png" alt="" style="width: 122px;"/></a></div>
+					<div class="header__logo"><a href="index.html"><img src="https://res.cloudinary.com/dm086zlrg/image/upload//f_auto,q_auto,w_400/v1748819411/lennylogo2_upscale_transparent_sllnrd.png" alt="" style="width: 122px;"/></a></div>
 					<div class="navbar-toggle" id="fs-button">
 						<div class="navbar-icon"><span></span></div>
 					</div>
@@ -270,6 +281,32 @@
   });
 
   lightbox.init();
+</script>
+
+
+<script>
+$(document).ready(function () {
+  const $logo = $('.header__logo img');
+  const $menu = document.querySelector('.fullscreenmenu__module');
+
+  const observer = new MutationObserver(() => {
+    const isOpen = document.body.classList.contains('menu-open') || 
+                   $menu.classList.contains('active') || 
+                   $menu.style.display === 'block';
+
+    if (isOpen) {
+      $logo.addClass('invert');
+    } else {
+      $logo.removeClass('invert');
+    }
+  });
+
+  observer.observe($menu, { attributes: true, attributeFilter: ['class', 'style'] });
+
+  if (document.body.classList.contains('menu-open')) {
+    $logo.addClass('invert');
+  }
+});
 </script>
 
 
