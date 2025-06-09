@@ -70,40 +70,48 @@ function debounce(func, wait, immediate) {
    * Fullscreen menu
    */
 $('.fullscreenmenu__module').each(function () {
-  var self     = $(this),
-      trigger  = $(self.attr('trigger')),
-      $logoImg = $('.header__logo img'),
-      body     = $('body');
+  const self     = $(this);
+  const trigger  = $(self.attr('trigger'));
+  const $logoImg = $('.header__logo img');
+  const $body    = $('body');
 
-  function updateLogo() {
-    if ( self.hasClass('open') ) {
-      body.addClass('menu-open');
-      $logoImg.addClass('invert');
-    } else {
-      body.removeClass('menu-open');
-      $logoImg.removeClass('invert');
-    }
+  function updateMenuState() {
+    const isOpen = self.hasClass('open');
+    $body.toggleClass('menu-open', isOpen);
+    $logoImg.toggleClass('invert', isOpen);
   }
 
-  // Menu open/close via clicks
-  trigger.add(self).on('click', function (e) {
-    trigger.toggleClass('open');
-    self.toggleClass('open');
-    updateLogo();
+  // Fix: only toggle menu if it's not a real <a> link
+  trigger.add(self).on('click touchstart', function (e) {
+    const isLink = e.target.tagName === 'A';
+
+    if (!isLink) {
+      e.preventDefault();
+      trigger.toggleClass('open');
+      self.toggleClass('open');
+      updateMenuState();
+    }
   });
 
-  // Close menu on ESC key
+  // Fix: close menu when a nav link is clicked
+  self.find('a').on('click', function () {
+    trigger.removeClass('open');
+    self.removeClass('open');
+    updateMenuState();
+  });
+
   $(document).on('keydown', function (e) {
     if (e.key === 'Escape' && self.hasClass('open')) {
       trigger.removeClass('open');
       self.removeClass('open');
-      updateLogo();
+      updateMenuState();
     }
   });
 
-  // Update on load in case it's open by default
-  updateLogo();
+  updateMenuState();
 });
+
+
 
 /*old code of above
 $('.fullscreenmenu__module').each(function () {
