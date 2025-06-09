@@ -70,6 +70,43 @@ function debounce(func, wait, immediate) {
    * Fullscreen menu
    */
 $('.fullscreenmenu__module').each(function () {
+  var self     = $(this),
+      trigger  = $(self.attr('trigger')),
+      $logoImg = $('.header__logo img'),
+      body     = $('body');
+
+  function updateLogo() {
+    if ( self.hasClass('open') ) {
+      body.addClass('menu-open');
+      $logoImg.addClass('invert');
+    } else {
+      body.removeClass('menu-open');
+      $logoImg.removeClass('invert');
+    }
+  }
+
+  // Menu open/close via clicks
+  trigger.add(self).on('click', function (e) {
+    trigger.toggleClass('open');
+    self.toggleClass('open');
+    updateLogo();
+  });
+
+  // Close menu on ESC key
+  $(document).on('keydown', function (e) {
+    if (e.key === 'Escape' && self.hasClass('open')) {
+      trigger.removeClass('open');
+      self.removeClass('open');
+      updateLogo();
+    }
+  });
+
+  // Update on load in case it's open by default
+  updateLogo();
+});
+
+/*old code of above
+$('.fullscreenmenu__module').each(function () {
 	var self = $(this),
 		    triggerID = self.attr('trigger');
 
@@ -82,6 +119,7 @@ $('.fullscreenmenu__module').each(function () {
 		self.toggleClass('open');
 	});
 });
+*/
 
 /**
    * Masonry
