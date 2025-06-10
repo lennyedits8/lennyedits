@@ -69,50 +69,54 @@ function debounce(func, wait, immediate) {
 /**
    * Fullscreen menu
    */
+$(document).ready(function () {
+  $('.fullscreenmenu__module').each(function () {
+    var self = $(this),
+        triggerID = self.attr('trigger'),
+        $trigger = $(triggerID),
+        $logo = $('.header__logo img');
 
-$('.fullscreenmenu__module').each(function () {
-  const self     = $(this);
-  const trigger  = $(self.attr('trigger'));
-  const $logoImg = $('.header__logo img');
-  const $body    = $('body');
-
-  function updateMenuState() {
-    const isOpen = self.hasClass('open');
-    $body.toggleClass('menu-open', isOpen); // re-enabled to allow scroll
-    $logoImg.toggleClass('invert', isOpen);
-  }
-
-  // Fix: only toggle menu if it's not a real <a> link
-  trigger.add(self).on('click touchstart', function (e) {
-    const isLink = e.target.tagName === 'A';
-
-    if (!isLink) {
-      e.preventDefault();
-      trigger.toggleClass('open');
+    // Function to toggle menu state
+    function toggleMenu() {
+      $trigger.toggleClass('open');
       self.toggleClass('open');
-      updateMenuState();
+
+      // Invert logo if menu is open
+      if (self.hasClass('open')) {
+        $logo.css('filter', 'invert(1)');
+      } else {
+        $logo.css('filter', '');
+      }
     }
-  });
 
-  // Fix: close menu when a nav link is clicked
-  self.find('a').on('click', function () {
-    trigger.removeClass('open');
-    self.removeClass('open');
-    updateMenuState();
-  });
+    // Open/close on trigger click
+    self.on('click', function (e) {
+      e.stopPropagation();
+      toggleMenu();
+    });
 
-  // Close menu on Escape key
-  $(document).on('keydown', function (e) {
-    if (e.key === 'Escape' && self.hasClass('open')) {
-      trigger.removeClass('open');
+    $trigger.on('click', function (e) {
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    // Allow nav links to work
+    self.find('a').on('click', function () {
+      $trigger.removeClass('open');
       self.removeClass('open');
-      updateMenuState();
-    }
+      $logo.css('filter', '');
+    });
+
+    // Close menu when clicking outside
+    $(document).on('click', function (e) {
+      if (self.hasClass('open') && !$(e.target).closest('.fullscreenmenu__module, ' + triggerID).length) {
+        $trigger.removeClass('open');
+        self.removeClass('open');
+        $logo.css('filter', '');
+      }
+    });
   });
-
-  updateMenuState();
 });
-
 
 
 

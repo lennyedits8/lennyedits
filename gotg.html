@@ -128,7 +128,6 @@
   transition: opacity 0.7s ease, visibility 0.7s ease;
   opacity: 0;
   visibility: hidden;
-  overflow: auto; /* if you want menu content to scroll */
 }
 
 .fullscreenmenu__module.open {
@@ -138,13 +137,10 @@
 
 
 body.menu-open {
-  overflow: auto !important;
-  position: relative !important;
-  touch-action: auto !important;
-  -webkit-overflow-scrolling: touch;
+  overflow: visible !important;
+  position: static !important;
+  touch-action: auto !important;  /* helps on mobile */
 }
-
-
 
 
 
