@@ -69,18 +69,18 @@ function debounce(func, wait, immediate) {
 /**
    * Fullscreen menu
    */
+
 $('.fullscreenmenu__module').each(function () {
   const self     = $(this);
   const trigger  = $(self.attr('trigger'));
   const $logoImg = $('.header__logo img');
   const $body    = $('body');
 
-function updateMenuState() {
-  const isOpen = self.hasClass('open');
-  /*$body.toggleClass('menu-open', isOpen); // used only for styling now*/
-  $logoImg.toggleClass('invert', isOpen);
-}
-
+  function updateMenuState() {
+    const isOpen = self.hasClass('open');
+    $body.toggleClass('menu-open', isOpen); // re-enabled to allow scroll
+    $logoImg.toggleClass('invert', isOpen);
+  }
 
   // Fix: only toggle menu if it's not a real <a> link
   trigger.add(self).on('click touchstart', function (e) {
@@ -101,6 +101,7 @@ function updateMenuState() {
     updateMenuState();
   });
 
+  // Close menu on Escape key
   $(document).on('keydown', function (e) {
     if (e.key === 'Escape' && self.hasClass('open')) {
       trigger.removeClass('open');
@@ -111,6 +112,7 @@ function updateMenuState() {
 
   updateMenuState();
 });
+
 
 
 
