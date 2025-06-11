@@ -104,15 +104,6 @@
   display: block;
 }
 
-/*#site-logo {
-  transition: opacity 0.3s ease-in-out;
-}*/
-
-#site-logo.fade-out {
-  opacity: 0;
-}
-
-
 
 </style>
 
@@ -265,48 +256,6 @@
   });
 
   lightbox.init();
-</script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const menuModule = document.querySelector('.fullscreenmenu__module');
-    const fsButton = document.getElementById('fs-button');
-    const logo = document.getElementById('site-logo');
-
-    const originalLogo = "https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748819411/lennylogo_upscale_transparent_lzjpoq.png";
-    const invertedLogo = "https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748890593/lennylogo_upscale_transparent_inverted_ooolex.png";
-
-    function swapLogo(newSrc) {
-        // Add fade out
-        logo.classList.add('fade-out');
-
-        // After fade out completes (200ms), change src and fade back in
-        setTimeout(() => {
-            logo.src = newSrc;
-            logo.classList.remove('fade-out');
-        }, 0.0);
-    }
-
-    function checkMenuState() {
-        const style = getComputedStyle(menuModule);
-        if (style.visibility === 'visible' && style.opacity === '1') {
-            swapLogo(invertedLogo);
-        } else {
-            swapLogo(originalLogo);
-        }
-    }
-
-    fsButton.addEventListener('click', function () {
-        // no delay needed
-    });
-
-    menuModule.addEventListener('transitionend', function (event) {
-        if (event.propertyName === 'opacity') {
-            checkMenuState();
-        }
-    });
-});
-
 </script>
 
 

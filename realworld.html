@@ -103,26 +103,6 @@
 
 
 
-#site-logo {
-  transition: none;
-  will-change: filter, opacity;
-}
-
-#site-logo.inverted {
-  transition: none; /* or a very short one */
-  filter: invert(1); /* example */
-}
-
-
-
-#site-logo.instant {
-    transition: none !important;
-    animation: none !important;
-}
-
-
-
-
 
 
 
@@ -138,7 +118,7 @@
 			<!-- header -->
 			<header class="header header--fixed">
 				<div class="header__inner">
-					<div class="header__logo"><a href="index.html"><img id="site-logo" loading="eager" src="https://res.cloudinary.com/dm086zlrg/image/upload/v1747928077/logo_q6oh0r.png" alt="" style="width: 122px;" /></a></div>
+					<div class="header__logo"><a href="index.html"><img id="site-logo" loading="eager" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748819411/lennylogo_upscale_transparent_lzjpoq.png" alt="" style="width: 122px;" /></a></div>
 					<div class="navbar-toggle" id="fs-button">
 						<div class="navbar-icon"><span></span></div>
 					</div>
@@ -430,83 +410,12 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     }
-
-// === MENU & LOGO LOGIC ===
-
-// Element references
-const menuModule = document.querySelector('.fullscreenmenu__module');
-const fsButton = document.getElementById('fs-button');
-const logo = document.getElementById('site-logo');
-
-let menuIsOpen = false;
-
-// Toggle fullscreen menu when button clicked
-fsButton.addEventListener('click', () => {
-    menuIsOpen = !menuIsOpen;
-
-    if (menuIsOpen) {
-        logo.classList.add('inverted');       // Add class first
-        void logo.offsetWidth;                // Force reflow
-        menuModule.classList.add('open');     // Then trigger menu open
-    } else {
-        logo.classList.remove('inverted');    // Remove class immediately
-        void logo.offsetWidth;                // Force reflow so it takes effect now
-        menuModule.classList.remove('open');  // Start menu close
-    }
-});
-
-// Close menu instantly when link or overlay is clicked
-document.querySelectorAll('.fullscreenmenu__module a, .overlay').forEach(el => {
-    el.addEventListener('click', () => {
-        if (menuIsOpen) {
-            logo.classList.remove('inverted');    // Immediate logo revert
-            void logo.offsetWidth;                // Force reflow
-            menuModule.classList.remove('open');  // Begin menu close
-            menuIsOpen = false;
-        }
-    });
-});
-
-// Fallback cleanup (in case transition is interrupted or skipped)
-menuModule.addEventListener('transitionend', (event) => {
-    if (event.propertyName === 'opacity') {
-        const styles = getComputedStyle(menuModule);
-        const isVisible = styles.visibility === 'visible' && styles.opacity === '1';
-
-        if (!isVisible && menuIsOpen) {
-            logo.classList.remove('inverted');  // Ensure logo is reset
-            menuIsOpen = false;                // Force-close menu state
-        }
-    }
-});
-
-
 });
 </script>
 
 
 
 
-
-<!--    // 4. Fullscreen menu: check visibility and toggle logo inversion
-const menuModule = document.querySelector('.fullscreenmenu__module');
-const fsButton = document.getElementById('fs-button');
-const logo = document.getElementById('site-logo');
-
-fsButton.addEventListener('click', function () {
-    const isMenuOpen = getComputedStyle(menuModule).visibility === 'visible' && getComputedStyle(menuModule).opacity === '1';
-
-    // Invert logo BEFORE the menu animation starts
-    if (!isMenuOpen) {
-        logo.classList.add('inverted');
-    } else {
-        logo.classList.remove('inverted');
-    }
-
-    // You can still listen for transitionend if needed for other logic
-});
-
-});-->
 			
 	</body>
 </html>

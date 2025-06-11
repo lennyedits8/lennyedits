@@ -102,11 +102,6 @@
   display: block;
 }
 
-.header.nav-active .header__logo img {
-  filter: invert(1);
-  transition: filter 0.3s ease;
-}
-
 
 
 </style>
@@ -118,7 +113,7 @@
 			<!-- header -->
 			<header class="header header--fixed">
 				<div class="header__inner">
-					<div class="header__logo"><a href="index.html"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/v1748819411/lennylogo_upscale_transparent_lzjpoq.png" alt="" style="width: 122px;"/></a></div>
+					<div class="header__logo"><a href="index.html"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748819411/lennylogo_upscale_transparent_lzjpoq.png" alt="" style="width: 122px;"/></a></div>
 					<div class="navbar-toggle" id="fs-button">
 						<div class="navbar-icon"><span></span></div>
 					</div>
@@ -242,76 +237,24 @@
 		<script type="text/javascript" src="assets/js/main.js"></script>
 
 		<script>
-  /*document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll('img').forEach(img => {
-      img.loading = "lazy";
-    });*/
+		document.addEventListener("DOMContentLoaded", function () {
+			document.querySelectorAll('img').forEach(img => {
+			img.loading = "lazy";
+			});
+		});
+		</script>
 
-    imagesLoaded('.gallery-grid', function () {
-      new Masonry('.gallery-grid', {
-        itemSelector: '.work-img',
-        percentPosition: true,
-        gutter: 20
-      });
-    });
+		<script type="module">
+  import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.esm.min.js';
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: '.gallery-grid',
+    children: 'a',
+    pswpModule: () => import('https://unpkg.com/photoswipe@5/dist/photoswipe.esm.min.js')
+  });
+
+  lightbox.init();
 </script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const toggle = document.getElementById('fs-button');
-  const header = document.querySelector('.header');
-  const menuModule = document.querySelector('.fullscreenmenu__module');
-  const menu = document.querySelector('.overlay-menu');
-  const links = menu.querySelectorAll('a');
-
-  let menuIsOpen = false;
-
-  function openMenu() {
-    menuModule.style.display = 'block';
-    header.classList.add('nav-active');
-    toggle.classList.add('open');
-    menuIsOpen = true;
-  }
-
-  function closeMenu() {
-    menuModule.style.display = 'none';
-    header.classList.remove('nav-active');
-    toggle.classList.remove('open');
-    menuIsOpen = false;
-  }
-
-  // Toggle menu on burger click
-  toggle.addEventListener('click', function (e) {
-    e.stopPropagation();
-    if (menuIsOpen) {
-      closeMenu();
-    } else {
-      openMenu();
-    }
-  });
-
-  // Close menu on nav link click
-  links.forEach(link => {
-    link.addEventListener('click', closeMenu);
-  });
-
-  // Close menu when clicking anywhere outside, including header
-  document.addEventListener('click', function (e) {
-    const clickedInsideToggle = toggle.contains(e.target);
-    const clickedLink = e.target.closest('.overlay-menu a');
-    const clickedInsideMenu = menuModule.contains(e.target);
-    const clickedInsideHeader = header.contains(e.target);
-
-    if (clickedInsideToggle || clickedLink) return;
-
-    // Always close menu if open and clicked outside of the actual menu
-    if (menuIsOpen && (!clickedInsideMenu || clickedInsideHeader)) {
-      closeMenu();
-    }
-  });
-});
-</script>
-
 
 
 

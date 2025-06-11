@@ -2817,3 +2817,24 @@ ul {
     color: #333;
     margin-bottom: 20px;
 }
+
+
+/* Nav bar transition speeds and invert */
+.header__logo img {
+  transition: filter 0.5s ease;
+}
+
+.header__logo img.invert {
+  filter: invert(1);
+}
+
+.fullscreenmenu__module {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.9s ease;
+}
+
+.fullscreenmenu__module.open {
+  opacity: 1;
+  visibility: visible;
+}
