@@ -101,14 +101,12 @@ $(document).ready(function () {
     });
 
     // Allow nav links to work
-self.find('a').on('click', function () {
-  // Only close menu if the link is NOT the logo
-  if (!$(this).closest('.header__logo').length) {
-    $trigger.removeClass('open');
-    self.removeClass('open');
-    $logo.css('filter', '');
-  }
+self.find('.fullscreenmenu__links a').on('click', function () {
+  $trigger.removeClass('open');
+  self.removeClass('open');
+  $logo.css('filter', '');
 });
+
 
     // Close menu when clicking outside
     $(document).on('click', function (e) {
