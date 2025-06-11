@@ -1713,7 +1713,7 @@ ul {
 }
 
 .grid-css .grid-item .grid-item__inner .grid-item__content-wrapper {
-    background-color: #ccc;
+    background-color: #fbfbfb; /* grey background on squarespace animation  */
 }
 
 .grid-css.grid-css--grid .grid-item__content-wrapper {
@@ -2867,4 +2867,22 @@ ul {
     opacity 0.9s ease-out,     /* Opening: fade in quickly */
     visibility 0s linear 0s;   /* Show immediately */
 }
+
+/*SquareSpace Scroll*/
+
+.work-img {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.work-img.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.work-img {
+  will-change: opacity, transform;
+}
+
 

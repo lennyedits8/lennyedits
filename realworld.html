@@ -100,6 +100,17 @@
   display: block;
 }
 
+.work {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.work.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 
 
@@ -413,6 +424,26 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+const elements = document.querySelectorAll('.work');
+
+const observer = new IntersectionObserver((entries, observer) => {
+	entries.forEach(entry => {
+	if(entry.isIntersecting) {
+		entry.target.classList.add('animate-in');
+		observer.unobserve(entry.target); // animate only once
+	}
+	});
+}, {
+	threshold: 0.1 // trigger when 10% visible
+});
+
+elements.forEach(el => observer.observe(el));
+});
+</script>
 
 
 

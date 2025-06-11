@@ -88,6 +88,25 @@ $('.fullscreenmenu__module').each(function () {
 	});
 });
 
+/*SquareSpace Scroll*/
+  document.addEventListener("DOMContentLoaded", function () {
+    const observerOptions = {
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target); // optional: only animate once
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.work-img').forEach(img => {
+      observer.observe(img);
+    });
+  });
 
 
 
