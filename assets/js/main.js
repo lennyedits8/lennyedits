@@ -69,74 +69,28 @@ function debounce(func, wait, immediate) {
 /**
    * Fullscreen menu
    */
-$(document).ready(function () {
-  $('.fullscreenmenu__module').each(function () {
-    var self = $(this),
-        triggerID = self.attr('trigger'),
-        $trigger = $(triggerID),
-        $logo = $('.header__logo img');
-
-    // Function to toggle menu state
-    function toggleMenu() {
-      $trigger.toggleClass('open');
-      self.toggleClass('open');
-
-      // Invert logo if menu is open
-      if (self.hasClass('open')) {
-        $logo.css('filter', 'invert(1)');
-      } else {
-        $logo.css('filter', '');
-      }
-    }
-
-    // Open/close on trigger click
-    self.on('click', function (e) {
-      e.stopPropagation();
-      toggleMenu();
-    });
-
-    $trigger.on('click', function (e) {
-      e.stopPropagation();
-      toggleMenu();
-    });
-
-    // Allow nav links to work
-self.find('.fullscreenmenu__links a').on('click', function () {
-  $trigger.removeClass('open');
-  self.removeClass('open');
-  $logo.css('filter', '');
-});
-
-
-    // Close menu when clicking outside
-    $(document).on('click', function (e) {
-      if (self.hasClass('open') && !$(e.target).closest('.fullscreenmenu__module, ' + triggerID).length) {
-        $trigger.removeClass('open');
-        self.removeClass('open');
-        $logo.css('filter', '');
-      }
-    });
-  });
-});
-
-
-
-
-/*old code of above
+/**
+ * Fullscreen menu
+ */
 $('.fullscreenmenu__module').each(function () {
 	var self = $(this),
-		    triggerID = self.attr('trigger');
+		triggerID = self.attr('trigger');
 
 	self.on("click", function () {
 		$(triggerID).toggleClass('open');
 		$(this).toggleClass('open');
+		$('.header__logo img').toggleClass('invert'); // <-- added line
 	});
 	$(triggerID).on("click", function () {
 		$(triggerID).toggleClass('open');
 		self.toggleClass('open');
+		$('.header__logo img').toggleClass('invert'); // <-- added line
 	});
 });
-*/
+
+
+
+
 
 /**
    * Masonry
