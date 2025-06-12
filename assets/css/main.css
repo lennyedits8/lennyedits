@@ -1016,14 +1016,18 @@ ul {
 }
 
 
-.has-submenu.open .submenu-toggle i {
-  transform: rotate(90deg);
-}
+
 
 .submenu-toggle i {
+  display: inline-block;
+  vertical-align: middle;
+  transform: translateY(-9px); /* Adjust as needed */
   transition: transform 0.3s ease-in-out;
 }
 
+.has-submenu.open .submenu-toggle i {
+  transform: rotate(90deg) translateX(-9px); /* Maintain vertical alignment after rotation */
+}
 
 
 
