@@ -209,34 +209,12 @@
 
 								
 							</div>
-							<div class="col-md-7 col-lg-8 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-1 ">
-								<div class="form-wrapper">
-									
-									<form id="contact-form">
-									<div class="form-item form-item--half">
-										<input class="form-control" type="text" name="from_name" placeholder="Your name" required />
-									</div>
+              <div class="col-md-7 col-lg-8 col-lg-offset-0 col-lg-offset-0 col-md-offset-0 col-lg-offset-1">
+                  <!-- This stays empty -->
+                  <div id="shadow-form-container"></div>
 
-									<div class="form-item form-item--half">
-										<input class="form-control" type="email" name="reply_to" placeholder="Your email" required />
-									</div>
+              </div>
 
-									<div class="form-item">
-										<input class="form-control" type="text" name="subject" placeholder="Subject" required />
-									</div>
-
-									<div class="form-item">
-										<textarea class="form-control" name="message" placeholder="Your message" style="min-height:200px;" required></textarea>
-									</div>
-
-									<div class="form-item">
-										<button type="submit" class="md-btn md-btn--primary md-btn--lg">Send message</button>
-									</div>
-									</form>
-
-									
-								</div>
-							</div>
 						</div>
 					</div>
 				</section>
@@ -344,9 +322,24 @@
 function showModal(modalId) {
   const modal = document.getElementById(modalId);
   modal.style.display = "flex";
-  setTimeout(() => {
-    modal.classList.remove("fade-out");
-  }, 10);
+  modal.classList.remove("fade-out");
+
+  // Reset animation by forcing reflow
+  const icon = modal.querySelector('.checkmark, .fail-x');
+  if (icon) {
+    icon.style.animation = 'none';
+    icon.offsetHeight; // trigger reflow
+    icon.style.animation = '';
+  }
+
+  // Trigger vibration/haptic feedback if supported
+  if (navigator.vibrate) {
+    if (modalId === "successModal") {
+      navigator.vibrate(50); // short buzz for success
+    } else if (modalId === "failModal") {
+      navigator.vibrate([50, 30, 50]); // two short pulses for fail
+    }
+  }
 
   setTimeout(() => {
     modal.classList.add("fade-out");
@@ -354,8 +347,9 @@ function showModal(modalId) {
       modal.style.display = "none";
       modal.classList.remove("fade-out");
     }, 300);
-  }, 3000); // Modal stays for 3s
+  }, 3000); // show modal for 3 seconds
 }
+
 
 document.getElementById('contact-form').addEventListener('submit', function(e) {
   e.preventDefault();
@@ -382,6 +376,308 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
 });
 </script>
 
+<script>
+  // Grab the container div
+  const container = document.getElementById('shadow-form-container');
+
+  // Attach shadow root
+  const shadowRoot = container.attachShadow({ mode: 'open' });
+
+  // Your form HTML as a template literal string
+const formHTML = `
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap');
+
+    * {
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    form {
+      max-width: 700px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+    }
+
+    label {
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 8px;
+      display: block;
+      font-size: 1.1rem;
+    }
+
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 16px;
+    }
+
+    .form-group {
+      flex: 1;
+      min-width: 250px;
+      margin-bottom: 18px;
+      position: relative;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 18px 22px;
+      border: 1.2px solid #ccc;
+      border-radius: 10px;
+      font-size: 1.15rem;
+      font-weight: 500;
+      background-color: #f9f9f9;
+      transition: border-color 0.2s ease, border-width 0.2s ease;
+    }
+
+    .form-control::placeholder {
+      font-size: 1.1rem;
+      color: #999;
+      font-weight: 500;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: #ff6a00;
+      border-width: 2px;
+      background-color: #fff;
+    }
+
+    textarea.form-control {
+      min-height: 180px;
+      resize: vertical;
+    }
+
+    .btn {
+      background-color: #ff6a00;
+      color: #fff;
+      padding: 16px 32px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #e35b00;
+    }
+
+    .text-center {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    /* Custom error message styling */
+    .error-message {
+      color: #ff6a00;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-top: 6px;
+      font-family: 'Montserrat', sans-serif;
+      min-height: 18px; /* reserve space so layout doesn't jump */
+    }
+
+    /* Checkmark Animation */
+.checkmark {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 25px;
+  border-left: 5px solid #4CAF50;
+  border-bottom: 5px solid #4CAF50;
+  transform: rotate(-45deg);
+  animation: drawCheck 0.4s ease forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
+@keyframes drawCheck {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  50% {
+    width: 20px;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 20px;
+    height: 25px;
+    opacity: 1;
+  }
+}
+
+/* Cross Animation */
+.fail-x:before,
+.fail-x:after {
+  content: "";
+  position: absolute;
+  width: 35px;
+  height: 5px;
+  background: #f44336;
+  top: 38px;
+  left: 22px;
+  opacity: 0;
+}
+
+.fail-x:before {
+  transform: rotate(45deg);
+  animation: drawCrossBefore 0.3s ease forwards;
+}
+
+.fail-x:after {
+  transform: rotate(-45deg);
+  animation: drawCrossAfter 0.3s ease forwards;
+  animation-delay: 0.15s;
+}
+
+@keyframes drawCrossBefore {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 35px;
+    opacity: 1;
+  }
+}
+
+@keyframes drawCrossAfter {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 35px;
+    opacity: 1;
+  }
+}
+
+  </style>
+
+  <form id="contact-form" novalidate>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="from_name">Your Name</label>
+        <input type="text" class="form-control" id="from_name" name="from_name" placeholder="Enter your name" required>
+        <div class="error-message" id="error-from_name"></div>
+      </div>
+      <div class="form-group">
+        <label for="reply_to">Your Email</label>
+        <input type="email" class="form-control" id="reply_to" name="reply_to" placeholder="Enter your email" required>
+        <div class="error-message" id="error-reply_to"></div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="subject">Subject</label>
+      <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
+      <div class="error-message" id="error-subject"></div>
+    </div>
+
+    <div class="form-group">
+      <label for="message">Your Message</label>
+      <textarea class="form-control" id="message" name="message" placeholder="Type your message here..." required></textarea>
+      <div class="error-message" id="error-message"></div>
+    </div>
+
+    <div class="form-group text-center">
+      <button type="submit" class="btn">Send Message</button>
+    </div>
+  </form>
+`;
+
+
+
+// Inject form HTML into shadow root
+shadowRoot.innerHTML = formHTML;
+
+const shadowForm = shadowRoot.getElementById('contact-form');
+
+// Validation messages mapping
+const defaultMessages = {
+  from_name: "Please fill out this field.",
+  reply_to: {
+    valueMissing: "Please fill out this field.",
+    typeMismatch: "Please include an '@' in the email address."
+  },
+  subject: "Please fill out this field.",
+  message: "Please fill out this field."
+};
+
+function validateField(field) {
+  const errorElem = shadowRoot.getElementById(`error-${field.name}`);
+  if (!errorElem) return true; // No error element, skip
+
+  errorElem.textContent = "";
+
+  if (!field.validity.valid) {
+    if (field.validity.valueMissing) {
+      errorElem.textContent = defaultMessages[field.name]?.valueMissing || defaultMessages[field.name];
+    } else if (field.validity.typeMismatch && defaultMessages[field.name]?.typeMismatch) {
+      errorElem.textContent = defaultMessages[field.name].typeMismatch;
+    }
+    return false;
+  }
+  return true;
+}
+
+shadowForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  let valid = true;
+
+  Array.from(shadowForm.elements).forEach(el => {
+    if (el.willValidate) {
+      if (!validateField(el)) valid = false;
+    }
+  });
+
+  if (!valid) return;
+
+  // Get email and hash it (using md5 loaded in main page)
+  const email = shadowForm.querySelector('[name="reply_to"]').value;
+  const emailHash = md5(email.trim().toLowerCase());
+
+  // Add or update hidden input for email_hash
+  let hashInput = shadowForm.querySelector('input[name="email_hash"]');
+  if (!hashInput) {
+    hashInput = document.createElement('input');
+    hashInput.type = 'hidden';
+    hashInput.name = 'email_hash';
+    shadowForm.appendChild(hashInput);
+  }
+  hashInput.value = emailHash;
+
+  // Send email via EmailJS
+  emailjs.sendForm('lenny_edits8', 'template_q8fff9h', shadowForm)
+    .then(() => {
+      showModal('successModal');
+      shadowForm.reset();
+      shadowForm.removeChild(hashInput);
+    })
+    .catch(() => {
+      showModal('failModal');
+      shadowForm.removeChild(hashInput);
+    });
+});
+
+// Clear error on input live
+Array.from(shadowForm.elements).forEach(el => {
+  if (el.willValidate) {
+    el.addEventListener('input', () => validateField(el));
+  }
+});
+
+</script>
 
 
 
