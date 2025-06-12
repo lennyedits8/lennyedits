@@ -2938,13 +2938,6 @@ ul {
   transition: transform 0.3s ease-in-out;
 }
 
-.wil-menu-list {
-  width: 100%; /* or use a specific value like 80vw, 600px etc. */
-  max-width: none; /* override any inherited max-width */
-  padding: 0 20px; /* optional, for spacing inside */
-  box-sizing: border-box; /* ensures padding doesn't exceed total width */
-}
-
 
 
 @media (max-width: 768px) {
@@ -2955,3 +2948,5 @@ ul {
     display: block;
   }
 }
+
+
