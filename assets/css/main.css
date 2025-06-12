@@ -2944,3 +2944,14 @@ ul {
   padding: 0 20px; /* optional, for spacing inside */
   box-sizing: border-box; /* ensures padding doesn't exceed total width */
 }
+
+
+
+@media (max-width: 768px) {
+  .has-submenu > .submenu {
+    display: none;
+  }
+  .has-submenu.open > .submenu {
+    display: block;
+  }
+}
