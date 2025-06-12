@@ -112,6 +112,7 @@
 }
 
 
+
 </style>
 
 
@@ -122,7 +123,7 @@
 			<!-- header -->
 			<header class="header header--fixed">
 				<div class="header__inner">
-					<div class="header__logo"><a href="index.html"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928077/logo_q6oh0r.png" alt="" style="width: 122px;"/></a></div>
+					<div class="header__logo"><a href="index.html"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748819411/lennylogo_upscale_transparent_lzjpoq.png" alt="" style="width: 122px;"/></a></div>
 					<div class="navbar-toggle" id="fs-button">
 						<div class="navbar-icon"><span></span></div>
 					</div>
@@ -396,11 +397,12 @@ const formHTML = `
     form {
       max-width: 700px;
       margin: auto;
-      background: #fff;
+      background: transparent;
       padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+      border-radius: 0;
+      box-shadow: none;
     }
+
 
     label {
       font-weight: 600;
@@ -431,9 +433,10 @@ const formHTML = `
       border-radius: 10px;
       font-size: 1.15rem;
       font-weight: 500;
-      background-color: #f9f9f9;
+      background-color: #fefefe; /* changed from #f9f9f9 for more contrast */
       transition: border-color 0.2s ease, border-width 0.2s ease;
     }
+
 
     .form-control::placeholder {
       font-size: 1.1rem;
