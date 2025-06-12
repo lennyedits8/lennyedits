@@ -108,6 +108,26 @@ $('.fullscreenmenu__module').each(function () {
     });
   });
 
+/* Nav dropdown sub menu */
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll('.has-submenu > a').forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const parentLi = this.parentElement;
+
+      // Close other open submenus
+      document.querySelectorAll('.has-submenu.open').forEach(item => {
+        if (item !== parentLi) item.classList.remove('open');
+      });
+
+      // Toggle current
+      parentLi.classList.toggle('open');
+    });
+  });
+});
+
 
 
 

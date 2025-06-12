@@ -2886,3 +2886,61 @@ ul {
 }
 
 
+/*nav dropdown sub menu*/
+
+.has-submenu {
+  position: relative;
+}
+
+.has-submenu > .submenu {
+  max-height: 0;               
+  opacity: 0;                 
+  padding-top: 0;
+  padding-bottom: 0;
+  overflow: hidden;
+  transition: 
+    max-height 0.4s ease,     /* slide open/close speed (opens quickly) */
+    opacity 0.3s ease,        /* fade in/out speed (fades in quickly) */
+    padding 0.3s ease;        /* padding expand/collapse speed (quick padding change) */
+}
+
+.has-submenu.open > .submenu {
+  max-height: 300px;          
+  opacity: 1;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+
+/* When submenu is open */
+.has-submenu.open > .submenu {
+  max-height: 300px;          /* max-height transition controls slide down */
+  opacity: 1;                 /* opacity transition controls fade in */
+  padding-top: 8px;           /* padding transition controls vertical spacing */
+  padding-bottom: 8px;
+  /* These transitions use the same timing as above, but feel "faster" on open */
+}
+
+
+/* Triangle icon styles */
+.submenu-toggle {
+  display: inline-block;
+  margin-left: 5px;
+  transition: transform 0.3s ease-in-out;
+}
+
+
+.has-submenu.open .submenu-toggle i {
+  transform: rotate(90deg);
+}
+
+.submenu-toggle i {
+  transition: transform 0.3s ease-in-out;
+}
+
+.wil-menu-list {
+  width: 100%; /* or use a specific value like 80vw, 600px etc. */
+  max-width: none; /* override any inherited max-width */
+  padding: 0 20px; /* optional, for spacing inside */
+  box-sizing: border-box; /* ensures padding doesn't exceed total width */
+}
