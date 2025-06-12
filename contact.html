@@ -110,6 +110,8 @@
 .fail-x:after {
   transform: rotate(-45deg);
 }
+
+
 </style>
 
 
@@ -162,7 +164,7 @@
 						
 						<!-- page-title -->
 						<div class="page-title pb-40">
-							<h2 class="page-title__title">Book a Photo Shoot</h2>
+							<h2 class="page-title__title">Contact</h2>
 							<p class="page-title__text"></p>
 							<div class="page-title__divider"></div>
 						</div><!-- End / page-title -->
@@ -178,55 +180,59 @@
 						<div class="row">
 							<div class="col-md-4 col-lg-3 ">
 								
-								<!-- contact -->
-								<div class="contact">
-									<div class="contact__icon"><i class="pe-7s-note"></i></div>
-									<h3 class="contact__title">location</h3>
-									<div class="contact__text">Dublin, Ireland</div>
-								</div><!-- End / contact -->
+<!-- contact -->
+                  <div class="contact">
+                    <div class="contact__icon" style="width: 45px; height: 45px; border-radius: 50%; border: 1.5px solid #ff6a00; display: flex; justify-content: center; align-items: center; transform: translateX(-0px);">
+                      <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_200/v1747928143/instagram_i46xmx.png" alt="Instagram" style="width: 22x; height: 22px;" />
+                    </div>
+                    <h3 class="contact__title">Instagram</h3>
+                    <div class="contact__text">
+                      <a href="https://www.instagram.com/lennyedits8" target="_blank" style="color: #ff6a00;">@lennyedits8</a>
+                    </div>
+                  </div>
+
+
+
+
 
 								
 								
-								<!-- contact -->
-								<div class="contact">
-									<div class="contact__icon"><i class="pe-7s-voicemail"></i></div>
-									<h3 class="contact__title">e-mail</h3>
-									<div class="contact__text"><a href="#">lennyedits8@gmail.com</a></div>
-								</div><!-- End / contact -->
+                  <div class="contact">
+                    <div class="contact__icon" style="width: 45px; height: 45px; border-radius: 50%; border: 1.5px solid #ff6a00; display: flex; justify-content: center; align-items: center; transform: translateX(-0px);">
+                      <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_200/v1747928144/tiktok_n5ifbv.png" alt="Instagram" style="width: 22x; height: 22px;" />
+                    </div>
+                    <h3 class="contact__title">TikTok</h3>
+                    <div class="contact__text">
+                      <a href="https://www.tiktok.com/@lennyedits8" target="_blank" style="color: #ff6a00;">@lennyedits8</a>
+                    </div>
+                  </div>
+
 								
 							</div>
 							<div class="col-md-7 col-lg-8 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-1 ">
 								<div class="form-wrapper">
 									
-              <iframe name="form-frame" style="display:none;"></iframe>
+									<form id="contact-form">
+									<div class="form-item form-item--half">
+										<input class="form-control" type="text" name="from_name" placeholder="Your name" required />
+									</div>
 
-              <form id="contact-form" method="POST" action="https://formsubmit.co/lennyedits8@gmail.com">
-                <div class="form-item form-item--half">
-                  <input class="form-control" type="text" name="name" placeholder="Your name" required />
-                </div>
+									<div class="form-item form-item--half">
+										<input class="form-control" type="email" name="reply_to" placeholder="Your email" required />
+									</div>
 
-                <div class="form-item form-item--half">
-                  <input class="form-control" type="email" name="email" placeholder="Your email" required />
-                </div>
+									<div class="form-item">
+										<input class="form-control" type="text" name="subject" placeholder="Subject" required />
+									</div>
 
-                <div class="form-item">
-                  <input class="form-control" type="text" name="subject" placeholder="Subject" required />
-                </div>
+									<div class="form-item">
+										<textarea class="form-control" name="message" placeholder="Your message" style="min-height:200px;" required></textarea>
+									</div>
 
-                <div class="form-item">
-                  <textarea class="form-control" name="message" placeholder="Your message" style="min-height:200px;" required></textarea>
-                </div>
-
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_template" value="table">
-
-                <div class="form-item">
-                  <button type="submit" class="md-btn md-btn--primary md-btn--lg">Send message</button>
-                </div>
-              </form>
-
-
-
+									<div class="form-item">
+										<button type="submit" class="md-btn md-btn--primary md-btn--lg">Send message</button>
+									</div>
+									</form>
 
 									
 								</div>
@@ -280,6 +286,28 @@
 		<!-- App-->
 <script type="text/javascript" src="assets/js/main.js"></script>
 
+<!-- EmailJS SDK -->
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script type="text/javascript">
+  (function() {
+    emailjs.init('o4FzP7S_OrCnuenhE'); // Your EmailJS public key
+  })();
+</script>
+
+<script>
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm('lenny_edits8', 'template_q8fff9h', this)
+      .then(function(response) {
+        alert('Message sent successfully!');
+        document.getElementById('contact-form').reset();
+      }, function(error) {
+        alert('FAILED... ' + JSON.stringify(error));
+      });
+  });
+</script>
+
 
 
 <!-- Success Modal -->
@@ -302,6 +330,16 @@
   </div>
 </div>
 
+
+<!-- EmailJS SDK -->
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script type="text/javascript">
+  (function() {
+    emailjs.init('o4FzP7S_OrCnuenhE'); // Your EmailJS public key
+  })();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5/js/md5.min.js"></script>
 <script>
 function showModal(modalId) {
   const modal = document.getElementById(modalId);
@@ -318,15 +356,30 @@ function showModal(modalId) {
     }, 300);
   }, 3000); // Modal stays for 3s
 }
-</script>
 
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+  e.preventDefault();
 
-<script>
-  const iframe = document.getElementsByName('form-frame')[0];
-  iframe.addEventListener('load', () => {
-    showModal("successModal");
-    document.getElementById("contact-form").reset();
-  });
+  const form = this;
+  const email = form.reply_to.value;
+  const emailHash = md5(email.trim().toLowerCase());
+
+  const hashInput = document.createElement('input');
+  hashInput.type = 'hidden';
+  hashInput.name = 'email_hash';
+  hashInput.value = emailHash;
+  form.appendChild(hashInput);
+
+  emailjs.sendForm('lenny_edits8', 'template_q8fff9h', form)
+    .then(function(response) {
+      showModal("successModal");
+      form.reset();
+      form.removeChild(hashInput);
+    }, function(error) {
+      showModal("failModal");
+      form.removeChild(hashInput);
+    });
+});
 </script>
 
 
