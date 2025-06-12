@@ -915,32 +915,36 @@ ul {
 }
 
 .overlay-menu ul {
-    display: inline-block;
+    display: block;            /* vertical stack */
     list-style: none;
     height: 100%;
     margin: 0 auto;
     padding: 0;
+    width: fit-content;        /* shrink to content */
+    text-align: center;        /* center text inside */
     position: relative;
 }
 
 .overlay-menu ul li {
-    display: block;
+    display: block;            /* stack vertically */
     position: relative;
     opacity: 0;
+    margin: 10px 0;            /* add vertical spacing between menu items */
 }
 
 .overlay-menu ul li a {
-    display: block; 
+    display: inline-block;
     position: relative;
-    overflow: visible ; /*show full arrow/triangle on nav dropdown toggle*/
+    text-align: center;
+    overflow: visible;
     font-family: "Montserrat", sans-serif;
     font-size: 30px;
     font-weight: 500;
     color: #fff;
     text-decoration: none;
     text-transform: uppercase;
-    padding: 5px 0;
-    transition: all .2s linear;
+    padding: 5px 20px;         /* add some padding for easier clicking */
+    transition: all 0.2s linear;
 }
 
 @media (min-width: 320px) {
@@ -955,9 +959,96 @@ ul {
     }
 }
 
+.overlay-menu ul li.active > a,
+.overlay-menu ul li a:hover {
+    color: #ff594f;
+}
+
 .overlay-menu ul li.active > a, .overlay-menu ul li a:hover {
     color: #ff594f;
 }
+
+
+/*nav dropdown sub menu*/
+
+.has-submenu {
+  position: relative;
+  text-align: center;
+}
+
+.has-submenu > .submenu {
+  max-height: 0;               
+  opacity: 0;                 
+  padding-top: 0;
+  padding-bottom: 0;
+  overflow: hidden;
+  transition: 
+    max-height 0.4s ease,     /* slide open/close speed (opens quickly) */
+    opacity 0.3s ease,        /* fade in/out speed (fades in quickly) */
+    padding 0.3s ease;        /* padding expand/collapse speed (quick padding change) */
+}
+
+.has-submenu.open > .submenu {
+  max-height: 300px;          
+  opacity: 1;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  
+}
+
+
+/* When submenu is open */
+.has-submenu.open > .submenu {
+  max-height: 300px;          /* max-height transition controls slide down */
+  opacity: 1;                 /* opacity transition controls fade in */
+  padding-top: 8px;           /* padding transition controls vertical spacing */
+  padding-bottom: 8px;
+  /* These transitions use the same timing as above, but feel "faster" on open */
+}
+
+
+/* Triangle icon styles */
+.submenu-toggle {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 5px;
+  transition: transform 0.3s ease-in-out;
+}
+
+
+.has-submenu.open .submenu-toggle i {
+  transform: rotate(90deg);
+}
+
+.submenu-toggle i {
+  transition: transform 0.3s ease-in-out;
+}
+
+
+
+
+@media (max-width: 768px) {
+  .has-submenu > .submenu {
+    position: static;      /* so submenu flows under parent */
+    transform: none;
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
+  }
+  .has-submenu.open > .submenu {
+    max-height: 300px;   /* or bigger if needed */
+    opacity: 1;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+}
+
+
+
+
 
 .fs-button {
     position: absolute;
@@ -2886,66 +2977,5 @@ ul {
 }
 
 
-/*nav dropdown sub menu*/
-
-.has-submenu {
-  position: relative;
-}
-
-.has-submenu > .submenu {
-  max-height: 0;               
-  opacity: 0;                 
-  padding-top: 0;
-  padding-bottom: 0;
-  overflow: hidden;
-  transition: 
-    max-height 0.4s ease,     /* slide open/close speed (opens quickly) */
-    opacity 0.3s ease,        /* fade in/out speed (fades in quickly) */
-    padding 0.3s ease;        /* padding expand/collapse speed (quick padding change) */
-}
-
-.has-submenu.open > .submenu {
-  max-height: 300px;          
-  opacity: 1;
-  padding-top: 8px;
-  padding-bottom: 8px;
-}
 
 
-/* When submenu is open */
-.has-submenu.open > .submenu {
-  max-height: 300px;          /* max-height transition controls slide down */
-  opacity: 1;                 /* opacity transition controls fade in */
-  padding-top: 8px;           /* padding transition controls vertical spacing */
-  padding-bottom: 8px;
-  /* These transitions use the same timing as above, but feel "faster" on open */
-}
-
-
-/* Triangle icon styles */
-.submenu-toggle {
-  display: inline-block;
-  margin-left: 5px;
-  transition: transform 0.3s ease-in-out;
-}
-
-
-.has-submenu.open .submenu-toggle i {
-  transform: rotate(90deg);
-}
-
-.submenu-toggle i {
-  transition: transform 0.3s ease-in-out;
-}
-
-
-
-
-@media (max-width: 768px) {
-  .has-submenu > .submenu {
-    display: none;
-  }
-  .has-submenu.open > .submenu {
-    display: block;
-  }
-}
