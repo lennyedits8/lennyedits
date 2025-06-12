@@ -930,9 +930,9 @@ ul {
 }
 
 .overlay-menu ul li a {
-    display: block;
+    display: block; 
     position: relative;
-    overflow: hidden;
+    overflow: visible ; /*show full arrow/triangle on nav dropdown toggle*/
     font-family: "Montserrat", sans-serif;
     font-size: 30px;
     font-weight: 500;
@@ -2940,6 +2940,7 @@ ul {
 
 
 
+
 @media (max-width: 768px) {
   .has-submenu > .submenu {
     display: none;
@@ -2948,5 +2949,3 @@ ul {
     display: block;
   }
 }
-
-
