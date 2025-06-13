@@ -6,6 +6,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<meta name="format-detection" content="telephone=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
+		<!-- Cache control -->
+		<meta http-equiv='cache-control' content='no-cache'>
+		<meta http-equiv='expires' content='0'>
+		<meta http-equiv='pragma' content='no-cache'>
 		<!-- Fonts-->
 		<link rel="stylesheet" type="text/css" href="assets/fonts/fontawesome/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="assets/fonts/pe-icon/pe-icon.css">
@@ -18,7 +22,22 @@
 		<link rel="stylesheet" type="text/css" id="app-stylesheet" href="assets/css/main.css"><!--[if lt IE 9]>
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<![endif]-->
+
+				<!-- PhotoSwipe -->
+		<link rel="stylesheet" href="https://unpkg.com/photoswipe@5/dist/photoswipe.css" />
 	</head>
+
+
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3WD6FZML3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3WD6FZML3W');
+</script>
+
 <style>
 label {
   font-weight: 600;
@@ -251,12 +270,15 @@ textarea.form-control {
 }
 
 
+
+
+
+
+
+
+
 </style>
 
-
-
-
-	
 	<body>
 		<div class="page-wrap" id="root">
 			
@@ -277,17 +299,20 @@ textarea.form-control {
 						
 						<!--  -->
 						<ul class="wil-menu-list">
-							<li class="current-menu-item"><a href="index.html">Home</a>
-							</li>
-							</li>
-							<li><a href="about.html">About</a>
-							</li>
-							<li><a href="allwork.html">In-Game</a>
-                            </li>
-							<li><a href="realworld.html">Real Life</a>
-							</li>
-							<li><a href="film.html">35mm Film</a>
-							</li>
+							<li class="current-menu-item"><a href="index.html">Home</a></li>
+							<li><a href="contact.html">Contact</a></li>
+
+								<li class="has-submenu">
+								<a href="#">Photography <span class="submenu-toggle"><i class="fa fa-angle-right"></i></span></a>
+								<ul class="submenu">
+									<li><a href="realworld.html">Portfolio</a></li>
+									<li><a href="film.html">35mm Film</a></li>
+									<li><a href="allwork.html">In-Game</a></li>
+								</ul>
+								</li>
+
+
+
 						</ul><!--  -->
 						
 					</nav><!-- End / overlay-menu -->
@@ -306,7 +331,7 @@ textarea.form-control {
 						<!-- page-title -->
 						<div class="page-title pb-40">
 							<h2 class="page-title__title">Contact</h2>
-							<p class="page-title__text"></p>
+							<p class="page-title__text"> </p>
 							<div class="page-title__divider"></div>
 						</div><!-- End / page-title -->
 						
@@ -315,7 +340,7 @@ textarea.form-control {
 				<!-- End / Section -->
 				
 				
-				<!-- Section -->
+	<!-- Section -->
 				<section class="awe-section bg-gray">
 					<div class="container">
 						<div class="row">
@@ -324,7 +349,7 @@ textarea.form-control {
 <!-- contact -->
                   <div class="contact">
                     <div class="contact__icon" style="width: 45px; height: 45px; border-radius: 50%; border: 1.5px solid #ff6a00; display: flex; justify-content: center; align-items: center; transform: translateX(-0px);">
-                      <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_200/v1747928143/instagram_i46xmx.png" alt="Instagram" style="width: 22x; height: 22px;" />
+                      <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_200/v1747928143/instagram_i46xmx.png" alt="Instagram" style="width: 22px; height: 22px;" />
                     </div>
                     <h3 class="contact__title">Instagram</h3>
                     <div class="contact__text">
@@ -354,28 +379,38 @@ textarea.form-control {
 					</div>
 				</section>
 				<!-- End / Section -->
+
 				
 			</div>
 			<!-- End / Content-->
 			
-      <!-- Footer -->
-      <footer class="footer">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6">
-              <p class="footer__coppy">Please tag me if reposting any of these photos.</p>
-            </div>
-            <div class="col-md-6 footer__social">
-              <a class="social-icon" href="https://www.tiktok.com/@lennyedits8"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928144/tiktok_n5ifbv.png" style="width: 55%;" alt="TikTok" /></a>
-              <a class="social-icon" href="https://www.instagram.com/lennyedits8"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928143/instagram_i46xmx.png" style="width: 55%;" alt="Instagram" /></a>
-              <a class="social-icon" href="https://youtube.com/@lennyedits8"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928151/youtube_ai5o5l.png" style="width: 55%;" alt="YouTube" /></a>
-              <a class="social-icon" href="https://pin.it/3ahwciaBA"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928143/pinterest_jnjszj.png" style="width: 55%;" alt="Pinterest" /></a>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
-  </div>
+			<!-- footer -->
+			<div class="footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 col-lg-6 ">
+							<p class="footer__coppy">Please tag me if reposting any of these photos</p>
+						</div>
+						<div class="col-md-6 col-lg-6 ">
+							<div class="footer__social">
+								
+								<!-- social-icon -->
+								<a class="social-icon" href="https://www.tiktok.com/@lennyedits8?_t=8p7Mtyc9oX2&_r=1"><img class="social-icon__icon" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928144/tiktok_n5ifbv.png" alt="TikTok" style="width: 55%;"></a><!-- End / social-icon -->
+								
+								
+								<!-- social-icon -->
+								<a class="social-icon" href="https://www.instagram.com/lennyedits8?igsh=M25haDVoMG1yemNk&utm_source=qr"><img class="social-icon__icon" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928143/instagram_i46xmx.png" alt="instagram" style="width: 55%;"></a><!-- End / social-icon -->
+
+								<!-- social-icon -->
+								<a class="social-icon" href="https://youtube.com/@lennyedits8?si=l5Khbyjd-_uldYLe"><img class="social-icon__icon" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928151/youtube_ai5o5l.png" alt="youtube" style="width: 55%;"></a><!-- End / social-icon -->
+
+								<!-- social-icon -->
+								<a class="social-icon" href="https://pin.it/3ahwciaBA"><img class="social-icon__icon" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928143/pinterest_jnjszj.png" alt="pinterest" style="width: 55%;"></a><!-- End / social-icon -->
+								
+							</div>
+						</div>
+					</div>
+				</div>
 			</div><!-- End / footer -->
 			
 		</div>
@@ -396,8 +431,25 @@ textarea.form-control {
 		<script type="text/javascript" src="assets/js/main.js"></script>
 
 
-		<!-- App-->
-<script type="text/javascript" src="assets/js/main.js"></script>
+		<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			document.querySelectorAll('img').forEach(img => {
+			img.loading = "lazy";
+			});
+		});
+		</script>
+
+		<script type="module">
+  import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.esm.min.js';
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: '.gallery-grid',
+    children: 'a',
+    pswpModule: () => import('https://unpkg.com/photoswipe@5/dist/photoswipe.esm.min.js')
+  });
+
+  lightbox.init();
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/blueimp-md5/js/md5.min.js"></script>
 
@@ -547,7 +599,6 @@ const formHTML = `
 `;
 
 
-
 // Inject form HTML into shadow root
 shadowRoot.innerHTML = formHTML;
 
@@ -648,13 +699,8 @@ function showModal(id) {
   void modal.offsetWidth;
 
   // iOS Haptics via vibration API
-  if (navigator.vibrate) {
-    if (id === "successModal") {
-      navigator.vibrate([20, 30, 20]); // Success vibration pattern
-    } else if (id === "failModal") {
-      navigator.vibrate([100, 50, 100]); // Failure vibration pattern
-    }
-  }
+simulateHapticFeedback(id === "successModal" ? "success" : "fail");
+
 
   // Auto-close modal after 2 seconds with fade out effect
   setTimeout(() => {
@@ -669,9 +715,22 @@ function showModal(id) {
   }, 2600); // after fade-out animation ends
 }
 
+function simulateHapticFeedback(type = 'success') {
+  const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
 
+  if (isIOS) {
+    // Very short audio to simulate haptic bump (near-silent)
+    const base64Audio = type === 'success'
+      ? "data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0YRAAAAD//w=="
+      : "data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0YRQAAAAD//8=";
 
-
+    const audio = new Audio(base64Audio);
+    audio.play().catch(() => {}); // avoid unhandled errors if autoplay blocked
+  } else if (navigator.vibrate) {
+    // Android fallback
+    navigator.vibrate(type === 'success' ? [20, 30, 20] : [100, 50, 100]);
+  }
+}
 
 </script>
 
@@ -692,12 +751,6 @@ function showModal(id) {
     </svg>
   </div>
 </div>
-
-
-
-
-</body>
-</html>
 
 	</body>
 </html>

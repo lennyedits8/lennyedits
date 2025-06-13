@@ -1,7 +1,743 @@
-									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/ffvii/ff1.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748020236/ff1_tk7v5a.jpg" alt=""></a></div></div>
-									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/ffvii/ff2.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748020230/ff2_mnh7ao.jpg" alt=""></a></div></div>
-									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/ffvii/ff3.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748020237/ff3_zr8ayx.jpgg" alt=""></a></div></div>
-									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/ffvii/ff5.jpeg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748020228/ff5_kv4q9p.jpg" alt=""></a></div></div>
-									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/ffvii/ff6.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748020231/ff6_x1rtd5.jpg" alt=""></a></div></div>
-									<div class="work-img"><div class="img-wrapper aspect-2-3"><a href="assets/img/ffvii/ff7.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748020237/ff7_cx5nxl.jpg" alt=""></a></div></div>
-									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/ffvii/ff4.jpg" data-lightbox="gallery"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748020232/ff4_gtzhoo.jpg" alt=""></a></div></div>	
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Contact</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<!-- Cache control -->
+		<meta http-equiv='cache-control' content='no-cache'>
+		<meta http-equiv='expires' content='0'>
+		<meta http-equiv='pragma' content='no-cache'>
+		<!-- Fonts-->
+		<link rel="stylesheet" type="text/css" href="assets/fonts/fontawesome/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="assets/fonts/pe-icon/pe-icon.css">
+		<!-- Vendors-->
+		<link rel="stylesheet" type="text/css" href="assets/vendors/bootstrap/grid.css">
+		<link rel="stylesheet" type="text/css" href="assets/vendors/magnific-popup/magnific-popup.min.css">
+		<link rel="stylesheet" type="text/css" href="assets/vendors/swiper/swiper.css">
+		<!-- App & fonts-->
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Open+Sans:400,700">
+		<link rel="stylesheet" type="text/css" id="app-stylesheet" href="assets/css/main.css"><!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<![endif]-->
+
+				<!-- PhotoSwipe -->
+		<link rel="stylesheet" href="https://unpkg.com/photoswipe@5/dist/photoswipe.css" />
+	</head>
+
+
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3WD6FZML3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3WD6FZML3W');
+</script>
+
+<style>
+label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+  display: block;
+  font-size: 1.1rem;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+
+.form-group {
+  flex: 1;
+  min-width: 250px;
+  margin-bottom: 18px;
+  position: relative;
+}
+
+.form-control {
+  width: 100%;
+  padding: 18px 22px;
+  border: 1.2px solid #ccc;
+  border-radius: 10px;
+  font-size: 1.15rem;
+  font-weight: 500;
+  background-color: #fefefe; /* changed from #f9f9f9 for more contrast */
+  transition: border-color 0.2s ease, border-width 0.2s ease;
+}
+
+.form-control::placeholder {
+  font-size: 1.1rem;
+  color: #999;
+  font-weight: 500;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #ff6a00;
+  border-width: 2px;
+  background-color: #fff;
+}
+
+textarea.form-control {
+  min-height: 180px;
+  resize: vertical;
+}
+
+.btn {
+  background-color: #ff6a00;
+  color: #fff;
+  padding: 16px 32px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #e35b00;
+}
+
+.text-center {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Custom error message styling */
+.error-message {
+  color: #ff6a00;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-top: 6px;
+  font-family: 'Montserrat', sans-serif;
+  min-height: 18px; /* reserve space so layout doesn't jump */
+}
+
+/* Modal styles */
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  height: 100dvh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  pointer-events: none; /* disable interaction when hidden */
+}
+
+.modal.hidden {
+  pointer-events: none;
+  display: none; /* hide completely */
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 1;
+  pointer-events: none;
+  /* Remove animation to avoid shimmer */
+  /* animation: backdropFade 1.2s ease-in-out forwards; */
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+.modal.hidden .modal-backdrop {
+  backdrop-filter: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  /* animation: none; */
+}
+
+
+.modal-content {
+  position: relative;
+  z-index: 2;
+  display: none;
+  animation: scaleFadeIn 0.6s ease-in-out forwards;
+}
+
+/* Animation keyframes */
+@keyframes backdropFade {
+  from {
+    opacity: 0;
+    backdrop-filter: none;
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(10px);
+  }
+}
+
+@keyframes scaleFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animation icons inside modal-content */
+.animation-icon {
+  width: 64px;
+  height: 64px;
+  stroke-width: 4;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  fill: none;
+  stroke: #ff6a00; /* unified stroke color for both */
+}
+
+/* Spinner and fail circle share same style now */
+.circle.spinner,
+.circle.fail {
+  stroke-dasharray: 188.4;
+  stroke-dashoffset: 0;
+  transform-origin: 50% 50%; /* center the rotation */
+  animation: spinnerRotate 1.5s linear infinite;
+}
+
+@keyframes spinnerRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Paths for check and cross */
+.path.check,
+.path.cross {
+  stroke: #ff6a00;
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Draw animations for check and cross */
+.path.check {
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: checkmarkDraw 0.6s ease forwards;
+}
+
+.path.cross {
+  stroke-dasharray: 68;
+  stroke-dashoffset: 68;
+  animation: crossDraw 0.6s ease forwards;
+}
+
+@keyframes checkmarkDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes crossDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Fade out animation for modal */
+.modal.fade-out {
+  animation: modalFadeOut 0.8s forwards;
+}
+
+@keyframes modalFadeOut {
+  from {
+    opacity: 1;
+    backdrop-filter: blur(10px);
+  }
+  to {
+    opacity: 0;
+    backdrop-filter: blur(0);
+  }
+}
+
+
+
+
+
+
+
+
+
+</style>
+
+	<body>
+		<div class="page-wrap" id="root">
+			
+			<!-- header -->
+			<header class="header header--fixed">
+				<div class="header__inner">
+					<div class="header__logo"><a href="index.html"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748819411/lennylogo_upscale_transparent_lzjpoq.png" alt="" style="width: 122px;"/></a></div>
+					<div class="navbar-toggle" id="fs-button">
+						<div class="navbar-icon"><span></span></div>
+					</div>
+				</div>
+				
+				<!-- fullscreenmenu__module -->
+				<div class="fullscreenmenu__module" trigger="#fs-button">
+					
+					<!-- overlay-menu -->
+					<nav class="overlay-menu">
+						
+						<!--  -->
+						<ul class="wil-menu-list">
+							<li class="current-menu-item"><a href="index.html">Home</a></li>
+							<li><a href="contact.html">Contact</a></li>
+
+								<li class="has-submenu">
+								<a href="#">Photography <span class="submenu-toggle"><i class="fa fa-angle-right"></i></span></a>
+								<ul class="submenu">
+									<li><a href="realworld.html">Portfolio</a></li>
+									<li><a href="film.html">35mm Film</a></li>
+									<li><a href="allwork.html">In-Game</a></li>
+								</ul>
+								</li>
+
+
+
+						</ul><!--  -->
+						
+					</nav><!-- End / overlay-menu -->
+					
+				</div><!-- End / fullscreenmenu__module -->
+				
+			</header><!-- End / header -->
+			
+			<!-- Content-->
+			<div class="wil-content">
+				
+				<!-- Section -->
+				<section class="awe-section">
+					<div class="container">
+						
+						<!-- page-title -->
+						<div class="page-title pb-40">
+							<h2 class="page-title__title">Contact</h2>
+							<p class="page-title__text"> </p>
+							<div class="page-title__divider"></div>
+						</div><!-- End / page-title -->
+						
+					</div>
+				</section>
+				<!-- End / Section -->
+				
+				
+	<!-- Section -->
+				<section class="awe-section bg-gray">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-4 col-lg-3 ">
+								
+<!-- contact -->
+                  <div class="contact">
+                    <div class="contact__icon" style="width: 45px; height: 45px; border-radius: 50%; border: 1.5px solid #ff6a00; display: flex; justify-content: center; align-items: center; transform: translateX(-0px);">
+                      <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_200/v1747928143/instagram_i46xmx.png" alt="Instagram" style="width: 22px; height: 22px;" />
+                    </div>
+                    <h3 class="contact__title">Instagram</h3>
+                    <div class="contact__text">
+                      <a href="https://www.instagram.com/lennyedits8" target="_blank" style="color: #ff6a00;">@lennyedits8</a>
+                    </div>
+                  </div>
+								
+                  <div class="contact">
+                    <div class="contact__icon" style="width: 45px; height: 45px; border-radius: 50%; border: 1.5px solid #ff6a00; display: flex; justify-content: center; align-items: center; transform: translateX(-0px);">
+                      <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_200/v1747928144/tiktok_n5ifbv.png" alt="Instagram" style="width: 22x; height: 22px;" />
+                    </div>
+                    <h3 class="contact__title">TikTok</h3>
+                    <div class="contact__text">
+                      <a href="https://www.tiktok.com/@lennyedits8" target="_blank" style="color: #ff6a00;">@lennyedits8</a>
+                    </div>
+                  </div>
+
+								
+							</div>
+              <div class="col-md-7 col-lg-8 col-lg-offset-0 col-lg-offset-0 col-md-offset-0 col-lg-offset-1">
+                  <!-- This stays empty -->
+                  <div id="shadow-form-container"></div>
+
+              </div>
+
+						</div>
+					</div>
+				</section>
+				<!-- End / Section -->
+
+				
+			</div>
+			<!-- End / Content-->
+			
+			<!-- footer -->
+			<div class="footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 col-lg-6 ">
+							<p class="footer__coppy">Please tag me if reposting any of these photos</p>
+						</div>
+						<div class="col-md-6 col-lg-6 ">
+							<div class="footer__social">
+								
+								<!-- social-icon -->
+								<a class="social-icon" href="https://www.tiktok.com/@lennyedits8?_t=8p7Mtyc9oX2&_r=1"><img class="social-icon__icon" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928144/tiktok_n5ifbv.png" alt="TikTok" style="width: 55%;"></a><!-- End / social-icon -->
+								
+								
+								<!-- social-icon -->
+								<a class="social-icon" href="https://www.instagram.com/lennyedits8?igsh=M25haDVoMG1yemNk&utm_source=qr"><img class="social-icon__icon" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928143/instagram_i46xmx.png" alt="instagram" style="width: 55%;"></a><!-- End / social-icon -->
+
+								<!-- social-icon -->
+								<a class="social-icon" href="https://youtube.com/@lennyedits8?si=l5Khbyjd-_uldYLe"><img class="social-icon__icon" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928151/youtube_ai5o5l.png" alt="youtube" style="width: 55%;"></a><!-- End / social-icon -->
+
+								<!-- social-icon -->
+								<a class="social-icon" href="https://pin.it/3ahwciaBA"><img class="social-icon__icon" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928143/pinterest_jnjszj.png" alt="pinterest" style="width: 55%;"></a><!-- End / social-icon -->
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><!-- End / footer -->
+			
+		</div>
+		<!-- Vendors-->
+		<script type="text/javascript" src="assets/vendors/jquery/jquery.min.js"></script>
+		<script type="text/javascript" src="assets/vendors/imagesloaded/imagesloaded.pkgd.js"></script>
+		<script type="text/javascript" src="assets/vendors/isotope-layout/isotope.pkgd.js"></script>
+		<script type="text/javascript" src="assets/vendors/jquery-one-page/jquery.nav.min.js"></script>
+		<script type="text/javascript" src="assets/vendors/jquery.easing/jquery.easing.min.js"></script>
+		<script type="text/javascript" src="assets/vendors/jquery.matchHeight/jquery.matchHeight.min.js"></script>
+		<script type="text/javascript" src="assets/vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
+		<script type="text/javascript" src="assets/vendors/masonry-layout/masonry.pkgd.js"></script>
+		<script type="text/javascript" src="assets/vendors/jquery.waypoints/jquery.waypoints.min.js"></script>
+		<script type="text/javascript" src="assets/vendors/swiper/swiper.jquery.js"></script>
+		<script type="text/javascript" src="assets/vendors/menu/menu.js"></script>
+		<script type="text/javascript" src="assets/vendors/typed/typed.min.js"></script>
+		<!-- App-->
+		<script type="text/javascript" src="assets/js/main.js"></script>
+
+
+		<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			document.querySelectorAll('img').forEach(img => {
+			img.loading = "lazy";
+			});
+		});
+		</script>
+
+		<script type="module">
+  import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.esm.min.js';
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: '.gallery-grid',
+    children: 'a',
+    pswpModule: () => import('https://unpkg.com/photoswipe@5/dist/photoswipe.esm.min.js')
+  });
+
+  lightbox.init();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5/js/md5.min.js"></script>
+
+<script>
+  // Grab the container div
+  const container = document.getElementById('shadow-form-container');
+
+  // Attach shadow root
+  const shadowRoot = container.attachShadow({ mode: 'open' });
+
+  // Your form HTML as a template literal string
+const formHTML = `
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap');
+
+    * {
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    form {
+      max-width: 700px;
+      margin: auto;
+      background: transparent;
+      padding: 30px;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+
+    label {
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 8px;
+      display: block;
+      font-size: 1.1rem;
+    }
+
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 16px;
+    }
+
+    .form-group {
+      flex: 1;
+      min-width: 250px;
+      margin-bottom: 18px;
+      position: relative;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 18px 22px;
+      border: 1.2px solid #ccc;
+      border-radius: 10px;
+      font-size: 1.15rem;
+      font-weight: 500;
+      background-color: #fefefe; /* changed from #f9f9f9 for more contrast */
+      transition: border-color 0.2s ease, border-width 0.2s ease;
+    }
+
+
+    .form-control::placeholder {
+      font-size: 1.1rem;
+      color: #999;
+      font-weight: 500;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: #ff6a00;
+      border-width: 2px;
+      background-color: #fff;
+    }
+
+    textarea.form-control {
+      min-height: 180px;
+      resize: vertical;
+    }
+
+    .btn {
+      background-color: #ff6a00;
+      color: #fff;
+      padding: 16px 32px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #e35b00;
+    }
+
+    .text-center {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    /* Custom error message styling */
+    .error-message {
+      color: #ff6a00;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-top: 6px;
+      font-family: 'Montserrat', sans-serif;
+      min-height: 18px; /* reserve space so layout doesn't jump */
+    }
+
+
+  </style>
+
+<form id="contact-form" action="https://usebasin.com/f/9c8fb9c1aab1" method="POST" novalidate>
+  <div class="form-row">
+    <div class="form-group">
+      <label for="from_name">Your Name</label>
+      <input type="text" class="form-control" id="from_name" name="from_name" placeholder="Enter your name" required>
+      <div class="error-message" id="error-from_name"></div>
+    </div>
+    <div class="form-group">
+      <label for="reply_to">Your Email</label>
+      <input type="email" class="form-control" id="reply_to" name="reply_to" placeholder="Enter your email" required>
+      <div class="error-message" id="error-reply_to"></div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="subject">Subject</label>
+    <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
+    <div class="error-message" id="error-subject"></div>
+  </div>
+
+  <div class="form-group">
+    <label for="message">Your Message</label>
+    <textarea class="form-control" id="message" name="message" placeholder="Type your message here..." required></textarea>
+    <div class="error-message" id="error-message"></div>
+  </div>
+
+  <div class="form-group text-center">
+    <button type="submit" class="btn">Send Message</button>
+  </div>
+</form>
+`;
+
+
+// Inject form HTML into shadow root
+shadowRoot.innerHTML = formHTML;
+
+const shadowForm = shadowRoot.getElementById('contact-form');
+
+// Validation messages mapping
+const defaultMessages = {
+  from_name: "Please fill out this field.",
+  reply_to: {
+    valueMissing: "Please fill out this field.",
+    typeMismatch: "Please include an '@' in the email address."
+  },
+  subject: "Please fill out this field.",
+  message: "Please fill out this field."
+};
+
+function validateField(field) {
+  const errorElem = shadowRoot.getElementById(`error-${field.name}`);
+  if (!errorElem) return true; // No error element, skip
+
+  errorElem.textContent = "";
+
+  if (!field.validity.valid) {
+    if (field.validity.valueMissing) {
+      errorElem.textContent = defaultMessages[field.name]?.valueMissing || defaultMessages[field.name];
+    } else if (field.validity.typeMismatch && defaultMessages[field.name]?.typeMismatch) {
+      errorElem.textContent = defaultMessages[field.name].typeMismatch;
+    }
+    return false;
+  }
+  return true;
+}
+
+shadowForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  let valid = true;
+
+  Array.from(shadowForm.elements).forEach(el => {
+    if (el.willValidate) {
+      if (!validateField(el)) valid = false;
+    }
+  });
+
+  if (!valid) return;
+
+  // Instead of sending via EmailJS, submit form normally for Basin
+  // Since it's inside shadow DOM, we manually submit the form:
+  
+  // Option 1: Use fetch to submit the form and handle response
+  // Option 2: Temporarily remove preventDefault and submit (simpler)
+
+  // Using fetch for modern approach:
+  const formData = new FormData(shadowForm);
+
+  fetch(shadowForm.action, {
+  /*fetch('https://example.invalid/fail', {*/              /*fail test form*/
+    method: shadowForm.method,
+    body: formData,
+    headers: {
+      'Accept': 'application/json'  // Basin returns JSON by default
+    }
+  }).then(response => {
+    if (response.ok) {
+      showModal('successModal');
+      shadowForm.reset();
+    } else {
+      showModal('failModal');
+    }
+  }).catch(() => {
+    showModal('failModal');
+  });
+});
+
+
+// Clear error on input live
+Array.from(shadowForm.elements).forEach(el => {
+  if (el.willValidate) {
+    el.addEventListener('input', () => validateField(el));
+  }
+});
+
+
+function showModal(id) {
+  const overlay = document.getElementById("feedbackOverlay");
+  const success = document.getElementById("successModal");
+  const fail = document.getElementById("failModal");
+
+  // Reset all
+  overlay.classList.remove("hidden");
+  success.style.display = "none";
+  fail.style.display = "none";
+
+  const modal = document.getElementById(id);
+  modal.style.display = "block";
+
+  // Force reflow to restart animations (important if reused)
+  void modal.offsetWidth;
+
+  // iOS Haptics via vibration API
+  if (navigator.vibrate) {
+    if (id === "successModal") {
+      navigator.vibrate([20, 30, 20]); // Success vibration pattern
+    } else if (id === "failModal") {
+      navigator.vibrate([100, 50, 100]); // Failure vibration pattern
+    }
+  }
+
+  // Auto-close modal after 2 seconds with fade out effect
+  setTimeout(() => {
+    overlay.classList.add("fade-out");
+  }, 1800); // start fade out near the end
+
+  setTimeout(() => {
+    overlay.classList.add("hidden");
+    overlay.classList.remove("fade-out");
+    success.style.display = "none";
+    fail.style.display = "none";
+  }, 2600); // after fade-out animation ends
+}
+</script>
+
+<div id="feedbackOverlay" class="modal hidden">
+  <div class="modal-backdrop"></div>
+
+  <div class="modal-content" id="successModal" style="display:none;">
+    <svg class="animation-icon" viewBox="0 0 64 64">
+      <circle class="circle spinner" cx="32" cy="32" r="30" />
+      <path class="check" d="M20 34 L28 42 L44 24" />
+    </svg>
+  </div>
+
+  <div class="modal-content" id="failModal" style="display:none;">
+    <svg class="animation-icon" viewBox="0 0 64 64">
+      <circle class="circle fail" cx="32" cy="32" r="30" />
+      <path class="cross" d="M22 22 L42 42 M42 22 L22 42" />
+    </svg>
+  </div>
+</div>
+
+	</body>
+</html>
