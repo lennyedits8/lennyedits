@@ -146,8 +146,6 @@ textarea.form-control {
   background: rgba(255, 255, 255, 0.1);
   z-index: 1;
   pointer-events: none;
-  /* Remove animation to avoid shimmer */
-  /* animation: backdropFade 1.2s ease-in-out forwards; */
   opacity: 1;
   transition: opacity 0.4s ease;
 }
@@ -156,15 +154,34 @@ textarea.form-control {
   backdrop-filter: none;
   opacity: 0;
   transition: opacity 0.4s ease;
-  /* animation: none; */
 }
-
 
 .modal-content {
   position: relative;
   z-index: 2;
-  display: none;
+  display: none; /* hide all by default */
   animation: scaleFadeIn 0.6s ease-in-out forwards;
+}
+
+#successModal,
+#failModal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+
+
+/* Show modal-content when active */
+#successModal.active,
+#failModal.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 /* Animation keyframes */
@@ -269,11 +286,21 @@ textarea.form-control {
   }
 }
 
+.modal-message {
+  font-size: 2.2rem; /* increase from 1.3rem to 1.6rem */
+  font-weight: 700;
+  color: #ff6a00;
+  font-family: 'Montserrat', sans-serif;
+  max-width: 180px;
+  line-height: 1.2;
+}
 
 
 
-
-
+#successModal svg.animation-icon,
+#failModal svg.animation-icon {
+  margin-bottom: 10px; /* adds space below the icon */
+}
 
 
 
@@ -655,7 +682,7 @@ shadowForm.addEventListener('submit', (e) => {
   const formData = new FormData(shadowForm);
 
   fetch(shadowForm.action, {
-  /*fetch('https://example.invalid/fail', {*/              /*fail test form*/
+  /*fetch('https://example.invalid/fail', {  */           /*fail test form*/
     method: shadowForm.method,
     body: formData,
     headers: {
@@ -738,19 +765,22 @@ function simulateHapticFeedback(type = 'success') {
   <div class="modal-backdrop"></div>
 
   <div class="modal-content" id="successModal" style="display:none;">
-    <svg class="animation-icon" viewBox="0 0 64 64">
+    <svg class="animation-icon" viewBox="0 0 64 64" style="width:64px; height:64px;">
       <circle class="circle spinner" cx="32" cy="32" r="30" />
       <path class="check" d="M20 34 L28 42 L44 24" />
     </svg>
+    <p class="modal-message">Email Sent Successfully!</p>
   </div>
 
   <div class="modal-content" id="failModal" style="display:none;">
-    <svg class="animation-icon" viewBox="0 0 64 64">
+    <svg class="animation-icon" viewBox="0 0 64 64" style="width:64px; height:64px;">
       <circle class="circle fail" cx="32" cy="32" r="30" />
       <path class="cross" d="M22 22 L42 42 M42 22 L22 42" />
     </svg>
+    <p class="modal-message">Failed to Send Email.</p>
   </div>
 </div>
+
 
 	</body>
 </html>
