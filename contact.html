@@ -19,100 +19,78 @@
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<![endif]-->
 	</head>
-
-
 <style>
-/* Shared styles */
-.modal-popup {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  left: 0; top: 0;
-  width: 100vw; height: 100vh;
-  background-color: rgba(0, 0, 0, 0.6);
-  justify-content: center;
-  align-items: center;
-  animation: fadeIn 0.3s ease forwards;
+
+  #statusOverlay {
+  display: none !important;
 }
 
-.modal-popup.fade-out {
-  animation: fadeOut 0.3s ease forwards;
-}
+  @keyframes scaleFade {
+    0% {
+      transform: scale(0.2);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
 
-.modal-content-box {
-  background: white;
-  padding: 40px 30px;
-  border-radius: 12px;
-  text-align: center;
-  font-family: 'Montserrat', sans-serif;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  transform: scale(0.8);
-  animation: popIn 0.3s ease forwards;
-}
+  .overlay-hidden {
+    display: none;
+  }
 
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-@keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
-}
-@keyframes popIn {
-  to { transform: scale(1); }
-}
+  #statusOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-/* Checkmark and X styles */
-.icon-circle {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  border: 4px solid #4CAF50;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  position: relative;
-}
+  .status-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: scaleFade 300ms ease;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  }
 
-.icon-circle.fail {
-  border-color: #f44336;
-}
+  .status-icon::before {
+    content: '';
+    font-size: 3rem;
+    color: white;
+    display: inline-block;
+    font-family: 'Arial', sans-serif;
+  }
 
-.checkmark {
-  width: 25px;
-  height: 12px;
-  border-left: 4px solid #4CAF50;
-  border-bottom: 4px solid #4CAF50;
-  transform: rotate(-45deg);
-  animation: checkmark 0.4s ease forwards;
-}
+  .status-icon.success {
+    background-color: #00c853;
+  }
 
-@keyframes checkmark {
-  0% { width: 0; height: 0; }
-  100% { width: 25px; height: 12px; }
-}
+  .status-icon.success::before {
+    content: '✔';
+  }
 
-.fail-x:before,
-.fail-x:after {
-  content: "";
-  position: absolute;
-  width: 35px;
-  height: 4px;
-  background: #f44336;
-  top: 38px;
-  left: 22px;
-}
-.fail-x:before {
-  transform: rotate(45deg);
-}
-.fail-x:after {
-  transform: rotate(-45deg);
-}
+  .status-icon.fail {
+    background-color: #d50000;
+  }
 
-
-
+  .status-icon.fail::before {
+    content: '✖';
+  }
 </style>
 
 
@@ -191,12 +169,6 @@
                       <a href="https://www.instagram.com/lennyedits8" target="_blank" style="color: #ff6a00;">@lennyedits8</a>
                     </div>
                   </div>
-
-
-
-
-
-								
 								
                   <div class="contact">
                     <div class="contact__icon" style="width: 45px; height: 45px; border-radius: 50%; border: 1.5px solid #ff6a00; display: flex; justify-content: center; align-items: center; transform: translateX(-0px);">
@@ -265,117 +237,7 @@
 		<!-- App-->
 <script type="text/javascript" src="assets/js/main.js"></script>
 
-<!-- EmailJS SDK -->
-<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script type="text/javascript">
-  (function() {
-    emailjs.init('o4FzP7S_OrCnuenhE'); // Your EmailJS public key
-  })();
-</script>
-
-<script>
-  document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    emailjs.sendForm('lenny_edits8', 'template_q8fff9h', this)
-      .then(function(response) {
-        alert('Message sent successfully!');
-        document.getElementById('contact-form').reset();
-      }, function(error) {
-        alert('FAILED... ' + JSON.stringify(error));
-      });
-  });
-</script>
-
-
-
-<!-- Success Modal -->
-<div class="modal-popup" id="successModal">
-  <div class="modal-content-box">
-    <div class="icon-circle">
-      <div class="checkmark"></div>
-    </div>
-    <h3 style="margin-top: 20px;">Message sent!</h3>
-  </div>
-</div>
-
-<!-- Failure Modal -->
-<div class="modal-popup" id="failModal">
-  <div class="modal-content-box">
-    <div class="icon-circle fail">
-      <div class="fail-x"></div>
-    </div>
-    <h3 style="margin-top: 20px; color: #f44336;">Failed to send. Please try again.</h3>
-  </div>
-</div>
-
-
-<!-- EmailJS SDK -->
-<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script type="text/javascript">
-  (function() {
-    emailjs.init('o4FzP7S_OrCnuenhE'); // Your EmailJS public key
-  })();
-</script>
-
 <script src="https://cdn.jsdelivr.net/npm/blueimp-md5/js/md5.min.js"></script>
-<script>
-function showModal(modalId) {
-  const modal = document.getElementById(modalId);
-  modal.style.display = "flex";
-  modal.classList.remove("fade-out");
-
-  // Reset animation by forcing reflow
-  const icon = modal.querySelector('.checkmark, .fail-x');
-  if (icon) {
-    icon.style.animation = 'none';
-    icon.offsetHeight; // trigger reflow
-    icon.style.animation = '';
-  }
-
-  // Trigger vibration/haptic feedback if supported
-  if (navigator.vibrate) {
-    if (modalId === "successModal") {
-      navigator.vibrate(50); // short buzz for success
-    } else if (modalId === "failModal") {
-      navigator.vibrate([50, 30, 50]); // two short pulses for fail
-    }
-  }
-
-  setTimeout(() => {
-    modal.classList.add("fade-out");
-    setTimeout(() => {
-      modal.style.display = "none";
-      modal.classList.remove("fade-out");
-    }, 300);
-  }, 3000); // show modal for 3 seconds
-}
-
-
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-
-  const form = this;
-  const email = form.reply_to.value;
-  const emailHash = md5(email.trim().toLowerCase());
-
-  const hashInput = document.createElement('input');
-  hashInput.type = 'hidden';
-  hashInput.name = 'email_hash';
-  hashInput.value = emailHash;
-  form.appendChild(hashInput);
-
-  emailjs.sendForm('lenny_edits8', 'template_q8fff9h', form)
-    .then(function(response) {
-      showModal("successModal");
-      form.reset();
-      form.removeChild(hashInput);
-    }, function(error) {
-      showModal("failModal");
-      form.removeChild(hashInput);
-    });
-});
-</script>
 
 <script>
   // Grab the container div
@@ -487,116 +349,39 @@ const formHTML = `
       min-height: 18px; /* reserve space so layout doesn't jump */
     }
 
-    /* Checkmark Animation */
-.checkmark {
-  position: relative;
-  display: inline-block;
-  width: 40px;
-  height: 25px;
-  border-left: 5px solid #4CAF50;
-  border-bottom: 5px solid #4CAF50;
-  transform: rotate(-45deg);
-  animation: drawCheck 0.4s ease forwards;
-  animation-delay: 0.2s;
-  opacity: 0;
-}
-
-@keyframes drawCheck {
-  0% {
-    width: 0;
-    height: 0;
-    opacity: 1;
-  }
-  50% {
-    width: 20px;
-    height: 0;
-    opacity: 1;
-  }
-  100% {
-    width: 20px;
-    height: 25px;
-    opacity: 1;
-  }
-}
-
-/* Cross Animation */
-.fail-x:before,
-.fail-x:after {
-  content: "";
-  position: absolute;
-  width: 35px;
-  height: 5px;
-  background: #f44336;
-  top: 38px;
-  left: 22px;
-  opacity: 0;
-}
-
-.fail-x:before {
-  transform: rotate(45deg);
-  animation: drawCrossBefore 0.3s ease forwards;
-}
-
-.fail-x:after {
-  transform: rotate(-45deg);
-  animation: drawCrossAfter 0.3s ease forwards;
-  animation-delay: 0.15s;
-}
-
-@keyframes drawCrossBefore {
-  0% {
-    width: 0;
-    opacity: 1;
-  }
-  100% {
-    width: 35px;
-    opacity: 1;
-  }
-}
-
-@keyframes drawCrossAfter {
-  0% {
-    width: 0;
-    opacity: 1;
-  }
-  100% {
-    width: 35px;
-    opacity: 1;
-  }
-}
 
   </style>
 
-  <form id="contact-form" novalidate>
-    <div class="form-row">
-      <div class="form-group">
-        <label for="from_name">Your Name</label>
-        <input type="text" class="form-control" id="from_name" name="from_name" placeholder="Enter your name" required>
-        <div class="error-message" id="error-from_name"></div>
-      </div>
-      <div class="form-group">
-        <label for="reply_to">Your Email</label>
-        <input type="email" class="form-control" id="reply_to" name="reply_to" placeholder="Enter your email" required>
-        <div class="error-message" id="error-reply_to"></div>
-      </div>
-    </div>
-
+<form id="contact-form" action="https://usebasin.com/f/9c8fb9c1aab1" method="POST" novalidate>
+  <div class="form-row">
     <div class="form-group">
-      <label for="subject">Subject</label>
-      <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
-      <div class="error-message" id="error-subject"></div>
+      <label for="from_name">Your Name</label>
+      <input type="text" class="form-control" id="from_name" name="from_name" placeholder="Enter your name" required>
+      <div class="error-message" id="error-from_name"></div>
     </div>
-
     <div class="form-group">
-      <label for="message">Your Message</label>
-      <textarea class="form-control" id="message" name="message" placeholder="Type your message here..." required></textarea>
-      <div class="error-message" id="error-message"></div>
+      <label for="reply_to">Your Email</label>
+      <input type="email" class="form-control" id="reply_to" name="reply_to" placeholder="Enter your email" required>
+      <div class="error-message" id="error-reply_to"></div>
     </div>
+  </div>
 
-    <div class="form-group text-center">
-      <button type="submit" class="btn">Send Message</button>
-    </div>
-  </form>
+  <div class="form-group">
+    <label for="subject">Subject</label>
+    <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
+    <div class="error-message" id="error-subject"></div>
+  </div>
+
+  <div class="form-group">
+    <label for="message">Your Message</label>
+    <textarea class="form-control" id="message" name="message" placeholder="Type your message here..." required></textarea>
+    <div class="error-message" id="error-message"></div>
+  </div>
+
+  <div class="form-group text-center">
+    <button type="submit" class="btn">Send Message</button>
+  </div>
+</form>
 `;
 
 
@@ -636,6 +421,7 @@ function validateField(field) {
 
 shadowForm.addEventListener('submit', (e) => {
   e.preventDefault();
+
   let valid = true;
 
   Array.from(shadowForm.elements).forEach(el => {
@@ -646,32 +432,33 @@ shadowForm.addEventListener('submit', (e) => {
 
   if (!valid) return;
 
-  // Get email and hash it (using md5 loaded in main page)
-  const email = shadowForm.querySelector('[name="reply_to"]').value;
-  const emailHash = md5(email.trim().toLowerCase());
+  // Instead of sending via EmailJS, submit form normally for Basin
+  // Since it's inside shadow DOM, we manually submit the form:
+  
+  // Option 1: Use fetch to submit the form and handle response
+  // Option 2: Temporarily remove preventDefault and submit (simpler)
 
-  // Add or update hidden input for email_hash
-  let hashInput = shadowForm.querySelector('input[name="email_hash"]');
-  if (!hashInput) {
-    hashInput = document.createElement('input');
-    hashInput.type = 'hidden';
-    hashInput.name = 'email_hash';
-    shadowForm.appendChild(hashInput);
-  }
-  hashInput.value = emailHash;
+  // Using fetch for modern approach:
+  const formData = new FormData(shadowForm);
 
-  // Send email via EmailJS
-  emailjs.sendForm('lenny_edits8', 'template_q8fff9h', shadowForm)
-    .then(() => {
+  fetch(shadowForm.action, {
+    method: shadowForm.method,
+    body: formData,
+    headers: {
+      'Accept': 'application/json'  // Basin returns JSON by default
+    }
+  }).then(response => {
+    if (response.ok) {
       showModal('successModal');
       shadowForm.reset();
-      shadowForm.removeChild(hashInput);
-    })
-    .catch(() => {
+    } else {
       showModal('failModal');
-      shadowForm.removeChild(hashInput);
-    });
+    }
+  }).catch(() => {
+    showModal('failModal');
+  });
 });
+
 
 // Clear error on input live
 Array.from(shadowForm.elements).forEach(el => {
@@ -680,9 +467,48 @@ Array.from(shadowForm.elements).forEach(el => {
   }
 });
 
+
+  function showModal(type) {
+    const overlay = document.getElementById('statusOverlay');
+    const icon = document.getElementById('statusIcon');
+
+    // Reset icon state
+    icon.className = 'status-icon';
+
+    if (type === 'successModal') {
+      icon.classList.add('success');
+      triggerHaptic('success');
+    } else {
+      icon.classList.add('fail');
+      triggerHaptic('error');
+    }
+
+    overlay.classList.remove('overlay-hidden');
+
+    // Hide after delay
+    setTimeout(() => {
+      overlay.classList.add('overlay-hidden');
+    }, 1800);
+  }
+
+  function triggerHaptic(type) {
+    if (window.navigator && navigator.vibrate) {
+      if (type === 'success') {
+        navigator.vibrate([50, 30, 50]);  // soft triple buzz
+      } else if (type === 'error') {
+        navigator.vibrate([100, 50, 100]);  // sharp double buzz
+      }
+    }
+  }
+
+
+
 </script>
 
-
+<!-- Success / Fail Animation Overlays -->
+<div id="statusOverlay" class="overlay-hidden">
+  <div id="statusIcon" class="status-icon"></div>
+</div>
 
 </body>
 </html>
