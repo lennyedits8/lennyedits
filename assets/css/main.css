@@ -846,7 +846,7 @@ ul {
     overflow: hidden;
     transition: all .2s linear;
     bottom: 0; /* ensures full coverage even with overscroll */
-    height: 102vh; /* extends slightly past bottom */
+    height: 105vh; /* extends slightly past bottom */
 }
 
 .open {
