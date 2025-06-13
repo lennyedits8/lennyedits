@@ -207,55 +207,44 @@ textarea.form-control {
   }
 }
 
-/* Animation icons inside modal-content */
 .animation-icon {
-  width: 64px;
-  height: 64px;
   stroke-width: 4;
   stroke-linejoin: round;
   stroke-linecap: round;
   fill: none;
-  stroke: #ff6a00; /* unified stroke color for both */
+  stroke: #ff6a00;
 }
 
-/* Spinner and fail circle share same style now */
+/* Circle stroke drawing */
 .circle.spinner,
 .circle.fail {
   stroke-dasharray: 188.4;
-  stroke-dashoffset: 0;
-  transform-origin: 50% 50%; /* center the rotation */
-  animation: spinnerRotate 1.5s linear infinite;
+  stroke-dashoffset: 188.4;
+  animation: draw-ring 0.7s ease forwards;
+  transform-origin: 50% 50%;
 }
 
-@keyframes spinnerRotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* Paths for check and cross */
-.path.check,
-.path.cross {
-  stroke: #ff6a00;
-  stroke-width: 5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-/* Draw animations for check and cross */
+/* Checkmark */
 .path.check {
   stroke-dasharray: 48;
   stroke-dashoffset: 48;
   animation: checkmarkDraw 0.6s ease forwards;
+  animation-delay: 0.7s; /* start after ring draws */
 }
 
+/* Cross: each line draws */
 .path.cross {
-  stroke-dasharray: 68;
-  stroke-dashoffset: 68;
-  animation: crossDraw 0.6s ease forwards;
+  stroke-dasharray: 28;
+  stroke-dashoffset: 28;
+  animation: crossDraw 0.4s ease forwards;
+  animation-delay: 0.7s;
+}
+
+/* Keyframes */
+@keyframes draw-ring {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 @keyframes checkmarkDraw {
@@ -269,6 +258,7 @@ textarea.form-control {
     stroke-dashoffset: 0;
   }
 }
+
 
 /* Fade out animation for modal */
 .modal.fade-out {
@@ -765,21 +755,23 @@ function simulateHapticFeedback(type = 'success') {
   <div class="modal-backdrop"></div>
 
   <div class="modal-content" id="successModal" style="display:none;">
-    <svg class="animation-icon" viewBox="0 0 64 64" style="width:64px; height:64px;">
+    <svg class="animation-icon" viewBox="0 0 64 64" width="64" height="64">
       <circle class="circle spinner" cx="32" cy="32" r="30" />
-      <path class="check" d="M20 34 L28 42 L44 24" />
+      <path class="path check" d="M20 34 L28 42 L44 24" />
     </svg>
     <p class="modal-message">Email Sent Successfully!</p>
   </div>
 
   <div class="modal-content" id="failModal" style="display:none;">
-    <svg class="animation-icon" viewBox="0 0 64 64" style="width:64px; height:64px;">
+    <svg class="animation-icon" viewBox="0 0 64 64" width="64" height="64">
       <circle class="circle fail" cx="32" cy="32" r="30" />
-      <path class="cross" d="M22 22 L42 42 M42 22 L22 42" />
+      <path class="path cross" d="M22 22 L42 42" />
+      <path class="path cross" d="M42 22 L22 42" />
     </svg>
     <p class="modal-message">Failed to Send Email.</p>
   </div>
 </div>
+
 
 
 	</body>
