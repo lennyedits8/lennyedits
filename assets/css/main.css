@@ -1046,7 +1046,11 @@ ul {
 .submenu-toggle i {
   display: inline-block;
   transition: transform 0.3s ease-in-out;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
 }
+
 
 .has-submenu.open .submenu-toggle i {
   transform: rotate(90deg);
