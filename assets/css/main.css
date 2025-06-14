@@ -1020,11 +1020,28 @@ ul {
 
 .submenu-toggle {
   position: absolute;
-  right: -25px; /* adjust spacing to your liking */
   top: 50%;
-  transform: translateY(-50%);
-  margin-left: 0; /* remove the default left margin */
+  left: 100%;                          /* Position right after text */
+  transform: translateY(-50%) translateX(0.0em);  /* Adjust spacing responsively */
+  pointer-events: none;
 }
+
+@media (max-width: 768px) {
+  .submenu-toggle {
+    transform: translateY(-50%) translateX(-0.2em); /* Bring arrow closer on mobile */
+  }
+}
+
+
+.has-submenu > a {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  padding-right: 0;        /* Remove fixed padding */
+  width: auto;             /* Let it size to text */
+  box-sizing: content-box; /* Prevent width issues */
+}
+
 
 .submenu-toggle i {
   display: inline-block;
@@ -1071,6 +1088,8 @@ ul {
   }
 
 }
+
+
 
 .fs-button {
     position: absolute;
