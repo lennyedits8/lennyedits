@@ -1018,12 +1018,12 @@ ul {
   padding-bottom: 8px;
 }
 
-/* Triangle icon styles */
 .submenu-toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 5px;
+  position: absolute;
+  right: -25px; /* adjust spacing to your liking */
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 0; /* remove the default left margin */
 }
 
 .submenu-toggle i {
