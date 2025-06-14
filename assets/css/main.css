@@ -974,26 +974,28 @@ ul {
     }
 }
 
-/* Reset current menu item color to normal (e.g., white or your default color) */
+/* Current menu item = white */
 .overlay-menu ul li.current-menu-item > a {
-  color: #fff; /* or your site’s default link color */
+  color: #fff;
 }
 
-/* Keep orange on hover */
-.overlay-menu ul li a:hover {
-  color: #ff594f;
-}
-
-/* Submenu header orange only when open */
+/* Open submenu header = orange */
 .has-submenu.open > a {
   color: #ff594f;
 }
 
-/* Submenu header normal color on hover if not open */
-.has-submenu > a:hover {
-  color: #fff; /* same default color */
-}
+/* Desktop-only hover behavior */
+@media (hover: hover) and (pointer: fine) {
+  /* Hover turns any link orange */
+  .overlay-menu ul li a:hover {
+    color: #ff594f;
+  }
 
+  /* If submenu is closed, keep hover color orange */
+  .has-submenu:not(.open) > a:hover {
+    color: #ff594f;
+  }
+}
 
 
 /*nav dropdown sub menu*/
