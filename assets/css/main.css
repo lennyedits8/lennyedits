@@ -974,14 +974,26 @@ ul {
     }
 }
 
-.overlay-menu ul li.active > a,
-.overlay-menu ul li a:hover {
-    color: #ff594f;
+/* Reset current menu item color to normal (e.g., white or your default color) */
+.overlay-menu ul li.current-menu-item > a {
+  color: #fff; /* or your site’s default link color */
 }
 
-.overlay-menu ul li.active > a, .overlay-menu ul li a:hover {
-    color: #ff594f;
+/* Keep orange on hover */
+.overlay-menu ul li a:hover {
+  color: #ff594f;
 }
+
+/* Submenu header orange only when open */
+.has-submenu.open > a {
+  color: #ff594f;
+}
+
+/* Submenu header normal color on hover if not open */
+.has-submenu > a:hover {
+  color: #fff; /* same default color */
+}
+
 
 
 /*nav dropdown sub menu*/
