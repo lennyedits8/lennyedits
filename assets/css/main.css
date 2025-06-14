@@ -845,12 +845,9 @@ ul {
     visibility: hidden;
     overflow: hidden;
     transition: all .2s linear;
-
-    display: flex;
-    justify-content: center;
-    align-items: center; /* ✅ This vertically centers .overlay-menu */
+    bottom: 0; /* ensures full coverage even with overscroll */
+    height: 102vh; /* extends slightly past bottom */
 }
-
 
 .open {
     opacity: 1;
@@ -913,11 +910,11 @@ ul {
 }
 
 .overlay-menu {
+    position: relative;
+    top: 50%;
     text-align: center;
-    margin-bottom: 330px; /* Adjust this value to move it up */
+    transform: translateY(-50%);
 }
-
-
 
 .overlay-menu ul {
     display: block;            /* vertical stack */
@@ -935,24 +932,22 @@ ul {
     position: relative;
     opacity: 0;
     margin: 10px 0;            /* add vertical spacing between menu items */
-    text-align: center;   
 }
 
 .overlay-menu ul li a {
-    position: relative;              /* to anchor the absolute icon */
     display: inline-block;
+    position: relative;
     text-align: center;
+    overflow: visible;
     font-family: "Montserrat", sans-serif;
     font-size: 30px;
     font-weight: 500;
     color: #fff;
     text-decoration: none;
     text-transform: uppercase;
-    padding: 5px 20px;
+    padding: 5px 20px;         /* add some padding for easier clicking */
     transition: all 0.2s linear;
 }
-
-
 
 @media (min-width: 320px) {
     .overlay-menu ul li a {
@@ -980,31 +975,28 @@ ul {
 
 .has-submenu {
   position: relative;
-  display: inline-block; /* or block if needed */
-  vertical-align: top;   /* prevents any collapse */
+  text-align: center;
 }
 
 .has-submenu > .submenu {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0;
-  visibility: hidden;
-  max-height: 0;
-  overflow: visible;
-  padding: 0;
-  transition: opacity 0.3s ease, max-height 0.3s ease, padding 0.3s ease;
+  max-height: 0;               
+  opacity: 0;                 
+  padding-top: 0;
+  padding-bottom: 0;
+  overflow: hidden;
+  transition: 
+    max-height 0.4s ease,     /* slide open/close speed (opens quickly) */
+    opacity 0.3s ease,        /* fade in/out speed (fades in quickly) */
+    padding 0.3s ease;        /* padding expand/collapse speed (quick padding change) */
 }
 
 .has-submenu.open > .submenu {
+  max-height: 300px;          
   opacity: 1;
-  visibility: visible;
-  max-height: 300px;
   padding-top: 8px;
   padding-bottom: 8px;
+  
 }
-
 
 
 /* When submenu is open */
@@ -1017,19 +1009,17 @@ ul {
 }
 
 
+/* Triangle icon styles */
 .submenu-toggle {
-    position: absolute;
-    right: -20px;       /* adjust this to control distance from the word */
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 0.9em;
-    pointer-events: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5px;
 }
 
 .submenu-toggle i {
   display: inline-block;
   transition: transform 0.3s ease-in-out;
-  
 }
 
 .has-submenu.open .submenu-toggle i {
@@ -2986,7 +2976,3 @@ ul {
 .work-img {
   will-change: opacity, transform;
 }
-
-
-
-
