@@ -1092,30 +1092,36 @@ ul {
   }
 
 }
-
 @media (min-width: 601px) and (max-width: 1024px) {
   .has-submenu > a {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5em; /* space between text and arrow */
+    gap: 0.4em;
   }
 
   .submenu-toggle {
-    position: static;      /* no absolute positioning */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.2em;
+    position: static;
     transform: none;
-    margin-left: 0.2em;    /* small manual spacing */
   }
 
   .submenu-toggle i {
-    display: inline-block;
-    vertical-align: middle;
+    font-size: 1em;
     line-height: 1;
+    display: block;
     transform-origin: center center;
     transition: transform 0.3s ease-in-out;
     will-change: transform;
     backface-visibility: hidden;
     transform-style: preserve-3d;
+  }
+
+  .has-submenu.open .submenu-toggle i {
+    transform: rotate(90deg);
   }
 }
 
