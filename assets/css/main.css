@@ -1111,11 +1111,11 @@ ul {
     transform-style: preserve-3d;
 
     /* 👇 Fixes the visual drop on rotate */
-    transform: translateY(1px);
+    transform: translateY(0.5px);
   }
 
   .has-submenu.open .submenu-toggle i {
-    transform: translateY(1px) rotate(90deg);
+    transform: translateY(0.5px) rotate(90deg);
   }
 }
 
