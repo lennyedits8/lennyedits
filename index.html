@@ -38,18 +38,71 @@
 </script>
 
 <style>
-@media (max-width: 576px) {
-	.grid-css.grid-css--masonry .grid-item {
-		width: 48% !important;  /* Two items per row, with 4% total gap */
-		margin: 1% !important;  /* 1% margin on each side gives you a 2% gap between tiles */
-		padding: 0 !important;  /* Remove internal padding if not needed */
-	}
+/* Base spacing for all screen sizes */
+.grid-css.grid-css--masonry .grid-item {
+    margin: 10px; /* Keep consistent outer spacing */
 }
 
+/* Adjust width for medium+ screens (e.g., 2 columns layout) */
+@media (min-width: 577px) {
+    .grid-css.grid-css--masonry .grid-item {
+        width: calc(50% - 20px); /* 2 columns with margin */
+    }
+}
+
+/* MOBILE: Adjust width so two items fit per row with spacing */
+@media (max-width: 576px) {
+    .grid-css.grid-css--masonry .grid-item {
+        width: calc(50% - 20px) !important; /* Precise 2-column layout */
+        margin: 10px !important; /* Match desktop margin */
+        padding: 0 !important; /* No padding unless needed */
+    }
+}
+
+/* Image wrapper setup */
+.img-wrapper {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.aspect-2-3 {
+    aspect-ratio: 2 / 3;
+}
+
+.aspect-4-3 {
+    aspect-ratio: 4 / 3;
+}
+
+.aspect-3-4 {
+    aspect-ratio: 3 / 4;
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Support element for masonry libraries */
+.grid-sizer {
+    width: calc(50% - 20px);
+}
+
+/* Hover Effects */
+.hoverbox {
+    transition: transform 0.3s ease;
+}
+
+.hoverbox:hover,
+.hoverbox.touch-active {
+    transform: scale(1.05);
+}
 
 .always-hover .hb_back {
-    background-color: rgba(103, 103, 103, 0.7) !important; /* Dark gray overlay */
-    color: #fff !important; /* White text */
+    background-color: rgba(103, 103, 103, 0.7) !important;
+    color: #fff !important;
     opacity: 1 !important;
     transform: none !important;
     visibility: visible !important;
@@ -67,89 +120,18 @@
     left: 0;
 }
 
+.always-hover .hb_front {
+    opacity: 1;
+}
+
 .hb_back h2,
 .hb_back span,
 .hb_back .work__text {
     color: #ffffff !important;
-	text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
 }
-
-
-
-
-
-
-
-    .always-hover .hb_front {
-        opacity: 1;
-    }
-
-    /* Add simple zoom effect on hover */
-    .hoverbox {
-        transition: transform 0.3s ease;
-    }
-
-    .hoverbox:hover {
-        transform: scale(1.05);
-    }
-
-
-.hoverbox:hover,
-.hoverbox.touch-active {
-    transform: scale(1.05);
-}
-
-
-/* Gap for all screen sizes */
-.grid-css.grid-css--masonry .grid-item {
-    margin: 10px; /* Adjust as needed */
-}
-
-/* Adjust width for mobile so it fits within container + margin */
-@media (max-width: 576px) {
-    .grid-css.grid-css--masonry .grid-item {
-        width: calc(50% - 20px); /* 50% minus 2x margin */
-    }
-}
-
-/* Adjust width for medium+ screens (e.g., 2 columns layout) */
-@media (min-width: 577px) {
-    .grid-css.grid-css--masonry .grid-item {
-        width: calc(50% - 20px); /* 2 columns with margin */
-    }
-}
-
-  .img-wrapper {
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-}
-
-.aspect-2-3 {
-  aspect-ratio: 2 / 3;
-}
-
-.aspect-4-3 {
-  aspect-ratio: 4 / 3;
-}
-
-.aspect-3-4 {
-  aspect-ratio: 3 / 4;
-}
-
-.img-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* or use 'contain' if you prefer */
-  display: block;
-}
-
-.grid-sizer {
-  width: calc(50% - 20px);
-}
-
-
 </style>
+
 
 <!--
 .hb_back h2 {
