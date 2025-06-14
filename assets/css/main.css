@@ -1093,6 +1093,19 @@ ul {
 
 }
 
+@media (min-width: 601px) and (max-width: 1024px) {
+  .submenu-toggle i {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+    font-size: 1em;
+    transform-origin: center center;
+    transition: transform 0.3s ease-in-out;
+    will-change: transform;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+  }
+}
 
 
 .fs-button {
