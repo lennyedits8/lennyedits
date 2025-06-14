@@ -847,6 +847,19 @@ ul {
     transition: all .2s linear;
     bottom: 0; /* ensures full coverage even with overscroll */
     height: 102vh; /* extends slightly past bottom */
+    transition:
+      opacity 0.6s ease-in,       /* Closing: fade out slowly */
+      visibility 0s linear 0.6s;  /* Delay hiding until fade completes */
+}
+
+/* Fullscreen nav menu transition */
+
+.fullscreenmenu__module.open {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.9s ease-out,     /* Opening: fade in quickly */
+    visibility 0s linear 0s;   /* Show immediately */
 }
 
 .open {
@@ -979,35 +992,31 @@ ul {
 }
 
 .has-submenu > .submenu {
-  max-height: 0;               
-  opacity: 0;                 
+  position: absolute;
+  top: 100%;                /* position below parent link */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  width: max-content;
+
+  max-height: 0;
+  opacity: 0;
   padding-top: 0;
   padding-bottom: 0;
-  overflow: hidden;
+  overflow: visible;
   transition: 
-    max-height 0.4s ease,     /* slide open/close speed (opens quickly) */
-    opacity 0.3s ease,        /* fade in/out speed (fades in quickly) */
-    padding 0.3s ease;        /* padding expand/collapse speed (quick padding change) */
+    max-height 0.4s ease, 
+    opacity 0.3s ease, 
+    padding 0.3s ease;
 }
-
-.has-submenu.open > .submenu {
-  max-height: 300px;          
-  opacity: 1;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  
-}
-
 
 /* When submenu is open */
 .has-submenu.open > .submenu {
-  max-height: 300px;          /* max-height transition controls slide down */
-  opacity: 1;                 /* opacity transition controls fade in */
-  padding-top: 8px;           /* padding transition controls vertical spacing */
+  max-height: 300px;
+  opacity: 1;
+  padding-top: 8px;
   padding-bottom: 8px;
-  /* These transitions use the same timing as above, but feel "faster" on open */
 }
-
 
 /* Triangle icon styles */
 .submenu-toggle {
@@ -1030,17 +1039,26 @@ ul {
 
 @media (max-width: 768px) {
   .has-submenu > .submenu {
-    position: static;      /* so submenu flows under parent */
-    transform: none;
+    position: absolute;      /* ✅ Prevents shifting */
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    z-index: 1;
+
     max-height: 0;
     opacity: 0;
     padding-top: 0;
     padding-bottom: 0;
-    overflow: hidden;
-    transition: max-height 0.6s ease, opacity 0.5s ease, padding 0.5s ease;
+    overflow: visible;
+    transition: 
+      max-height 0.6s ease, 
+      opacity 0.5s ease, 
+      padding 0.5s ease;
   }
+
   .has-submenu.open > .submenu {
-    max-height: 300px;   /* or bigger if needed */
+    max-height: 300px;
     opacity: 1;
     padding-top: 8px;
     padding-bottom: 8px;
@@ -2943,22 +2961,7 @@ ul {
   transition: filter 0.5s ease-out; /* Opening (invert added) */
 }
 
-/* Fullscreen nav menu transition */
-.fullscreenmenu__module {
-  opacity: 0;
-  visibility: hidden;
-  transition:
-    opacity 0.6s ease-in,       /* Closing: fade out slowly */
-    visibility 0s linear 0.6s;  /* Delay hiding until fade completes */
-}
 
-.fullscreenmenu__module.open {
-  opacity: 1;
-  visibility: visible;
-  transition:
-    opacity 0.9s ease-out,     /* Opening: fade in quickly */
-    visibility 0s linear 0s;   /* Show immediately */
-}
 
 /*SquareSpace Scroll*/
 
