@@ -1152,6 +1152,9 @@ ul {
   }
 }
 
+.wil-menu-list li.active > a {
+    color: #007BFF !important; /* Bootstrap blue */
+}
 
 .fs-button {
     position: absolute;

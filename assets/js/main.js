@@ -349,3 +349,36 @@ $('#back-to-down').on('click', function () {
 	}, 700);
 });
 })();
+
+
+/* colour on click */
+document.addEventListener("DOMContentLoaded", function () {
+    const menuItems = document.querySelectorAll('.wil-menu-list li > a');
+
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+        menuItems.forEach(item => {
+            item.addEventListener('touchstart', function () {
+                menuItems.forEach(i => i.parentElement.classList.remove('active'));
+                item.parentElement.classList.add('active');
+            });
+        });
+    }
+});
+
+/* esc key exit nav */
+document.addEventListener("keydown", function (e) {
+    if ((e.key === "Escape" || e.keyCode === 27)) {
+        requestAnimationFrame(() => {
+            const menuModule = document.querySelector('.fullscreenmenu__module');
+            const toggleButton = document.querySelector('#fs-button');
+
+            if (menuModule && menuModule.classList.contains('open')) {
+                toggleButton?.click();
+            }
+        });
+    }
+});
+
+
+
+
