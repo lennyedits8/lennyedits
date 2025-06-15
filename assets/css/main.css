@@ -1142,7 +1142,8 @@ ul {
 
 
 @media (hover: none) and (pointer: coarse) {
-  .overlay-menu ul li a:active {
+  .overlay-menu ul li a:active,
+  .overlay-menu ul li a:focus-visible {
     color: #ff594f;
   }
 }
