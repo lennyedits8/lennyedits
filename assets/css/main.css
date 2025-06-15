@@ -1118,7 +1118,7 @@ ul {
     position: absolute;
     top: 50%;
     left: 100%;
-    transform: translateY(-50%) translateX(-0.2em);
+    transform: translateY(-50%) translateX(-0.4em);
     pointer-events: none;
   }
 
