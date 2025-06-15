@@ -1142,9 +1142,13 @@ ul {
 
 
 @media (hover: none) and (pointer: coarse) {
-  .overlay-menu ul li a:active,
+  .overlay-menu ul li a:active {
+    color: #ff594f !important;
+    background-color: transparent; /* Optional: ensure no default tap bg */
+  }
+
   .overlay-menu ul li a:focus-visible {
-    color: #ff594f;
+    color: #ff594f !important;
   }
 }
 
