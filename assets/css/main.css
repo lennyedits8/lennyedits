@@ -1142,14 +1142,18 @@ ul {
 
 
 @media (hover: none) and (pointer: coarse) {
-  .overlay-menu ul li a {
-    -webkit-tap-highlight-color: transparent; /* Remove default blue tap color */
-    transition: none !important;              /* Make tap color apply instantly */
+  .overlay-menu ul li a.clicked {
+    color: #ff594f !important;
+    background-color: transparent !important;
+    transition: none !important;
   }
 
-  .overlay-menu ul li a:active {
-    color: #ff594f !important;                /* Pure orange tap */
-    background-color: transparent !important; /* Prevent native highlight on tap */
+  .overlay-menu ul li a:hover {
+    color: #ff594f; /* light orange tap preview */
+  }
+
+  .overlay-menu ul li a {
+    -webkit-tap-highlight-color: transparent;
   }
 }
 
