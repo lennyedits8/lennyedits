@@ -997,13 +997,12 @@ ul {
   }
 }
 
-/* Mobile-only reset */
 @media (hover: none) and (pointer: coarse) {
-  /* Force submenu headers back to white when not open */
-  .has-submenu:not(.open) > a {
+  .wil-menu-list > li.has-submenu:not(.open) > a {
     color: #fff !important;
   }
 }
+
 
 
 /*nav dropdown sub menu*/
