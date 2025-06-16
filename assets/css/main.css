@@ -1003,6 +1003,18 @@ ul {
   }
 }
 
+.wil-menu-list a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.wil-menu-list li.current-menu-item a,
+.wil-menu-list a:focus,
+.wil-menu-list a:hover,
+.wil-menu-list a:active {
+  color: #ff594f;
+}
 
 
 /*nav dropdown sub menu*/
