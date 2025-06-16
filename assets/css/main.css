@@ -1142,9 +1142,7 @@ ul {
   -webkit-tap-highlight-color: transparent;
 }
 
-.has-submenu .submenu a:hover {
-  color: #ff594f;
-}
+
 
 .has-submenu .submenu a:active,
 .has-submenu .submenu a:focus {
@@ -1168,9 +1166,6 @@ ul {
 }
 
 
-.has-submenu .submenu a:hover {
-  color: #ff594f ;
-}
 
 
 .fs-button {
@@ -1195,6 +1190,34 @@ ul {
     transform: rotate(0deg);
     transition: .25s ease-in-out;
 }
+
+/* === Remove mobile tap/click highlight for menu links === */
+
+.overlay-menu ul li a,
+.has-submenu > a,
+.has-submenu .submenu a {
+  -webkit-tap-highlight-color: transparent;  /* Removes tap highlight */
+  -webkit-touch-callout: none;               /* Disables long press menu */
+  outline: none;                             /* Removes blue outline */
+  background-color: transparent;             /* Prevents background flash */
+  color: inherit;                            /* Prevents color flicker */
+}
+
+.overlay-menu ul li a:focus,
+.has-submenu > a:focus,
+.has-submenu .submenu a:focus {
+  outline: none;
+  background-color: transparent;
+}
+
+.overlay-menu ul li a:active,
+.has-submenu > a:active,
+.has-submenu .submenu a:active {
+  color: inherit;
+  background-color: transparent;
+  outline: none;
+}
+
 
 .fs-button span:nth-child(1) {
     top: 0;
