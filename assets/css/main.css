@@ -975,9 +975,7 @@ ul {
 }
 
 /* Current menu item = white */
-.overlay-menu ul li.current-menu-item > a {
-  color: #009b2f;
-}
+
 
 /* Open submenu header = orange */
 
@@ -1140,7 +1138,20 @@ ul {
   text-transform: uppercase;
   display: block;
   padding: 5px 0;
+  transition: color 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
 }
+
+.has-submenu .submenu a:hover {
+  color: #ff594f;
+}
+
+.has-submenu .submenu a:active,
+.has-submenu .submenu a:focus {
+  color: #ffffff;
+  outline: none;
+}
+
 
 /* Tablet range (601px to 767px) */
 @media (min-width: 601px) and (max-width: 767px) {
