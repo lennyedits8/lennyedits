@@ -1193,30 +1193,52 @@ ul {
 
 /* === Remove mobile tap/click highlight for menu links === */
 
+/* === Universal link base === */
 .overlay-menu ul li a,
 .has-submenu > a,
 .has-submenu .submenu a {
-  -webkit-tap-highlight-color: transparent;  /* Removes tap highlight */
-  -webkit-touch-callout: none;               /* Disables long press menu */
-  outline: none;                             /* Removes blue outline */
-  background-color: transparent;             /* Prevents background flash */
-  color: inherit;                            /* Prevents color flicker */
-}
-
-.overlay-menu ul li a:focus,
-.has-submenu > a:focus,
-.has-submenu .submenu a:focus {
+  -webkit-tap-highlight-color: transparent;   /* No orange flash on mobile */
+  -webkit-touch-callout: none;                /* No long-press menu */
   outline: none;
   background-color: transparent;
+  color: #ffffff;                              /* Keep white text */
 }
 
+/* === Remove focus/active flashes on mobile === */
+.overlay-menu ul li a:focus,
+.has-submenu > a:focus,
+.has-submenu .submenu a:focus,
 .overlay-menu ul li a:active,
 .has-submenu > a:active,
 .has-submenu .submenu a:active {
-  color: inherit;
-  background-color: transparent;
   outline: none;
+  background-color: transparent;
+  color: #ffffff;
 }
+
+/* === DESKTOP-ONLY: Hover and click effects === */
+@media (hover: hover) and (pointer: fine) {
+  /* Orange hover for top-level links */
+  .overlay-menu ul li a:hover {
+    color: #ff594f;
+  }
+
+  /* Orange hover for closed submenu headers */
+  .has-submenu:not(.open) > a:hover {
+    color: #ff594f;
+  }
+
+  /* Orange hover even when submenu is open */
+  .has-submenu.open > a:hover {
+    color: #ff594f;
+  }
+
+  /* Submenu items hover on desktop */
+  .has-submenu .submenu a:hover {
+    color: #ff594f;
+  }
+}
+
 
 
 .fs-button span:nth-child(1) {
