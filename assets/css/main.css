@@ -1148,12 +1148,12 @@ ul {
   }
 
   .overlay-menu ul li a:active {
-    color: #0000ff !important; /* show orange on tap */
+    color: #ff594f !important; /* show orange on tap */
     background-color: transparent;
   }
 
   .overlay-menu ul li a:hover {
-    color: #0000ff; /* light preview tap color */
+    color: #ff594f; /* light preview tap color */
   }
 }
 
