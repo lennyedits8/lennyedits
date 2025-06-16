@@ -1146,19 +1146,27 @@ ul {
 
 .has-submenu .submenu a {
   margin-left: 12px;
-  font-size: 30px;
+  font-size: 25px;
   color: #ffffff;
-  text-transform: none;
+  text-transform: uppercase;
   display: block;
   padding: 5px 0;
+}
+
+/* Tablet range (601px to 767px) */
+@media (min-width: 601px) and (max-width: 767px) {
+  .has-submenu .submenu a {
+    font-size: 25px;
+  }
 }
 
 /* Larger font on wider screens */
 @media (min-width: 768px) {
   .has-submenu .submenu a {
-    font-size: 40px;
+    font-size: 35px;
   }
 }
+
 
 .has-submenu .submenu a:hover {
   color: #ff594f ;
