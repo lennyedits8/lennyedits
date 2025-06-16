@@ -130,6 +130,12 @@
     color: #ffffff !important;
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
 }
+
+/* test if speed affecting colour click*/
+.overlay-menu ul li a.clicked {
+  color: #ff594f !important;
+}
+
 </style>
 
 
@@ -386,6 +392,26 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     }
+});
+</script>
+
+
+<!-- test if speed affecting colour click -->
+
+<script>
+document.querySelectorAll('.overlay-menu ul li a').forEach(link => {
+  link.addEventListener('click', function (e) {
+    const href = this.href;
+    e.preventDefault();
+
+    // Trigger visual feedback
+    this.classList.add('clicked');
+
+    // Wait just long enough to show color
+    setTimeout(() => {
+      window.location.href = href;
+    }, 100); // 100ms is enough
+  });
 });
 </script>
 
