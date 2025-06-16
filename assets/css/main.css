@@ -980,9 +980,6 @@ ul {
 }
 
 /* Open submenu header = orange */
-.has-submenu.open > a {
-  color: #ff594f;
-}
 
 /* Desktop-only hover behavior */
 @media (hover: hover) and (pointer: fine) {
@@ -999,22 +996,16 @@ ul {
 
 @media (hover: none) and (pointer: coarse) {
   .wil-menu-list > li.has-submenu:not(.open) > a {
-    color: #fff !important;
+    color: #1100ff !important;
   }
 }
 
 .wil-menu-list a {
-  color: #fff;
+  color: #4c00ff;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
-.wil-menu-list li.current-menu-item a,
-.wil-menu-list a:focus,
-.wil-menu-list a:hover,
-.wil-menu-list a:active {
-  color: #ff594f;
-}
 
 
 /*nav dropdown sub menu*/
@@ -1152,24 +1143,26 @@ ul {
   }
 }
 
-/*test click mobile colour*/
-@media (hover: none) and (pointer: coarse) {
-  .overlay-menu ul li a {
-    -webkit-tap-highlight-color: transparent; /* remove default grey */
-    transition: color 0.1s linear;
-  }
 
-  .overlay-menu ul li a:active {
-    color: #ff594f !important; /* show orange on tap */
-    background-color: transparent;
-  }
+.has-submenu .submenu a {
+  margin-left: 12px;
+  font-size: 30px;
+  color: #ffffff;
+  text-transform: none;
+  display: block;
+  padding: 5px 0;
+}
 
-  .overlay-menu ul li a:hover {
-    color: #ff594f; /* light preview tap color */
+/* Larger font on wider screens */
+@media (min-width: 768px) {
+  .has-submenu .submenu a {
+    font-size: 40px;
   }
 }
 
-
+.has-submenu .submenu a:hover {
+  color: #ff594f ;
+}
 
 
 .fs-button {
