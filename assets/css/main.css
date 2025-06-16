@@ -976,7 +976,7 @@ ul {
 
 /* Current menu item = white */
 .overlay-menu ul li.current-menu-item > a {
-  color: #fff;
+  color: #009b2f;
 }
 
 /* Open submenu header = orange */
@@ -994,17 +994,6 @@ ul {
   }
 }
 
-@media (hover: none) and (pointer: coarse) {
-  .wil-menu-list > li.has-submenu:not(.open) > a {
-    color: #1100ff !important;
-  }
-}
-
-.wil-menu-list a {
-  color: #4c00ff;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
 
 
 
