@@ -2748,7 +2748,7 @@ ul {
 
 @media (max-width: 768px) {
   .header.header--fixed {
-    padding: 2px 0;
+    padding: 0px 0;
   }
 
   .header.header--fixed .header__inner {
