@@ -2744,6 +2744,8 @@ ul {
     bottom: -8px;
     transition: bottom .1s ease-in .25s, transform .22s cubic-bezier(.55, .055, .675, .19);
 }
+
+/*
 @media (max-width: 768px) {
     .header.header--fixed {
         padding: 2px 12px;
@@ -2754,7 +2756,7 @@ ul {
     }
 
 }
-
+*/
 
 /* 22. Layout
 --------------------------------------------------------------------------------*/
