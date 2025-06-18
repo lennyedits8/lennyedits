@@ -2752,7 +2752,7 @@ ul {
   }
 
   .header.header--fixed .header__inner {
-    padding: 0;
+    padding: 0 15px; /* Adds left & right padding */
   }
 
   .header.header--fixed .navbar-toggle .navbar-icon {
