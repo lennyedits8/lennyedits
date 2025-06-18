@@ -2745,18 +2745,21 @@ ul {
     transition: bottom .1s ease-in .25s, transform .22s cubic-bezier(.55, .055, .675, .19);
 }
 
-/*
+
 @media (max-width: 768px) {
-    .header.header--fixed {
-        padding: 2px 12px;
-    }
+  .header.header--fixed {
+    padding: 2px 0;
+  }
 
-    .header.header--fixed .header__inner {
-        padding: 2px 0;
-    }
+  .header.header--fixed .header__inner {
+    padding: 0;
+  }
 
+  .header.header--fixed .navbar-toggle .navbar-icon {
+    top: 15px; /* Try 12–15px for better vertical centering */
+  }
 }
-*/
+
 
 /* 22. Layout
 --------------------------------------------------------------------------------*/
