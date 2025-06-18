@@ -2466,8 +2466,7 @@ ul {
 }
 
 .social-icon:hover {
-    border-color: #ff594f;
-    background-color: #ff594f;
+    border-color: #000000;
     color: #fff;
 }
 
