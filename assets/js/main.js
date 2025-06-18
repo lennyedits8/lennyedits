@@ -386,3 +386,12 @@ window.history.scrollRestoration = 'manual';
 window.addEventListener('pageshow', function () {
   window.scrollTo(0, 0);
 });
+
+
+
+  document.querySelectorAll('a[href="#"], a[href="#top"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
