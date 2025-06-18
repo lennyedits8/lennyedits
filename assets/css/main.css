@@ -1003,6 +1003,7 @@ ul {
 }
 
 .has-submenu > .submenu {
+  pointer-events: none; 
   position: absolute;
   top: 100%;                /* position below parent link */
   left: 50%;
@@ -1023,6 +1024,7 @@ ul {
 
 /* When submenu is open */
 .has-submenu.open > .submenu {
+  pointer-events: auto;
   max-height: 300px;
   opacity: 1;
   padding-top: 8px;
@@ -1071,7 +1073,7 @@ ul {
 
 @media (max-width: 768px) {
   .has-submenu > .submenu {
-    position: absolute;      /* ✅ Prevents shifting */
+    position: absolute; /* ✅ Prevents shifting */
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
@@ -1083,6 +1085,9 @@ ul {
     padding-top: 0;
     padding-bottom: 0;
     overflow: visible;
+
+    pointer-events: none; /* 🔒 Prevent clicks when closed */
+
     transition: 
       max-height 0.6s ease, 
       opacity 0.5s ease, 
@@ -1094,7 +1099,11 @@ ul {
     opacity: 1;
     padding-top: 8px;
     padding-bottom: 8px;
+
+    pointer-events: auto; /* ✅ Enable clicks when open */
   }
+}
+
 
 
   .overlay-menu {
