@@ -368,5 +368,21 @@ document.addEventListener("keydown", function (e) {
 });
 
 
+/* back to top - previous page */
 
+// Prevent scroll history on "Back to Top" links
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('a[href="#"]').forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+});
 
+// Disable scroll restoration on back/forward
+window.history.scrollRestoration = 'manual';
+
+window.addEventListener('pageshow', function () {
+  window.scrollTo(0, 0);
+});
