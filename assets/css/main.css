@@ -237,13 +237,13 @@ img {
     }
 }
 
-a {
+/*a {
     color: #ff594f;
-}
+}*/
 
-a:hover {
+/*a:hover {
     color: #ff594f;
-}
+}*/
 
 a:focus {
     text-decoration: none;
@@ -293,15 +293,15 @@ hr {
 
 .md-btn {
     display: inline-block;
-    border: 1px solid #ebebeb;
+    border: 1px solid #333333;
     box-shadow: none;
     outline: none;
     margin: 0;
     text-align: center;
     font-size: 12px;
     padding: 10px 20px;
-    color: #000;
-    background-color: #eee;
+    color: #ffffff;
+    background-color: #333333;
     transition: all .3s ease;
     text-decoration: none;
     vertical-align: middle;
@@ -325,7 +325,7 @@ hr {
 
 .md-btn--primary {
     background-color: #ff594f;
-    color: #fff;
+    color: #333333;
 }
 
 .md-btn--primary:hover {
@@ -474,13 +474,14 @@ hr {
 }
 
 .md-btn--outline-primary {
-    background-color: transparent;
+    background-color: #333333;
 }
 
 .md-btn--outline-primary:hover {
-    background-color: #ff594f;
-    border-color: #ff594f;
+    background-color: #5c5c5c;
+    border-color: #5c5c5c;
     color: #fff;
+    text-decoration: none;
 }
 
 /* 3. form-item
@@ -979,19 +980,18 @@ ul {
 
 /* Open submenu header = orange */
 
-/* Desktop-only hover behavior */
+/* Desktop-only hover behavior 
 @media (hover: hover) and (pointer: fine) {
-  /* Hover turns any link orange */
+  /* Hover turns any link orange
   .overlay-menu ul li a:hover {
     color: #ff594f;
   }
-
-  /* If submenu is closed, keep hover color orange */
+*/
+  /* If submenu is closed, keep hover color orange
   .has-submenu:not(.open) > a:hover {
     color: #ff594f;
   }
-}
-
+*/
 
 
 
@@ -1111,7 +1111,7 @@ ul {
     transform: translateY(-30%);
   }
 
-}
+
 @media (min-width: 601px) and (max-width: 1024px) {
   .submenu-toggle {
     position: absolute;
@@ -1224,31 +1224,35 @@ ul {
   background-color: transparent;
   color: #ffffff;
 }
-
-/* === DESKTOP-ONLY: Hover and click effects === */
+/*
+/* === DESKTOP-ONLY: Hover and click effects === 
 @media (hover: hover) and (pointer: fine) {
-  /* Orange hover for top-level links */
+    a {
+    transition: all 0.3s ease-in-out;
+}
+
+  /* Orange hover for top-level links 
   .overlay-menu ul li a:hover {
-    color: #ff594f;
+    transform: scale(1.02);
   }
 
-  /* Orange hover for closed submenu headers */
+  /* Orange hover for closed submenu headers 
   .has-submenu:not(.open) > a:hover {
-    color: #ff594f;
+    transform: scale(1.02);
   }
 
-  /* Orange hover even when submenu is open */
+  /* Orange hover even when submenu is open 
   .has-submenu.open > a:hover {
-    color: #ff594f;
+    transform: scale(1.02);
   }
 
-  /* Submenu items hover on desktop */
+  /* Submenu items hover on desktop 
   .has-submenu .submenu a:hover {
-    color: #ff594f;
+    transform: scale(1.02);
   }
 }
 
-
+*/
 
 .fs-button span:nth-child(1) {
     top: 0;
@@ -3136,4 +3140,16 @@ ul {
 
 .work-img {
   will-change: opacity, transform;
+}
+
+/*back to top button */
+.md-btn--outline-primary,
+.md-btn--outline-primary:visited,
+.md-btn--outline-primary:focus,
+.md-btn--outline-primary:active {
+    color: white;
+    text-decoration: none;
+}
+html {
+    scroll-behavior: smooth;
 }
