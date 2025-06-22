@@ -2595,13 +2595,16 @@ ul {
     font-weight: bold;
     margin-top: 0;
     margin-bottom: 0;
+    white-space: normal;       /* Allows wrapping */
+    word-break: break-word;    /* Breaks long words if needed */
 }
 
 @media (min-width: 320px) {
     .work__title {
-        font-size: calc(.45455vw + 16.54545px);
+        font-size: calc(0.4vw + 15.5px);
     }
 }
+
 
 @media (min-width: 1200px) {
     .work__title {
