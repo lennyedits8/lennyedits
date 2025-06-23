@@ -2595,8 +2595,6 @@ ul {
     font-weight: bold;
     margin-top: 0;
     margin-bottom: 0;
-    white-space: normal;       /* Allows wrapping */
-    word-break: break-word;    /* Breaks long words if needed */
 }
 
 @media (min-width: 320px) {
