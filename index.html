@@ -395,21 +395,28 @@ document.addEventListener("DOMContentLoaded", function () {
 <!-- test if speed affecting colour click -->
 
 <script>
-document.querySelectorAll('.overlay-menu ul li a').forEach(link => {
-  link.addEventListener('click', function (e) {
-    const href = this.href;
-    e.preventDefault();
+document.addEventListener("DOMContentLoaded", function () {
+  const menuLinks = document.querySelectorAll('.overlay-menu a[href]');
 
-    // Trigger visual feedback
-    this.classList.add('clicked');
+  menuLinks.forEach(link => {
+    link.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (href && href !== '#') {
+        e.preventDefault();
 
-    // Wait just long enough to show color
-    setTimeout(() => {
-      window.location.href = href;
-    }, 100); // 100ms is enough
+        // Optional: add a visual class (optional)
+        this.classList.add('clicked');
+
+        // Navigate after brief delay
+        setTimeout(() => {
+          window.location.href = href;
+        }, 100);
+      }
+    });
   });
 });
 </script>
+
 
 
 </html>
