@@ -329,56 +329,58 @@ $('.onepage-nav').onePageNav({
 //*
 
 $(window).scroll(function () {
-	var wh = $(window).height(),
-		    scrollTop = $(window).scrollTop();
+  var wh = $(window).height(),
+      scrollTop = $(window).scrollTop();
 
-	if (scrollTop >= wh) {
-		$('#back-to-top').addClass('is-visible');
-	} else {
-		$('#back-to-top').removeClass('is-visible');
-	}
+  if (scrollTop >= wh) {
+    $('#back-to-top').addClass('is-visible');
+  } else {
+    $('#back-to-top').removeClass('is-visible');
+  }
 });
 
 var headerHeight = $('header').outerHeight();
 
 $('#back-to-down').on('click', function () {
-	var offsets = $(this).closest('.hero').next().offset().top - headerHeight;
+  var offsets = $(this).closest('.hero').next().offset().top - headerHeight;
 
-	$('html,body').animate({
-		scrollTop: offsets
-	}, 700);
+  $('html,body').animate({
+    scrollTop: offsets
+  }, 700);
 });
-})();
 
-
-
+})(); // <-- closes the IIFE (no change here)
 
 /* esc key exit nav */
 document.addEventListener("keydown", function (e) {
-    if ((e.key === "Escape" || e.keyCode === 27)) {
-        requestAnimationFrame(() => {
-            const menuModule = document.querySelector('.fullscreenmenu__module');
-            const toggleButton = document.querySelector('#fs-button');
+  if ((e.key === "Escape" || e.keyCode === 27)) {
+    requestAnimationFrame(() => {
+      const menuModule = document.querySelector('.fullscreenmenu__module');
+      const toggleButton = document.querySelector('#fs-button');
 
-            if (menuModule && menuModule.classList.contains('open')) {
-                toggleButton?.click();
-            }
-        });
-    }
+      if (menuModule && menuModule.classList.contains('open')) {
+        toggleButton?.click();
+      }
+    });
+  }
 });
 
 
-/* back to top - previous page */
+/* back to top - previous page (FIXED VERSION) */
 
-// Prevent scroll history on "Back to Top" links
+// Only trigger scrollTo for actual "back to top" links
 document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('a[href="#"]').forEach(link => {
-    link.addEventListener('click', function (e) {
+  const backToTopBtn = document.getElementById('back-to-top');
+
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', function (e) {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-  });
+  }
 });
+
+
 
 // Disable scroll restoration on back/forward
 window.history.scrollRestoration = 'manual';
@@ -386,12 +388,3 @@ window.history.scrollRestoration = 'manual';
 window.addEventListener('pageshow', function () {
   window.scrollTo(0, 0);
 });
-
-
-
-  document.querySelectorAll('a[href="#"], a[href="#top"]').forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  });
