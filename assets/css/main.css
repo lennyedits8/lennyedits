@@ -3186,7 +3186,7 @@ html {
 /*desktop nav **********/
 
 @media (min-width: 769px) {
-  .desktop-nav {
+   .desktop-nav {
     display: flex;
     gap: 30px;
     align-items: center;
@@ -3230,19 +3230,71 @@ html {
     color: #000;
   }
 
- 
   .navbar-toggle {
     display: none;
   }
 
+  .desktop-nav a.active {
+    color: #000;
+  }
 
-.desktop-nav a.active {
-  color: #000;
-}
+  .desktop-nav a.active::after {
+    transform: translateX(-50%) scaleX(1);
+  }
 
-.desktop-nav a.active::after {
-  transform: translateX(-50%) scaleX(1);
-}
+  .dropdown {
+    position: relative;
+  }
 
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    background-color: #fff;
+    padding: 10px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 999;
+    min-width: 180px;
+  }
 
+  .dropdown-content a {
+    display: block;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #333;
+    text-transform: none;
+    font-weight: 400;
+    transition: background 0.2s ease;
+
+    /* Remove underline effect applied by general rule */
+    text-decoration: none !important;
+  }
+
+  .dropdown-content a::after {
+    content: none !important; /* Prevent ::after underline */
+  }
+
+  .dropdown-content a:hover {
+    background-color: #f0f0f0;
+    text-decoration: none !important;
+  }
+
+  .dropdown-hover-buffer {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    height: 12px;
+    width: 100%;
+  }
+
+  .dropdown:hover .dropdown-content,
+  .dropdown:hover .dropdown-hover-buffer,
+  .dropdown-content:hover {
+    display: block;
+  }
+
+  .dropdown:hover .nav-label::after {
+    transform: translateX(-50%) scaleX(1);
+  }
 }
