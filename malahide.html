@@ -112,45 +112,64 @@
 	<body>
 		<div class="page-wrap" id="root">
 			
-			<!-- header -->
-			<header class="header header--fixed">
-				<div class="header__inner">
-					<div class="header__logo"><a href="index.html"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748819411/lennylogo_upscale_transparent_lzjpoq.png" alt="" style="width: 122px;"/></a></div>
-					<div class="navbar-toggle" id="fs-button">
-						<div class="navbar-icon"><span></span></div>
-					</div>
+<!-- header -->
+		<header class="header header--fixed">
+		<div class="header__inner">
+			<div class="header__logo">
+			<a href="index.html">
+				<img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748819411/lennylogo_upscale_transparent_lzjpoq.png" alt="" style="width: 122px;" />
+			</a>
+			</div>
+
+			<!-- Desktop Navigation -->
+			<nav class="desktop-nav">
+			<a href="/" class="active">Home</a>
+			<a href="contact.html">Contact</a>
+
+			<div class="dropdown">
+				<a href="photography.html" class="nav-label">Photography</a>
+				<div class="dropdown-wrapper">
+				<div class="dropdown-hover-buffer"></div>
+				<div class="dropdown-content">
+					<a href="automotivephotography.html">Automotive</a>
+					<a href="virtualphotography.html">Virtual</a>
+					<a href="filmphotography.html">35mm Film</a>
+					<a href="otherphotography.html">Other</a>
 				</div>
+				</div>
+			</div>
+			</nav>
+
+
+
+
+			<!-- Hamburger for Mobile -->
+			<div class="navbar-toggle" id="fs-button">
+			<div class="navbar-icon"><span></span></div>
+			</div>
+		</div>
+
+		<!-- fullscreenmenu__module -->
+		<div class="fullscreenmenu__module" trigger="#fs-button">
+			<!-- overlay-menu -->
+			<nav class="overlay-menu">
+			<ul class="wil-menu-list">
+				<li class="current-menu-item"><a href="index.html">Home</a></li>
+				<li><a href="contact.html">Contact</a></li>
+				<li class="has-submenu">
+				<a href="#">Portfolio <span class="submenu-toggle"><i class="fa fa-angle-right"></i></span></a>
+				<ul class="submenu">
+					<li><a href="automotivephotography.html">Photography</a></li>
+					<li><a href="filmphotography.html">35mm Film</a></li>
+					<li><a href="virtualphotography.html">Virtual</a></li>
+				</ul>
+				</li>
+			</ul>
+			</nav><!-- End / overlay-menu -->
+		</div><!-- End / fullscreenmenu__module -->
+		</header><!-- End / header -->		
+		
 				
-				<!-- fullscreenmenu__module -->
-				<div class="fullscreenmenu__module" trigger="#fs-button">
-					
-					<!-- overlay-menu -->
-					<nav class="overlay-menu">
-						
-						<!--  -->
-						<ul class="wil-menu-list">
-							<li class="current-menu-item"><a href="index.html">Home</a></li>
-							<li><a href="contact.html">Contact</a></li>
-
-								<li class="has-submenu">
-								<a href="#">Portfolio <span class="submenu-toggle"><i class="fa fa-angle-right"></i></span></a>
-								<ul class="submenu">
-									<li><a href="realworld.html">Photography</a></li>
-									<li><a href="film.html">35mm Film</a></li>
-									<li><a href="allwork.html">Virtual</a></li>
-								</ul>
-								</li>
-
-
-
-						</ul><!--  -->
-						
-					</nav><!-- End / overlay-menu -->
-					
-				</div><!-- End / fullscreenmenu__module -->
-				
-			</header><!-- End / header -->
-			
 			<!-- Content-->
 			<div class="wil-content">
 				

@@ -386,3 +386,24 @@ window.history.scrollRestoration = 'manual';
 window.addEventListener('pageshow', function () {
   window.scrollTo(0, 0);
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const fullscreenMenu = document.querySelector('.fullscreenmenu__module');
+  const fsButton = document.getElementById('fs-button');
+  const body = document.body;
+  const logoImg = document.querySelector('.header__logo img');
+
+  function closeMobileNav() {
+    fullscreenMenu.classList.remove('open', 'active');
+    fsButton.classList.remove('open', 'active');
+    body.classList.remove('fs-open');
+    logoImg.classList.remove('invert');  // reset logo invert here
+  }
+
+  // Close mobile nav if screen resized to desktop
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 768) {
+      closeMobileNav();
+    }
+  });
+});

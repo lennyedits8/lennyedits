@@ -74,21 +74,14 @@ img {
     background-size: cover;
     background-position: center center;
     z-index: 9;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 0px;
+    padding-bottom: 0px; /*below divider padding*/
 }
 
 @media (min-width: 320px) {
     .awe-section {
         padding-top: calc(6.81818vw + 28.18182px);
         padding-bottom: calc(6.81818vw + 28.18182px);
-    }
-}
-
-@media (min-width: 1200px) {
-    .awe-section {
-        padding-top: 110px;
-        padding-bottom: 110px;
     }
 }
 
@@ -2244,7 +2237,7 @@ ul {
 --------------------------------------------------------------------------------*/
 
 .page-title {
-    padding: 110px 0 40px 0;
+    padding: 90px 0 0px 0; /*below divider padding*/
 }
 
 .page-title__title {
@@ -2274,15 +2267,14 @@ ul {
     color: #a3a3a3;
 }
 
-.page-title__divider {
+.page-title__divider { /*below divider padding*/
     width: 40px;
     height: 3px;
     background-color: #333;
-    margin-top: 30px;
 }
 
 .page-title__social {
-    margin-top: 30px;
+    margin-top: 0px; /*below divider padding*/
 }
 
 .page-title__social > a {
@@ -2909,9 +2901,9 @@ ul {
 .pt-40 {
     padding-top: 40px;
 }
-
+/*below divider padding*/
 .pb-40 {
-    padding-bottom: 40px;
+    padding-bottom: 0px;
 }
 
 .mb-45 {
@@ -3205,19 +3197,22 @@ html {
     transition: color 0.3s ease;
   }
 
-  .desktop-nav a::after,
-  .desktop-nav .nav-label::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: -5px;
-    transform: translateX(-50%) scaleX(0);
-    transform-origin: center;
-    width: 100%;
-    height: 2px;
-    background-color: #000;
-    transition: transform 0.3s ease;
-  }
+.desktop-nav a::after,
+.desktop-nav .nav-label::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  width: 100%;
+  height: 1.5px;
+  background-color: #000;
+  transition: transform 0.3s ease;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
 
   .desktop-nav a:hover::after,
   .desktop-nav .nav-label:hover::after,
