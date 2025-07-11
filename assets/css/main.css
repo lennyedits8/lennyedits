@@ -3178,7 +3178,10 @@ html {
 }
 
 
-
+/* Hide desktop nav by default (mobile) */
+.desktop-nav {
+  display: none;
+}
 
 /*desktop nav **********/
 
@@ -3227,43 +3230,11 @@ html {
     color: #000;
   }
 
-  .has-submenu {
-    position: relative;
-  }
-
-  .has-submenu .submenu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: #fff;
-    padding: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    z-index: 10;
-    flex-direction: column;
-    min-width: 180px;
-  }
-
-  .has-submenu:hover .submenu {
-    display: flex;
-  }
-
-  .dropdown-arrow {
-    font-size: 10px;
-    margin-left: 6px;
-    vertical-align: middle;
-    display: inline-block;
-    transition: transform 0.3s ease;
-  }
-
-  .has-submenu:hover .dropdown-arrow {
-    transform: rotate(180deg);
-  }
-
+ 
   .navbar-toggle {
     display: none;
   }
-}
+
 
 .desktop-nav a.active {
   color: #000;
@@ -3271,4 +3242,6 @@ html {
 
 .desktop-nav a.active::after {
   transform: translateX(-50%) scaleX(1);
+}
+
 }
