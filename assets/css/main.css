@@ -829,7 +829,7 @@ ul {
 
 .fullscreenmenu__module {
     position: fixed;
-    background-color: rgba(0, 0, 0, .8);
+    background-color: rgba(255, 255, 255, 1);
     top: 0;
     left: 0;
     right: 0;
@@ -1203,7 +1203,7 @@ ul {
   -webkit-touch-callout: none;                /* No long-press menu */
   outline: none;
   background-color: transparent;
-  color: #ffffff;                              /* Keep white text */
+  color: #000000;                              /* Keep white text */
 }
 
 /* === Remove focus/active flashes on mobile === */
@@ -1215,7 +1215,7 @@ ul {
 .has-submenu .submenu a:active {
   outline: none;
   background-color: transparent;
-  color: #ffffff;
+  color: #000000;
 }
 /*
 /* === DESKTOP-ONLY: Hover and click effects === 
@@ -2733,7 +2733,7 @@ ul {
 
 .open .navbar-icon span, .open .navbar-icon span:after,
 .open .navbar-icon span:before {
-    background-color: #fff;
+    background-color: #000000;
 }
 
 .navbar-icon span {
@@ -3147,16 +3147,6 @@ ul {
 
 /* Nav bar transition speeds and invert */
 /* Logo transition */
-.header__logo img {
-  filter: invert(0);
-  transition: filter 0.3s ease-in; /* Closing (invert removed) */
-}
-
-.header__logo img.invert {
-  filter: invert(1);
-  transition: filter 0.5s ease-out; /* Opening (invert added) */
-}
-
 
 
 /*SquareSpace Scroll*/
