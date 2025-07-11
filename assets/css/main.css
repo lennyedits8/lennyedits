@@ -2244,13 +2244,32 @@ ul {
     font-size: 30px;
     margin-top: 0;
     margin-bottom: 0;
+    color: #000; /* <-- Replace this with your desired color */
 }
 
-@media (min-width: 320px) {
+
+.page-title__title-wrapper {
+    display: inline-flex;
+    width: 100%;
+    max-width: 100%;
+}
+
+.page-title__title {
+    display: inline-block;
+    transform-origin: left center;
+    white-space: nowrap;
+    overflow: visible;
+    text-overflow: unset;
+}
+
+/* Responsive scale logic */
+@media (max-width: 768px) {
     .page-title__title {
         font-size: calc(2.27273vw + 22.72727px);
+        transform: scale(var(--title-scale, 1));
     }
 }
+
 
 @media (min-width: 1200px) {
     .page-title__title {
@@ -2264,13 +2283,13 @@ ul {
 
 .page-title__text {
     font-size: 16px;
-    color: #a3a3a3;
+    color: #000;
 }
 
 .page-title__divider { /*below divider padding*/
     width: 40px;
     height: 3px;
-    background-color: #333;
+    background-color: #000;
 }
 
 .page-title__social {
