@@ -826,10 +826,9 @@ ul {
 
 /* 8. fullscreenmenu
 --------------------------------------------------------------------------------*/
-
 .fullscreenmenu__module {
     position: fixed;
-    background-color: rgba(255, 255, 255, 1);
+    background-color: rgba(0, 0, 0, .8);
     top: 0;
     left: 0;
     right: 0;
@@ -842,7 +841,7 @@ ul {
     bottom: 0; /* ensures full coverage even with overscroll */
     height: 102vh; /* extends slightly past bottom */
     transition:
-      opacity 0.6s ease-in,       /* Closing: fade out slowly */
+      opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),       /* Closing: fade out slowly */
       visibility 0s linear 0.6s;  /* Delay hiding until fade completes */
 }
 
@@ -852,7 +851,7 @@ ul {
   opacity: 1;
   visibility: visible;
   transition:
-    opacity 0.9s ease-out,     /* Opening: fade in quickly */
+    opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),     /* Opening: fade in quickly */
     visibility 0s linear 0s;   /* Show immediately */
 }
 
@@ -864,57 +863,34 @@ ul {
 }
 
 .open li {
-    animation: fadeInUp .35s ease forwards;
-    animation-delay: .1s;
+    animation: fadeInUp 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    opacity: 0; /* make sure it's initially invisible */
+    animation-delay: 0.2s; /* base delay */
 }
 
-.open li:nth-of-type(2) {
-    animation-delay: .15s;
-}
 
-.open li:nth-of-type(3) {
-    animation-delay: .25s;
-}
+.open li:nth-of-type(2)  { animation-delay: 0.15s; }
+.open li:nth-of-type(3)  { animation-delay: 0.30s; }
+.open li:nth-of-type(4)  { animation-delay: 0.45s; }
+.open li:nth-of-type(5)  { animation-delay: 0.60s; }
+.open li:nth-of-type(6)  { animation-delay: 0.75s; }
+.open li:nth-of-type(7)  { animation-delay: 0.90s; }
+.open li:nth-of-type(8)  { animation-delay: 1.05s; }
+.open li:nth-of-type(9)  { animation-delay: 1.20s; }
+.open li:nth-of-type(10) { animation-delay: 1.35s; }
 
-.open li:nth-of-type(4) {
-    animation-delay: .35s;
-}
-
-.open li:nth-of-type(5) {
-    animation-delay: .45s;
-}
-
-.open li:nth-of-type(6) {
-    animation-delay: .55s;
-}
-
-.open li:nth-of-type(7) {
-    animation-delay: .65s;
-}
-
-.open li:nth-of-type(8) {
-    animation-delay: .75s;
-}
-
-.open li:nth-of-type(9) {
-    animation-delay: .85s;
-}
-
-.open li:nth-of-type(10) {
-    animation-delay: .95s;
-}
 
 @keyframes fadeInUp {
     0% {
         opacity: 0;
-        transform: translate3d(0, 100%, 0);
+        transform: translateY(30px);
     }
-
     100% {
         opacity: 1;
-        transform: none;
+        transform: translateY(0);
     }
 }
+
 
 .overlay-menu {
     position: relative;
@@ -1203,7 +1179,7 @@ ul {
   -webkit-touch-callout: none;                /* No long-press menu */
   outline: none;
   background-color: transparent;
-  color: #000000;                              /* Keep white text */
+  color: #ffffff;                              /* Keep white text */
 }
 
 /* === Remove focus/active flashes on mobile === */
@@ -1215,7 +1191,7 @@ ul {
 .has-submenu .submenu a:active {
   outline: none;
   background-color: transparent;
-  color: #000000;
+  color: #ffffff;
 }
 /*
 /* === DESKTOP-ONLY: Hover and click effects === 
@@ -2733,7 +2709,7 @@ ul {
 
 .open .navbar-icon span, .open .navbar-icon span:after,
 .open .navbar-icon span:before {
-    background-color: #000000;
+    background-color: #ffffff;
 }
 
 .navbar-icon span {
@@ -3314,4 +3290,17 @@ html {
   width: 110px !important;
   height: auto;
 }
+}
+
+
+/* Nav bar transition speeds and invert */
+/* Logo transition */
+.header__logo img {
+  filter: invert(0);
+  transition: filter 0.3s ease-in; /* Closing (invert removed) */
+}
+
+.header__logo img.invert {
+  filter: invert(1);
+  transition: filter 0.5s ease-out; /* Opening (invert added) */
 }
