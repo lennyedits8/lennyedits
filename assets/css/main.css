@@ -846,7 +846,7 @@ ul {
 @media (max-width: 480px) {
 .overlay-menu > ul > li > a {
   font-family: "Montserrat", sans-serif;
-  font-size: 25px !important;  /* Force override */
+  font-size: 40px !important;  /* Force override */
   font-weight: 450;
   letter-spacing: 1px;
   color: #ffffff;
