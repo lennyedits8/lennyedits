@@ -824,206 +824,192 @@ ul {
     }
 }
 
-/* 8. fullscreenmenu
+/* 8. fullscreen
 --------------------------------------------------------------------------------*/
-.fullscreenmenu__module {
-    position: fixed;
-    background-color: rgba(0, 0, 0, .8);
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    visibility: hidden;
-    overflow: hidden;
-    transition: all .2s linear;
-    bottom: 0; /* ensures full coverage even with overscroll */
-    height: 102vh; /* extends slightly past bottom */
-    transition:
-      opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),       /* Closing: fade out slowly */
-      visibility 0s linear 0.6s;  /* Delay hiding until fade completes */
+
+/* 1. NAV ITEM STYLES (TOP-LEVEL)
+---------------------------------*/
+.overlay-menu > ul > li > a {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px !important;  /* Force override */
+  font-weight: 450;
+  letter-spacing: 1px;
+  color: #ffffff;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  outline: none;
+  background-color: transparent;
+  text-transform: uppercase;   /* <-- This makes text uppercase */
 }
 
-/* Fullscreen nav menu transition */
+
+
+/* ------------------------------
+   2. SUBMENU ITEM STYLES
+---------------------------------*/
+.has-submenu .submenu a {
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px; /* 👈 CHANGE THIS for submenu items */
+  font-weight: 350;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  padding: 6px 10px;
+  display: block;
+  transition: color 0.2s ease;
+  background-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  outline: none;
+}
+
+
+/* ------------------------------
+   FULLSCREEN MENU MODULE
+---------------------------------*/
+.fullscreenmenu__module {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 102vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  transition:
+    opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0s linear 0.6s;
+}
 
 .fullscreenmenu__module.open {
   opacity: 1;
   visibility: visible;
   transition:
-    opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),     /* Opening: fade in quickly */
-    visibility 0s linear 0s;   /* Show immediately */
+    opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0s linear 0s;
 }
 
-.open {
-    opacity: 1;
-    visibility: visible;
-    z-index: 99;
-    transition: all .2s linear;
-}
 
+/* ------------------------------
+   MENU ITEM ANIMATION
+---------------------------------*/
 .open li {
-    animation: fadeInUp 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-    opacity: 0; /* make sure it's initially invisible */
-    animation-delay: 0.2s; /* base delay */
+  animation: fadeInUp 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  opacity: 0;
+  animation-delay: 0.2s;
 }
 
-
-.open li:nth-of-type(2)  { animation-delay: 0.15s; }
-.open li:nth-of-type(3)  { animation-delay: 0.30s; }
-.open li:nth-of-type(4)  { animation-delay: 0.45s; }
-.open li:nth-of-type(5)  { animation-delay: 0.60s; }
-.open li:nth-of-type(6)  { animation-delay: 0.75s; }
-.open li:nth-of-type(7)  { animation-delay: 0.90s; }
-.open li:nth-of-type(8)  { animation-delay: 1.05s; }
-.open li:nth-of-type(9)  { animation-delay: 1.20s; }
+.open li:nth-of-type(2) { animation-delay: 0.15s; }
+.open li:nth-of-type(3) { animation-delay: 0.30s; }
+.open li:nth-of-type(4) { animation-delay: 0.45s; }
+.open li:nth-of-type(5) { animation-delay: 0.60s; }
+.open li:nth-of-type(6) { animation-delay: 0.75s; }
+.open li:nth-of-type(7) { animation-delay: 0.90s; }
+.open li:nth-of-type(8) { animation-delay: 1.05s; }
+.open li:nth-of-type(9) { animation-delay: 1.20s; }
 .open li:nth-of-type(10) { animation-delay: 1.35s; }
 
-
 @keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 
+/* ------------------------------
+   MENU LAYOUT
+---------------------------------*/
 .overlay-menu {
-    position: relative;
-    text-align: center;
-    top: 35%;
-    transform: translateY(-35%);
+  position: relative;
+  text-align: center;
+  top: 22%;
+  transform: translateY(-22%);
 }
 
 .overlay-menu ul {
-    display: block;            /* vertical stack */
-    list-style: none;
-    height: 100%;
-    margin: 0 auto;
-    padding: 0;
-    width: fit-content;        /* shrink to content */
-    text-align: center;        /* center text inside */
-    position: relative;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  width: fit-content;
+  display: block;
 }
 
-.overlay-menu ul li {
-    display: block;            /* stack vertically */
-    position: relative;
-    opacity: 0;
-    margin: 10px 0;            /* add vertical spacing between menu items */
+.overlay-menu ul li { /*spacing between home, contact, photography*/
+  display: block;
+  position: relative;
+  margin:10px 0;
+  opacity: 0;
 }
 
-.overlay-menu ul li a {
-    display: inline-block;
-    position: relative;
-    text-align: center;
-    overflow: visible;
-    font-family: "Montserrat", sans-serif;
-    font-size: 30px;
-    font-weight: 500;
-    color: #fff;
-    text-decoration: none;
-    text-transform: uppercase;
-    padding: 5px 20px;         /* add some padding for easier clicking */
-    transition: all 0.2s linear;
-}
 
-@media (min-width: 320px) {
-    .overlay-menu ul li a {
-        font-size: calc(2.27273vw + 22.72727px);
-    }
-}
-
-@media (min-width: 1200px) {
-    .overlay-menu ul li a {
-        font-size: 50px;
-    }
-}
-
-/* Current menu item = white */
-
-
-/* Open submenu header = orange */
-
-/* Desktop-only hover behavior 
-@media (hover: hover) and (pointer: fine) {
-  /* Hover turns any link orange
-  .overlay-menu ul li a:hover {
-    color: #ff594f;
-  }
-*/
-  /* If submenu is closed, keep hover color orange
-  .has-submenu:not(.open) > a:hover {
-    color: #ff594f;
-  }
-*/
-
-
-
-/*nav dropdown sub menu*/
-
+/* ------------------------------
+   SUBMENU BEHAVIOR
+---------------------------------*/
 .has-submenu {
   position: relative;
   text-align: center;
 }
 
 .has-submenu > .submenu {
-  pointer-events: none; 
   position: absolute;
-  top: 100%;                /* position below parent link */
+  top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1;
   width: max-content;
-
   max-height: 0;
   opacity: 0;
   padding-top: 0;
   padding-bottom: 0;
   overflow: visible;
-  transition: 
-    max-height 0.4s ease, 
-    opacity 0.3s ease, 
+  pointer-events: none;
+  transition:
+    max-height 0.4s ease,
+    opacity 0.3s ease,
     padding 0.3s ease;
 }
 
-/* When submenu is open */
+.overlay-menu ul li a {
+  text-decoration: none; /* remove underline by default */
+}
+
+.has-submenu .submenu li {
+  margin: 0px 0;
+}
+
+.has-submenu .submenu {
+  margin: 0;
+}
+
+
 .has-submenu.open > .submenu {
-  pointer-events: auto;
   max-height: 300px;
   opacity: 1;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  pointer-events: auto;
 }
 
+
+/* ------------------------------
+   SUBMENU TOGGLE ICON
+---------------------------------*/
 .submenu-toggle {
   position: absolute;
-  top: 50%;
-  left: 100%;                          /* Position right after text */
-  transform: translateY(-50%) translateX(0.0em);  /* Adjust spacing responsively */
-  pointer-events: none;
+  top: 55%;
+  left: 110%;
+  transform: translateY(-50%) translateX(0);
+  pointer-events: auto; /* Allow clicks */
+  cursor: pointer;      /* Show pointer */
 }
-
-@media (max-width: 768px) {
-  .submenu-toggle {
-    transform: translateY(-50%) translateX(-0.2em); /* Bring arrow closer on mobile */
-  }
-}
-
-
-.has-submenu > a {
-  position: relative;
-  display: inline-block;
-  text-align: center;
-  padding-right: 0;        /* Remove fixed padding */
-  width: auto;             /* Let it size to text */
-  box-sizing: content-box; /* Prevent width issues */
-}
-
 
 .submenu-toggle i {
   display: inline-block;
@@ -1033,33 +1019,35 @@ ul {
   transform-style: preserve-3d;
 }
 
-
 .has-submenu.open .submenu-toggle i {
   transform: rotate(90deg);
 }
 
 
+/* ------------------------------
+   RESPONSIVE ADJUSTMENTS
+---------------------------------*/
+@media (min-width: 320px) {
+  .overlay-menu ul li a {
+    font-size: calc(2.27273vw + 22.72727px);
+  }
+}
 
 @media (max-width: 768px) {
   .has-submenu > .submenu {
-    position: absolute; /* ✅ Prevents shifting */
+    position: absolute;
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
     width: max-content;
-    z-index: 1;
-
+    pointer-events: none;
     max-height: 0;
     opacity: 0;
     padding-top: 0;
     padding-bottom: 0;
-    overflow: visible;
-
-    pointer-events: none; /* 🔒 Prevent clicks when closed */
-
-    transition: 
-      max-height 0.6s ease, 
-      opacity 0.5s ease, 
+    transition:
+      max-height 0.6s ease,
+      opacity 0.5s ease,
       padding 0.5s ease;
   }
 
@@ -1068,38 +1056,20 @@ ul {
     opacity: 1;
     padding-top: 8px;
     padding-bottom: 8px;
+    pointer-events: auto;
+  }
 
-    pointer-events: auto; /* ✅ Enable clicks when open */
+  .submenu-toggle {
+    transform: translateY(-50%) translateX(-0.2em);
   }
 }
 
-
-
-  .overlay-menu {
-    top: 30%;
-    transform: translateY(-30%);
-  }
-
-
 @media (min-width: 601px) and (max-width: 1024px) {
   .submenu-toggle {
-    position: absolute;
-    top: 50%;
-    left: 100%;
     transform: translateY(-50%) translateX(-0.4em);
-    pointer-events: none;
   }
 
   .submenu-toggle i {
-    display: inline-block;
-    line-height: 1;
-    transform-origin: center center;
-    transition: transform 0.3s ease-in-out;
-    will-change: transform;
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-
-    /* 👇 Fixes the visual drop on rotate */
     transform: translateY(0.5px);
   }
 
@@ -1107,121 +1077,6 @@ ul {
     transform: translateY(0.5px) rotate(90deg);
   }
 }
-
-
-.has-submenu .submenu a {
-  margin-left: 12px;
-  font-size: 25px;
-  color: #ffffff;
-  text-transform: uppercase;
-  display: block;
-  padding: 5px 0;
-  transition: color 0.2s ease;
-  -webkit-tap-highlight-color: transparent;
-}
-
-
-
-.has-submenu .submenu a:active,
-.has-submenu .submenu a:focus {
-  color: #ffffff;
-  outline: none;
-}
-
-
-/* Tablet range (601px to 767px) */
-@media (min-width: 601px) and (max-width: 767px) {
-  .has-submenu .submenu a {
-    font-size: 25px;
-  }
-}
-
-/* Larger font on wider screens */
-@media (min-width: 768px) {
-  .has-submenu .submenu a {
-    font-size: 35px;
-  }
-}
-
-
-
-
-.fs-button {
-    position: absolute;
-    z-index: 300;
-    cursor: pointer;
-    width: 20px;
-    height: 20px;
-    transform: rotate(0deg);
-    transition: .2s ease-in-out;
-    cursor: pointer;
-}
-
-.fs-button span {
-    background: #fff;
-    display: block;
-    position: absolute;
-    left: 0;
-    height: 3px;
-    width: 100%;
-    opacity: 1;
-    transform: rotate(0deg);
-    transition: .25s ease-in-out;
-}
-
-/* === Remove mobile tap/click highlight for menu links === */
-
-/* === Universal link base === */
-.overlay-menu ul li a,
-.has-submenu > a,
-.has-submenu .submenu a {
-  -webkit-tap-highlight-color: transparent;   /* No orange flash on mobile */
-  -webkit-touch-callout: none;                /* No long-press menu */
-  outline: none;
-  background-color: transparent;
-  color: #ffffff;                              /* Keep white text */
-}
-
-/* === Remove focus/active flashes on mobile === */
-.overlay-menu ul li a:focus,
-.has-submenu > a:focus,
-.has-submenu .submenu a:focus,
-.overlay-menu ul li a:active,
-.has-submenu > a:active,
-.has-submenu .submenu a:active {
-  outline: none;
-  background-color: transparent;
-  color: #ffffff;
-}
-/*
-/* === DESKTOP-ONLY: Hover and click effects === 
-@media (hover: hover) and (pointer: fine) {
-    a {
-    transition: all 0.3s ease-in-out;
-}
-
-  /* Orange hover for top-level links 
-  .overlay-menu ul li a:hover {
-    transform: scale(1.02);
-  }
-
-  /* Orange hover for closed submenu headers 
-  .has-submenu:not(.open) > a:hover {
-    transform: scale(1.02);
-  }
-
-  /* Orange hover even when submenu is open 
-  .has-submenu.open > a:hover {
-    transform: scale(1.02);
-  }
-
-  /* Submenu items hover on desktop 
-  .has-submenu .submenu a:hover {
-    transform: scale(1.02);
-  }
-}
-
-*/
 
 .fs-button span:nth-child(1) {
     top: 0;
@@ -3303,4 +3158,83 @@ html {
 .header__logo img.invert {
   filter: invert(1);
   transition: filter 0.5s ease-out; /* Opening (invert added) */
+}
+
+
+/* Container for social icons at the bottom of the menu */
+.fullscreenmenu__socials {
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  z-index: 5;
+  pointer-events: auto;
+}
+
+/* --------------------------------
+   SOCIAL ICONS: SYNCED FADE-IN
+---------------------------------- */
+
+.fullscreenmenu__socials {
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  z-index: 5;
+  pointer-events: auto;
+}
+
+/* Both icons animate together — same speed/delay as nav items */
+.fullscreenmenu__module.open .fullscreenmenu__socials .social-icon {
+  animation: fadeInUp 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  opacity: 0;
+  animation-delay: 0.2s; /* ⏱️ same as nav <li>:first-child */
+}
+
+/* Social link wrapper */
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
+
+/* Icon itself */
+.social-icon__icon {
+  width: 18px;
+  height: auto;
+  opacity: 1;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  transition: none !important;
+}
+
+
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  opacity: 0; /* Initially hidden */
 }
