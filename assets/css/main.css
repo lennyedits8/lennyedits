@@ -846,7 +846,7 @@ ul {
 @media (max-width: 480px) {
 .overlay-menu > ul > li > a {
   font-family: "Montserrat", sans-serif;
-  font-size: 30px !important;  /* Force override */
+  font-size: 25px !important;  /* Force override */
   font-weight: 450;
   letter-spacing: 1px;
   color: #ffffff;
@@ -860,7 +860,7 @@ ul {
 .has-submenu .submenu a {
   color: #ffffff;
   font-family: "Montserrat", sans-serif;
-  font-size: 28px; /* 👈 CHANGE THIS for submenu items */
+  font-size: 25px; /* 👈 CHANGE THIS for submenu items */
   font-weight: 350;
   letter-spacing: 0.5px;
   text-transform: none;
@@ -871,6 +871,17 @@ ul {
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
   outline: none;
+}
+
+.social-icon__icon {
+  width: 25px;
+  height: auto;
+  opacity: 1;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  transition: none !important;
 }
 }
 
