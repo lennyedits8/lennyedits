@@ -2561,6 +2561,17 @@ ul {
     background-color: #000;
 }
 
+.navbar-icon span, /*fix rendering of hamburger lines*/
+.navbar-icon span:before,
+.navbar-icon span:after {
+    transform: translateZ(0); /* Triggers GPU rendering early */
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+
+
+
 .open .navbar-icon span, .open .navbar-icon span:after,
 .open .navbar-icon span:before {
     background-color: #ffffff;
@@ -3212,7 +3223,7 @@ html {
 
 /* Icon itself */
 .social-icon__icon {
-  width: 25px;
+  width: 22px;
   height: auto;
   opacity: 1;
   border: none !important;
