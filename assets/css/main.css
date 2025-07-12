@@ -843,10 +843,10 @@ ul {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
 .overlay-menu > ul > li > a {
   font-family: "Montserrat", sans-serif;
-  font-size: 25px !important;  /* Force override */
+  font-size: 30px !important;  /* Force override */
   font-weight: 450;
   letter-spacing: 1px;
   color: #ffffff;
@@ -860,7 +860,7 @@ ul {
 .has-submenu .submenu a {
   color: #ffffff;
   font-family: "Montserrat", sans-serif;
-  font-size: 23px; /* 👈 CHANGE THIS for submenu items */
+  font-size: 28px; /* 👈 CHANGE THIS for submenu items */
   font-weight: 350;
   letter-spacing: 0.5px;
   text-transform: none;
@@ -905,7 +905,7 @@ ul {
   bottom: 0;
   width: 100%;
   height: 102vh;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(10, 10, 10, 0.95);
   opacity: 0;
   visibility: hidden;
   overflow: hidden;
@@ -1035,7 +1035,7 @@ ul {
 ---------------------------------*/
 .submenu-toggle {
   position: absolute;
-  top: 55%;
+  top: 50%;
   left: 110%;
   transform: translateY(-50%) translateX(0);
   pointer-events: auto; /* Allow clicks */
@@ -3211,7 +3211,7 @@ html {
 
 .fullscreenmenu__socials {
   position: absolute;
-  bottom: 30px;
+  bottom: 150px;
   width: 100%;
   display: flex;
   justify-content: center;
