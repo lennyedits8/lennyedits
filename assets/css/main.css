@@ -2266,7 +2266,7 @@ ul {
 @media (max-width: 768px) {
     .page-title__title {
         font-size: calc(2.27273vw + 22.72727px);
-        transform: scale(var(--title-scale, 0.8));
+        transform: scale(var(--title-scale, 0.9)); 
     }
 }
 
@@ -3305,13 +3305,13 @@ html {
 
 /* Override logo size */
 .header__logo img {
-  width: 30% !important;
+  width: 110px !important;
   height: auto;
 }
 
 @media (max-width: 768px) {
 .header__logo img {
-  width: 28% !important;
+  width: 110px !important;
   height: auto;
 }
 }
