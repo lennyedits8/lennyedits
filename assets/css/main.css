@@ -831,7 +831,7 @@ ul {
 ---------------------------------*/
 .overlay-menu > ul > li > a {
   font-family: "Montserrat", sans-serif;
-  font-size: 20px !important;  /* Force override */
+  font-size: 25px !important;  /* Force override */
   font-weight: 450;
   letter-spacing: 1px;
   color: #ffffff;
@@ -840,49 +840,6 @@ ul {
   outline: none;
   background-color: transparent;
   text-transform: uppercase;   /* <-- This makes text uppercase */
-}
-
-
-@media (max-width: 480px) {
-.overlay-menu > ul > li > a {
-  font-family: "Montserrat", sans-serif;
-  font-size: 40px !important;  /* Force override */
-  font-weight: 450;
-  letter-spacing: 1px;
-  color: #ffffff;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
-  outline: none;
-  background-color: transparent;
-  text-transform: uppercase;   /* <-- This makes text uppercase */
-}
-
-.has-submenu .submenu a {
-  color: #ffffff;
-  font-family: "Montserrat", sans-serif;
-  font-size: 25px; /* 👈 CHANGE THIS for submenu items */
-  font-weight: 350;
-  letter-spacing: 0.5px;
-  text-transform: none;
-  padding: 6px 10px;
-  display: block;
-  transition: color 0.2s ease;
-  background-color: transparent;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
-  outline: none;
-}
-
-.social-icon__icon {
-  width: 25px;
-  height: auto;
-  opacity: 1;
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
-  background: transparent !important;
-  transition: none !important;
-}
 }
 
 /* ------------------------------
@@ -891,7 +848,7 @@ ul {
 .has-submenu .submenu a {
   color: #ffffff;
   font-family: "Montserrat", sans-serif;
-  font-size: 18px; /* 👈 CHANGE THIS for submenu items */
+  font-size: 22px; /* 👈 CHANGE THIS for submenu items */
   font-weight: 350;
   letter-spacing: 0.5px;
   text-transform: none;
@@ -3222,7 +3179,7 @@ html {
 
 .fullscreenmenu__socials {
   position: absolute;
-  bottom: 150px;
+  bottom: 130px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -3255,7 +3212,7 @@ html {
 
 /* Icon itself */
 .social-icon__icon {
-  width: 18px;
+  width: 25px;
   height: auto;
   opacity: 1;
   border: none !important;
