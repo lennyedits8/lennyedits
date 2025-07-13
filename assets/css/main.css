@@ -3249,5 +3249,9 @@ html {
   padding: 0;
   margin: 0;
   text-decoration: none;
-  opacity: 0; /* Initially hidden */
+}
+
+/* Only fullscreen menu social icons start hidden */
+.fullscreenmenu__socials .social-icon {
+  opacity: 0;
 }
