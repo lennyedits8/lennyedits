@@ -130,7 +130,84 @@
 .hb_back .work__text {
     color: #ffffff !important;
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+
+.portfolio-highlight {
+  padding: 80px 0;
 }
+
+.portfolio-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 20px;
+}
+
+.portfolio-description {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  font-family: 'Inter', sans-serif;
+}
+
+.portfolio-highlight img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+}
+
+/* Removes gaps between columns */
+.no-gutters > [class*='col-'] {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Makes image cover entire block */
+.object-fit-cover {
+  object-fit: cover;
+  height: 100%;
+}
+
+/* Title styling like dennisnoten.com */
+.styled-title {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.styled-title::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 50px;
+  background: #333;
+  margin: 0.5rem auto 0;
+}
+
+/* Ensure full height alignment */
+.text-block {
+  min-height: 100%;
+}
+
+/* Mobile layout stacking: text -> image -> text -> image */
+@media (max-width: 768px) {
+  .row.no-gutters > .col-md-6 {
+    order: unset !important;
+  }
+}
+
+#customSection {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+
+
 
 </style>
 
@@ -234,6 +311,63 @@ paste into style
 					</div>
 				</section>
 				<!-- End / Section -->
+
+				<!-- About Me Section -->
+<section class="awe-section">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-12">
+        <h2 class="page-title__title">About Me</h2>
+        <p class="page-title__text">I’m Lenny, a passionate creative focused on capturing unique moments through automotive, film, and virtual photography. My work blends technical skill and artistic vision to create memorable visuals across formats.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="customSection" class="awe-section bg-gray">
+  <div class="container-fluid px-0">
+
+    <!-- Block 1: Image Left, Text Right -->
+    <div class="row no-gutters">
+      <div class="col-md-6 order-md-1">
+        <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_1600/v1747914402/rl10_cksrjj.jpg"
+             alt="Virtual Renders"
+             class="img-fluid w-100 h-100 object-fit-cover">
+      </div>
+      <div class="col-md-6 d-flex align-items-center justify-content-center text-block order-md-2">
+        <div class="text-center px-4">
+          <h2 class="styled-title">Virtual Renders</h2>
+          <p>High-end virtual automotive imagery using 3D rendering workflows. Crafted for hyperrealism and lighting precision.</p>
+          <a href="virtualphotography.html" class="md-btn md-btn--primary mt-3">View More</a>
+        </div>
+      </div>
+    </div>
+
+   <!-- Block 2: Text Left, Image Right -->
+<div class="row no-gutters">
+  <div class="col-md-6 d-flex align-items-center justify-content-center text-block order-md-1">
+    <div class="text-center px-4">
+      <h2 class="styled-title">35mm Film</h2>
+      <p>Authentic 35mm captures using Canon AE-1 and Olympus MJU II. Timeless aesthetic with natural grain and color.</p>
+      <a href="filmphotography.html" class="md-btn md-btn--primary mt-3">View More</a>
+    </div>
+  </div>
+  <div class="col-md-6 order-md-2">
+    <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_1600/v1747914402/rl10_cksrjj.jpg"
+         alt="35mm Film"
+         class="img-fluid w-100 h-100 object-fit-cover">
+  </div>
+</div>
+
+
+  </div>
+</section>
+
+
+
+
+
+
 				
 				<!-- Section -->
 				<section class="awe-section bg-gray">
