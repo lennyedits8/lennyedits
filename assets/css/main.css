@@ -2087,10 +2087,13 @@ ul {
 .page-title__title {
     display: inline-block;
     transform-origin: left center;
-    white-space: nowrap;
+    white-space: normal;           /* ✅ Allows wrapping */
+    overflow-wrap: break-word;     /* ✅ Wraps if needed, but not mid-word unless necessary */
+    word-break: break-word;        /* ✅ Allows long words to break if needed on tiny screens */
     overflow: visible;
     text-overflow: unset;
 }
+
 
 /* Responsive scale logic */
 @media (max-width: 768px) {
