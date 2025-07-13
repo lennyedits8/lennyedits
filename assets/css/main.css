@@ -874,8 +874,8 @@ ul {
   width: 100%;
   height: 102vh;
   background-color: rgba(10, 10, 10, 0.95);
-  backdrop-filter: saturate(180%) blur(3px); /* Optional: add subtle blur effect */
-  -webkit-backdrop-filter: saturate(180%) blur(3px); /* iOS/WebKit support */
+  backdrop-filter: saturate(180%) blur(1px); /* Optional: add subtle blur effect */
+  -webkit-backdrop-filter: saturate(180%) blur(1px); /* iOS/WebKit support */
   opacity: 0;
   visibility: hidden;
   overflow: hidden;
