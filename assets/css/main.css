@@ -3195,7 +3195,7 @@ html {
 
 .fullscreenmenu__socials {
   position: absolute;
-  bottom: 130px;
+  bottom: 80px;
   width: 100%;
   display: flex;
   justify-content: center;
