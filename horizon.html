@@ -49,38 +49,39 @@
 
 <style>
   /* Container for the image gallery */
-  .gallery-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
+.gallery-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 
-  /* Individual image wrapper */
+/* Individual image wrapper */
+.work-img {
+  box-sizing: border-box;
+  width: 23%;
+  margin-bottom: 5px; /* Reduced from 20px */
+}
+
+/* Tablet: 3 per row */
+@media (max-width: 1024px) {
   .work-img {
-    box-sizing: border-box;
-    width: 23%;
-    margin-bottom: 20px;
+    width: 31%;
+    margin-bottom: 5px; /* Reduced from 20px */
   }
+}
+
+/* Mobile: 2 per row */
+@media (max-width: 600px) {
+  .work-img {
+    width: calc(50% - 2.5px); /* Adjusted to match the new gap */
+    margin-bottom: 5px; /* Reduced from 10px */
+  }
+}
 
   .gallery-grid img {
     width: 100%;
     height: auto;
     display: block;
-  }
-
-  /* Tablet: 3 per row */
-  @media (max-width: 1024px) {
-    .work-img {
-      width: 31%;
-    }
-  }
-
-  /* Mobile: 2 per row */
-  @media (max-width: 600px) {
-    .work-img {
-      width: calc(50% - 10px);
-      margin-bottom: 10px;
-    }
   }
 
   .img-wrapper {
@@ -211,7 +212,7 @@
 						<section class="awe-section bg-gray">
 							<div class="container">
 								<p>All photos are shot using photo mode on Playstation 5</p>
-								<div class="gallery-grid" data-masonry='{ "itemSelector": ".work-img", "columnWidth": ".work-img", "percentPosition": true, "gutter": 20 }'>
+								<div class="gallery-grid" data-masonry='{ "itemSelector": ".work-img", "columnWidth": ".work-img", "percentPosition": true, "gutter": 5 }'>
 									
 									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/horizon.jpeg" data-pswp-width="774" data-pswp-height="1376"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747947724/horizon_ut1r8c.jpg" alt=""></a></div></div>
 									

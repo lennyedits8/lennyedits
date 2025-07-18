@@ -54,38 +54,39 @@
 
 <style>
   /* Container for the image gallery */
-  .gallery-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
+.gallery-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 
-  /* Individual image wrapper */
+/* Individual image wrapper */
+.work-img {
+  box-sizing: border-box;
+  width: 23%;
+  margin-bottom: 5px; /* Reduced from 20px */
+}
+
+/* Tablet: 3 per row */
+@media (max-width: 1024px) {
   .work-img {
-    box-sizing: border-box;
-    width: 23%;
-    margin-bottom: 20px;
+    width: 31%;
+    margin-bottom: 5px; /* Reduced from 20px */
   }
+}
+
+/* Mobile: 2 per row */
+@media (max-width: 600px) {
+  .work-img {
+    width: calc(50% - 2.5px); /* Adjusted to match the new gap */
+    margin-bottom: 5px; /* Reduced from 10px */
+  }
+}
 
   .gallery-grid img {
     width: 100%;
     height: auto;
     display: block;
-  }
-
-  /* Tablet: 3 per row */
-  @media (max-width: 1024px) {
-    .work-img {
-      width: 31%;
-    }
-  }
-
-  /* Mobile: 2 per row */
-  @media (max-width: 600px) {
-    .work-img {
-      width: calc(50% - 10px);
-      margin-bottom: 10px;
-    }
   }
 
   .img-wrapper {
@@ -220,7 +221,7 @@
 						<!--  -->
 						<div>
 							<p>All photos are shot on Panasonic Lumix G85</p>
-							<div class="gallery-grid" data-masonry='{ "itemSelector": ".work-img", "columnWidth": ".work-img", "percentPosition": true, "gutter": 20 }'>
+							<div class="gallery-grid" data-masonry='{ "itemSelector": ".work-img", "columnWidth": ".work-img", "percentPosition": true, "gutter": 5 }'>
 								<div class="work-img"><div class="img-wrapper aspect-4-3"><a href="assets/img/herbertpark/hp (9).jpeg" data-pswp-width="1000" data-pswp-height="750"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747943557/hp_9_kl4gjj.jpg" alt=""></a></div></div>
 								<div class="work-img"><div class="img-wrapper aspect-3-4"><a href="assets/img/herbertpark/hp (13).jpeg" data-pswp-width="750" data-pswp-height="1000"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747943555/hp_13_drcp0m.jpg" alt=""></a></div></div>
 								<div class="work-img"><div class="img-wrapper aspect-4-3"><a href="assets/img/herbertpark/hp (5).jpeg" data-pswp-width="1000" data-pswp-height="750"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747943560/hp_5_z7u9ca.jpg" alt=""></a></div></div>

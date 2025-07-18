@@ -50,38 +50,39 @@
 
 <style>
   /* Container for the image gallery */
-  .gallery-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
+.gallery-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 
-  /* Individual image wrapper */
+/* Individual image wrapper */
+.work-img {
+  box-sizing: border-box;
+  width: 23%;
+  margin-bottom: 5px; /* Reduced from 20px */
+}
+
+/* Tablet: 3 per row */
+@media (max-width: 1024px) {
   .work-img {
-    box-sizing: border-box;
-    width: 23%;
-    margin-bottom: 20px;
+    width: 31%;
+    margin-bottom: 5px; /* Reduced from 20px */
   }
+}
+
+/* Mobile: 2 per row */
+@media (max-width: 600px) {
+  .work-img {
+    width: calc(50% - 2.5px); /* Adjusted to match the new gap */
+    margin-bottom: 5px; /* Reduced from 10px */
+  }
+}
 
   .gallery-grid img {
     width: 100%;
     height: auto;
     display: block;
-  }
-
-  /* Tablet: 3 per row */
-  @media (max-width: 1024px) {
-    .work-img {
-      width: 31%;
-    }
-  }
-
-  /* Mobile: 2 per row */
-  @media (max-width: 600px) {
-    .work-img {
-      width: calc(50% - 10px);
-      margin-bottom: 10px;
-    }
   }
 
   .img-wrapper {
@@ -215,7 +216,7 @@
 							<div class="container">
 								<p>All photos are shot using FO4 photo mode mod on Nexus Mods</p>
 								<br>
-								<div class="gallery-grid" data-masonry='{ "itemSelector": ".work-img", "columnWidth": ".work-img", "percentPosition": true, "gutter": 20 }'>
+								<div class="gallery-grid" data-masonry='{ "itemSelector": ".work-img", "columnWidth": ".work-img", "percentPosition": true, "gutter": 5 }'>
 									
 									<div class="work-img"><div class="img-wrapper aspect-16-9"><a href="assets/img/fallout4/f_1.jpeg" data-pswp-width="1376" data-pswp-height="774"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018891/f_1_kfr7fv.jpg" alt=""></a></div></div>
 									<div class="work-img"><div class="img-wrapper aspect-16-9"><a href="assets/img/fallout4/f_2.jpeg" data-pswp-width="1376" data-pswp-height="774"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/f_2_pzsgwy.jpg" alt=""></a></div></div>

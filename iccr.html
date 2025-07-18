@@ -50,38 +50,39 @@
 
 <style>
   /* Container for the image gallery */
-  .gallery-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
+.gallery-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 
-  /* Individual image wrapper */
+/* Individual image wrapper */
+.work-img {
+  box-sizing: border-box;
+  width: 23%;
+  margin-bottom: 5px; /* Reduced from 20px */
+}
+
+/* Tablet: 3 per row */
+@media (max-width: 1024px) {
   .work-img {
-    box-sizing: border-box;
-    width: 23%;
-    margin-bottom: 20px;
+    width: 31%;
+    margin-bottom: 5px; /* Reduced from 20px */
   }
+}
+
+/* Mobile: 2 per row */
+@media (max-width: 600px) {
+  .work-img {
+    width: calc(50% - 2.5px); /* Adjusted to match the new gap */
+    margin-bottom: 5px; /* Reduced from 10px */
+  }
+}
 
   .gallery-grid img {
     width: 100%;
     height: auto;
     display: block;
-  }
-
-  /* Tablet: 3 per row */
-  @media (max-width: 1024px) {
-    .work-img {
-      width: 31%;
-    }
-  }
-
-  /* Mobile: 2 per row */
-  @media (max-width: 600px) {
-    .work-img {
-      width: calc(50% - 10px);
-      margin-bottom: 10px;
-    }
   }
 
   .img-wrapper {
@@ -216,7 +217,7 @@
 						<div>
 							<p>All photos are shot on Sony A7IV</p>
 							<br>
-							<div class="gallery-grid" data-masonry='{ "itemSelector": ".work-img", "columnWidth": ".work-img", "percentPosition": true, "gutter": 20 }'>
+							<div class="gallery-grid" data-masonry='{ "itemSelector": ".work-img", "columnWidth": ".work-img", "percentPosition": true, "gutter": 5 }'>
 								<div class="work-img"><div class="img-wrapper aspect-3-2"><a href="assets/img/iccr/i1.jpeg" data-pswp-width="786" data-pswp-height="524"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1751805784/i1_ybpejw.jpg" alt=""></a></div></div>
                                 <div class="work-img"><div class="img-wrapper aspect-3-2"><a href="assets/img/iccr/i2.jpeg" data-pswp-width="786" data-pswp-height="524"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1751805784/i2_dbvnec.jpg" alt=""></a></div></div>
                                 <div class="work-img"><div class="img-wrapper aspect-3-2"><a href="assets/img/iccr/i3.jpeg" data-pswp-width="786" data-pswp-height="524"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1751805784/i3_tlrzbu.jpg" alt=""></a></div></div>

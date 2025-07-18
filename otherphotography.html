@@ -49,38 +49,39 @@
 
 <style>
   /* Container for the image gallery */
-  .gallery-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
+.gallery-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 
-  /* Individual image wrapper */
+/* Individual image wrapper */
+.work-img {
+  box-sizing: border-box;
+  width: 23%;
+  margin-bottom: 5px; /* Reduced from 20px */
+}
+
+/* Tablet: 3 per row */
+@media (max-width: 1024px) {
   .work-img {
-    box-sizing: border-box;
-    width: 23%;
-    margin-bottom: 20px;
+    width: 31%;
+    margin-bottom: 5px; /* Reduced from 20px */
   }
+}
+
+/* Mobile: 2 per row */
+@media (max-width: 600px) {
+  .work-img {
+    width: calc(50% - 2.5px); /* Adjusted to match the new gap */
+    margin-bottom: 5px; /* Reduced from 10px */
+  }
+}
 
   .gallery-grid img {
     width: 100%;
     height: auto;
     display: block;
-  }
-
-  /* Tablet: 3 per row */
-  @media (max-width: 1024px) {
-    .work-img {
-      width: 31%;
-    }
-  }
-
-  /* Mobile: 2 per row */
-  @media (max-width: 600px) {
-    .work-img {
-      width: calc(50% - 10px);
-      margin-bottom: 10px;
-    }
   }
 
   .img-wrapper {
@@ -207,9 +208,9 @@
 						
 						<!--  -->
 						<div>
-
-							<p>All photos are shot on Panasonic Lumix G85</p>
-							<div class="work-detail__entry gallery-grid">
+							p>All photos are shot on Panasonic Lumix G85</p>
+							<br>
+							<div class="gallery-grid" data-masonry='{ "itemSelector": ".work-img", "columnWidth": ".work-img", "percentPosition": true, "gutter": 5 }'>
                                 <div class="work-img"><div class="img-wrapper aspect-3-4"><a href="assets/img/reallife/rl2.jpeg" data-pswp-width="750" data-pswp-height="1000"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747946238/rl2_f6kfba.jpg" alt=""></div></div></a>
 								<div class="work-img"><div class="img-wrapper aspect-3-4"><a href="assets/img/reallife/rl4.jpeg" data-pswp-width="750" data-pswp-height="1000"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747946246/rl4_atdzb7.jpg" alt=""></div></div></a>
                                 <div class="work-img"><div class="img-wrapper aspect-3-4"><a href="assets/img/reallife/rl8.jpg" data-pswp-width="750" data-pswp-height="1000"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747946238/rl8_1_g34kn6.jpg" alt=""></div></div></a>
@@ -218,10 +219,8 @@
                                 <div class="work-img"><div class="img-wrapper aspect-3-4"><a href="assets/img/reallife/rl5.jpeg" data-pswp-width="750" data-pswp-height="1000"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747946244/rl5_kuvyrm.jpg" alt=""></div></div></a>
                                 <div class="work-img"><div class="img-wrapper aspect-3-4"><a href="assets/img/reallife/rl6.jpg" data-pswp-width="750" data-pswp-height="1000"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747946250/rl6_1_axplna.jpg" alt=""></div></div></a>
                                 <div class="work-img"><div class="img-wrapper aspect-3-4"><a href="assets/img/reallife/rl7.jpg" data-pswp-width="750" data-pswp-height="1000"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747946243/rl7_1_ohfh4v.jpg" alt=""></div></div></a>
-								<div class="work-img"><div class="img-wrapper aspect-3-4"><a href="assets/img/reallife/rl1.jpeg" data-pswp-width="750" data-pswp-height="1000"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747946248/rl1_upcpgl.jpg" alt=""></div></div></a>
-							</div></div>
-
-
+								<div class="work-img"><div class="img-wrapper aspect-3-4"><a href="assets/img/reallife/rl1.jpeg" data-pswp-width="750" data-pswp-height="1000"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747946248/rl1_upcpgl.jpg" alt=""></div></div></a>					
+							</div>
 						
 						</div><!-- End /  -->
 						
