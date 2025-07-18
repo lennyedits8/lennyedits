@@ -36,6 +36,7 @@
 <!-- Dark mode favicon -->
 <link rel="icon" type="image/png" href="https://res.cloudinary.com/dm086zlrg/image/upload/v1752438706/lennylogo_upscale_transparent_inverted_ooolex_yfmsui_lfudrd.png" media="(prefers-color-scheme: dark)">
 
+<meta name="theme-color" content="#ffffff">
 
 
 
@@ -537,6 +538,23 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+    const fullscreenMenu = document.querySelector('.fullscreenmenu__module');
+
+    const observer = new MutationObserver(() => {
+      const isOpen = fullscreenMenu.classList.contains('open');
+      if (themeColorMeta) {
+        themeColorMeta.setAttribute('content', isOpen ? '#0a0a0a' : '#ffffff');
+      }
+    });
+
+    if (fullscreenMenu) {
+      observer.observe(fullscreenMenu, { attributes: true, attributeFilter: ['class'] });
+    }
+  });
+</script>
 
 
 </html>

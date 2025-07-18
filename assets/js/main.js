@@ -429,3 +429,5 @@ function scaleTitle() {
 
 window.addEventListener('load', scaleTitle);
 window.addEventListener('resize', scaleTitle);
+
+
