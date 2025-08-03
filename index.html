@@ -37,8 +37,6 @@
 <link rel="icon" type="image/png" href="https://res.cloudinary.com/dm086zlrg/image/upload/v1752438706/lennylogo_upscale_transparent_inverted_ooolex_yfmsui_lfudrd.png" media="(prefers-color-scheme: dark)">
 
 
-<script defer data-domain="lennyedits.com" src="https://plausible.io/js/script.file-downloads.hash.outbound-links.pageview-props.revenue.tagged-events.js"></script>
-<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 
 
 </head>
@@ -399,18 +397,18 @@ paste into style
 				</section>
 				<!-- End / Section -->
 
-<section class="awe-section">
-  <div class="container follower-section">
+<section class="follower-section">
+  <div class="container">
     <div class="follower-grid">
-      <div class="follower-item fade-in">
+      <div class="follower-item fade-in" data-index="0">
         <span class="count" data-target="17000">0</span>
         <p class="page-title__text">TikTok Followers</p>
       </div>
-      <div class="follower-item fade-in">
+      <div class="follower-item fade-in" data-index="1">
         <span class="count" data-target="200">0</span>
         <p class="page-title__text">Instagram Followers</p>
       </div>
-      <div class="follower-item fade-in">
+      <div class="follower-item fade-in" data-index="2">
         <span class="count" data-target="100">0</span>
         <p class="page-title__text">Posts</p>
       </div>
@@ -468,54 +466,90 @@ paste into style
   }
 }
 </style>
-
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const counters = document.querySelectorAll('.count');
   const fadeItems = document.querySelectorAll('.fade-in');
+  const animatedItems = new Set();
 
-  // Intersection observer for fade-in effect
+  // Enhanced easing function for smoother animation
+  const easeOutQuad = (t) => t * (2 - t);
+
+  // Fade-in animation on scroll with staggered timing
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
+      if (entry.isIntersecting && !animatedItems.has(entry.target)) {
+        const index = parseInt(entry.target.dataset.index) || 0;
+        
+        // Stagger the entrance animations
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+          
+          // Start counter animation after fade-in begins
+          const counter = entry.target.querySelector('.count');
+          if (counter) {
+            setTimeout(() => {
+              animateCounter(counter);
+            }, 200);
+          }
+        }, index * 200);
+        
+        animatedItems.add(entry.target);
       }
     });
   }, { threshold: 0.2 });
 
   fadeItems.forEach(item => observer.observe(item));
 
-  // Counter animation
-  counters.forEach(counter => {
+  // Enhanced counter animation
+  function animateCounter(counter) {
     const target = +counter.dataset.target;
     let count = 0;
     const duration = 2000;
     const startTime = performance.now();
+    const isInstagram = counter.nextElementSibling?.textContent.includes("Instagram");
+    const shouldShowPlus = target >= 1000 || isInstagram;
 
     const updateCount = (time) => {
-      const progress = Math.min((time - startTime) / duration, 1);
-      count = Math.floor(progress * target);
-      counter.innerText = count.toLocaleString();
+      const elapsed = time - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const easedProgress = easeOutQuad(progress);
+
+      const newCount = Math.round(easedProgress * target);
+      if (newCount !== count) {
+        count = newCount;
+        counter.innerText = count.toLocaleString();
+      }
+
       if (progress < 1) {
-        requestAnimationFrame(updateCount);
-      } else {
-        // Add "+" only for Instagram (detected by label text) or targets >= 1000
-        if (
-          counter.nextElementSibling?.textContent.includes("Instagram") ||
-          target >= 1000
-        ) {
-          counter.innerText = target.toLocaleString() + "+";
+        // Smoother frame rate in the final 10%
+        if (progress > 0.9) {
+          setTimeout(() => requestAnimationFrame(updateCount), 30);
         } else {
-          counter.innerText = target.toLocaleString();
+          requestAnimationFrame(updateCount);
         }
+      } else {
+        // Smooth finish with plus symbol
+        setTimeout(() => {
+          if (shouldShowPlus) {
+            counter.innerText = target.toLocaleString() + "+";
+          } else {
+            counter.innerText = target.toLocaleString();
+          }
+        }, 100);
       }
     };
+
     requestAnimationFrame(updateCount);
-  });
+  }
 });
 </script>
 
-				<section class="instagram-feed awe-section">
+</script>
+
+
+
+				<section class="instagram-feed awe-section bg-gray">
 <!-- LightWidget WIDGET --><script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="https://cdn.lightwidget.com/widgets/2a124550befb575da8e8fa6af08252e0.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
 </section>
 
