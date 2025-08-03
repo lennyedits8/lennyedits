@@ -37,7 +37,7 @@
 <link rel="icon" type="image/png" href="https://res.cloudinary.com/dm086zlrg/image/upload/v1752438706/lennylogo_upscale_transparent_inverted_ooolex_yfmsui_lfudrd.png" media="(prefers-color-scheme: dark)">
 
 
-
+<script defer data-domain="lennyedits.com" src="https://plausible.io/js/script.js"></script>
 
 </head>
 
@@ -397,6 +397,121 @@ paste into style
 				</section>
 				<!-- End / Section -->
 
+<section class="awe-section">
+  <div class="container follower-section">
+    <div class="follower-grid">
+      <div class="follower-item fade-in">
+        <span class="count" data-target="17000">0</span>
+        <p class="page-title__text">TikTok Followers</p>
+      </div>
+      <div class="follower-item fade-in">
+        <span class="count" data-target="200">0</span>
+        <p class="page-title__text">Instagram Followers</p>
+      </div>
+      <div class="follower-item fade-in">
+        <span class="count" data-target="100">0</span>
+        <p class="page-title__text">Posts</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+
+.page-title__text{
+
+}
+.follower-section {
+  padding: 60px 20px; /* equal top & bottom spacing */
+}
+.follower-grid {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  text-align: center;
+  flex-wrap: wrap;
+}
+.follower-item {
+  flex: 1;
+  max-width: 200px;
+  min-width: 150px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.follower-item.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.follower-item .count {
+  font-size: 3.5rem;
+  font-weight: 600;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  display: block;
+  color: #111;
+  transition: transform 0.4s ease, color 0.4s ease;
+}
+.follower-item .label {
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #666;
+  margin-top: 10px;
+}
+@media (max-width: 768px) {
+  .follower-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll('.count');
+  const fadeItems = document.querySelectorAll('.fade-in');
+
+  // Intersection observer for fade-in effect
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  fadeItems.forEach(item => observer.observe(item));
+
+  // Counter animation
+  counters.forEach(counter => {
+    const target = +counter.dataset.target;
+    let count = 0;
+    const duration = 2000;
+    const startTime = performance.now();
+
+    const updateCount = (time) => {
+      const progress = Math.min((time - startTime) / duration, 1);
+      count = Math.floor(progress * target);
+      counter.innerText = count.toLocaleString();
+      if (progress < 1) {
+        requestAnimationFrame(updateCount);
+      } else {
+        // Add "+" only for Instagram (detected by label text) or targets >= 1000
+        if (
+          counter.nextElementSibling?.textContent.includes("Instagram") ||
+          target >= 1000
+        ) {
+          counter.innerText = target.toLocaleString() + "+";
+        } else {
+          counter.innerText = target.toLocaleString();
+        }
+      }
+    };
+    requestAnimationFrame(updateCount);
+  });
+});
+</script>
 
 				<section class="instagram-feed awe-section">
 <!-- LightWidget WIDGET --><script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="https://cdn.lightwidget.com/widgets/2a124550befb575da8e8fa6af08252e0.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
