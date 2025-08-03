@@ -409,19 +409,17 @@ paste into style
         <span class="count" data-target="200">0</span>
         <p class="page-title__text">Instagram Followers</p>
       </div>
-<div class="follower-item fade-in" data-index="2">
-  <span id="visitCount" class="count">0</span>
-  <p class="page-title__text">Visits Today</p>
-</div>
-
+      <div class="follower-item fade-in" data-index="2">
+        <span class="count" data-target="350">0</span>
+        <p class="page-title__text">Pinterest Followers</p>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
-
-.page-title__text{
-
+.page-title__text {
+  /* Your styles here if needed */
 }
 .follower-section {
   padding: 60px 20px; /* equal top & bottom spacing */
@@ -449,9 +447,19 @@ paste into style
   font-size: 3.5rem;
   font-weight: 600;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  display: block;
+  display: inline-block;  /* Changed to inline-block */
   color: #111;
   transition: transform 0.4s ease, color 0.4s ease;
+  position: relative;
+}
+.follower-item .count sup {
+  font-size: 2.5rem;         /* smaller plus */
+  vertical-align: middle;   /* vertically centered */
+  margin-left: 2px;
+  top: -0.1em;              /* nudges it upward */
+  position: relative;
+  font-weight: 700;
+  color: #111;
 }
 .follower-item .label {
   font-size: 1rem;
@@ -468,26 +476,23 @@ paste into style
   }
 }
 </style>
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const counters = document.querySelectorAll('.count');
   const fadeItems = document.querySelectorAll('.fade-in');
   const animatedItems = new Set();
 
-  // Enhanced easing function for smoother animation
   const easeOutQuad = (t) => t * (2 - t);
 
-  // Fade-in animation on scroll with staggered timing
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting && !animatedItems.has(entry.target)) {
         const index = parseInt(entry.target.dataset.index) || 0;
-        
-        // Stagger the entrance animations
+
         setTimeout(() => {
           entry.target.classList.add('visible');
-          
-          // Start counter animation after fade-in begins
+
           const counter = entry.target.querySelector('.count');
           if (counter) {
             setTimeout(() => {
@@ -495,7 +500,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 200);
           }
         }, index * 200);
-        
+
         animatedItems.add(entry.target);
       }
     });
@@ -503,14 +508,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   fadeItems.forEach(item => observer.observe(item));
 
-  // Enhanced counter animation
   function animateCounter(counter) {
     const target = +counter.dataset.target;
     let count = 0;
     const duration = 2000;
     const startTime = performance.now();
-    const isInstagram = counter.nextElementSibling?.textContent.includes("Instagram");
-    const shouldShowPlus = target >= 1000 || isInstagram;
+
+    // Show plus for all counters
+    const shouldShowPlus = true;
 
     const updateCount = (time) => {
       const elapsed = time - startTime;
@@ -524,17 +529,15 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (progress < 1) {
-        // Smoother frame rate in the final 10%
         if (progress > 0.9) {
           setTimeout(() => requestAnimationFrame(updateCount), 30);
         } else {
           requestAnimationFrame(updateCount);
         }
       } else {
-        // Smooth finish with plus symbol
         setTimeout(() => {
           if (shouldShowPlus) {
-            counter.innerText = target.toLocaleString() + "+";
+            counter.innerHTML = target.toLocaleString() + "<sup>+</sup>";
           } else {
             counter.innerText = target.toLocaleString();
           }
@@ -546,21 +549,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
-
-<script>
-  async function updateVisitCount() {
-    try {
-      const res = await fetch('https://api.counter.dev/get/lennyedits.com');
-      const data = await res.json();
-      const visitsToday = data?.totals?.today || 0;
-      document.getElementById('visitCount').textContent = visitsToday.toLocaleString();
-    } catch (e) {
-      console.error('Failed to fetch visit count', e);
-    }
-  }
-  updateVisitCount();
-</script>
-
 
 
 
