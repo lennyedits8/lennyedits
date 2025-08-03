@@ -402,24 +402,15 @@ paste into style
   <div class="container">
     <div class="follower-grid">
       <div class="follower-item fade-in" data-index="0">
-        <div class="count-wrapper">
-          <span class="count" data-target="17000">0</span>
-          <span class="plus">+</span>
-        </div>
+        <span class="count" data-target="17000">0</span>
         <p class="page-title__text">TikTok Followers</p>
       </div>
       <div class="follower-item fade-in" data-index="1">
-        <div class="count-wrapper">
-          <span class="count" data-target="200">0</span>
-          <span class="plus">+</span>
-        </div>
+        <span class="count" data-target="200">0</span>
         <p class="page-title__text">Instagram Followers</p>
       </div>
       <div class="follower-item fade-in" data-index="2">
-        <div class="count-wrapper">
-          <span class="count" data-target="350">0</span>
-          <span class="plus">+</span>
-        </div>
+        <span class="count" data-target="350">0</span>
         <p class="page-title__text">Pinterest Followers</p>
       </div>
     </div>
@@ -427,8 +418,11 @@ paste into style
 </section>
 
 <style>
+.page-title__text {
+  /* Your styles here if needed */
+}
 .follower-section {
-  padding: 60px 20px;
+  padding: 60px 20px; /* equal top & bottom spacing */
 }
 .follower-grid {
   display: flex;
@@ -449,44 +443,56 @@ paste into style
   opacity: 1;
   transform: translateY(0);
 }
-
-.count-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.follower-item .count {
   font-size: 3.5rem;
   font-weight: 600;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  display: inline-block;  /* Changed to inline-block */
   color: #111;
-  gap: 4px;
+  transition: transform 0.4s ease, color 0.4s ease;
+  position: relative;
 }
-
-.count {
-  display: inline-block;
-}
-
-.plus {
-  display: none;
-  font-size: 3.5rem;
-  font-weight: 600;
-  line-height: 1;
+.follower-item .count sup {
+  font-size: 2.5rem;         /* smaller plus */
+  vertical-align: middle;   /* vertically centered */
+  margin-left: 2px;
+  top: -0.1em;              /* nudges it upward */
+  position: relative;
+  font-weight: 700;
   color: #111;
 }
-
-.page-title__text {
+.follower-item .label {
   font-size: 1rem;
-  color: #666;
   font-weight: 400;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #666;
   margin-top: 10px;
 }
-
 @media (max-width: 768px) {
   .follower-grid {
     flex-direction: column;
     align-items: center;
     gap: 40px;
   }
+
+  .follower-item .count {
+  font-size: 3.5rem;
+  font-weight: 600;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  display: inline-block;  /* Changed to inline-block */
+  color: #111;
+  transition: transform 0.4s ease, color 0.4s ease;
+  position: relative;
+}
+.follower-item .count sup {
+  font-size: 2.5rem;         /* smaller plus */
+  vertical-align: middle;   /* vertically centered */
+  margin-left: 2px;
+  top: -0.3em;              /* nudges it upward */
+  position: relative;
+  font-weight: 700;
+  color: #111;
+}
 }
 </style>
 
@@ -527,7 +533,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const duration = 2000;
     const startTime = performance.now();
 
-    const plus = counter.nextElementSibling;
+    // Show plus for all counters
+    const shouldShowPlus = true;
 
     const updateCount = (time) => {
       const elapsed = time - startTime;
@@ -541,10 +548,19 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (progress < 1) {
-        requestAnimationFrame(updateCount);
+        if (progress > 0.9) {
+          setTimeout(() => requestAnimationFrame(updateCount), 30);
+        } else {
+          requestAnimationFrame(updateCount);
+        }
       } else {
-        counter.innerText = target.toLocaleString();
-        if (plus) plus.style.display = 'inline-block';
+        setTimeout(() => {
+          if (shouldShowPlus) {
+            counter.innerHTML = target.toLocaleString() + "<sup>+</sup>";
+          } else {
+            counter.innerText = target.toLocaleString();
+          }
+        }, 100);
       }
     };
 
@@ -552,6 +568,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
+
 
 <section class="instagram-feed awe-section bg-gray">
   <div class="container">
