@@ -398,7 +398,59 @@ paste into style
 				</section>
 				<!-- End / Section -->
 
-<section class="follower-section">
+
+				<!-- About Me -->
+<!-- About Me -->
+<style>
+  .about-me-section .page-title {
+    text-align: center;
+    margin-top: 0; /* Remove top margin if any */
+    padding-top: 0; /* Remove top padding if any */
+  }
+
+  .about-me-section .page-title__title {
+    color: black;
+    display: block;
+    width: 100%;
+    margin: 0 auto; /* Centering */
+    text-align: center;
+    margin-top: 0; /* Prevent default heading margin */
+  }
+
+  .about-me-section .page-title p {
+    color: black;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .about-me-section .page-title {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+
+  /* Remove default h2 margin globally if desired */
+  h2 {
+    margin-top: 0;
+  }
+</style>
+
+<section class="awe-section about-me-section">
+  <div class="container">
+    <div class="page-title pb-40">
+      <h2 class="page-title__title">About Me</h2>
+	  <br>
+      <p>I'm a freelance photographer based in Dublin, Ireland. Specialising in automotive photography, this covers everything from motorsport dynamic panning shots to detailed close-ups. Whether it's in motion or at a standstill, I strive to capture the unique character of each vehicle.</p>
+      <p>In my spare time, I also enjoy creating virtual photography. It allows me to explore scenes, lighting and compositions that might not be possible in the real world.</p>
+    </div>
+  </div>
+</section>
+
+
+
+				
+<!-- Counter Section -->
+<section class="follower-section bg-gray">
   <div class="container">
     <div class="follower-grid">
       <div class="follower-item fade-in" data-index="0">
@@ -538,7 +590,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-<section class="instagram-feed awe-section bg-gray">
+<section class="instagram-feed awe-section">
   <div class="container" style="text-align: center;">
     </div><!-- End / page-title -->
 
