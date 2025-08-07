@@ -402,15 +402,15 @@ paste into style
   <div class="container">
     <div class="follower-grid">
       <div class="follower-item fade-in" data-index="0">
-        <span class="count" data-target="17000">0</span>
+        <span class="count" data-target="17253">0</span>
         <p class="page-title__text">TikTok Followers</p>
       </div>
       <div class="follower-item fade-in" data-index="1">
-        <span class="count" data-target="200">0</span>
+        <span class="count" data-target="211">0</span>
         <p class="page-title__text">Instagram Followers</p>
       </div>
       <div class="follower-item fade-in" data-index="2">
-        <span class="count" data-target="350">0</span>
+        <span class="count" data-target="365">0</span>
         <p class="page-title__text">Pinterest Followers</p>
       </div>
     </div>
@@ -419,11 +419,13 @@ paste into style
 
 <style>
 .page-title__text {
-  /* Your styles here if needed */
+  /* Optional text styles */
 }
+
 .follower-section {
-  padding: 60px 20px; /* equal top & bottom spacing */
+  padding: 60px 20px;
 }
+
 .follower-grid {
   display: flex;
   justify-content: center;
@@ -431,6 +433,7 @@ paste into style
   text-align: center;
   flex-wrap: wrap;
 }
+
 .follower-item {
   flex: 1;
   max-width: 200px;
@@ -439,15 +442,17 @@ paste into style
   transform: translateY(20px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
+
 .follower-item.fade-in.visible {
   opacity: 1;
   transform: translateY(0);
 }
+
 .follower-item .count {
   font-size: 3.5rem;
   font-weight: 600;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  display: inline-block;  /* Changed to inline-block */
+  display: inline-block;
   color: #111;
   transition: transform 0.4s ease, color 0.4s ease;
   position: relative;
@@ -460,6 +465,7 @@ paste into style
   color: #666;
   margin-top: 10px;
 }
+
 @media (max-width: 768px) {
   .follower-grid {
     flex-direction: column;
@@ -506,9 +512,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const duration = 2000;
     const startTime = performance.now();
 
-    // Show plus for all counters
-    const shouldShowPlus = true;
-
     const updateCount = (time) => {
       const elapsed = time - startTime;
       const progress = Math.min(elapsed / duration, 1);
@@ -517,23 +520,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const newCount = Math.round(easedProgress * target);
       if (newCount !== count) {
         count = newCount;
-        counter.innerText = count.toLocaleString();
+        counter.innerText = newCount.toLocaleString();
       }
 
       if (progress < 1) {
-        if (progress > 0.9) {
-          setTimeout(() => requestAnimationFrame(updateCount), 30);
-        } else {
-          requestAnimationFrame(updateCount);
-        }
+        requestAnimationFrame(updateCount);
       } else {
-        setTimeout(() => {
-          if (shouldShowPlus) {
-            counter.innerText = target.toLocaleString() + " +";
-          } else {
-            counter.innerText = target.toLocaleString();
-          }
-        }, 100);
+        counter.innerText = target.toLocaleString();
       }
     };
 
@@ -541,6 +534,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
 
 
 
