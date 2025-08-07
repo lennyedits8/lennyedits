@@ -402,32 +402,43 @@ paste into style
 				<!-- About Me -->
 <!-- About Me -->
 <style>
+  .about-me-section {
+    padding-top: 0;
+      padding-top: 60px; /* adjust this number to your preference */
+  }
 
-.about-me-section .page-title {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding-left: 15px;
-  padding-right: 15px;
-}
+  .about-me-section .container {
+    padding-top: 0;
+    margin-top: 0;
+  }
 
-.about-me-section .page-title__title {
-  margin: 0;
-  width: auto;
-}
+  .about-me-section .page-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 0;
+    padding-top: 0;
+  }
 
+  .about-me-section .page-title__title {
+    color: black;
+    margin: 0;
+    width: auto;
+  }
 
   .about-me-section .page-title p {
     color: black;
     text-align: center;
   }
 
-  @media (max-width: 768px) {
+  @media (min-width: 769px) {
     .about-me-section .page-title {
-      padding-left: 15px;
-      padding-right: 15px;
+      padding-left: 0;
+      padding-right: 0;
     }
   }
 
@@ -435,6 +446,7 @@ paste into style
     margin-top: 0;
   }
 </style>
+
 
 
 <section class="awe-section about-me-section">
