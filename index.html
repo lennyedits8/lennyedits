@@ -56,115 +56,60 @@
 </script>
 
 <style>
-/* Base spacing and layout for grid items */
-.grid-css.grid-css--masonry .grid-item {
-    margin: 10px; /* Outer spacing */
+/* Grid layout */
+.tiles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
 }
-
-/* Medium+ screens: 2 columns layout with margin */
-@media (min-width: 577px) {
-    .grid-css.grid-css--masonry .grid-item {
-        width: calc(50% - 20px); /* Two items per row accounting for margins */
-    }
+@media (max-width: 992px) {
+  .tiles-grid { grid-template-columns: repeat(2, 1fr); }
 }
-
-/* Mobile (max-width: 576px): force 2 columns with consistent spacing */
 @media (max-width: 576px) {
-    .grid-css.grid-css--masonry .grid-item {
-        width: calc(50% - 20px) !important;
-        margin: 10px !important;
-        padding: 0 !important;
-    }
+  .tiles-grid { grid-template-columns: 1fr; }
 }
 
-/* Image wrapper setup for consistent sizing and cropping */
-.img-wrapper {
-    width: 100%;
-    position: relative;
-    overflow: hidden;
+/* Base tile styling */
+.tile {
+  position: relative;
+  overflow: hidden;
+}
+.tile img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  transition: transform 0.5s ease, filter 0.5s ease;
 }
 
-/* Aspect ratios for image containers */
-.aspect-2-3 {
-    aspect-ratio: 2 / 3;
-}
-.aspect-4-3 {
-    aspect-ratio: 4 / 3;
-}
-.aspect-3-4 {
-    aspect-ratio: 3 / 4;
+/* Pixieset-like hover effect */
+.tile:hover img {
+  filter: grayscale(50%) brightness(110%);
+  transform: scale(1.05);
 }
 
-/* Images fill wrapper and crop nicely */
-.img-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+/* Caption below image */
+.tile-caption {
+  text-align: center;
+  margin-top: 10px;
+}
+.tile-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000;
+  text-transform: uppercase;
+}
+.tile-date {
+  font-size: 1.2rem;
+  color: #777;
+  margin-top: 5px;
 }
 
-/* Support element for masonry or grid sizing */
-.grid-sizer {
-    width: calc(50% - 20px);
-}
-
-/* Hover zoom effect */
-.hoverbox {
-    transition: transform 0.3s ease;
-}
-.hoverbox:hover,
-.hoverbox.touch-active {
-    transform: scale(1.02);
-}
-
-/* Slightly bigger zoom on small screens */
-@media (max-width: 576px) {
-    .hoverbox:hover,
-    .hoverbox.touch-active {
-        transform: scale(1.05);
-    }
-}
-
-/* Always visible hover back panel styling */
-.always-hover .hb_back {
-    background-color: rgba(103, 103, 103, 0.7) !important;
-    color: #fff !important;
-    opacity: 1 !important;
-    transform: none !important;
-    visibility: visible !important;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-}
-
-.always-hover .hb_front {
-    opacity: 1;
-}
-
-/* Text styling inside hover back panel */
-.hb_back h2,
-.hb_back span,
-.hb_back .work__text {
-    color: #ffffff !important;
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
-}
-
-.awe-section_tiles.bg-gray {
-    padding-bottom: 0px; /* or 0 to remove completely */
-    padding-top: 40px; /* or 0 to remove completely */
+.awe-section_tiles .container {
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 </style>
-
 
 
 <!--
@@ -267,146 +212,57 @@ paste into style
 				</section>
 				<!-- End / Section -->
 				
-				<!-- Section -->
-				<section class="awe-section_tiles bg-gray">
-					<div class="container">
-						<div class="row">
-							<div class="col-lg-6 ">
-							</div>
-						</div>
-						<div class="grid-css grid-css--masonry" data-col-lg="2" data-col-md="2" data-col-sm="2" data-col-xs="2">
-							<div class="grid__inner">
-								<div class="grid-sizer"></div>
-									<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="automotivephotography.html">
-													
-													<!-- hoverbox ef-slide-bottom -->
-													<div class="hoverbox ef-move-right light always-hover">
-														
-														<!-- hb_front -->
-														<div class="hb_front">
-														<div class="img-wrapper aspect-3-2"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1751805784/b6_kotsmb.jpg"  alt=""/>
-														</div>
-														</div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Automotive</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-slide-bottom -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="virtualphotography.html">
-													
-													<!-- hoverbox ef-slide-bottom -->
-													<div class="hoverbox ef-move-right light always-hover">
-														
-														<!-- hb_front -->
-														<div class="hb_front">
-														<div class="img-wrapper aspect-3-4"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747914591/sm37_zjoi8m.jpg" alt=""/>
-														</div>
-														</div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Virtual</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-slide-bottom -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
 
 
 
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="otherphotography.html">
-													
-													<!-- hoverbox ef-slide-bottom -->
-													<div class="hoverbox ef-move-right light always-hover">
-														
-														<!-- hb_front -->
-														<div class="hb_front">
-														<div class="img-wrapper aspect-3-4"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747946238/rl8_1_g34kn6.jpg" alt=""/>
-														</div>
-														</div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Other</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-slide-bottom -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
+<section class="awe-section_tiles bg-gray">
+  <div class="container">
+    <div class="tiles-grid">
 
-                <div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="filmphotography.html">
-													
-													<!-- hoverbox ef-slide-bottom -->
-													<div class="hoverbox ef-move-right light always-hover">
-														
-														<!-- hb_front -->
-														<div class="hb_front">
-														<div class="img-wrapper aspect-3-2"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_1000/v1747946250/f4_tkl80d.jpg" alt=""/>
-														</div>
-														</div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">35mm Film</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-slide-bottom -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
+      <div class="tile">
+        <a href="automotivephotography.html">
+          <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1751805784/b6_kotsmb.jpg" alt="Automotive">
+        </a>
+        <div class="tile-caption">
+          <div class="tile-title">Automotive</div>
+          <!--<div class="tile-date">22nd June, 2025</div>-->
+        </div>
+      </div>
 
-							</div>
-						</div>
-						<div class="awe-text-center mt-50">
-							<!-- <a class="md-btn md-btn--outline-primary" href="virtualphotography.html">all work-->
-							</a>
-						</div>
-					</div>
-				</section>
-				<!-- End / Section -->
+      <div class="tile">
+        <a href="virtualphotography.html">
+          <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018892/t7_rgrezj.jpg" alt="Virtual">
+        </a>
+        <div class="tile-caption">
+          <div class="tile-title">Virtual</div>
+          <!--<div class="tile-date">22nd June, 2025</div>-->
+        </div>
+      </div>
+
+      <div class="tile">
+        <a href="otherphotography.html">
+          <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747946238/rl2_f6kfba.jpg" alt="Other">
+        </a>
+        <div class="tile-caption">
+          <div class="tile-title">Other</div>
+          <!--<div class="tile-date">22nd June, 2025</div>-->
+        </div>
+      </div>
+
+      <div class="tile">
+        <a href="filmphotography.html">
+          <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747946244/f5_k0ppse.jpg" alt="35mm Film">
+        </a>
+        <div class="tile-caption">
+          <div class="tile-title">35mm Film</div>
+          <!--<div class="tile-date">22nd June, 2025</div>-->
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
 
 			<!-- Load Montserrat font -->
@@ -524,7 +380,7 @@ paste into style
         <p class="page-title__text">TikTok Followers</p>
       </div>
       <div class="follower-item fade-in" data-index="1">
-        <span class="count" data-target="211">0</span>
+        <span class="count" data-target="212">0</span>
         <p class="page-title__text">Instagram Followers</p>
       </div>
       <div class="follower-item fade-in" data-index="2">
