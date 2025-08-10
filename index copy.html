@@ -1,27 +1,33 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Home</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<meta name="format-detection" content="telephone=no">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<!-- Cache control -->
-		<meta http-equiv='cache-control' content='no-cache'>
-		<meta http-equiv='expires' content='0'>
-		<meta http-equiv='pragma' content='no-cache'>
-		<!-- Fonts-->
-		<link rel="stylesheet" type="text/css" href="assets/fonts/fontawesome/font-awesome.min.css">
-		<link rel="stylesheet" type="text/css" href="assets/fonts/pe-icon/pe-icon.css">
-		<!-- Vendors-->
-		<link rel="stylesheet" type="text/css" href="assets/vendors/bootstrap/grid.css">
-		<link rel="stylesheet" type="text/css" href="assets/vendors/magnific-popup/magnific-popup.min.css">
-		<link rel="stylesheet" type="text/css" href="assets/vendors/swiper/swiper.css">
-		<!-- App & fonts-->
-		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Open+Sans:400,700">
-		<link rel="stylesheet" type="text/css" id="app-stylesheet" href="assets/css/main.css"><!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-		<![endif]-->
+<head>
+	<title>Home</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+
+	<!-- Cache control -->
+	<meta http-equiv='cache-control' content='no-cache'>
+	<meta http-equiv='expires' content='0'>
+	<meta http-equiv='pragma' content='no-cache'>
+
+	<!-- Fonts -->
+	<link rel="stylesheet" type="text/css" href="assets/fonts/fontawesome/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/fonts/pe-icon/pe-icon.css">
+
+	<!-- Vendors -->
+	<link rel="stylesheet" type="text/css" href="assets/vendors/bootstrap/grid.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendors/magnific-popup/magnific-popup.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendors/swiper/swiper.css">
+
+	<!-- App & Fonts -->
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Open+Sans:400,700">
+	<link rel="stylesheet" type="text/css" id="app-stylesheet" href="assets/css/main.css">
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<![endif]-->
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 	<!-- Favicon for light and dark mode -->
 <!-- Light mode favicon -->
@@ -30,10 +36,12 @@
 <!-- Dark mode favicon -->
 <link rel="icon" type="image/png" href="https://res.cloudinary.com/dm086zlrg/image/upload/v1752438706/lennylogo_upscale_transparent_inverted_ooolex_yfmsui_lfudrd.png" media="(prefers-color-scheme: dark)">
 
+<script defer src="https://cdn.counter.dev/script.js" data-id="lennyedits.com" data-utcoffset="+1"></script>
 
 
 
 </head>
+
 
 	<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3WD6FZML3W"></script>
@@ -48,18 +56,82 @@
 </script>
 
 <style>
-	@media (max-width: 576px) {
-		.grid-css .grid-item {
-			width: 50% !important;
-		}
-	}
-	</style>
+/* Grid layout */
+.tiles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+@media (max-width: 992px) {
+  .tiles-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 576px) {
+  .tiles-grid { grid-template-columns: 1fr; }
+}
+
+/* Base tile styling */
+.tile {
+  position: relative;
+  overflow: hidden;
+}
+.tile img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+/* Pixieset-like hover effect */
+.tile:hover img {
+  filter: grayscale(50%) brightness(110%);
+  transform: scale(1.05);
+}
+
+/* Caption below image */
+.tile-caption {
+  text-align: center;
+  margin-top: 10px;
+}
+.tile-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000;
+  text-transform: uppercase;
+}
+.tile-date {
+  font-size: 1.2rem;
+  color: #777;
+  margin-top: 5px;
+}
+
+.awe-section_tiles .container {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+</style>
+
+
+<!--
+.hb_back h2 {
+  font-size: clamp(1.2rem, 2.5vw, 2.5rem);
+}
+
+.hb_back .work__text {
+  font-size: clamp(1.2rem, 2vw, 2.5rem);
+}
+
+paste into style
+
+-->
 	
 	
 	<body>
 		<div class="page-wrap" id="root">
 			
-<!-- header -->
+							<!-- header -->
 		<header class="header header--fixed">
 		<div class="header__inner">
 			<div class="header__logo">
@@ -70,7 +142,7 @@
 
 			<!-- Desktop Navigation -->
 			<nav class="desktop-nav">
-			<a href="index.html">Home</a>
+			<a href="index.html" class="active">Home</a>
 			<a href="contact.html">Contact</a>
 
 			<div class="dropdown">
@@ -126,14 +198,15 @@
 		</div><!-- End / fullscreenmenu__module -->
 		</header><!-- End / header -->
 
+
 				<!-- Section -->
 				<section class="awe-section">
 					<div class="container">
 						
 						<!-- page-title -->
 						<div class="page-title pb-40">
-							<h2 class="page-title__title">Recently Added</h2>
-							<p class="page-title__text">Please click on the photos below to view the gallery of that game.</p>
+							<h2 class="page-title__title">Welcome!</h2>
+							<p class="page-title__text">Please select from the galleries below to explore my collection of recent photographs</p>
 							<div class="page-title__divider"></div>
 						</div><!-- End / page-title -->
 						
@@ -141,273 +214,333 @@
 				</section>
 				<!-- End / Section -->
 				
-				<!-- Section -->
-				<section class="awe-section bg-gray">
-					<div class="container">
-						<div class="row">
-							<div class="col-lg-6 ">
-							</div>
-						</div>
-						<div class="grid-css grid-css--masonry" data-col-lg="3" data-col-md="2" data-col-sm="2" data-col-xs="2" data-gap="30">
-							<div class="grid__inner">
-								<div class="grid-sizer"></div>
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="spiderman2.html">
-													
-													<!-- hoverbox ef-slide-bottom -->
-													<div class="hoverbox ef-move-right light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><img src="assets/img/spiderman2/sm37.jpeg" alt=""/>
-														</div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Spider-Man 2</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-slide-bottom -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="spiderman2.html">
-													
-													<!-- hoverbox ef-move-top -->
-													<div class="hoverbox ef-move-top light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><img src="assets/img/spiderman2/sm38.jpeg" alt=""/>
-														</div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Spider-Man 2</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-move-top -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="fallout4.html">
-													
-													<!-- hoverbox ef-slide-right -->
-													<div class="hoverbox ef-move-left light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><img src="assets/img/fallout4/f_1.jpeg" alt=""/>
-														</div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Fallout 4</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-slide-right -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="gt7.html">
-													
-													<!-- hoverbox ef-zoom-in -->
-													<div class="hoverbox ef-zoom-in light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><img src="assets/img/gt7/gt10.jpeg" alt=""/>
-														</div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Gran Turismo 7</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-zoom-in -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="fallout4.html">
-													
-													<!-- hoverbox ef-zoom-in -->
-													<div class="hoverbox ef-move-left light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><img src="assets/img/fallout4/f_2.jpeg" alt=""/>
-														</div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Fallout 4</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-zoom-in -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="finalfantasyremake.html">
-													
-													<!-- hoverbox ef-slide-right -->
-													<div class="hoverbox ef-move-right light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><img src="assets/img/ffvii/ff2.jpg" alt=""/>
-														</div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Final Fantasy VII Remake</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-slide-right -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="gotg.html">
-													
-													<!-- hoverbox ef-move-right -->
-													<div class="hoverbox ef-zoom-in light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><img src="assets/img/gotg/gotg1.jpeg" alt=""/>
-														</div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Marvel's Guardians of the Galaxy</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-move-right -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="gt7.html">
-													
-													<!-- hoverbox ef-slide-right -->
-													<div class="hoverbox ef-move-right light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><img src="assets/img/gt7/gt12.jpeg" alt=""/>
-														</div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Gran Turismo 7</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-slide-right -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
 
 
 
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="lostrecords.html">
-													
-													<!-- hoverbox ef-move-right -->
-													<div class="hoverbox ef-zoom-in light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><img src="assets/img/lostrecords/lr2.jpeg" alt=""/>
-														</div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Lost Records: Rage & Bloom</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-move-right -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
+<section class="awe-section_tiles bg-gray">
+  <div class="container">
+    <div class="tiles-grid">
 
-							</div>
-						</div>
-						<div class="awe-text-center mt-50">
-							<a class="md-btn md-btn--outline-primary" href="virtualphotography.html">all work
-							</a>
-						</div>
-					</div>
-				</section>
-				<!-- End / Section -->
+      <div class="tile">
+        <a href="automotivephotography.html">
+          <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1751805784/b6_kotsmb.jpg" alt="Automotive">
+        </a>
+        <div class="tile-caption">
+          <div class="tile-title">Automotive</div>
+          <div class="tile-date">Photography</div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <a href="virtualphotography.html">
+          <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018892/t7_rgrezj.jpg" alt="Virtual">
+        </a>
+        <div class="tile-caption">
+          <div class="tile-title">Virtual</div>
+          <div class="tile-date">Photography</div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <a href="otherphotography.html">
+          <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747946238/rl2_f6kfba.jpg" alt="Other">
+        </a>
+        <div class="tile-caption">
+          <div class="tile-title">Other</div>
+          <div class="tile-date">Photography</div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <a href="filmphotography.html">
+          <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747946244/f5_k0ppse.jpg" alt="35mm Film">
+        </a>
+        <div class="tile-caption">
+          <div class="tile-title">35mm Film</div>
+          <div class="tile-date">Photography</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+			<!-- Load Montserrat font -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+<style>
+.about-me-section {
+  padding-top: 80px !important;
+  padding-bottom: 80px !important;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+.about-me-section .container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Heading styles */
+.custom-title-section {
+  padding: 0px 0 0px 0;
+}
+
+.custom-title-wrapper {
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+ /* border: 2px solid red;*/
+}
+
+.custom-title-heading {
+  display: inline-block;
+  font-size: 30px;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #000;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  overflow: visible;
+  text-overflow: unset;
+  /* removed transform-origin for now */
+}
+
+
+
+
+/* Responsive title heading */
+@media (max-width: 768px) {
+  .custom-title-heading {
+    font-size: calc(2.27273vw + 22.72727px);
+    transform: scale(var(--title-scale, 0.9));
+  }
+}
+
+@media (min-width: 1200px) {
+  .custom-title-heading {
+    font-size: 40px;
+  }
+}
+
+/* NEW: Paragraph / subtext styles */
+.custom-subtext-wrapper {
+  display: inline-block;
+}
+
+.custom-subtext {
+  font-size: 16px;
+  color: #000;
+  padding: 0 10px;
+  text-align: center;
+}
+
+/* Divider */
+.custom-divider {
+  width: 40px;
+  height: 3px;
+  background-color: #000;
+  margin: 20px auto;
+}
+
+</style>
+
+<section class="about-me-section">
+  <div class="container">
+    <div class="custom-title-section">
+      <div class="custom-title-wrapper">
+        <h2 class="custom-title-heading">About Me</h2>
+      </div>
+<br>
+      <div class="custom-subtext-wrapper">
+        <p class="custom-subtext">
+          I'm a freelance photographer based in Dublin, Ireland. Specialising in automotive photography, this covers everything from motorsport dynamic panning shots to detailed close-ups.
+        </p>
+        <p class="custom-subtext">
+          In my spare time, I also enjoy creating virtual photography. It allows me to explore scenes, lighting and compositions that might not be possible in the real world.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
 				
+<!-- Counter Section -->
+<section class="follower-section bg-gray">
+  <div class="container">
+    <div class="follower-grid">
+      <div class="follower-item fade-in" data-index="0">
+        <span class="count" data-target="17253">0</span>
+        <p class="page-title__text">TikTok Followers</p>
+      </div>
+      <div class="follower-item fade-in" data-index="1">
+        <span class="count" data-target="212">0</span>
+        <p class="page-title__text">Instagram Followers</p>
+      </div>
+      <div class="follower-item fade-in" data-index="2">
+        <span class="count" data-target="365">0</span>
+        <p class="page-title__text">Pinterest Followers</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.page-title__text {
+  /* Optional text styles */
+}
+
+.follower-section {
+  padding: 60px 20px;
+}
+
+.follower-grid {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.follower-item {
+  flex: 1;
+  max-width: 200px;
+  min-width: 150px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.follower-item.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.follower-item .count {
+  font-size: 3.5rem;
+  font-weight: 600;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  display: inline-block;
+  color: #111;
+  transition: transform 0.4s ease, color 0.4s ease;
+  position: relative;
+}
+
+.follower-item .label {
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #666;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .follower-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll('.count');
+  const fadeItems = document.querySelectorAll('.fade-in');
+  const animatedItems = new Set();
+
+  const easeOutQuad = (t) => t * (2 - t);
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !animatedItems.has(entry.target)) {
+        const index = parseInt(entry.target.dataset.index) || 0;
+
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+
+          const counter = entry.target.querySelector('.count');
+          if (counter) {
+            setTimeout(() => {
+              animateCounter(counter);
+            }, 200);
+          }
+        }, index * 200);
+
+        animatedItems.add(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  fadeItems.forEach(item => observer.observe(item));
+
+  function animateCounter(counter) {
+    const target = +counter.dataset.target;
+    let count = 0;
+    const duration = 2000;
+    const startTime = performance.now();
+
+    const updateCount = (time) => {
+      const elapsed = time - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const easedProgress = easeOutQuad(progress);
+
+      const newCount = Math.round(easedProgress * target);
+      if (newCount !== count) {
+        count = newCount;
+        counter.innerText = newCount.toLocaleString();
+      }
+
+      if (progress < 1) {
+        requestAnimationFrame(updateCount);
+      } else {
+        counter.innerText = target.toLocaleString();
+      }
+    };
+
+    requestAnimationFrame(updateCount);
+  }
+});
+</script>
+
+
+
+
+<section class="instagram-feed awe-section">
+  <div class="container" style="text-align: center;">
+    </div><!-- End / page-title -->
+
+    <!-- LightWidget WIDGET -->
+    <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
+    <iframe 
+      src="https://cdn.lightwidget.com/widgets/2a124550befb575da8e8fa6af08252e0.html" 
+      scrolling="no" 
+      allowtransparency="true" 
+      class="lightwidget-widget" 
+      style="display: block; margin: 0 auto; width: 100%; max-width: 800px; border: 0; overflow: hidden;">
+    </iframe>
+  </div>
+</section>
+
+
+
+
+
+
+<style>.instagram-feed.awe-section {
+  padding: 0px; /* adjust as needed */
+  padding-top: 50px;
+}
+
+	</style>			
 			</div>
 			<!-- End / Content-->
 			
@@ -422,17 +555,17 @@
 							<div class="footer__social">
 								
 								<!-- social-icon -->
-								<a class="social-icon" href="https://www.tiktok.com/@lennyedits8?_t=8p7Mtyc9oX2&_r=1"><img class="social-icon__icon" src="assets/img/tiktok.png" alt="TikTok" style="width: 55%;"></a><!-- End / social-icon -->
+								<a class="social-icon" href="https://www.tiktok.com/@lennyedits8?_t=8p7Mtyc9oX2&_r=1"><img class="social-icon__icon" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928144/tiktok_n5ifbv.png" alt="TikTok" style="width: 55%;"></a><!-- End / social-icon -->
 								
 								
 								<!-- social-icon -->
-								<a class="social-icon" href="https://www.instagram.com/lennyedits8?igsh=M25haDVoMG1yemNk&utm_source=qr"><img class="social-icon__icon" src="assets/img/instagram.png" alt="instagram" style="width: 55%;"></a><!-- End / social-icon -->
+								<a class="social-icon" href="https://www.instagram.com/lennyedits8?igsh=M25haDVoMG1yemNk&utm_source=qr"><img class="social-icon__icon" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928143/instagram_i46xmx.png" alt="instagram" style="width: 55%;"></a><!-- End / social-icon -->
 
 								<!-- social-icon -->
-								<a class="social-icon" href="https://youtube.com/@lennyedits8?si=l5Khbyjd-_uldYLe"><img class="social-icon__icon" src="assets/img/youtube.png" alt="youtube" style="width: 55%;"></a><!-- End / social-icon -->
+								<a class="social-icon" href="https://youtube.com/@lennyedits8?si=l5Khbyjd-_uldYLe"><img class="social-icon__icon" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928151/youtube_ai5o5l.png" alt="youtube" style="width: 55%;"></a><!-- End / social-icon -->
 
 								<!-- social-icon -->
-								<a class="social-icon" href="https://pin.it/3ahwciaBA"><img class="social-icon__icon" src="assets/img/pinterest.png" alt="pinterest" style="width: 55%;"></a><!-- End / social-icon -->
+								<a class="social-icon" href="https://pin.it/3ahwciaBA"><img class="social-icon__icon" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928143/pinterest_jnjszj.png" alt="pinterest" style="width: 55%;"></a><!-- End / social-icon -->
 								
 							</div>
 						</div>
@@ -456,35 +589,88 @@
 		<script type="text/javascript" src="assets/vendors/typed/typed.min.js"></script>
 		<!-- App-->
 		<script type="text/javascript" src="assets/js/main.js"></script>
-		<script>
-			document.addEventListener("DOMContentLoaded", function () {
-				const hoverboxes = document.querySelectorAll('.hoverbox');
-			
-				// Only activate touch behavior on mobile/touch devices
-				if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
-					hoverboxes.forEach(hoverbox => {
-						hoverbox.addEventListener('touchend', function (e) {
-							if (!hoverbox.classList.contains('touch-active')) {
-								e.preventDefault(); // Prevent link navigation
-								hoverboxes.forEach(hb => hb.classList.remove('touch-active'));
-								hoverbox.classList.add('touch-active');
-							} else {
-								hoverbox.classList.remove('touch-active'); // Allow navigation on 2nd tap
-							}
-						});
-			
-						// Tap outside to clear the active state
-						document.addEventListener('touchstart', function (e) {
-							if (!hoverbox.contains(e.target)) {
-								hoverbox.classList.remove('touch-active');
-							}
-						});
-					});
-				}
-			});
-			</script>
-			
+		
+
+	
 			
 			
 	</body>
+
+	<!-- <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const hoverboxes = document.querySelectorAll('.hoverbox');
+
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+        hoverboxes.forEach(hoverbox => {
+            hoverbox.addEventListener('touchend', function (e) {
+                if (!hoverbox.classList.contains('touch-active')) {
+                    e.preventDefault(); // Prevent immediate navigation
+                    hoverboxes.forEach(hb => hb.classList.remove('touch-active'));
+                    hoverbox.classList.add('touch-active');
+                } else {
+                    // Allow navigation on 2nd tap
+                    hoverbox.classList.remove('touch-active');
+                }
+            });
+        });
+
+        // Tap outside to remove all touch-active classes
+        document.addEventListener('touchstart', function (e) {
+            hoverboxes.forEach(hb => {
+                if (!hb.contains(e.target)) {
+                    hb.classList.remove('touch-active');
+                }
+            });
+        });
+    }
+});
+</script> -->
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const hoverboxes = document.querySelectorAll('.hoverbox');
+
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+        hoverboxes.forEach(hoverbox => {
+            hoverbox.addEventListener('touchstart', function () {
+                hoverbox.classList.add('touch-active');
+
+                // Remove the zoom effect shortly after tap (so it doesn't stay active)
+                setTimeout(() => {
+                    hoverbox.classList.remove('touch-active');
+                }, 300); // Duration matches CSS transition
+            });
+        });
+    }
+});
+</script>
+
+
+<!-- test if speed affecting colour click -->
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const menuLinks = document.querySelectorAll('.overlay-menu a[href]');
+
+  menuLinks.forEach(link => {
+    link.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (href && href !== '#') {
+        e.preventDefault();
+
+        // Optional: add a visual class (optional)
+        this.classList.add('clicked');
+
+        // Navigate after brief delay
+        setTimeout(() => {
+          window.location.href = href;
+        }, 100);
+      }
+    });
+  });
+});
+</script>
+
+
+
 </html>

@@ -55,6 +55,7 @@
   
 </script>
 
+
 <style>
 /* Grid layout */
 .tiles-grid {
@@ -69,7 +70,7 @@
   .tiles-grid { grid-template-columns: 1fr; }
 }
 
-/* Base tile styling */
+/* Tile styling */
 .tile {
   position: relative;
   overflow: hidden;
@@ -80,39 +81,43 @@
   object-fit: cover;
   transition: transform 0.5s ease, filter 0.5s ease;
 }
-
-/* Pixieset-like hover effect */
 .tile:hover img {
   filter: grayscale(50%) brightness(110%);
   transform: scale(1.05);
 }
 
-/* Caption below image */
+/* Caption overlay inside the image */
 .tile-caption {
-  text-align: center;
-  margin-top: 10px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+  z-index: 2;
 }
 .tile-title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #000;
   text-transform: uppercase;
 }
 .tile-date {
   font-size: 1.2rem;
-  color: #777;
-  margin-top: 5px;
+  opacity: 0.85;
+}
+
+/* Optional: gradient overlay for better text visibility */
+.tile a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.5), transparent 60%);
+  z-index: 1;
 }
 
 .awe-section_tiles .container {
   padding-top: 60px;
   padding-bottom: 60px;
-  padding-left: 0;
-  padding-right: 0;
 }
-
 </style>
-
 
 <!--
 .hb_back h2 {
@@ -216,7 +221,6 @@ paste into style
 				
 
 
-
 <section class="awe-section_tiles bg-gray">
   <div class="container">
     <div class="tiles-grid">
@@ -224,41 +228,41 @@ paste into style
       <div class="tile">
         <a href="automotivephotography.html">
           <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1751805784/b6_kotsmb.jpg" alt="Automotive">
+          <div class="tile-caption">
+            <div class="tile-title">Automotive</div>
+            <div class="tile-date">Photography</div>
+          </div>
         </a>
-        <div class="tile-caption">
-          <div class="tile-title">Automotive</div>
-          <div class="tile-date">Photography</div>
-        </div>
       </div>
 
       <div class="tile">
         <a href="virtualphotography.html">
           <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018892/t7_rgrezj.jpg" alt="Virtual">
+          <div class="tile-caption">
+            <div class="tile-title">Virtual</div>
+            <div class="tile-date">Photography</div>
+          </div>
         </a>
-        <div class="tile-caption">
-          <div class="tile-title">Virtual</div>
-          <div class="tile-date">Photography</div>
-        </div>
       </div>
 
       <div class="tile">
         <a href="otherphotography.html">
           <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747946238/rl2_f6kfba.jpg" alt="Other">
+          <div class="tile-caption">
+            <div class="tile-title">Other</div>
+            <div class="tile-date">Photography</div>
+          </div>
         </a>
-        <div class="tile-caption">
-          <div class="tile-title">Other</div>
-          <div class="tile-date">Photography</div>
-        </div>
       </div>
 
       <div class="tile">
         <a href="filmphotography.html">
           <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747946244/f5_k0ppse.jpg" alt="35mm Film">
+          <div class="tile-caption">
+            <div class="tile-title">35mm Film</div>
+            <div class="tile-date">Photography</div>
+          </div>
         </a>
-        <div class="tile-caption">
-          <div class="tile-title">35mm Film</div>
-          <div class="tile-date">Photography</div>
-        </div>
       </div>
 
     </div>
@@ -267,7 +271,7 @@ paste into style
 
 
 
-			<!-- Load Montserrat font -->
+<!-- Load Montserrat font -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 
 <style>
@@ -293,7 +297,6 @@ paste into style
   width: 100%;
   max-width: 100%;
   text-align: center;
- /* border: 2px solid red;*/
 }
 
 .custom-title-heading {
@@ -306,12 +309,15 @@ paste into style
   overflow-wrap: break-word;
   word-break: break-word;
   overflow: visible;
-  text-overflow: unset;
-  /* removed transform-origin for now */
 }
 
-
-
+/* Divider */
+.custom-divider {
+  width: 80px;
+  height: 1.5px;
+  background-color: #000;
+  margin: 15px auto 25px auto; /* top, sides, bottom */
+}
 
 /* Responsive title heading */
 @media (max-width: 768px) {
@@ -327,7 +333,7 @@ paste into style
   }
 }
 
-/* NEW: Paragraph / subtext styles */
+/* Paragraph / subtext styles */
 .custom-subtext-wrapper {
   display: inline-block;
 }
@@ -338,15 +344,6 @@ paste into style
   padding: 0 10px;
   text-align: center;
 }
-
-/* Divider */
-.custom-divider {
-  width: 40px;
-  height: 3px;
-  background-color: #000;
-  margin: 20px auto;
-}
-
 </style>
 
 <section class="about-me-section">
@@ -354,8 +351,9 @@ paste into style
     <div class="custom-title-section">
       <div class="custom-title-wrapper">
         <h2 class="custom-title-heading">About Me</h2>
+        <div class="custom-divider"></div>
       </div>
-<br>
+
       <div class="custom-subtext-wrapper">
         <p class="custom-subtext">
           I'm a freelance photographer based in Dublin, Ireland. Specialising in automotive photography, this covers everything from motorsport dynamic panning shots to detailed close-ups.
@@ -367,6 +365,7 @@ paste into style
     </div>
   </div>
 </section>
+
 
 
 
@@ -519,13 +518,9 @@ document.addEventListener("DOMContentLoaded", () => {
     </div><!-- End / page-title -->
 
     <!-- LightWidget WIDGET -->
-    <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
-    <iframe 
-      src="https://cdn.lightwidget.com/widgets/2a124550befb575da8e8fa6af08252e0.html" 
-      scrolling="no" 
-      allowtransparency="true" 
-      class="lightwidget-widget" 
-      style="display: block; margin: 0 auto; width: 100%; max-width: 800px; border: 0; overflow: hidden;">
+     <!-- LightWidget WIDGET --><script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
+      <iframe src="https://cdn.lightwidget.com/widgets/2a124550befb575da8e8fa6af08252e0.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" 
+      style="display: block; margin: 0 auto; width: 100%; max-width: 1200px; border: 0; overflow: hidden;">
     </iframe>
   </div>
 </section>
@@ -538,11 +533,97 @@ document.addEventListener("DOMContentLoaded", () => {
 <style>.instagram-feed.awe-section {
   padding: 0px; /* adjust as needed */
   padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 	</style>			
 			</div>
 			<!-- End / Content-->
+
+
+
+<!-- Load Montserrat font -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+<style>
+  .get-in-touch-section {
+  padding-top: 80px !important;
+  padding-bottom: 80px !important;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Buttons container */
+.git-buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* Button base style */
+.git-button {
+  display: inline-block;
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Montserrat", sans-serif;
+  border: 2px solid transparent;
+  text-decoration: none; /* No underline normally */
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  border-radius: 0; /* Square edges */
+}
+.git-button:hover {
+  text-decoration: none; /* No underline on hover */
+}
+
+/* Primary button - black */
+.git-button-primary {
+  background-color: #000;
+  color: #fff;
+  border-color: #000;
+}
+.git-button-primary:hover {
+  background-color: #555;
+  border-color: #555;
+  color: #fff;
+}
+
+/* Secondary button - white */
+.git-button-secondary {
+  background-color: #fff;
+  color: #000;
+  border-color: #000;
+}
+.git-button-secondary:hover {
+  background-color: #555;
+  border-color: #555;
+  color: #000;
+}
+</style>
+
+<section class="get-in-touch-section bg-gray">
+  <div class="container">
+    <div class="custom-title-section">
+      <div class="custom-title-wrapper">
+        <h2 class="custom-title-heading">Get In Touch</h2>
+        <div class="custom-divider"></div>
+      </div>
+
+      <p class="git-subtext">
+        Interested in working together? I'd love to hear about your project and discuss how we can bring your vision to life.
+      </p>
+
+      <div class="git-buttons">
+        <a href="contact.html" class="git-button git-button-primary">Send Email</a>
+        <!--<a href="tel:+1234567890" class="git-button git-button-secondary">Call Now</a>-->
+      </div>
+    </div>
+  </div>
+</section>
+
+
 			
 			<!-- footer -->
 			<div class="footer">
