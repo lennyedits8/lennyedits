@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Automotive Photography</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<!-- Cache control -->
+		<meta http-equiv='cache-control' content='no-cache'>
+		<meta http-equiv='expires' content='0'>
+		<meta http-equiv='pragma' content='no-cache'>
+		<!-- Fonts-->
+		<link rel="stylesheet" type="text/css" href="assets/fonts/fontawesome/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="assets/fonts/pe-icon/pe-icon.css">
+		<!-- Vendors-->
+		<link rel="stylesheet" type="text/css" href="assets/vendors/bootstrap/grid.css">
+		<link rel="stylesheet" type="text/css" href="assets/vendors/magnific-popup/magnific-popup.min.css">
+		<link rel="stylesheet" type="text/css" href="assets/vendors/swiper/swiper.css">
+		<!-- App & fonts-->
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Open+Sans:400,700">
+		<link rel="stylesheet" type="text/css" id="app-stylesheet" href="assets/css/main.css"><!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<![endif]-->
+
+		<link rel="preload" href="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748819411/lennylogo_upscale_transparent_lzjpoq.png" as="image" type="image/png">
+
+
+	<meta name="description" content="Explore the photography portfolio of Lenny Edits – from Mondello Park motorsport to classic car shows and film photography.">
+	<meta name="keywords" content="Lenny Edits, car photography, Mondello Park, classic cars, 35mm film, Irish photographers">
+	<meta property="og:title" content="Lenny Edits Photography">
+	<meta property="og:description" content="Browse galleries of Irish car shows, Mondello Park racing, and more by Lenny Edits.">
+	<meta property="og:image" content="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748819411/lennylogo_upscale_transparent_lzjpoq.png">
+	<meta property="og:url" content="https://www.yoursite.com">
+	<meta property="og:type" content="website">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Lenny Edits Photography">
+	<meta name="twitter:description" content="Explore galleries from car events and film photography captured by Lenny Edits.">
+	<meta name="twitter:image" content="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748819411/lennylogo_upscale_transparent_lzjpoq.png">
+
+	<!-- Favicon for light and dark mode -->
+<!-- Light mode favicon -->
+<link rel="icon" type="image/png" href="https://res.cloudinary.com/dm086zlrg/image/upload/v1752438616/lennylogo_upscale_transparent_lzjpoq_fegpij.png" media="(prefers-color-scheme: light)">
+
+<!-- Dark mode favicon -->
+<link rel="icon" type="image/png" href="https://res.cloudinary.com/dm086zlrg/image/upload/v1752438706/lennylogo_upscale_transparent_inverted_ooolex_yfmsui_lfudrd.png" media="(prefers-color-scheme: dark)">
+
+
+
+
+</head>
+
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3WD6FZML3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3WD6FZML3W');
+
+  
+</script>
+    <style>
+
+
+        /* Design system variables */
+        :root {
+            --primary: hsl(45, 100%, 70%);
+            --primary-foreground: hsl(220, 15%, 8%);
+            --background: hsl(220, 15%, 8%);
+            --foreground: hsl(210, 40%, 98%);
+            --card: hsl(220, 15%, 10%);
+            --muted-foreground: hsl(215, 20%, 65%);
+            --border: hsl(220, 15%, 20%);
+            --gallery-overlay: hsla(220, 15%, 8%, 0.7);
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            --card-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.4);
+            --text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Container and layout */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        /* Header styles */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), hsla(45, 100%, 70%, 0.7));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--muted-foreground);
+            max-width: 42rem;
+            margin: 0 auto;
+        }
+
+        /* Gallery grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        @media (min-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .gallery-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* Gallery card */
+        .gallery-card {
+            position: relative;
+            display: block;
+            overflow: hidden;
+            border-radius: 0.75rem;
+            background-color: var(--card);
+            box-shadow: var(--card-shadow);
+            transition: var(--transition-smooth);
+            text-decoration: none;
+            color: inherit;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .gallery-card:hover,
+        .gallery-card:focus {
+            transform: scale(1.02);
+            box-shadow: var(--card-shadow-hover);
+            outline: none;
+        }
+
+        .gallery-card:focus {
+            ring: 2px solid var(--primary);
+            ring-offset: 2px;
+            ring-offset-color: var(--background);
+        }
+
+        /* Image container with aspect ratios */
+        .image-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-container.landscape {
+            aspect-ratio: 4/3;
+        }
+
+        .image-container.portrait {
+            aspect-ratio: 3/4;
+        }
+
+        .image-container.square {
+            aspect-ratio: 1/1;
+        }
+
+        .image-container.tall {
+            aspect-ratio: 3/5;
+        }
+
+        .gallery-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-card:hover .gallery-image {
+            transform: scale(1.1);
+        }
+
+        /* Overlays */
+        .gradient-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, var(--gallery-overlay), transparent, transparent);
+        }
+
+        .content-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1rem;
+            color: var(--foreground);
+        }
+
+        .content-wrapper {
+            transform: translateY(0.5rem);
+            transition: var(--transition-smooth);
+        }
+
+        .gallery-card:hover .content-wrapper,
+        .gallery-card:focus .content-wrapper {
+            transform: translateY(0);
+        }
+
+        .card-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            text-shadow: var(--text-shadow);
+        }
+
+        .card-subtitle {
+            font-size: 0.875rem;
+            color: var(--muted-foreground);
+            text-shadow: var(--text-shadow);
+            opacity: 0.9;
+        }
+
+        /* View photos indicator */
+        .view-indicator {
+            margin-top: 0.5rem;
+            opacity: 0;
+            transform: translateY(0.5rem);
+            transition: var(--transition-smooth);
+        }
+
+        .gallery-card:hover .view-indicator,
+        .gallery-card:focus .view-indicator {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .view-badge {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--primary);
+            background-color: hsla(45, 100%, 70%, 0.1);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.375rem;
+            backdrop-filter: blur(4px);
+        }
+
+        /* Interactive border */
+        .border-highlight {
+            position: absolute;
+            inset: 0;
+            border: 2px solid transparent;
+            border-radius: 0.75rem;
+            transition: var(--transition-smooth);
+        }
+
+        .gallery-card:hover .border-highlight,
+        .gallery-card:focus .border-highlight {
+            border-color: hsla(45, 100%, 70%, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-text {
+            color: var(--muted-foreground);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Staggered animation delays */
+        .gallery-card:nth-child(1) { animation-delay: 0s; }
+        .gallery-card:nth-child(2) { animation-delay: 0.1s; }
+        .gallery-card:nth-child(3) { animation-delay: 0.2s; }
+        .gallery-card:nth-child(4) { animation-delay: 0.3s; }
+        .gallery-card:nth-child(5) { animation-delay: 0.4s; }
+        .gallery-card:nth-child(6) { animation-delay: 0.5s; }
+        .gallery-card:nth-child(7) { animation-delay: 0.6s; }
+        .gallery-card:nth-child(8) { animation-delay: 0.7s; }
+
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .section {
+                padding: 2rem 0;
+            }
+            
+            .header {
+                margin-bottom: 2rem;
+            }
+            
+            .gallery-grid {
+                gap: 1rem;
+            }
+            
+            .content-overlay {
+                padding: 0.75rem;
+            }
+        }
+
+        .aspect-2-3 {
+        aspect-ratio: 2 / 3;
+        }
+
+        .aspect-3-2 {
+        aspect-ratio: 3 / 2;
+        }
+        .aspect-4-3 {
+        aspect-ratio: 4 / 3;
+        }
+
+        .aspect-3-4 {
+        aspect-ratio: 3 / 4;
+        }
+    </style>
+</head>
+
+
+<body>
+		<div class="page-wrap" id="root">
+			
+<!-- header -->
+		<header class="header header--fixed">
+		<div class="header__inner">
+			<div class="header__logo">
+			<a href="index.html">
+				<img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748819411/lennylogo_upscale_transparent_lzjpoq.png" alt="" style="width: 122px;" />
+			</a>
+			</div>
+
+			<!-- Desktop Navigation -->
+			<nav class="desktop-nav">
+			<a href="index.html">Home</a>
+			<a href="contact.html">Contact</a>
+
+			<div class="dropdown">
+				<a href="photography.html">Photography</a>
+				<div class="dropdown-wrapper">
+				<div class="dropdown-hover-buffer"></div>
+				<div class="dropdown-content">
+					<a href="automotivephotography.html">Automotive</a>
+					<a href="virtualphotography.html">Virtual</a>
+					<a href="filmphotography.html">35mm Film</a>
+					<a href="otherphotography.html">Other</a>
+				</div>
+				</div>
+			</div>
+			</nav>
+
+
+
+			<!-- Hamburger for Mobile -->
+			<div class="navbar-toggle" id="fs-button">
+			<div class="navbar-icon"><span></span></div>
+			</div>
+		</div>
+
+		<!-- fullscreenmenu__module -->
+		<div class="fullscreenmenu__module" trigger="#fs-button">
+		<!-- overlay-menu -->
+		<nav class="overlay-menu">
+			<ul class="wil-menu-list">
+			<li class="current-menu-item"><a href="index.html">Home</a></li>
+			<li><a href="contact.html">Contact</a></li>
+			<li class="has-submenu">
+				<a href="#">Photography <span class="submenu-toggle"><i class="fa fa-angle-right"></i></span></a>
+				<ul class="submenu">
+				<li><a href="automotivephotography.html">Automotive</a></li>
+				<li><a href="virtualphotography.html">Virtual</a></li>
+				<li><a href="filmphotography.html">35mm Film</a></li>
+				<li><a href="otherphotography.html">Other</a></li>
+				</ul>
+			</li>
+			</ul>
+		</nav><!-- End / overlay-menu -->
+
+		<!-- Social Icons -->
+		<div class="fullscreenmenu__socials">
+			<a class="social-icon" href="https://www.tiktok.com/@lennyedits8?_t=8p7Mtyc9oX2&_r=1" target="_blank" rel="noopener">
+			<img class="social-icon__icon" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1752337742/tiktok-128_rs1key.png" alt="TikTok">
+			</a>
+			<a class="social-icon" href="https://www.instagram.com/lennyedits8?igsh=M25haDVoMG1yemNk&utm_source=qr" target="_blank" rel="noopener">
+			<img class="social-icon__icon" src=https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1752337742/instagram-white-icon_sxzv2f.png alt="Instagram">
+			</a>
+		</div><!-- End / Social Icons -->
+		</div><!-- End / fullscreenmenu__module -->
+		</header><!-- End / header -->
+
+
+		<!-- Section -->
+		<section class="awe-section">
+			<div class="container">
+
+						<!-- page-title -->
+						<div class="page-title pb-40">
+							<h2 class="page-title__title">Automotive Photography</h2>
+							<p class="page-title__text">Please click on the photos below to view the gallery</p>
+							<div class="page-title__divider"></div>
+						</div><!-- End / page-title -->
+
+			</div>
+		</section>
+		<!-- End / Section -->
+
+
+
+
+
+ 	<!-- Section -->
+				<section class="awe-section bg-gray">
+					<div class="container">
+            
+            <div class="gallery-grid">
+                <!-- Bimmerfest -->
+                <a href="bimmerfest.html" class="gallery-card">
+                    <div class="image-container landscape">
+                        <img 
+                            src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1751805784/b6_kotsmb.jpg" 
+                            alt="Bimmerfest Mondello Park" 
+                            class="gallery-image"
+                        >
+                        <div class="gradient-overlay"></div>
+                        <div class="content-overlay">
+                            <div class="content-wrapper">
+                                <h3 class="card-title">Bimmerfest</h3>
+                                <p class="card-subtitle">Mondello Park</p>
+                                <div class="view-indicator">
+                                    <span class="view-badge">View Photos →</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-highlight"></div>
+                    </div>
+                </a>
+
+                <!-- BMW Classics Ireland -->
+                <a href="bmwcars&coffee.html" class="gallery-card">
+                    <div class="image-container portrait">
+                        <img 
+                            src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1753291933/k3_ituhcp.jpg" 
+                            alt="BMW Classics Ireland Cars & Coffee" 
+                            class="gallery-image"
+                        >
+                        <div class="gradient-overlay"></div>
+                        <div class="content-overlay">
+                            <div class="content-wrapper">
+                                <h3 class="card-title">BMW Classics Ireland</h3>
+                                <p class="card-subtitle">Cars & Coffee</p>
+                                <div class="view-indicator">
+                                    <span class="view-badge">View Photos →</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-highlight"></div>
+                    </div>
+                </a>
+
+                <!-- ICCR Round 3 -->
+                <a href="iccr.html" class="gallery-card">
+                    <div class="image-container landscape">
+                        <img 
+                            src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1751805784/i2_dbvnec.jpg" 
+                            alt="ICCR Round 3 Mondello Park" 
+                            class="gallery-image"
+                        >
+                        <div class="gradient-overlay"></div>
+                        <div class="content-overlay">
+                            <div class="content-wrapper">
+                                <h3 class="card-title">ICCR Round 3</h3>
+                                <p class="card-subtitle">Mondello Park</p>
+                                <div class="view-indicator">
+                                    <span class="view-badge">View Photos →</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-highlight"></div>
+                    </div>
+                </a>
+
+                <!-- Bohernabreena Classic Show -->
+                <a href="bohernabreena.html" class="gallery-card">
+                    <div class="image-container tall">
+                        <img 
+                            src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1750886794/b1_dtuj3u.jpg" 
+                            alt="Bohernabreena Classic Show 2025" 
+                            class="gallery-image"
+                        >
+                        <div class="gradient-overlay"></div>
+                        <div class="content-overlay">
+                            <div class="content-wrapper">
+                                <h3 class="card-title">Bohernabreena Classic Show</h3>
+                                <p class="card-subtitle">2025</p>
+                                <div class="view-indicator">
+                                    <span class="view-badge">View Photos →</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-highlight"></div>
+                    </div>
+                </a>
+
+                <!-- Malahide Car Show -->
+                <a href="malahide.html" class="gallery-card">
+                    <div class="image-container square">
+                        <img 
+                            src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747912698/m1_hybndk.jpg" 
+                            alt="Malahide Car Show 2025" 
+                            class="gallery-image"
+                        >
+                        <div class="gradient-overlay"></div>
+                        <div class="content-overlay">
+                            <div class="content-wrapper">
+                                <h3 class="card-title">Malahide Car Show</h3>
+                                <p class="card-subtitle">2025</p>
+                                <div class="view-indicator">
+                                    <span class="view-badge">View Photos →</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-highlight"></div>
+                    </div>
+                </a>
+
+                <!-- Japfest -->
+                <a href="japfest.html" class="gallery-card">
+                    <div class="image-container portrait">
+                        <img 
+                            src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747914402/rl10_cksrjj.jpg" 
+                            alt="Japfest Mondello Park 2025" 
+                            class="gallery-image"
+                        >
+                        <div class="gradient-overlay"></div>
+                        <div class="content-overlay">
+                            <div class="content-wrapper">
+                                <h3 class="card-title">Japfest</h3>
+                                <p class="card-subtitle">Mondello Park 2025</p>
+                                <div class="view-indicator">
+                                    <span class="view-badge">View Photos →</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-highlight"></div>
+                    </div>
+                </a>
+
+                <!-- Herbert Park Car Show -->
+                <a href="herbertpark.html" class="gallery-card">
+                    <div class="image-container portrait">
+                        <img 
+                            src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747914895/hp_13_qqi4yo.jpg" 
+                            alt="Herbert Park Car Show 2025" 
+                            class="gallery-image"
+                        >
+                        <div class="gradient-overlay"></div>
+                        <div class="content-overlay">
+                            <div class="content-wrapper">
+                                <h3 class="card-title">Herbert Park Car Show</h3>
+                                <p class="card-subtitle">2025</p>
+                                <div class="view-indicator">
+                                    <span class="view-badge">View Photos →</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-highlight"></div>
+                    </div>
+                </a>
+
+                <!-- Mondello Park Film Photography -->
+                <a href="filmphotography.html" class="gallery-card">
+                    <div class="image-container landscape">
+                        <img 
+                            src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747914964/f1_rvlurp.jpg" 
+                            alt="Mondello Park 2024 Film Photography" 
+                            class="gallery-image"
+                        >
+                        <div class="gradient-overlay"></div>
+                        <div class="content-overlay">
+                            <div class="content-wrapper">
+                                <h3 class="card-title">Mondello Park</h3>
+                                <p class="card-subtitle">2024 Film Photography</p>
+                                <div class="view-indicator">
+                                    <span class="view-badge">View Photos →</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-highlight"></div>
+                    </div>
+                </a>
+            </div>
+            
+            <footer class="footer">
+                <p class="footer-text">
+                    Professional automotive photography showcasing Ireland's car culture
+                </p>
+            </footer>
+        </div>
+    </section>
+
+
+    <!-- footer -->
+			<div class="footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 col-lg-6 ">
+							<p class="footer__coppy">Please tag me if reposting any of these photos</p>
+						</div>
+						<div class="col-md-6 col-lg-6 ">
+							<div class="footer__social">
+								
+								<!-- social-icon -->
+								<a class="social-icon" href="https://www.tiktok.com/@lennyedits8?_t=8p7Mtyc9oX2&_r=1"><img class="social-icon__icon" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928144/tiktok_n5ifbv.png" alt="TikTok" style="width: 55%;"></a><!-- End / social-icon -->
+								
+								
+								<!-- social-icon -->
+								<a class="social-icon" href="https://www.instagram.com/lennyedits8?igsh=M25haDVoMG1yemNk&utm_source=qr"><img class="social-icon__icon" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928143/instagram_i46xmx.png" alt="instagram" style="width: 55%;"></a><!-- End / social-icon -->
+
+								<!-- social-icon -->
+								<a class="social-icon" href="https://youtube.com/@lennyedits8?si=l5Khbyjd-_uldYLe"><img class="social-icon__icon" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928151/youtube_ai5o5l.png" alt="youtube" style="width: 55%;"></a><!-- End / social-icon -->
+
+								<!-- social-icon -->
+								<a class="social-icon" href="https://pin.it/3ahwciaBA"><img class="social-icon__icon" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928143/pinterest_jnjszj.png" alt="pinterest" style="width: 55%;"></a><!-- End / social-icon -->
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><!-- End / footer -->
+
+
+            </div>
+		<!-- Vendors-->
+		<script type="text/javascript" src="assets/vendors/jquery/jquery.min.js"></script>
+		<script type="text/javascript" src="assets/vendors/imagesloaded/imagesloaded.pkgd.js"></script>
+		<script type="text/javascript" src="assets/vendors/isotope-layout/isotope.pkgd.js"></script>
+		<script type="text/javascript" src="assets/vendors/jquery-one-page/jquery.nav.min.js"></script>
+		<script type="text/javascript" src="assets/vendors/jquery.easing/jquery.easing.min.js"></script>
+		<script type="text/javascript" src="assets/vendors/jquery.matchHeight/jquery.matchHeight.min.js"></script>
+		<script type="text/javascript" src="assets/vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
+		<script type="text/javascript" src="assets/vendors/masonry-layout/masonry.pkgd.js"></script>
+		<script type="text/javascript" src="assets/vendors/jquery.waypoints/jquery.waypoints.min.js"></script>
+		<script type="text/javascript" src="assets/vendors/swiper/swiper.jquery.js"></script>
+		<script type="text/javascript" src="assets/vendors/menu/menu.js"></script>
+		<script type="text/javascript" src="assets/vendors/typed/typed.min.js"></script>
+		<!-- App-->
+		<script type="text/javascript" src="assets/js/main.js"></script>
+
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+const elements = document.querySelectorAll('.work');
+
+const observer = new IntersectionObserver((entries, observer) => {
+	entries.forEach(entry => {
+	if(entry.isIntersecting) {
+		entry.target.classList.add('animate-in');
+		observer.unobserve(entry.target); // animate only once
+	}
+	});
+}, {
+	threshold: 0.1 // trigger when 10% visible
+});
+
+elements.forEach(el => observer.observe(el));
+});
+</script>
+</body>
+</html>
+

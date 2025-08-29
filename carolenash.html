@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Carole Nash Historic Festival - Mondello Park</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<!-- Cache control -->
+		<meta http-equiv='cache-control' content='no-cache'>
+		<meta http-equiv='expires' content='0'>
+		<meta http-equiv='pragma' content='no-cache'>
+		<!-- Fonts-->
+		<link rel="stylesheet" type="text/css" href="assets/fonts/fontawesome/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="assets/fonts/pe-icon/pe-icon.css">
+		<!-- Vendors-->
+		<link rel="stylesheet" type="text/css" href="assets/vendors/bootstrap/grid.css">
+		<link rel="stylesheet" type="text/css" href="assets/vendors/magnific-popup/magnific-popup.min.css">
+		<link rel="stylesheet" type="text/css" href="assets/vendors/swiper/swiper.css">
+		<!-- App & fonts-->
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Open+Sans:400,700">
+		<link rel="stylesheet" type="text/css" id="app-stylesheet" href="assets/css/main.css"><!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<![endif]-->
+
+				<!-- PhotoSwipe -->
+		<link rel="stylesheet" href="https://unpkg.com/photoswipe@5/dist/photoswipe.css" />
+	<!-- Favicon for light and dark mode -->
+<!-- Light mode favicon -->
+<link rel="icon" type="image/png" href="https://res.cloudinary.com/dm086zlrg/image/upload/v1752438616/lennylogo_upscale_transparent_lzjpoq_fegpij.png" media="(prefers-color-scheme: light)">
+
+<!-- Dark mode favicon -->
+<link rel="icon" type="image/png" href="https://res.cloudinary.com/dm086zlrg/image/upload/v1752438706/lennylogo_upscale_transparent_inverted_ooolex_yfmsui_lfudrd.png" media="(prefers-color-scheme: dark)">
+
+
+
+
+</head>
+
+
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3WD6FZML3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3WD6FZML3W');
+</script>
+
+<style>
+  /* Container for the image gallery */
+.gallery-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.work-img {
+  box-sizing: border-box;
+  width: calc(25% - 3.75px); /* (100% - 3 gaps * 5px) / 4 items */
+  margin-bottom: 5px; /* Let gap handle vertical spacing */
+}
+
+
+  /* Tablet: 3 per row */
+  @media (max-width: 1024px) {
+    .work-img {
+      width: calc(33.333% - 3.33px); /* (100% - 2 * 5px gap) / 3 */
+	  margin-bottom: 5px; /* Let gap handle vertical spacing */
+    }
+  }
+
+
+
+/* Mobile: 2 per row */
+@media (max-width: 900px) {
+  .work-img {
+    width: calc(50% - 2.5px); /* Adjusted to match the new gap */
+    margin-bottom: 5px; /* Reduced from 10px */
+  }
+}
+
+  .gallery-grid img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .img-wrapper {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.aspect-2-3 {
+  aspect-ratio: 2 / 3;
+}
+
+.aspect-3-2 {
+  aspect-ratio: 3 / 2;
+}
+
+.aspect-4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+.aspect-3-4 {
+  aspect-ratio: 3 / 4;
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* or use 'contain' if you prefer */
+  display: block;
+}
+
+</style>
+
+
+
+	<body>
+		<div class="page-wrap" id="root">
+			
+<!-- header -->
+		<header class="header header--fixed">
+		<div class="header__inner">
+			<div class="header__logo">
+			<a href="index.html">
+				<img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1748819411/lennylogo_upscale_transparent_lzjpoq.png" alt="" style="width: 122px;" />
+			</a>
+			</div>
+
+			<!-- Desktop Navigation -->
+			<nav class="desktop-nav">
+			<a href="index.html">Home</a>
+			<a href="contact.html">Contact</a>
+
+			<div class="dropdown">
+				<a href="photography.html">Photography</a>
+				<div class="dropdown-wrapper">
+				<div class="dropdown-hover-buffer"></div>
+				<div class="dropdown-content">
+					<a href="automotivephotography.html">Automotive</a>
+					<a href="virtualphotography.html">Virtual</a>
+					<a href="filmphotography.html">35mm Film</a>
+					<a href="otherphotography.html">Other</a>
+				</div>
+				</div>
+			</div>
+			</nav>
+
+
+
+			<!-- Hamburger for Mobile -->
+			<div class="navbar-toggle" id="fs-button">
+			<div class="navbar-icon"><span></span></div>
+			</div>
+		</div>
+
+		<!-- fullscreenmenu__module -->
+		<div class="fullscreenmenu__module" trigger="#fs-button">
+		<!-- overlay-menu -->
+		<nav class="overlay-menu">
+			<ul class="wil-menu-list">
+			<li class="current-menu-item"><a href="index.html">Home</a></li>
+			<li><a href="contact.html">Contact</a></li>
+			<li class="has-submenu">
+				<a href="#">Photography <span class="submenu-toggle"><i class="fa fa-angle-right"></i></span></a>
+				<ul class="submenu">
+				<li><a href="automotivephotography.html">Automotive</a></li>
+				<li><a href="virtualphotography.html">Virtual</a></li>
+				<li><a href="filmphotography.html">35mm Film</a></li>
+				<li><a href="otherphotography.html">Other</a></li>
+				</ul>
+			</li>
+			</ul>
+		</nav><!-- End / overlay-menu -->
+
+		<!-- Social Icons -->
+		<div class="fullscreenmenu__socials">
+			<a class="social-icon" href="https://www.tiktok.com/@lennyedits8?_t=8p7Mtyc9oX2&_r=1" target="_blank" rel="noopener">
+			<img class="social-icon__icon" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1752337742/tiktok-128_rs1key.png" alt="TikTok">
+			</a>
+			<a class="social-icon" href="https://www.instagram.com/lennyedits8?igsh=M25haDVoMG1yemNk&utm_source=qr" target="_blank" rel="noopener">
+			<img class="social-icon__icon" src=https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1752337742/instagram-white-icon_sxzv2f.png alt="Instagram">
+			</a>
+		</div><!-- End / Social Icons -->
+		</div><!-- End / fullscreenmenu__module -->
+		</header><!-- End / header -->		
+		
+				
+			<!-- Content-->
+			<div class="wil-content">
+				
+				<!-- Section -->
+				<section class="awe-section">
+					<div class="container">
+						
+						<!-- page-title -->
+						<div class="page-title pb-40">
+							<h2 class="page-title__title">Carole Nash Historic Festival - Mondello Park</h2>
+							<p class="page-title__text">Sony A7IV with Sigma 24-70mm f/2.8</p>
+							<div class="page-title__divider"></div>
+						</div><!-- End / page-title -->
+						
+					</div>
+				</section>
+				<!-- End / Section -->
+				
+				
+				<!-- Section -->
+				<section class="awe-section bg-gray">
+					<div class="container">
+						
+						<!--  -->
+						<div>
+							<p>All photos are shot on Sony A7IV</p>
+							<br>
+							<div class="gallery-grid" data-masonry='{ "itemSelector": ".work-img", "columnWidth": ".work-img", "percentPosition": true, "gutter": 5 }'>
+								<div class="work-img"><div class="img-wrapper aspect-3-2"><a href="assets/img/carolenash/c1.jpg" data-pswp-width="786" data-pswp-height="524"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1756456152/c1_u9rh1n.jpg" alt=""></a></div></div>
+                                <div class="work-img"><div class="img-wrapper aspect-3-2"><a href="assets/img/carolenash/c2 (1).jpg" data-pswp-width="786" data-pswp-height="524"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1756456259/c2_1_kkjbfm.jpg" alt=""></a></div></div>
+                                <div class="work-img"><div class="img-wrapper aspect-3-2"><a href="assets/img/carolenash/c3.jpg" data-pswp-width="786" data-pswp-height="524"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1756456153/c3_ji0ejh.jpg" alt=""></a></div></div>
+                            </div><!-- End /  -->
+						
+					<div class="awe-text-center mt-50">
+						<a class="md-btn md-btn--outline-primary back-to-top" href="#">BACK TO TOP</a>
+
+					</div>
+					</div>
+				</section>
+				<!-- End / Section -->
+				
+			</div>
+			<!-- End / Content-->
+			
+			<!-- footer -->
+			<div class="footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 col-lg-6 ">
+							<p class="footer__coppy">Please tag me if reposting any of these photos</p>
+						</div>
+						<div class="col-md-6 col-lg-6 ">
+							<div class="footer__social">
+								
+								<!-- social-icon -->
+								<a class="social-icon" href="https://www.tiktok.com/@lennyedits8?_t=8p7Mtyc9oX2&_r=1"><img class="social-icon__icon" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928144/tiktok_n5ifbv.png" alt="TikTok" style="width: 55%;"></a><!-- End / social-icon -->
+								
+								
+								<!-- social-icon -->
+								<a class="social-icon" href="https://www.instagram.com/lennyedits8?igsh=M25haDVoMG1yemNk&utm_source=qr"><img class="social-icon__icon" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928143/instagram_i46xmx.png" alt="instagram" style="width: 55%;"></a><!-- End / social-icon -->
+
+								<!-- social-icon -->
+								<a class="social-icon" href="https://youtube.com/@lennyedits8?si=l5Khbyjd-_uldYLe"><img class="social-icon__icon" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928151/youtube_ai5o5l.png" alt="youtube" style="width: 55%;"></a><!-- End / social-icon -->
+
+								<!-- social-icon -->
+								<a class="social-icon" href="https://pin.it/3ahwciaBA"><img class="social-icon__icon" src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_400/v1747928143/pinterest_jnjszj.png" alt="pinterest" style="width: 55%;"></a><!-- End / social-icon -->
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><!-- End / footer -->
+			
+		</div>
+		<!-- Vendors-->
+		<script type="text/javascript" src="assets/vendors/jquery/jquery.min.js"></script>
+		<script type="text/javascript" src="assets/vendors/imagesloaded/imagesloaded.pkgd.js"></script>
+		<script type="text/javascript" src="assets/vendors/isotope-layout/isotope.pkgd.js"></script>
+		<script type="text/javascript" src="assets/vendors/jquery-one-page/jquery.nav.min.js"></script>
+		<script type="text/javascript" src="assets/vendors/jquery.easing/jquery.easing.min.js"></script>
+		<script type="text/javascript" src="assets/vendors/jquery.matchHeight/jquery.matchHeight.min.js"></script>
+		<script type="text/javascript" src="assets/vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
+		<script type="text/javascript" src="assets/vendors/masonry-layout/masonry.pkgd.js"></script>
+		<script type="text/javascript" src="assets/vendors/jquery.waypoints/jquery.waypoints.min.js"></script>
+		<script type="text/javascript" src="assets/vendors/swiper/swiper.jquery.js"></script>
+		<script type="text/javascript" src="assets/vendors/menu/menu.js"></script>
+		<script type="text/javascript" src="assets/vendors/typed/typed.min.js"></script>
+		<!-- App-->
+		<script type="text/javascript" src="assets/js/main.js"></script>
+
+<!--<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('img').forEach(img => {
+      img.loading = "lazy";
+    });-->
+
+<script>  imagesLoaded('.gallery-grid', function () {
+      new Masonry('.gallery-grid', {
+        itemSelector: '.work-img',
+        percentPosition: true,
+        gutter: 5
+      });
+    });
+</script>
+
+
+<script type="module">
+  import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.esm.min.js';
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: '.gallery-grid',
+    children: 'a',
+    pswpModule: () => import('https://unpkg.com/photoswipe@5/dist/photoswipe.esm.min.js')
+  });
+
+  lightbox.init();
+</script>
+
+	</body>
+</html>
