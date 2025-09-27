@@ -132,6 +132,20 @@
   }
 }
 
+.img-wrapper.hovered img {
+  transform: scale(1.1);
+}
+
+.img-wrapper.hovered .work__title {
+  transform: translateY(-4px);
+}
+
+.img-wrapper.hovered .work__subtitle {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
   </style>
 </head>
 <body>
@@ -214,7 +228,7 @@
 <section class="awe-section bg-gray">
   <div class="container">
     <div class="row"><div class="col-lg-6 "></div></div>
-    <div class="grid-css grid-css--masonry" data-col-lg="3" data-col-md="2" data-col-sm="2" data-col-xs="2" data-gap="30">
+    <div class="grid-css grid-css--masonry" data-col-lg="3" data-col-md="2" data-col-sm="2" data-col-xs="2" data-gap="15">
       <div class="grid__inner">
         <div class="grid-sizer"></div>
 
@@ -884,6 +898,34 @@ elements.forEach(el => observer.observe(el));
 });
 </script>
 
+<script>
+const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+if (isTouchDevice) {
+  const imgWrappers = document.querySelectorAll('.img-wrapper');
+
+  imgWrappers.forEach(wrapper => {
+    let touchStartTime = 0;
+    const link = wrapper.closest('a');
+
+    wrapper.addEventListener('touchstart', () => {
+      touchStartTime = Date.now();
+      wrapper.classList.add('hovered'); // show hover immediately
+    });
+
+    wrapper.addEventListener('touchend', (e) => {
+      const touchDuration = Date.now() - touchStartTime;
+      if (touchDuration < 200) {
+        // short tap = follow link immediately
+        // do nothing, link will navigate naturally
+      } else {
+        // long touch / scroll = just show hover
+        e.preventDefault(); // prevent accidental navigation
+      }
+    });
+  });
+}
+</script>
 
 
 			
