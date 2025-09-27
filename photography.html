@@ -477,23 +477,46 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // 3. Double-tap hover fix for touch devices
+            });
+</script>
+
+<script>
+	// 3. Mobile hover
+document.addEventListener("DOMContentLoaded", function () {
     const hoverboxes = document.querySelectorAll('.hoverbox');
+
+    // Only run for touch devices
     if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
         hoverboxes.forEach(hoverbox => {
+            let touchMoved = false;
+
+            hoverbox.addEventListener('touchstart', function () {
+                touchMoved = false; // reset on new touch
+            });
+
+            hoverbox.addEventListener('touchmove', function () {
+                touchMoved = true; // mark if finger moved (scroll)
+            });
+
             hoverbox.addEventListener('touchend', function (e) {
-                if (!hoverbox.classList.contains('touch-active')) {
-                    e.preventDefault();
+                if (!touchMoved) {
+                    // normal tap: follow link
                     hoverboxes.forEach(hb => hb.classList.remove('touch-active'));
                     hoverbox.classList.add('touch-active');
                 } else {
-                    hoverbox.classList.remove('touch-active');
+                    // light press/scroll: just show hover
+                    hoverboxes.forEach(hb => hb.classList.remove('touch-active'));
+                    hoverbox.classList.add('touch-active');
+                    e.preventDefault(); // prevent following link
                 }
             });
+        });
 
-            document.addEventListener('touchstart', function (e) {
-                if (!hoverbox.contains(e.target)) {
-                    hoverbox.classList.remove('touch-active');
+        // Remove hover if touching elsewhere
+        document.addEventListener('touchstart', function (e) {
+            hoverboxes.forEach(hb => {
+                if (!hb.contains(e.target)) {
+                    hb.classList.remove('touch-active');
                 }
             });
         });

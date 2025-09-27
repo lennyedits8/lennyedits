@@ -850,66 +850,91 @@
 		<!-- App-->
 		<script type="text/javascript" src="assets/js/main.js"></script>
 		<script>
-			document.addEventListener("DOMContentLoaded", function () {
-				const hoverboxes = document.querySelectorAll('.hoverbox');
+document.addEventListener("DOMContentLoaded", function () {
+    // 1. Lazy-load images
+    document.querySelectorAll('img').forEach(img => {
+        img.loading = "lazy";
+    });
+
+    // 2. Initialize Masonry after images loaded
+    imagesLoaded('.gallery-grid', function () {
+        new Masonry('.gallery-grid', {
+            itemSelector: '.work-img',
+            percentPosition: true,
+            gutter: 20
+        });
+    });
+
+            });
+</script>
+
+<script>
+	// 3. Mobile hover
+document.addEventListener("DOMContentLoaded", function () {
+    const hoverboxes = document.querySelectorAll('.hoverbox');
+
+    // Only run for touch devices
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+        hoverboxes.forEach(hoverbox => {
+            let touchMoved = false;
+
+            hoverbox.addEventListener('touchstart', function () {
+                touchMoved = false; // reset on new touch
+            });
+
+            hoverbox.addEventListener('touchmove', function () {
+                touchMoved = true; // mark if finger moved (scroll)
+            });
+
+            hoverbox.addEventListener('touchend', function (e) {
+                if (!touchMoved) {
+                    // normal tap: follow link
+                    hoverboxes.forEach(hb => hb.classList.remove('touch-active'));
+                    hoverbox.classList.add('touch-active');
+                } else {
+                    // light press/scroll: just show hover
+                    hoverboxes.forEach(hb => hb.classList.remove('touch-active'));
+                    hoverbox.classList.add('touch-active');
+                    e.preventDefault(); // prevent following link
+                }
+            });
+        });
+
+        // Remove hover if touching elsewhere
+        document.addEventListener('touchstart', function (e) {
+            hoverboxes.forEach(hb => {
+                if (!hb.contains(e.target)) {
+                    hb.classList.remove('touch-active');
+                }
+            });
+        });
+    }
+});
+</script>
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+const elements = document.querySelectorAll('.work');
+
+const observer = new IntersectionObserver((entries, observer) => {
+	entries.forEach(entry => {
+	if(entry.isIntersecting) {
+		entry.target.classList.add('animate-in');
+		observer.unobserve(entry.target); // animate only once
+	}
+	});
+}, {
+	threshold: 0.1 // trigger when 10% visible
+});
+
+elements.forEach(el => observer.observe(el));
+});
+</script>
+
+
+
 			
-				// Only activate touch behavior on mobile/touch devices
-				if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
-					hoverboxes.forEach(hoverbox => {
-						hoverbox.addEventListener('touchend', function (e) {
-							if (!hoverbox.classList.contains('touch-active')) {
-								e.preventDefault(); // Prevent link navigation
-								hoverboxes.forEach(hb => hb.classList.remove('touch-active'));
-								hoverbox.classList.add('touch-active');
-							} else {
-								hoverbox.classList.remove('touch-active'); // Allow navigation on 2nd tap
-							}
-						});
-			
-						// Tap outside to clear the active state
-						document.addEventListener('touchstart', function (e) {
-							if (!hoverbox.contains(e.target)) {
-								hoverbox.classList.remove('touch-active');
-							}
-						});
-					});
-				}
-			});
-			</script>
-
-		<script>
-		/*document.addEventListener("DOMContentLoaded", function () {
-			document.querySelectorAll('img').forEach(img => {
-			img.loading = "lazy";
-			});*/
-
-			imagesLoaded('.gallery-grid', function () {
-			new Masonry('.gallery-grid', {
-				itemSelector: '.work-img',
-				percentPosition: true,
-				gutter: 20
-			});
-			});
-		</script>
-
-		<script>
-		document.addEventListener("DOMContentLoaded", function() {
-		const elements = document.querySelectorAll('.work');
-
-		const observer = new IntersectionObserver((entries, observer) => {
-			entries.forEach(entry => {
-			if(entry.isIntersecting) {
-				entry.target.classList.add('animate-in');
-				observer.unobserve(entry.target); // animate only once
-			}
-			});
-		}, {
-			threshold: 0.1 // trigger when 10% visible
-		});
-
-		elements.forEach(el => observer.observe(el));
-		});
-		</script>
-
 	</body>
 </html>
