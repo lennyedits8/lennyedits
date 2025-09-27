@@ -905,27 +905,22 @@ if (isTouchDevice) {
   const imgWrappers = document.querySelectorAll('.img-wrapper');
 
   imgWrappers.forEach(wrapper => {
-    let touchStartTime = 0;
     const link = wrapper.closest('a');
 
-    wrapper.addEventListener('touchstart', () => {
-      touchStartTime = Date.now();
-      wrapper.classList.add('hovered'); // show hover immediately
-    });
+    wrapper.addEventListener('touchstart', (e) => {
+      wrapper.classList.add('hovered'); // show hover
 
-    wrapper.addEventListener('touchend', (e) => {
-      const touchDuration = Date.now() - touchStartTime;
-      if (touchDuration < 200) {
-        // short tap = follow link immediately
-        // do nothing, link will navigate naturally
-      } else {
-        // long touch / scroll = just show hover
-        e.preventDefault(); // prevent accidental navigation
-      }
+      // Remove hover quickly for light touch/scroll
+      setTimeout(() => {
+        wrapper.classList.remove('hovered');
+      }, 200);
+
+      // Let the link follow naturally on tap
     });
   });
 }
 </script>
+
 
 
 			
