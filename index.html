@@ -218,7 +218,7 @@
     <section class="awe-section">
       <div class="container">
         <div class="page-title pb-40">
-          <h2 class="page-title__title">Welcome! test</h2>
+          <h2 class="page-title__title">Welcome!</h2>
           <p class="page-title__text">Please select from the galleries below to explore my collection of recent photographs</p>
           <div class="page-title__divider"></div>
         </div>
@@ -778,152 +778,116 @@ document.addEventListener("DOMContentLoaded", function () {
 </script> -->
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const hoverboxes = document.querySelectorAll('.hoverbox');
+// 1. Hoverbox double-tap behavior
+document.addEventListener("DOMContentLoaded", function HoverboxTouchHandler() {
+    const hoverboxElements = document.querySelectorAll('.hoverbox');
 
     if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
-        hoverboxes.forEach(hoverbox => {
-            hoverbox.addEventListener('touchstart', function () {
-                hoverbox.classList.add('touch-active');
 
-                // Remove the zoom effect shortly after tap (so it doesn't stay active)
+        // Tap on hoverbox
+        hoverboxElements.forEach(box => {
+            box.addEventListener('touchstart', function (e) {
+                // Remove hover from other hoverboxes
+                hoverboxElements.forEach(hb => {
+                    if (hb !== box) hb.classList.remove('touch-active');
+                });
+
+                // Toggle hover on this box
+                box.classList.toggle('touch-active');
+
+                e.stopPropagation(); // Prevent document listener from firing
+            });
+        });
+
+        // Tap anywhere else removes all hover
+        document.addEventListener('touchstart', function () {
+            hoverboxElements.forEach(box => box.classList.remove('touch-active'));
+        });
+    }
+});
+
+// 2. Overlay menu click handler (hamburger / fullscreen menu)
+document.addEventListener("DOMContentLoaded", function OverlayMenuClickHandler() {
+    const menuLinks = document.querySelectorAll('.overlay-menu a[href]');
+
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href && href !== '#') {
+                e.preventDefault();
+                this.classList.add('clicked');
+
                 setTimeout(() => {
-                    hoverbox.classList.remove('touch-active');
-                }, 300); // Duration matches CSS transition
-            });
-        });
-    }
-});
-</script>
-
-
-<!-- test if speed affecting colour click -->
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const menuLinks = document.querySelectorAll('.overlay-menu a[href]');
-
-  menuLinks.forEach(link => {
-    link.addEventListener('click', function (e) {
-      const href = this.getAttribute('href');
-      if (href && href !== '#') {
-        e.preventDefault();
-
-        // Optional: add a visual class (optional)
-        this.classList.add('clicked');
-
-        // Navigate after brief delay
-        setTimeout(() => {
-          window.location.href = href;
-        }, 100);
-      }
-    });
-  });
-});
-</script>
-
-<!-- Vendors-->
-		<script type="text/javascript" src="assets/vendors/jquery/jquery.min.js"></script>
-		<script type="text/javascript" src="assets/vendors/imagesloaded/imagesloaded.pkgd.js"></script>
-		<script type="text/javascript" src="assets/vendors/isotope-layout/isotope.pkgd.js"></script>
-		<script type="text/javascript" src="assets/vendors/jquery-one-page/jquery.nav.min.js"></script>
-		<script type="text/javascript" src="assets/vendors/jquery.easing/jquery.easing.min.js"></script>
-		<script type="text/javascript" src="assets/vendors/jquery.matchHeight/jquery.matchHeight.min.js"></script>
-		<script type="text/javascript" src="assets/vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
-		<script type="text/javascript" src="assets/vendors/masonry-layout/masonry.pkgd.js"></script>
-		<script type="text/javascript" src="assets/vendors/jquery.waypoints/jquery.waypoints.min.js"></script>
-		<script type="text/javascript" src="assets/vendors/swiper/swiper.jquery.js"></script>
-		<script type="text/javascript" src="assets/vendors/menu/menu.js"></script>
-		<script type="text/javascript" src="assets/vendors/typed/typed.min.js"></script>
-		<!-- App-->
-		<script type="text/javascript" src="assets/js/main.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    // 1. Lazy-load images
-    document.querySelectorAll('img').forEach(img => {
-        img.loading = "lazy";
-    });
-
-    // 2. Initialize Masonry after images loaded
-    imagesLoaded('.gallery-grid', function () {
-        new Masonry('.gallery-grid', {
-            itemSelector: '.work-img',
-            percentPosition: true,
-            gutter: 20
+                    window.location.href = href;
+                }, 100);
+            }
         });
     });
+});
 
-    // 3. Double-tap hover fix for touch devices
-    const hoverboxes = document.querySelectorAll('.hoverbox');
+// 3. Img-wrapper tap-to-hover for mobile
+document.addEventListener("DOMContentLoaded", function ImgWrapperTouchHandler() {
+    const wrapperElements = document.querySelectorAll('.img-wrapper');
+
     if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
-        hoverboxes.forEach(hoverbox => {
-            hoverbox.addEventListener('touchend', function (e) {
-                if (!hoverbox.classList.contains('touch-active')) {
-                    e.preventDefault();
-                    hoverboxes.forEach(hb => hb.classList.remove('touch-active'));
-                    hoverbox.classList.add('touch-active');
-                } else {
-                    hoverbox.classList.remove('touch-active');
-                }
-            });
 
-            document.addEventListener('touchstart', function (e) {
-                if (!hoverbox.contains(e.target)) {
-                    hoverbox.classList.remove('touch-active');
-                }
+        // Tap on image wrapper
+        wrapperElements.forEach(wrapper => {
+            wrapper.addEventListener('touchstart', (e) => {
+                // Remove hover from other wrappers
+                wrapperElements.forEach(other => {
+                    if (other !== wrapper) other.classList.remove('hovered');
+                });
+
+                // Toggle hover on this wrapper
+                wrapper.classList.toggle('hovered');
+
+                e.stopPropagation(); // Prevent document listener
             });
+        });
+
+        // Tap anywhere else removes hover
+        document.addEventListener('touchstart', function () {
+            wrapperElements.forEach(wrapper => wrapper.classList.remove('hovered'));
         });
     }
 });
-</script>
 
+// 4. Lazy-load images & initialize Masonry (if needed)
+document.addEventListener("DOMContentLoaded", function MasonryInit() {
+    document.querySelectorAll('img').forEach(img => img.loading = "lazy");
 
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-const elements = document.querySelectorAll('.work');
-
-const observer = new IntersectionObserver((entries, observer) => {
-	entries.forEach(entry => {
-	if(entry.isIntersecting) {
-		entry.target.classList.add('animate-in');
-		observer.unobserve(entry.target); // animate only once
-	}
-	});
-}, {
-	threshold: 0.1 // trigger when 10% visible
+    if (typeof imagesLoaded !== 'undefined' && typeof Masonry !== 'undefined') {
+        const grid = document.querySelector('.gallery-grid');
+        if (grid) {
+            imagesLoaded(grid, function () {
+                new Masonry(grid, {
+                    itemSelector: '.work-img',
+                    percentPosition: true,
+                    gutter: 20
+                });
+            });
+        }
+    }
 });
 
-elements.forEach(el => observer.observe(el));
+// 5. Animate .work elements on scroll
+document.addEventListener("DOMContentLoaded", function WorkAnimateIn() {
+    const elements = document.querySelectorAll('.work');
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    elements.forEach(el => observer.observe(el));
 });
 </script>
 
-<script>
-const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-
-if (isTouchDevice) {
-  const imgWrappers = document.querySelectorAll('.img-wrapper');
-
-  imgWrappers.forEach(wrapper => {
-    const link = wrapper.closest('a');
-
-    wrapper.addEventListener('touchstart', (e) => {
-      wrapper.classList.add('hovered'); // show hover
-
-      // Remove hover quickly for light touch/scroll
-      setTimeout(() => {
-        wrapper.classList.remove('hovered');
-      }, 200);
-
-      // Let the link follow naturally on tap
-    });
-  });
-}
-</script>
-
-
-
-			
-	</body>
+</body>
 </html>
 
