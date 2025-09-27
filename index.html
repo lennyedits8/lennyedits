@@ -83,11 +83,23 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  padding: 1rem;
   width: 100%;
-  text-align: left; /* text to the left */
+  height: 100%; /* take full height of tile */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* pushes text toward bottom */
+  padding: 0rem 0rem 2rem 2rem; /* top, right, bottom, left */
+  text-align: left;
   z-index: 2;
 }
+
+/* Mobile (screens up to 767px wide) */
+@media (max-width: 767px) {
+  .work__overlay {
+    padding: 0rem 0rem 0rem 1rem; /* tighter spacing for small screens */
+  }
+}
+
 
 /* main title */
 .work__title {
@@ -144,6 +156,9 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+
+
 
 
   </style>
@@ -242,7 +257,7 @@
                     <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1751805784/b6_kotsmb.jpg" alt="Automotive Photography"/>
                     <div class="work__overlay">
                       <h2 class="work__title">Automotive</h2>
-                      <p class="work__subtitle">Panning shots and detailed close-ups</p>
+                      <p class="work__subtitle">Panning shots, detailed close-ups</p>
                     </div>
                   </div>
                 </a>
