@@ -63,67 +63,29 @@
 </script>
 
 <style>
-  /* Container for the image gallery */
-  .gallery-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  /* Individual image wrapper */
-  .work-img {
-    box-sizing: border-box;
-    width: 23%;
-    margin-bottom: 20px;
-  }
-
-  .gallery-grid img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  /* Tablet: 3 per row */
-  @media (max-width: 1024px) {
-    .work-img {
-      width: 31%;
-    }
-  }
-
-  /* Mobile: 2 per row */
-  @media (max-width: 600px) {
-    .work-img {
-      width: calc(50% - 10px);
-      margin-bottom: 10px;
-    }
-  }
-
-  .img-wrapper {
+.img-wrapper {
   width: 100%;
   position: relative;
   overflow: hidden;
+  border-radius: 12px; /* rounded corners */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.aspect-2-3 {
-  aspect-ratio: 2 / 3;
-}
-
-.aspect-3-2 {
-  aspect-ratio: 3 / 2;
-}
-.aspect-4-3 {
-  aspect-ratio: 4 / 3;
-}
-
-.aspect-3-4 {
-  aspect-ratio: 3 / 4;
-}
+.aspect-2-3 { aspect-ratio: 2 / 3; }
+.aspect-3-2 { aspect-ratio: 3 / 2; }
+.aspect-4-3 { aspect-ratio: 4 / 3; }
+.aspect-3-4 { aspect-ratio: 3 / 4; }
 
 .img-wrapper img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* or use 'contain' if you prefer */
+  object-fit: cover;
   display: block;
+  transition: transform 0.6s ease; /* hover zoom */
+}
+
+.img-wrapper:hover img {
+  transform: scale(1.1); /* zoom image on hover */
 }
 
 .work {
@@ -137,9 +99,83 @@
   transform: translateY(0);
 }
 
+/* overlay container for title + subtitle */
+.work__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* take full height of tile */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* pushes text toward bottom */
+  padding: 0rem 0rem 0rem 2rem; /* top, right, bottom, left */
+  text-align: left;
+  z-index: 2;
+}
+
+/* Mobile (screens up to 767px wide) */
+@media (max-width: 767px) {
+  .work__overlay {
+    padding: 0rem 1rem 0rem 1rem; /* tighter spacing for small screens */
+  }
+}
+
+
+/* main title */
 .work__title {
-    word-wrap: break-word; /* allows long words to be broken */
-    overflow-wrap: break-word; /* modern syntax */
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0,0,0,.8);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* subtitle appears on hover */
+.work__subtitle {
+  color: rgba(255,255,255,0.8);
+  font-size: 14px;
+  opacity: 1;
+  transform: translateY(4px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  text-shadow: 0 2px 8px rgba(0,0,0,.8);
+  margin-top: 0rem;
+}
+
+.img-wrapper:hover .work__title {
+  transform: translateY(-4px);
+/* optional accent color */
+}
+
+.img-wrapper:hover .work__subtitle {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 767px) {
+  .work__title {
+    font-size: 16px !important;
+    line-height: 1.3;
+  }
+  .work__subtitle {
+    font-size: 12px;
+  }
+}
+
+.img-wrapper.hovered img {
+  transform: scale(1.1);
+}
+
+.img-wrapper.hovered .work__title {
+  transform: translateY(-4px);
+}
+
+.img-wrapper.hovered .work__subtitle {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 
@@ -169,7 +205,7 @@
 				<div class="dropdown-hover-buffer"></div>
 				<div class="dropdown-content">
 					<a href="automotivephotography.html">Automotive</a>
-          			<a href="copenhagen.html">Travel</a>
+          			<a href="travelphotography.html">Travel</a>
 					<a href="virtualphotography.html">Virtual</a>
 					<a href="filmphotography.html">35mm Film</a>
 					<a href="otherphotography.html">Other</a>
@@ -197,7 +233,7 @@
 				<a href="#">Photography <span class="submenu-toggle"><i class="fa fa-angle-right"></i></span></a>
 				<ul class="submenu">
 				<li><a href="automotivephotography.html">Automotive</a></li>
-                <li><a href="copenhagen.html">Travel</a></li>
+                <li><a href="travelphotography.html">Travel</a></li>
 				<li><a href="virtualphotography.html">Virtual</a></li>
 				<li><a href="filmphotography.html">35mm Film</a></li>
 				<li><a href="otherphotography.html">Other</a></li>
@@ -236,281 +272,193 @@
 
 
 				
-				<!-- Section -->
-				<section class="awe-section bg-gray">
-					<div class="container">
-						<div class="row">
-							<div class="col-lg-6 ">
-							</div>
-						</div>
-						<div class="grid-css grid-css--masonry" data-col-lg="3" data-col-md="2" data-col-sm="2" data-col-xs="2" data-gap="30">
-							<div class="grid__inner">
-								<div class="grid-sizer"></div>
+			<!-- Section -->
+<section class="awe-section bg-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 "></div>
+    </div>
+    <div class="grid-css grid-css--masonry" data-col-lg="3" data-col-md="2" data-col-sm="2" data-col-xs="2" data-gap="5">
+      <div class="grid__inner">
+        <div class="grid-sizer"></div>
 
-								
-									<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="carolenash.html">
-													
-													<!-- hoverbox ef-move-top -->
-													<div class="hoverbox ef-move-top light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><div class="img-wrapper aspect-3-2"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1756456152/c1_u9rh1n.jpg" alt=""/>
-														</div></div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Carole Nash Historic Festival 2025</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-move-top -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
+        <!-- Carole Nash -->
+        <div class="grid-item">
+          <div class="grid-item__inner">
+            <div class="grid-item__content-wrapper">
+              <div class="work">
+                <a href="carolenash.html">
+                  <div class="img-wrapper aspect-3-2">
+                    <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1756456152/c1_u9rh1n.jpg" alt="Carole Nash Historic Festival 2025"/>
+                    <div class="work__overlay">
+                      <h2 class="work__title">Carole Nash Historic Festival</h2>
+                      <p class="work__subtitle">17 August 2025</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
 
+        <!-- Bimmerfest -->
+        <div class="grid-item">
+          <div class="grid-item__inner">
+            <div class="grid-item__content-wrapper">
+              <div class="work">
+                <a href="bimmerfest.html">
+                  <div class="img-wrapper aspect-3-2">
+                    <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1751805784/b6_kotsmb.jpg" alt="Bimmerfest Mondello Park"/>
+                    <div class="work__overlay">
+                      <h2 class="work__title">Bimmerfest</h2>
+                      <p class="work__subtitle">04 August 2025</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
 
-									<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="bimmerfest.html">
-													
-													<!-- hoverbox ef-move-top -->
-													<div class="hoverbox ef-move-top light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><div class="img-wrapper aspect-3-2"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1751805784/b6_kotsmb.jpg" alt=""/>
-														</div></div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Bimmerfest Mondello Park</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-move-top -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
+        <!-- BMW Cars & Coffee -->
+        <div class="grid-item">
+          <div class="grid-item__inner">
+            <div class="grid-item__content-wrapper">
+              <div class="work">
+                <a href="bmwcars&coffee.html">
+                  <div class="img-wrapper aspect-3-4">
+                    <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1753291933/k3_ituhcp.jpg" alt="BMW Classics Ireland Cars & Coffee"/>
+                    <div class="work__overlay">
+                      <h2 class="work__title">BMW's & Coffee</h2>
+                      <p class="work__subtitle">20 July 2025</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
 
+        <!-- ICCR -->
+        <div class="grid-item">
+          <div class="grid-item__inner">
+            <div class="grid-item__content-wrapper">
+              <div class="work">
+                <a href="iccr.html">
+                  <div class="img-wrapper aspect-3-2">
+                    <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1751805784/i2_dbvnec.jpg" alt="ICCR Round 3 Mondello Park"/>
+                    <div class="work__overlay">
+                      <h2 class="work__title">ICCR Round 3</h2>
+                      <p class="work__subtitle">05 July 2025</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
 
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="bmwcars&coffee.html">
-													
-													<!-- hoverbox ef-move-top -->
-													<div class="hoverbox ef-move-top light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><div class="img-wrapper aspect-3-4"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1753291933/k3_ituhcp.jpg" alt=""/>
-														</div></div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">BMW Classics Ireland Cars & Coffee</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-move-top -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
+        <!-- Bohernabreena -->
+        <div class="grid-item">
+          <div class="grid-item__inner">
+            <div class="grid-item__content-wrapper">
+              <div class="work">
+                <a href="bohernabreena.html">
+                  <div class="img-wrapper aspect-2-3">
+                    <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1750886794/b1_dtuj3u.jpg" alt="Bohernabreena Classic Show 2025"/>
+                    <div class="work__overlay">
+                      <h2 class="work__title">Bohernabreena Classic Car Show</h2>
+                      <p class="work__subtitle">22 June 2025</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
 
-									<div class="grid-item">
-										<div class="grid-item__inner">
-											<div class="grid-item__content-wrapper">
-												
-												<!-- work -->
-												<div class="work"><a href="iccr.html">
-														
-														<!-- hoverbox ef-slide-bottom -->
-														<div class="hoverbox ef-move-right light">
-															
-															<!-- hb_front -->
-															<div class="hb_front"><div class="img-wrapper aspect-3-2"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1751805784/i2_dbvnec.jpg" alt=""/>
-															</div></div><!-- End / hb_front -->
-															
-															
-															<!-- hb_back -->
-															<div class="hb_back">
-																<h2 class="work__title">ICCR Round 3 Mondello Park</h2><span class="work__text">View Photos</span>
-															</div><!-- End / hb_back -->
-															
-														</div><!-- End / hoverbox ef-slide-bottom -->
-														</a>
-												</div><!-- End / work -->
-												
-											</div>
-										</div>
-									</div>
+        <!-- Malahide -->
+        <div class="grid-item">
+          <div class="grid-item__inner">
+            <div class="grid-item__content-wrapper">
+              <div class="work">
+                <a href="malahide.html">
+                  <div class="img-wrapper aspect-4-3">
+                    <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747912698/m1_hybndk.jpg" alt="Malahide Car Show 2025"/>
+                    <div class="work__overlay">
+                      <h2 class="work__title">Malahide Classic & Vintage Motor Show</h2>
+                      <p class="work__subtitle">18 May 2025</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
 
+        <!-- Japfest -->
+        <div class="grid-item">
+          <div class="grid-item__inner">
+            <div class="grid-item__content-wrapper">
+              <div class="work">
+                <a href="japfest.html">
+                  <div class="img-wrapper aspect-3-4">
+                    <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747914402/rl10_cksrjj.jpg" alt="Japfest Mondello Park 2025"/>
+                    <div class="work__overlay">
+                      <h2 class="work__title">Japfest</h2>
+                      <p class="work__subtitle">13 April 2025</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
 
-									<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="bohernabreena.html">
-													
-													<!-- hoverbox ef-slide-bottom -->
-													<div class="hoverbox ef-move-right light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><div class="img-wrapper aspect-2-3"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1750886794/b1_dtuj3u.jpg" alt=""/>
-														</div></div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Bohernabreena Classic Show 2025</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-slide-bottom -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
+        <!-- Herbert Park -->
+        <div class="grid-item">
+          <div class="grid-item__inner">
+            <div class="grid-item__content-wrapper">
+              <div class="work">
+                <a href="herbertpark.html">
+                  <div class="img-wrapper aspect-3-4">
+                    <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747914895/hp_13_qqi4yo.jpg" alt="Herbert Park Car Show 2025"/>
+                    <div class="work__overlay">
+                      <h2 class="work__title">Herbert Park Car Show</h2>
+                      <p class="work__subtitle">04 May 2025</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
 
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="malahide.html">
-													
-													<!-- hoverbox ef-slide-bottom -->
-													<div class="hoverbox ef-move-right light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><div class="img-wrapper aspect-4-3"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747912698/m1_hybndk.jpg" alt=""/>
-														</div></div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Malahide Car Show 2025</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-slide-bottom -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
+        <!-- Mondello 2024 -->
+        <div class="grid-item">
+          <div class="grid-item__inner">
+            <div class="grid-item__content-wrapper">
+              <div class="work">
+                <a href="filmphotography.html">
+                  <div class="img-wrapper aspect-4-3">
+                    <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747914964/f1_rvlurp.jpg" alt="Mondello Park 2024"/>
+                    <div class="work__overlay">
+                      <h2 class="work__title">Carole Nash Historic Festival</h2>
+                      <p class="work__subtitle">10 August 2024</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
 
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="japfest.html">
-													
-													<!-- hoverbox ef-slide-bottom -->
-													<div class="hoverbox ef-move-right light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><div class="img-wrapper aspect-3-4"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747914402/rl10_cksrjj.jpg" alt=""/>
-														</div></div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Japfest Mondello Park 2025</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-slide-bottom -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="herbertpark.html">
-													
-													<!-- hoverbox ef-move-top -->
-													<div class="hoverbox ef-move-top light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><div class="img-wrapper aspect-3-4"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747914895/hp_13_qqi4yo.jpg" alt=""/>
-														</div></div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Herbert Park Car Show 2025</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-move-top -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End / Section -->
 
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="filmphotography.html">
-													
-													<!-- hoverbox ef-slide-right -->
-													<div class="hoverbox ef-move-left light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><div class="img-wrapper aspect-4-3"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747914964/f1_rvlurp.jpg" alt=""/>
-														</div></div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Mondello Park 2024</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-slide-right -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
-
-							</div>
-						</div>
-						<div class="awe-text-center mt-50">
-							<!--<a class="md-btn md-btn--outline-primary" href="virtualphotography.html">all work-->
-							</a>
-						</div>
-					</div>
-				</section>
-				<!-- End / Section -->
 				
 			</div>
 			<!-- End / Content-->
@@ -561,91 +509,115 @@
 		<!-- App-->
 		<script type="text/javascript" src="assets/js/main.js"></script>
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    // 1. Lazy-load images
-    document.querySelectorAll('img').forEach(img => {
-        img.loading = "lazy";
-    });
+// 1. Hoverbox double-tap behavior
+document.addEventListener("DOMContentLoaded", function HoverboxTouchHandler() {
+    const hoverboxElements = document.querySelectorAll('.hoverbox');
 
-    // 2. Initialize Masonry after images loaded
-    imagesLoaded('.gallery-grid', function () {
-        new Masonry('.gallery-grid', {
-            itemSelector: '.work-img',
-            percentPosition: true,
-            gutter: 20
-        });
-    });
-
-            });
-</script>
-
-<script>
-	// 3. Mobile hover
-document.addEventListener("DOMContentLoaded", function () {
-    const hoverboxes = document.querySelectorAll('.hoverbox');
-
-    // Only run for touch devices
     if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
-        hoverboxes.forEach(hoverbox => {
-            let touchMoved = false;
 
-            hoverbox.addEventListener('touchstart', function () {
-                touchMoved = false; // reset on new touch
-            });
+        // Tap on hoverbox
+        hoverboxElements.forEach(box => {
+            box.addEventListener('touchstart', function (e) {
+                // Remove hover from other hoverboxes
+                hoverboxElements.forEach(hb => {
+                    if (hb !== box) hb.classList.remove('touch-active');
+                });
 
-            hoverbox.addEventListener('touchmove', function () {
-                touchMoved = true; // mark if finger moved (scroll)
-            });
+                // Toggle hover on this box
+                box.classList.toggle('touch-active');
 
-            hoverbox.addEventListener('touchend', function (e) {
-                if (!touchMoved) {
-                    // normal tap: follow link
-                    hoverboxes.forEach(hb => hb.classList.remove('touch-active'));
-                    hoverbox.classList.add('touch-active');
-                } else {
-                    // light press/scroll: just show hover
-                    hoverboxes.forEach(hb => hb.classList.remove('touch-active'));
-                    hoverbox.classList.add('touch-active');
-                    e.preventDefault(); // prevent following link
-                }
+                e.stopPropagation(); // Prevent document listener from firing
             });
         });
 
-        // Remove hover if touching elsewhere
-        document.addEventListener('touchstart', function (e) {
-            hoverboxes.forEach(hb => {
-                if (!hb.contains(e.target)) {
-                    hb.classList.remove('touch-active');
-                }
-            });
+        // Tap anywhere else removes all hover
+        document.addEventListener('touchstart', function () {
+            hoverboxElements.forEach(box => box.classList.remove('touch-active'));
         });
     }
 });
-</script>
 
+// 2. Overlay menu click handler (hamburger / fullscreen menu)
+document.addEventListener("DOMContentLoaded", function OverlayMenuClickHandler() {
+    const menuLinks = document.querySelectorAll('.overlay-menu a[href]');
 
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href && href !== '#') {
+                e.preventDefault();
+                this.classList.add('clicked');
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-const elements = document.querySelectorAll('.work');
-
-const observer = new IntersectionObserver((entries, observer) => {
-	entries.forEach(entry => {
-	if(entry.isIntersecting) {
-		entry.target.classList.add('animate-in');
-		observer.unobserve(entry.target); // animate only once
-	}
-	});
-}, {
-	threshold: 0.1 // trigger when 10% visible
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 100);
+            }
+        });
+    });
 });
 
-elements.forEach(el => observer.observe(el));
+// 3. Img-wrapper tap-to-hover for mobile
+document.addEventListener("DOMContentLoaded", function ImgWrapperTouchHandler() {
+    const wrapperElements = document.querySelectorAll('.img-wrapper');
+
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+
+        // Tap on image wrapper
+        wrapperElements.forEach(wrapper => {
+            wrapper.addEventListener('touchstart', (e) => {
+                // Remove hover from other wrappers
+                wrapperElements.forEach(other => {
+                    if (other !== wrapper) other.classList.remove('hovered');
+                });
+
+                // Toggle hover on this wrapper
+                wrapper.classList.toggle('hovered');
+
+                e.stopPropagation(); // Prevent document listener
+            });
+        });
+
+        // Tap anywhere else removes hover
+        document.addEventListener('touchstart', function () {
+            wrapperElements.forEach(wrapper => wrapper.classList.remove('hovered'));
+        });
+    }
+});
+
+// 4. Lazy-load images & initialize Masonry (if needed)
+document.addEventListener("DOMContentLoaded", function MasonryInit() {
+    document.querySelectorAll('img').forEach(img => img.loading = "lazy");
+
+    if (typeof imagesLoaded !== 'undefined' && typeof Masonry !== 'undefined') {
+        const grid = document.querySelector('.gallery-grid');
+        if (grid) {
+            imagesLoaded(grid, function () {
+                new Masonry(grid, {
+                    itemSelector: '.work-img',
+                    percentPosition: true,
+                    gutter: 5
+                });
+            });
+        }
+    }
+});
+
+// 5. Animate .work elements on scroll
+document.addEventListener("DOMContentLoaded", function WorkAnimateIn() {
+    const elements = document.querySelectorAll('.work');
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    elements.forEach(el => observer.observe(el));
 });
 </script>
 
-
-
-			
-	</body>
+</body>
 </html>

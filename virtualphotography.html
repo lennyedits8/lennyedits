@@ -45,78 +45,31 @@
 </script>
 
 
+
 <style>
-  /* Container for the image gallery */
-  .gallery-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  /* Individual image wrapper */
-  .work-img {
-    box-sizing: border-box;
-    width: 23%;
-    margin-bottom: 20px;
-  }
-
-  .gallery-grid img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  /* Tablet: 3 per row */
-  @media (max-width: 1024px) {
-    .work-img {
-      width: 31%;
-    }
-  }
-
-  /* Mobile: 2 per row */
-  @media (max-width: 600px) {
-    .work-img {
-      width: calc(50% - 10px);
-      margin-bottom: 10px;
-    }
-  }
-
-  .img-wrapper {
+.img-wrapper {
   width: 100%;
   position: relative;
   overflow: hidden;
+  border-radius: 12px; /* rounded corners */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.aspect-2-3 {
-  aspect-ratio: 2 / 3;
-}
-
-.aspect-4-3 {
-  aspect-ratio: 4 / 3;
-}
-
-.aspect-16-9 {
-  aspect-ratio: 16 / 9;
-}
-
-.aspect-9-16 {
-  aspect-ratio: 9 / 16;
-}
-
-
-.aspect-3-4 {
-  aspect-ratio: 3 / 4;
-}
-
-.aspect-4-5 {
-  aspect-ratio: 4 / 5;
-}
+.aspect-2-3 { aspect-ratio: 2 / 3; }
+.aspect-3-2 { aspect-ratio: 3 / 2; }
+.aspect-4-3 { aspect-ratio: 4 / 3; }
+.aspect-3-4 { aspect-ratio: 3 / 4; }
 
 .img-wrapper img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* or use 'contain' if you prefer */
+  object-fit: cover;
   display: block;
+  transition: transform 0.6s ease; /* hover zoom */
+}
+
+.img-wrapper:hover img {
+  transform: scale(1.1); /* zoom image on hover */
 }
 
 .work {
@@ -129,6 +82,86 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+/* overlay container for title + subtitle */
+.work__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* take full height of tile */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* pushes text toward bottom */
+  padding: 0rem 0rem 0rem 2rem; /* top, right, bottom, left */
+  text-align: left;
+  z-index: 2;
+}
+
+/* Mobile (screens up to 767px wide) */
+@media (max-width: 767px) {
+  .work__overlay {
+    padding: 0rem 1rem 0rem 1rem; /* tighter spacing for small screens */
+  }
+}
+
+
+/* main title */
+.work__title {
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0,0,0,.8);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* subtitle appears on hover */
+.work__subtitle {
+  color: rgba(255,255,255,0.8);
+  font-size: 14px;
+  opacity: 1;
+  transform: translateY(4px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  text-shadow: 0 2px 8px rgba(0,0,0,.8);
+  margin-top: 0rem;
+}
+
+.img-wrapper:hover .work__title {
+  transform: translateY(-4px);
+/* optional accent color */
+}
+
+.img-wrapper:hover .work__subtitle {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 767px) {
+  .work__title {
+    font-size: 16px !important;
+    line-height: 1.3;
+  }
+  .work__subtitle {
+    font-size: 12px;
+  }
+}
+
+.img-wrapper.hovered img {
+  transform: scale(1.1);
+}
+
+.img-wrapper.hovered .work__title {
+  transform: translateY(-4px);
+}
+
+.img-wrapper.hovered .work__subtitle {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 </style>
 
@@ -227,578 +260,400 @@
 				
 				<!-- Section -->
 				<section class="awe-section bg-gray">
-					<div class="container">
-						<div class="row">
-							<div class="col-lg-6 ">
+				<div class="container">
+					<div class="row">
+					<div class="col-lg-6 "></div>
+					</div>
+					<div class="grid-css grid-css--masonry" data-col-lg="4" data-col-md="2" data-col-sm="2" data-col-xs="2" data-gap="5">
+					<div class="grid__inner">
+						<div class="grid-sizer"></div>
+
+						<!-- Spider-Man 2 -->
+						<div class="grid-item">
+						<div class="grid-item__inner">
+							<div class="grid-item__content-wrapper">
+							<div class="work">
+								<a href="spiderman2.html">
+								<div class="img-wrapper aspect-9-16">
+									<img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747947724/sm_1_usyw8u.jpg" alt="Spider-Man 2"/>
+									<div class="work__overlay">
+									<h2 class="work__title">Spider-Man 2</h2>
+									<p class="work__subtitle">View Photos</p>
+									</div>
+								</div>
+								</a>
+							</div>
 							</div>
 						</div>
-						<div class="grid-css grid-css--masonry" data-col-lg="4" data-col-md="2" data-col-sm="2" data-col-xs="2" data-gap="30">
-							<div class="grid__inner">
-								<div class="grid-sizer"></div>
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="spiderman2.html">
-													
-													<!-- hoverbox ef-slide-bottom -->
-													<div class="hoverbox ef-move-right light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><div class="img-wrapper aspect-9-16"><div class="img-wrapper aspect-1-3"></div><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747947724/sm_1_usyw8u.jpg" alt="" />
-														</div></div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Spider-Man 2</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-slide-bottom -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="fallout4.html">
-													
-													<!-- hoverbox ef-move-top -->
-													<div class="hoverbox ef-move-top light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><div class="img-wrapper aspect-16-9"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747947719/fo4_1_fwxgua.jpg" alt="" />
-														</div></div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Fallout 4</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-move-top -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="finalfantasyremake.html">
-													
-													<!-- hoverbox ef-move-top -->
-													<div class="hoverbox ef-move-left light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><div class="img-wrapper aspect-9-16"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747947783/ff2_e2gj3c.jpg" alt="" />
-														</div></div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Final Fantasy VII Remake</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-move-top -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="rdr2.html">
-													
-													<!-- hoverbox ef-slide-right -->
-													<div class="hoverbox ef-move-left light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><div class="img-wrapper aspect-4-5"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747947721/rdr2_qq3epl.jpg" alt="" />
-														</div></div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Red Dead Redemption 2</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-slide-right -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="tlou1.html">
-													
-													<!-- hoverbox ef-zoom-in -->
-													<div class="hoverbox ef-zoom-in light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><div class="img-wrapper aspect-9-16"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747947720/lastofus1_chzz68.jpg" alt="" />
-														</div></div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">The Last of Us Part 1</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-zoom-in -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="gow.html">
-													
-													<!-- hoverbox ef-zoom-in -->
-													<div class="hoverbox ef-move-left light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><div class="img-wrapper aspect-9-16"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747947721/gow_ou84uo.jpg" alt="" />
-														</div></div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">God of War Ragnorok</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-zoom-in -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="gk.html">
-													
-													<!-- hoverbox ef-slide-right -->
-													<div class="hoverbox ef-move-right light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><div class="img-wrapper aspect-9-16"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747947721/gk_ay2qwu.jpg" alt="" />
-														</div></div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Gotham Knights</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-slide-right -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="tlou2.html">
-													
-													<!-- hoverbox ef-move-right -->
-													<div class="hoverbox ef-zoom-in light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><div class="img-wrapper aspect-9-16"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747947721/lastofus2_wvtrtx.jpg" alt="" />
-														</div></div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">The Last of Us Part 2</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-move-right -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="cyberpunk.html">
-													
-													<!-- hoverbox ef-move-bottom -->
-													<div class="hoverbox ef-move-bottom light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><div class="img-wrapper aspect-9-16"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747947720/cyberpunk_aeqwev.jpg" alt="" />
-														</div></div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Cyberpunk 2077</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-move-bottom -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="gt7.html">
-													
-													<!-- hoverbox ef-move-bottom -->
-													<div class="hoverbox ef-move-bottom light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><div class="img-wrapper aspect-3-4"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747947991/gt12_w5c2pb.jpg" alt="" />
-														</div></div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Gran Turismo 7</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-move-bottom -->
-													</a>
-											</div><!-- End / work -->
+						</div>
 
-                                            
-											
-										</div>
+						<!-- Fallout 4 -->
+						<div class="grid-item">
+						<div class="grid-item__inner">
+							<div class="grid-item__content-wrapper">
+							<div class="work">
+								<a href="fallout4.html">
+								<div class="img-wrapper aspect-16-9">
+									<img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747947719/fo4_1_fwxgua.jpg" alt="Fallout 4"/>
+									<div class="work__overlay">
+									<h2 class="work__title">Fallout 4</h2>
+									<p class="work__subtitle">View Photos</p>
 									</div>
 								</div>
-
-
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="lostrecords.html">
-													
-													<!-- hoverbox ef-move-top -->
-													<div class="hoverbox ef-move-top light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><div class="img-wrapper aspect-2-3"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747947947/lr38_tlo1ia.jpg" alt="" />
-														</div></div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Lost Records: Rage & Bloom </h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-move-top -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
-
-
-
-                                <div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="witcher.html">
-													
-													<!-- hoverbox ef-move-top -->
-													<div class="hoverbox ef-move-top light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><div class="img-wrapper aspect-9-16"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747948113/w2_iuoivg.jpg" alt="" />
-														</div></div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Wicther 3 Wild Hunt </h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-move-top -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
-
-                                <div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="ratchet.html">
-													
-													<!-- hoverbox ef-move-top -->
-													<div class="hoverbox ef-move-top light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><div class="img-wrapper aspect-9-16"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747948162/rat1_pvv47y.jpg" alt="" />
-														</div></div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Ratchet & Clank Rift Apart </h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-move-top -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
-
-                                <div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="smr.html">
-													
-													<!-- hoverbox ef-move-top -->
-													<div class="hoverbox ef-move-bottom light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><div class="img-wrapper aspect-9-16"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747948189/smr1_hr7xz9.jpg" alt="" />
-														</div></div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Spider-Man Remastered PC </h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-move-top -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
-
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="gotg.html">
-													
-													<!-- hoverbox ef-move-top -->
-													<div class="hoverbox ef-move-bottom light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><div class="img-wrapper aspect-9-16"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747948238/gotg1_qlyyvn.jpg" alt="" />
-														</div></div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Marvel's Guardians of the Galaxy </h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-move-top -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
-
-                                <div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="starwars.html">
-													
-													<!-- hoverbox ef-move-top -->
-													<div class="hoverbox ef-move-bottom light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><div class="img-wrapper aspect-9-16"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747948296/sw4_oy7tea.jpg" alt="" />
-														</div></div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Star Wars Jedi Survivor </h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-move-top -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
-
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="horizon.html">
-													
-													<!-- hoverbox ef-move-bottom -->
-													<div class="hoverbox ef-move-left light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><div class="img-wrapper aspect-9-16"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747947724/horizon_ut1r8c.jpg" alt="" />
-														</div></div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Horizon Zero Dawn</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-move-bottom -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
-
-
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="forbiddenwest.html">
-													
-													<!-- hoverbox ef-move-bottom -->
-													<div class="hoverbox ef-move-right light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><div class="img-wrapper aspect-9-16"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747948340/fw1_ftycdk.jpg" alt="" />
-														</div></div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Horizon Forbidden West</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-move-bottom -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
-
-
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="milesmorales.html">
-													
-													<!-- hoverbox ef-move-bottom -->
-													<div class="hoverbox ef-zoom-in light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><div class="img-wrapper aspect-9-16"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747948374/mm1_geqtpv.jpg" alt="" />
-														</div></div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Spider-Man Miles Morales</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-move-bottom -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
-
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="spiderman.html">
-													
-													<!-- hoverbox ef-move-bottom -->
-													<div class="hoverbox ef-zoom-in light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><div class="img-wrapper aspect-9-16"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747948403/s1_mgiouv.jpg" alt="" />
-														</div></div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Spider-Man PS5</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-move-bottom -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
-								
+								</a>
 							</div>
+							</div>
+						</div>
+						</div>
+
+						<!-- Final Fantasy VII Remake -->
+						<div class="grid-item">
+						<div class="grid-item__inner">
+							<div class="grid-item__content-wrapper">
+							<div class="work">
+								<a href="finalfantasyremake.html">
+								<div class="img-wrapper aspect-9-16">
+									<img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747947783/ff2_e2gj3c.jpg" alt="Final Fantasy VII Remake"/>
+									<div class="work__overlay">
+									<h2 class="work__title">Final Fantasy VII Remake</h2>
+									<p class="work__subtitle">View Photos</p>
+									</div>
+								</div>
+								</a>
+							</div>
+							</div>
+						</div>
+						</div>
+
+						<!-- Red Dead Redemption 2 -->
+						<div class="grid-item">
+						<div class="grid-item__inner">
+							<div class="grid-item__content-wrapper">
+							<div class="work">
+								<a href="rdr2.html">
+								<div class="img-wrapper aspect-4-5">
+									<img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747947721/rdr2_qq3epl.jpg" alt="Red Dead Redemption 2"/>
+									<div class="work__overlay">
+									<h2 class="work__title">Red Dead Redemption 2</h2>
+									<p class="work__subtitle">View Photos</p>
+									</div>
+								</div>
+								</a>
+							</div>
+							</div>
+						</div>
+						</div>
+
+						<!-- The Last of Us Part 1 -->
+						<div class="grid-item">
+						<div class="grid-item__inner">
+							<div class="grid-item__content-wrapper">
+							<div class="work">
+								<a href="tlou1.html">
+								<div class="img-wrapper aspect-9-16">
+									<img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747947720/lastofus1_chzz68.jpg" alt="The Last of Us Part 1"/>
+									<div class="work__overlay">
+									<h2 class="work__title">The Last of Us Part 1</h2>
+									<p class="work__subtitle">View Photos</p>
+									</div>
+								</div>
+								</a>
+							</div>
+							</div>
+						</div>
+						</div>
+
+						<!-- God of War Ragnarok -->
+						<div class="grid-item">
+						<div class="grid-item__inner">
+							<div class="grid-item__content-wrapper">
+							<div class="work">
+								<a href="gow.html">
+								<div class="img-wrapper aspect-9-16">
+									<img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747947721/gow_ou84uo.jpg" alt="God of War Ragnarok"/>
+									<div class="work__overlay">
+									<h2 class="work__title">God of War Ragnarok</h2>
+									<p class="work__subtitle">View Photos</p>
+									</div>
+								</div>
+								</a>
+							</div>
+							</div>
+						</div>
+						</div>
+
+						<!-- Gotham Knights -->
+						<div class="grid-item">
+						<div class="grid-item__inner">
+							<div class="grid-item__content-wrapper">
+							<div class="work">
+								<a href="gk.html">
+								<div class="img-wrapper aspect-9-16">
+									<img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747947721/gk_ay2qwu.jpg" alt="Gotham Knights"/>
+									<div class="work__overlay">
+									<h2 class="work__title">Gotham Knights</h2>
+									<p class="work__subtitle">View Photos</p>
+									</div>
+								</div>
+								</a>
+							</div>
+							</div>
+						</div>
+						</div>
+
+						<!-- The Last of Us Part 2 -->
+						<div class="grid-item">
+						<div class="grid-item__inner">
+							<div class="grid-item__content-wrapper">
+							<div class="work">
+								<a href="tlou2.html">
+								<div class="img-wrapper aspect-9-16">
+									<img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747947721/lastofus2_wvtrtx.jpg" alt="The Last of Us Part 2"/>
+									<div class="work__overlay">
+									<h2 class="work__title">The Last of Us Part 2</h2>
+									<p class="work__subtitle">View Photos</p>
+									</div>
+								</div>
+								</a>
+							</div>
+							</div>
+						</div>
+						</div>
+
+						<!-- Cyberpunk 2077 -->
+						<div class="grid-item">
+						<div class="grid-item__inner">
+							<div class="grid-item__content-wrapper">
+							<div class="work">
+								<a href="cyberpunk.html">
+								<div class="img-wrapper aspect-9-16">
+									<img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747947720/cyberpunk_aeqwev.jpg" alt="Cyberpunk 2077"/>
+									<div class="work__overlay">
+									<h2 class="work__title">Cyberpunk 2077</h2>
+									<p class="work__subtitle">View Photos</p>
+									</div>
+								</div>
+								</a>
+							</div>
+							</div>
+						</div>
+						</div>
+
+						<!-- Gran Turismo 7 -->
+						<div class="grid-item">
+						<div class="grid-item__inner">
+							<div class="grid-item__content-wrapper">
+							<div class="work">
+								<a href="gt7.html">
+								<div class="img-wrapper aspect-3-4">
+									<img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747947991/gt12_w5c2pb.jpg" alt="Gran Turismo 7"/>
+									<div class="work__overlay">
+									<h2 class="work__title">Gran Turismo 7</h2>
+									<p class="work__subtitle">View Photos</p>
+									</div>
+								</div>
+								</a>
+							</div>
+							</div>
+						</div>
+						</div>
+
+						<!-- Lost Records -->
+						<div class="grid-item">
+						<div class="grid-item__inner">
+							<div class="grid-item__content-wrapper">
+							<div class="work">
+								<a href="lostrecords.html">
+								<div class="img-wrapper aspect-2-3">
+									<img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747947947/lr38_tlo1ia.jpg" alt="Lost Records: Rage & Bloom"/>
+									<div class="work__overlay">
+									<h2 class="work__title">Lost Records: Rage & Bloom</h2>
+									<p class="work__subtitle">View Photos</p>
+									</div>
+								</div>
+								</a>
+							</div>
+							</div>
+						</div>
+						</div>
+
+						<!-- Witcher 3 -->
+						<div class="grid-item">
+						<div class="grid-item__inner">
+							<div class="grid-item__content-wrapper">
+							<div class="work">
+								<a href="witcher.html">
+								<div class="img-wrapper aspect-9-16">
+									<img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747948113/w2_iuoivg.jpg" alt="Witcher 3 Wild Hunt"/>
+									<div class="work__overlay">
+									<h2 class="work__title">Witcher 3 Wild Hunt</h2>
+									<p class="work__subtitle">View Photos</p>
+									</div>
+								</div>
+								</a>
+							</div>
+							</div>
+						</div>
+						</div>
+
+						<!-- Ratchet & Clank -->
+						<div class="grid-item">
+						<div class="grid-item__inner">
+							<div class="grid-item__content-wrapper">
+							<div class="work">
+								<a href="ratchet.html">
+								<div class="img-wrapper aspect-9-16">
+									<img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747948162/rat1_pvv47y.jpg" alt="Ratchet & Clank Rift Apart"/>
+									<div class="work__overlay">
+									<h2 class="work__title">Ratchet & Clank Rift Apart</h2>
+									<p class="work__subtitle">View Photos</p>
+									</div>
+								</div>
+								</a>
+							</div>
+							</div>
+						</div>
+						</div>
+
+						<!-- Spider-Man Remastered -->
+						<div class="grid-item">
+						<div class="grid-item__inner">
+							<div class="grid-item__content-wrapper">
+							<div class="work">
+								<a href="smr.html">
+								<div class="img-wrapper aspect-9-16">
+									<img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747948189/smr1_hr7xz9.jpg" alt="Spider-Man Remastered"/>
+									<div class="work__overlay">
+									<h2 class="work__title">Spider-Man Remastered PC</h2>
+									<p class="work__subtitle">View Photos</p>
+									</div>
+								</div>
+								</a>
+							</div>
+							</div>
+						</div>
+						</div>
+
+						<!-- Guardians of the Galaxy -->
+						<div class="grid-item">
+						<div class="grid-item__inner">
+							<div class="grid-item__content-wrapper">
+							<div class="work">
+								<a href="gotg.html">
+								<div class="img-wrapper aspect-9-16">
+									<img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747948238/gotg1_qlyyvn.jpg" alt="Marvel's Guardians of the Galaxy"/>
+									<div class="work__overlay">
+									<h2 class="work__title">Marvel's Guardians of the Galaxy</h2>
+									<p class="work__subtitle">View Photos</p>
+									</div>
+								</div>
+								</a>
+							</div>
+							</div>
+						</div>
+						</div>
+
+						<!-- Star Wars Jedi Survivor -->
+						<div class="grid-item">
+						<div class="grid-item__inner">
+							<div class="grid-item__content-wrapper">
+							<div class="work">
+								<a href="starwars.html">
+								<div class="img-wrapper aspect-9-16">
+									<img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747948296/sw4_oy7tea.jpg" alt="Star Wars Jedi Survivor"/>
+									<div class="work__overlay">
+									<h2 class="work__title">Star Wars Jedi Survivor</h2>
+									<p class="work__subtitle">View Photos</p>
+									</div>
+								</div>
+								</a>
+							</div>
+							</div>
+						</div>
+						</div>
+
+						<!-- Horizon Zero Dawn -->
+						<div class="grid-item">
+						<div class="grid-item__inner">
+							<div class="grid-item__content-wrapper">
+							<div class="work">
+								<a href="horizon.html">
+								<div class="img-wrapper aspect-9-16">
+									<img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747947724/horizon_ut1r8c.jpg" alt="Horizon Zero Dawn"/>
+									<div class="work__overlay">
+									<h2 class="work__title">Horizon Zero Dawn</h2>
+									<p class="work__subtitle">View Photos</p>
+									</div>
+								</div>
+								</a>
+							</div>
+							</div>
+						</div>
+						</div>
+
+						<!-- Horizon Forbidden West -->
+						<div class="grid-item">
+						<div class="grid-item__inner">
+							<div class="grid-item__content-wrapper">
+							<div class="work">
+								<a href="forbiddenwest.html">
+								<div class="img-wrapper aspect-9-16">
+									<img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747948340/fw1_ftycdk.jpg" alt="Horizon Forbidden West"/>
+									<div class="work__overlay">
+									<h2 class="work__title">Horizon Forbidden West</h2>
+									<p class="work__subtitle">View Photos</p>
+									</div>
+								</div>
+								</a>
+							</div>
+							</div>
+						</div>
+						</div>
+
+						<!-- Miles Morales -->
+						<div class="grid-item">
+						<div class="grid-item__inner">
+							<div class="grid-item__content-wrapper">
+							<div class="work">
+								<a href="milesmorales.html">
+								<div class="img-wrapper aspect-9-16">
+									<img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747948374/mm1_geqtpv.jpg" alt="Spider-Man Miles Morales"/>
+									<div class="work__overlay">
+									<h2 class="work__title">Spider-Man Miles Morales</h2>
+									<p class="work__subtitle">View Photos</p>
+									</div>
+								</div>
+								</a>
+							</div>
+							</div>
+						</div>
+						</div>
+
+						<!-- Spider-Man PS5 -->
+						<div class="grid-item">
+						<div class="grid-item__inner">
+							<div class="grid-item__content-wrapper">
+							<div class="work">
+								<a href="spiderman.html">
+								<div class="img-wrapper aspect-9-16">
+									<img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747948403/s1_mgiouv.jpg" alt="Spider-Man PS5"/>
+									<div class="work__overlay">
+									<h2 class="work__title">Spider-Man PS5</h2>
+									<p class="work__subtitle">View Photos</p>
+									</div>
+								</div>
+								</a>
+							</div>
+							</div>
+						</div>
 						</div>
 
 					</div>
+					</div>
+				</div>
 				</section>
 				<!-- End / Section -->
+
 				
 			</div>
 			<!-- End / Content-->
@@ -849,92 +704,116 @@
 
 		<!-- App-->
 		<script type="text/javascript" src="assets/js/main.js"></script>
-		<script>
-document.addEventListener("DOMContentLoaded", function () {
-    // 1. Lazy-load images
-    document.querySelectorAll('img').forEach(img => {
-        img.loading = "lazy";
-    });
-
-    // 2. Initialize Masonry after images loaded
-    imagesLoaded('.gallery-grid', function () {
-        new Masonry('.gallery-grid', {
-            itemSelector: '.work-img',
-            percentPosition: true,
-            gutter: 20
-        });
-    });
-
-            });
-</script>
-
 <script>
-	// 3. Mobile hover
-document.addEventListener("DOMContentLoaded", function () {
-    const hoverboxes = document.querySelectorAll('.hoverbox');
+// 1. Hoverbox double-tap behavior
+document.addEventListener("DOMContentLoaded", function HoverboxTouchHandler() {
+    const hoverboxElements = document.querySelectorAll('.hoverbox');
 
-    // Only run for touch devices
     if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
-        hoverboxes.forEach(hoverbox => {
-            let touchMoved = false;
 
-            hoverbox.addEventListener('touchstart', function () {
-                touchMoved = false; // reset on new touch
-            });
+        // Tap on hoverbox
+        hoverboxElements.forEach(box => {
+            box.addEventListener('touchstart', function (e) {
+                // Remove hover from other hoverboxes
+                hoverboxElements.forEach(hb => {
+                    if (hb !== box) hb.classList.remove('touch-active');
+                });
 
-            hoverbox.addEventListener('touchmove', function () {
-                touchMoved = true; // mark if finger moved (scroll)
-            });
+                // Toggle hover on this box
+                box.classList.toggle('touch-active');
 
-            hoverbox.addEventListener('touchend', function (e) {
-                if (!touchMoved) {
-                    // normal tap: follow link
-                    hoverboxes.forEach(hb => hb.classList.remove('touch-active'));
-                    hoverbox.classList.add('touch-active');
-                } else {
-                    // light press/scroll: just show hover
-                    hoverboxes.forEach(hb => hb.classList.remove('touch-active'));
-                    hoverbox.classList.add('touch-active');
-                    e.preventDefault(); // prevent following link
-                }
+                e.stopPropagation(); // Prevent document listener from firing
             });
         });
 
-        // Remove hover if touching elsewhere
-        document.addEventListener('touchstart', function (e) {
-            hoverboxes.forEach(hb => {
-                if (!hb.contains(e.target)) {
-                    hb.classList.remove('touch-active');
-                }
-            });
+        // Tap anywhere else removes all hover
+        document.addEventListener('touchstart', function () {
+            hoverboxElements.forEach(box => box.classList.remove('touch-active'));
         });
     }
 });
-</script>
 
+// 2. Overlay menu click handler (hamburger / fullscreen menu)
+document.addEventListener("DOMContentLoaded", function OverlayMenuClickHandler() {
+    const menuLinks = document.querySelectorAll('.overlay-menu a[href]');
 
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href && href !== '#') {
+                e.preventDefault();
+                this.classList.add('clicked');
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-const elements = document.querySelectorAll('.work');
-
-const observer = new IntersectionObserver((entries, observer) => {
-	entries.forEach(entry => {
-	if(entry.isIntersecting) {
-		entry.target.classList.add('animate-in');
-		observer.unobserve(entry.target); // animate only once
-	}
-	});
-}, {
-	threshold: 0.1 // trigger when 10% visible
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 100);
+            }
+        });
+    });
 });
 
-elements.forEach(el => observer.observe(el));
+// 3. Img-wrapper tap-to-hover for mobile
+document.addEventListener("DOMContentLoaded", function ImgWrapperTouchHandler() {
+    const wrapperElements = document.querySelectorAll('.img-wrapper');
+
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+
+        // Tap on image wrapper
+        wrapperElements.forEach(wrapper => {
+            wrapper.addEventListener('touchstart', (e) => {
+                // Remove hover from other wrappers
+                wrapperElements.forEach(other => {
+                    if (other !== wrapper) other.classList.remove('hovered');
+                });
+
+                // Toggle hover on this wrapper
+                wrapper.classList.toggle('hovered');
+
+                e.stopPropagation(); // Prevent document listener
+            });
+        });
+
+        // Tap anywhere else removes hover
+        document.addEventListener('touchstart', function () {
+            wrapperElements.forEach(wrapper => wrapper.classList.remove('hovered'));
+        });
+    }
+});
+
+// 4. Lazy-load images & initialize Masonry (if needed)
+document.addEventListener("DOMContentLoaded", function MasonryInit() {
+    document.querySelectorAll('img').forEach(img => img.loading = "lazy");
+
+    if (typeof imagesLoaded !== 'undefined' && typeof Masonry !== 'undefined') {
+        const grid = document.querySelector('.gallery-grid');
+        if (grid) {
+            imagesLoaded(grid, function () {
+                new Masonry(grid, {
+                    itemSelector: '.work-img',
+                    percentPosition: true,
+                    gutter: 5
+                });
+            });
+        }
+    }
+});
+
+// 5. Animate .work elements on scroll
+document.addEventListener("DOMContentLoaded", function WorkAnimateIn() {
+    const elements = document.querySelectorAll('.work');
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    elements.forEach(el => observer.observe(el));
 });
 </script>
 
-
-
-			
-	</body>
+</body>
 </html>
