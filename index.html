@@ -943,8 +943,6 @@ document.addEventListener("DOMContentLoaded", function() {
 <!-- END SHOP SECTION -->
 
 <!-- PRESET SLIDER SECTION -->
-
-<!-- Before/After Hover Slider -->
 <section class="preset-slider">
   <div class="slider-container">
     <div class="img-comp">
@@ -968,7 +966,8 @@ document.addEventListener("DOMContentLoaded", function() {
 .slider-container {
   position: relative;
   width: 100%;
-  cursor: ew-resize; /* horizontal drag cursor */
+  cursor: ew-resize;
+  touch-action: none; /* important for mobile drag */
 }
 
 .img-comp {
@@ -1001,22 +1000,27 @@ document.addEventListener("DOMContentLoaded", function() {
 const container = document.querySelector(".slider-container");
 const afterImg = document.querySelector(".img-comp img.after");
 
-container.addEventListener("mousemove", (e) => {
+function updateSlider(x) {
   const rect = container.getBoundingClientRect();
-  const x = e.clientX - rect.left; // mouse position relative to container
-  const percent = Math.max(0, Math.min(100, (x / rect.width) * 100));
+  const percent = Math.max(0, Math.min(100, (x - rect.left) / rect.width * 100));
   afterImg.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+}
+
+// Works for mouse and touch
+container.addEventListener("pointermove", (e) => {
+  updateSlider(e.clientX);
 });
 
-// Optional: reset to center when mouse leaves
-container.addEventListener("mouseleave", () => {
+container.addEventListener("pointerdown", (e) => {
+  updateSlider(e.clientX);
+});
+
+container.addEventListener("pointerleave", () => {
   afterImg.style.clipPath = "inset(0 50% 0 0)";
 });
 </script>
-
-
-
 <!-- END OF PRESET SLIDER SECTION -->
+
 
 
 <style>
