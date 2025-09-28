@@ -941,13 +941,16 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 <!-- END SHOP SECTION -->
-
 <!-- PRESET SLIDER SECTION -->
 <section class="preset-slider">
   <div class="slider-container">
     <div class="img-comp">
       <img src="assets/img/presets/preset_before.png" alt="Before" class="before">
       <img src="assets/img/presets/preset_after.png" alt="After" class="after">
+
+      <!-- Labels -->
+      <span class="label before-label">Before</span>
+      <span class="label after-label">After</span>
     </div>
   </div>
 </section>
@@ -994,6 +997,41 @@ document.addEventListener("DOMContentLoaded", function() {
 .img-comp img.after {
   clip-path: inset(0 50% 0 0); /* Start at 50% */
 }
+
+/* Labels */
+.label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.55);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  padding: 8px 0;       /* only vertical padding now */
+  width: 70px;          /* fixed width for both */
+  text-align: center;   /* centers the text */
+  border-radius: 4px;
+  opacity: 0.9;
+  pointer-events: none;
+  transition: opacity 0.3s ease, background 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.before-label {
+  left: 12px;
+}
+
+.after-label {
+  right: 12px;
+}
+
+
+/* Hide labels when user is interacting */
+.slider-container.active .label {
+  opacity: 0;
+}
+
 </style>
 
 <script>
@@ -1006,20 +1044,29 @@ function updateSlider(x) {
   afterImg.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
 }
 
-// Works for mouse and touch
+// Show/hide labels when dragging
 container.addEventListener("pointermove", (e) => {
+  container.classList.add("active");
   updateSlider(e.clientX);
 });
 
 container.addEventListener("pointerdown", (e) => {
+  container.classList.add("active");
   updateSlider(e.clientX);
 });
 
+container.addEventListener("pointerup", () => {
+  container.classList.remove("active");
+});
+
 container.addEventListener("pointerleave", () => {
+  container.classList.remove("active");
   afterImg.style.clipPath = "inset(0 50% 0 0)";
 });
 </script>
 <!-- END OF PRESET SLIDER SECTION -->
+
+
 
 
 
