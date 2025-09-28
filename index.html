@@ -628,6 +628,312 @@ document.addEventListener("DOMContentLoaded", () => {
 <!-- Load Montserrat font -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 
+
+
+<!-- Shop Section -->
+<section class="shop-section bg-gray">
+  <div class="container">
+    <div class="custom-title-section">
+      <div class="custom-title-wrapper">
+        <h2 class="custom-title-heading">View Products</h2>
+        <div class="custom-divider"></div>
+      </div>
+    </div>
+
+    <!-- Product Wrapper (static grid by default, converted to Swiper on mobile) -->
+    <div class="shop-grid" id="shopGrid">
+      
+      <div class="shop-item">
+        <a href="https://www.etsy.com/ie/listing/4377309690/matte-poster-the-red-house-at-kastellet" class="shop-link">
+          <div class="shop-image">
+            <img src="/assets/img/mockups/mockup1.jpg" alt="Matte Poster - The Red House at Kastellet" class="main-img">
+            <img src="/assets/img/mockups/mockup.jpg" alt="Alternate View" class="hover-img">
+            <div class="shop-basket">
+              <img src="/assets/img/mockups/basket.svg" alt="Basket">
+            </div>
+          </div>
+          <h3 class="shop-item__title">Matte Poster - The Red House at Kastellet</h3>
+          <p class="shop-item__price">€25.82+</p>
+        </a>
+      </div>
+
+      <div class="shop-item">
+        <a href="https://www.etsy.com/ie/listing/4377309690/matte-poster-the-red-house-at-kastellet" class="shop-link">
+          <div class="shop-image">
+            <img src="/assets/img/mockups/mockup2.jpg" alt="Matte Poster - The Red House at Kastellet" class="main-img">
+            <img src="/assets/img/mockups/mockup1.jpg" alt="Alternate View" class="hover-img">
+            <div class="shop-basket">
+              <img src="/assets/img/mockups/basket.svg" alt="Basket">
+            </div>
+          </div>
+          <h3 class="shop-item__title">Matte Poster - The Red House at Kastellet 2</h3>
+          <p class="shop-item__price">€25.82+</p>
+        </a>
+      </div>
+
+      <div class="shop-item">
+        <a href="https://www.etsy.com/ie/listing/4377309690/matte-poster-the-red-house-at-kastellet" class="shop-link">
+          <div class="shop-image">
+            <img src="/assets/img/mockups/mockup.jpg" alt="Matte Poster - The Red House at Kastellet" class="main-img">
+            <img src="/assets/img/mockups/mockup1.jpg" alt="Alternate View" class="hover-img">
+            <div class="shop-basket">
+              <img src="/assets/img/mockups/basket.svg" alt="Basket">
+            </div>
+          </div>
+          <h3 class="shop-item__title">Matte Poster - The Red House at Kastellet 3</h3>
+          <p class="shop-item__price">€25.82+</p>
+        </a>
+      </div>
+
+      <div class="shop-item">
+        <a href="https://www.etsy.com/ie/listing/4377309690/matte-poster-the-red-house-at-kastellet" class="shop-link">
+          <div class="shop-image">
+            <img src="/assets/img/mockups/mockup2.jpg" alt="Matte Poster - The Red House at Kastellet" class="main-img">
+            <img src="/assets/img/mockups/mockup1.jpg" alt="Alternate View" class="hover-img">
+            <div class="shop-basket">
+              <img src="/assets/img/mockups/basket.svg" alt="Basket">
+            </div>
+          </div>
+          <h3 class="shop-item__title">Matte Poster - The Red House at Kastellet 4</h3>
+          <p class="shop-item__price">€25.82+</p>
+        </a>
+      </div>
+
+      <div class="shop-item">
+        <a href="https://www.etsy.com/ie/listing/4377309690/matte-poster-the-red-house-at-kastellet" class="shop-link">
+          <div class="shop-image">
+            <img src="/assets/img/mockups/mockup1.jpg" alt="Matte Poster - The Red House at Kastellet" class="main-img">
+            <img src="/assets/img/mockups/mockup2.jpg" alt="Alternate View" class="hover-img">
+            <div class="shop-basket">
+              <img src="/assets/img/mockups/basket.svg" alt="Basket">
+            </div>
+          </div>
+          <h3 class="shop-item__title">Matte Poster - The Red House at Kastellet 5/h3>
+          <p class="shop-item__price">€25.82+</p>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+
+.shop-section {
+  padding-top: 80px !important;
+  padding-bottom: 80px !important;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+.shop-section .container {
+  margin: 0 auto;
+  padding: 0 20px;
+}
+/* Shared shop item styling */
+.shop-item {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+.shop-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  position: relative;
+}
+
+.shop-link:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.shop-image {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 1/1;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Images stacked */
+.shop-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.5s ease;
+}
+
+.shop-image .main-img {
+  position: relative;
+  z-index: 1;
+}
+
+.shop-image .hover-img {
+  transform: translateX(100%); /* start off to the right */
+  z-index: 2;
+}
+
+/* Hover: slide hover-img in from right, push main-img left */
+.shop-item:hover .shop-image .hover-img {
+  transform: translateX(0);
+}
+
+.shop-item:hover .shop-image .main-img {
+  transform: translateX(-100%);
+}
+
+/* Basket overlay */
+.shop-basket {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.9);
+
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+  z-index: 5; /* above images */
+}
+
+/* Center the basket icon with absolute positioning */
+.shop-basket img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  transform: translate(-50%, -50%); /* centers perfectly */
+  display: block;
+}
+
+/* Hover show (desktop only) */
+.shop-item:hover .shop-basket {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Mobile / Touch devices --- */
+@media (hover: none) and (pointer: coarse) {
+  /* disable sliding images */
+  .shop-image .hover-img,
+  .shop-image .main-img {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* basket always visible */
+  .shop-basket {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Titles & Prices */
+.shop-item__title {
+  margin-top: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+}
+
+.shop-item__price {
+  font-size: 14px;
+  color: #444;
+}
+
+/* Grid Layout */
+.shop-grid {
+  display: grid;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+/* Tablet: 3 columns */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .shop-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Desktop: 4 columns */
+@media (min-width: 1024px) {
+  .shop-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const shopGrid = document.querySelector("#shopGrid");
+  let swiperInstance = null;
+
+  function enableSwiper() {
+    shopGrid.classList.add("swiper");
+    shopGrid.classList.add("shop-carousel");
+
+    const items = Array.from(shopGrid.children);
+    const wrapper = document.createElement("div");
+    wrapper.classList.add("swiper-wrapper");
+
+    items.forEach(item => {
+      const slide = document.createElement("div");
+      slide.classList.add("swiper-slide");
+      slide.appendChild(item);
+      wrapper.appendChild(slide);
+    });
+
+    shopGrid.innerHTML = "";
+    shopGrid.appendChild(wrapper);
+    const pagination = document.createElement("div");
+    pagination.classList.add("swiper-pagination");
+    shopGrid.appendChild(pagination);
+
+    swiperInstance = new Swiper(".shop-carousel", {
+      slidesPerView: 1.1,
+      spaceBetween: 20,
+      centeredSlides: false,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true
+      }
+    });
+  }
+
+  function disableSwiper() {
+    if (swiperInstance) {
+      swiperInstance.destroy(true, true);
+      swiperInstance = null;
+      location.reload();
+    }
+  }
+
+  function checkWidth() {
+    if (window.innerWidth < 768 && !swiperInstance) {
+      enableSwiper();
+    } else if (window.innerWidth >= 768 && swiperInstance) {
+      disableSwiper();
+    }
+  }
+
+  checkWidth();
+  window.addEventListener("resize", checkWidth);
+});
+</script>
+<!-- END SHOP SECTION -->
+
+
+
 <style>
   .get-in-touch-section {
   padding-top: 80px !important;
@@ -686,7 +992,7 @@ document.addEventListener("DOMContentLoaded", () => {
 }
 </style>
 
-<section class="get-in-touch-section bg-gray">
+<section class="get-in-touch-section">
   <div class="container">
     <div class="custom-title-section">
       <div class="custom-title-wrapper">
