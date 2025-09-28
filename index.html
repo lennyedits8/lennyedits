@@ -718,7 +718,7 @@ document.addEventListener("DOMContentLoaded", () => {
               <img src="/assets/img/mockups/basket.svg" alt="Basket">
             </div>
           </div>
-          <h3 class="shop-item__title">Matte Poster - The Red House at Kastellet 5/h3>
+          <h3 class="shop-item__title">Matte Poster - The Red House at Kastellet 5</h3>
           <p class="shop-item__price">€25.82+</p>
         </a>
       </div>
@@ -942,6 +942,81 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 <!-- END SHOP SECTION -->
 
+<!-- PRESET SLIDER SECTION -->
+
+<!-- Before/After Hover Slider -->
+<section class="preset-slider">
+  <div class="slider-container">
+    <div class="img-comp">
+      <img src="assets/img/presets/preset_before.png" alt="Before" class="before">
+      <img src="assets/img/presets/preset_after.png" alt="After" class="after">
+    </div>
+  </div>
+</section>
+
+<style>
+.preset-slider {
+  width: 100%;
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  cursor: ew-resize; /* horizontal drag cursor */
+}
+
+.img-comp {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.img-comp img {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  user-select: none;
+  pointer-events: none;
+}
+
+.img-comp img.before {
+  position: relative;
+}
+
+.img-comp img.after {
+  clip-path: inset(0 50% 0 0); /* Start at 50% */
+}
+</style>
+
+<script>
+const container = document.querySelector(".slider-container");
+const afterImg = document.querySelector(".img-comp img.after");
+
+container.addEventListener("mousemove", (e) => {
+  const rect = container.getBoundingClientRect();
+  const x = e.clientX - rect.left; // mouse position relative to container
+  const percent = Math.max(0, Math.min(100, (x / rect.width) * 100));
+  afterImg.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+});
+
+// Optional: reset to center when mouse leaves
+container.addEventListener("mouseleave", () => {
+  afterImg.style.clipPath = "inset(0 50% 0 0)";
+});
+</script>
+
+
+
+<!-- END OF PRESET SLIDER SECTION -->
 
 
 <style>
@@ -1002,7 +1077,7 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 </style>
 
-<section class="get-in-touch-section">
+<section class="get-in-touch-section bg-gray">
   <div class="container">
     <div class="custom-title-section">
       <div class="custom-title-wrapper">
