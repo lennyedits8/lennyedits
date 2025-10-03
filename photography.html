@@ -62,68 +62,38 @@
   
 </script>
 
-<style>
-  /* Container for the image gallery */
-  .gallery-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
+ <style>
 
-  /* Individual image wrapper */
-  .work-img {
-    box-sizing: border-box;
-    width: 23%;
-    margin-bottom: 20px;
-  }
 
-  .gallery-grid img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
+/* Prevent horizontal scrolling */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
 
-  /* Tablet: 3 per row */
-  @media (max-width: 1024px) {
-    .work-img {
-      width: 31%;
-    }
-  }
-
-  /* Mobile: 2 per row */
-  @media (max-width: 600px) {
-    .work-img {
-      width: calc(50% - 10px);
-      margin-bottom: 10px;
-    }
-  }
-
-  .img-wrapper {
+.img-wrapper {
   width: 100%;
   position: relative;
   overflow: hidden;
+  border-radius: 12px; /* rounded corners */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.aspect-2-3 {
-  aspect-ratio: 2 / 3;
-}
-
-.aspect-3-2 {
-  aspect-ratio: 3 / 2;
-}
-.aspect-4-3 {
-  aspect-ratio: 4 / 3;
-}
-
-.aspect-3-4 {
-  aspect-ratio: 3 / 4;
-}
+.aspect-2-3 { aspect-ratio: 2 / 3; }
+.aspect-3-2 { aspect-ratio: 3 / 2; }
+.aspect-4-3 { aspect-ratio: 4 / 3; }
+.aspect-3-4 { aspect-ratio: 3 / 4; }
 
 .img-wrapper img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* or use 'contain' if you prefer */
+  object-fit: cover;
   display: block;
+  transition: transform 0.6s ease; /* hover zoom */
+}
+
+.img-wrapper:hover img {
+  transform: scale(1.1); /* zoom image on hover */
 }
 
 .work {
@@ -137,31 +107,90 @@
   transform: translateY(0);
 }
 
+/* overlay container for title + subtitle */
+.work__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* take full height of tile */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* pushes text toward bottom */
+  padding: 0rem 0rem 1rem 2rem; /* top, right, bottom, left */
+  text-align: left;
+  z-index: 2;
+}
 
-.work__title {
-    font-size: 18px;
-    text-transform: uppercase;
-    font-weight: bold;
-    margin-top: 0;
-    margin-bottom: 0;
-    white-space: normal;       /* Allows wrapping */
-    word-break: break-word;    /* Breaks long words if needed */
+/* Mobile (screens up to 767px wide) */
+@media (max-width: 767px) {
+  .work__overlay {
+    padding: 0rem 1rem 0rem 1rem; /* tighter spacing for small screens */
+  }
 }
 
 
+/* main title */
+.work__title {
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0,0,0,.8);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* subtitle appears on hover */
+.work__subtitle {
+  color: rgba(255,255,255,0.8);
+  font-size: 14px;
+  opacity: 1;
+  transform: translateY(4px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  text-shadow: 0 2px 8px rgba(0,0,0,.8);
+  margin-top: 0rem;
+}
+
+.img-wrapper:hover .work__title {
+  transform: translateY(-4px);
+/* optional accent color */
+}
+
+.img-wrapper:hover .work__subtitle {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 @media (max-width: 767px) {
   .work__title {
-    font-size: 16px !important;
+    font-size: 14px !important;
     line-height: 1.3;
   }
+  .work__subtitle {
+    font-size: 12px;
+  }
+}
 
+.img-wrapper.hovered img {
+  transform: scale(1.1);
+}
+
+.img-wrapper.hovered .work__title {
+  transform: translateY(-4px);
+}
+
+.img-wrapper.hovered .work__subtitle {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 
 
 
-</style>
+
+  </style>
 	
 	
 	<body>
@@ -179,7 +208,7 @@
 			<!-- Desktop Navigation -->
         <nav class="desktop-nav">
           <a href="index.html">Home</a>
-          <a href="https://www.etsy.com/shop/LennyEdits?ref=dashboard-header">Shop</a>
+          <!--<a href="https://www.etsy.com/shop/LennyEdits?ref=dashboard-header">Shop</a>-->
           <a href="contact.html">Contact</a>
 
 			<div class="dropdown">
@@ -211,7 +240,7 @@
 		<nav class="overlay-menu">
 			<ul class="wil-menu-list">
 			<li class="current-menu-item"><a href="index.html">Home</a></li>
-            <li><a href="https://www.etsy.com/shop/LennyEdits?ref=dashboard-header">Shop</a></li>
+            <!--<li><a href="https://www.etsy.com/shop/LennyEdits?ref=dashboard-header">Shop</a></li>-->
             <li><a href="contact.html">Contact</a></li>
 			<li class="has-submenu">
 				<a href="#">Photography <span class="submenu-toggle"><i class="fa fa-angle-right"></i></span></a>
@@ -253,167 +282,113 @@
 				</section>
 				<!-- End / Section -->
 				
-				<!-- Section -->
 				<section class="awe-section bg-gray">
-					<div class="container">
-						<div class="row">
-							<div class="col-lg-6 ">
-							</div>
-						</div>
-						<div class="grid-css grid-css--masonry" data-col-lg="3" data-col-md="2" data-col-sm="2" data-col-xs="2" data-gap="30">
-							<div class="grid__inner">
-								<div class="grid-sizer"></div>
+  <div class="container">
+    <div class="row"><div class="col-lg-6 "></div></div>
+    <div class="grid-css grid-css--masonry" data-col-lg="3" data-col-md="2" data-col-sm="2" data-col-xs="2" data-gap="5">
+      <div class="grid__inner">
+        <div class="grid-sizer"></div>
+
+        <!-- Automotive Photography -->
+        <div class="grid-item">
+          <div class="grid-item__inner">
+            <div class="grid-item__content-wrapper">
+              <div class="work">
+                <a href="automotivephotography.html">
+                  <div class="img-wrapper aspect-3-2">
+                    <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1751805784/b6_kotsmb.jpg" alt="Automotive Photography"/>
+                    <div class="work__overlay">
+                      <h2 class="work__title">Automotive</h2>
+                      <p class="work__subtitle">Panning & close-up shots</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Travel Photography -->
+        <div class="grid-item">
+          <div class="grid-item__inner">
+            <div class="grid-item__content-wrapper">
+              <div class="work">
+                <a href="copenhagen.html">
+                  <div class="img-wrapper aspect-3-4">
+                    <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1758969491/c1_udomrn.jpg" alt="Travel Photography"/>
+                    <div class="work__overlay">
+                      <h2 class="work__title">Travel</h2>
+                      <p class="work__subtitle">Adventures & landscapes</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Virtual Photography -->
+        <div class="grid-item">
+          <div class="grid-item__inner">
+            <div class="grid-item__content-wrapper">
+              <div class="work">
+                <a href="virtualphotography.html">
+                  <div class="img-wrapper aspect-3-4">
+                    <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018893/sm37_qtstu9.jpg" alt="Virtual Photography"/>
+                    <div class="work__overlay">
+                      <h2 class="work__title">Virtual</h2>
+                      <p class="work__subtitle">In-game digital scenes</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Other Photography -->
+        <div class="grid-item">
+          <div class="grid-item__inner">
+            <div class="grid-item__content-wrapper">
+              <div class="work">
+                <a href="otherphotography.html">
+                  <div class="img-wrapper aspect-3-4">
+                    <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747946238/rl2_f6kfba.jpg" alt="Other Photography"/>
+                    <div class="work__overlay">
+                      <h2 class="work__title">Other</h2>
+                      <p class="work__subtitle">Miscellaneous shots</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Film Photography -->
+        <div class="grid-item">
+          <div class="grid-item__inner">
+            <div class="grid-item__content-wrapper">
+              <div class="work">
+                <a href="filmphotography.html">
+                  <div class="img-wrapper aspect-3-2">
+                    <img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747946248/f1_byuexe.jpg" alt="Film Photography"/>
+                    <div class="work__overlay">
+                      <h2 class="work__title">Film</h2>
+                      <p class="work__subtitle">Captured on 35mm film</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
 
 
-									<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="automotivephotography.html">
-													
-													<!-- hoverbox ef-slide-bottom -->
-													<div class="hoverbox ef-move-right light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><div class="img-wrapper aspect-2-3"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1750886794/b1_dtuj3u.jpg" alt=""/>
-														</div></div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Automotive Photography</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-slide-bottom -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
-
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="copenhagen.html">
-													
-													<!-- hoverbox ef-slide-bottom -->
-													<div class="hoverbox ef-move-right light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><div class="img-wrapper aspect-2-3"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1758969491/c1_udomrn.jpg" alt=""/>
-														</div></div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Travel Photography</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-slide-bottom -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
-
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="virtualphotography.html">
-													
-													<!-- hoverbox ef-slide-bottom -->
-													<div class="hoverbox ef-move-right light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><div class="img-wrapper aspect-2-3"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/sm_2_kbd7ej.jpg" alt=""/>
-														</div></div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Virtual Photography</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-slide-bottom -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
-
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="filmphotography.html">
-													
-													<!-- hoverbox ef-slide-bottom -->
-													<div class="hoverbox ef-move-right light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><div class="img-wrapper aspect-3-2"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747946248/f1_byuexe.jpg" alt=""/>
-														</div></div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Film Photography</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-slide-bottom -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
-								<div class="grid-item">
-									<div class="grid-item__inner">
-										<div class="grid-item__content-wrapper">
-											
-											<!-- work -->
-											<div class="work"><a href="otherphotography.html">
-													
-													<!-- hoverbox ef-move-top -->
-													<div class="hoverbox ef-move-top light">
-														
-														<!-- hb_front -->
-														<div class="hb_front"><div class="img-wrapper aspect-3-4"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1747946238/rl2_f6kfba.jpg" alt=""/>
-														</div></div><!-- End / hb_front -->
-														
-														
-														<!-- hb_back -->
-														<div class="hb_back">
-															<h2 class="work__title">Other Photography</h2><span class="work__text">View Photos</span>
-														</div><!-- End / hb_back -->
-														
-													</div><!-- End / hoverbox ef-move-top -->
-													</a>
-											</div><!-- End / work -->
-											
-										</div>
-									</div>
-								</div>
-							
-
-							</div>
-						</div>
-						<div class="awe-text-center mt-50">
-							<!--<a class="md-btn md-btn--outline-primary" href="virtualphotography.html">all work-->
-							</a>
-						</div>
-					</div>
-				</section>
-				<!-- End / Section -->
+      </div>
+    </div>
+  </div>
+</section>
 				
 			</div>
 			<!-- End / Content-->
