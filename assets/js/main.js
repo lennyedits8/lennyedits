@@ -381,11 +381,11 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Disable scroll restoration on back/forward
-window.history.scrollRestoration = 'manual';
+//window.history.scrollRestoration = 'manual';
 
-window.addEventListener('pageshow', function () {
-  window.scrollTo(0, 0);
-});
+//window.addEventListener('pageshow', function () {
+ // window.scrollTo(0, 0);
+//});
 
 document.addEventListener("DOMContentLoaded", function () {
   const fullscreenMenu = document.querySelector('.fullscreenmenu__module');
