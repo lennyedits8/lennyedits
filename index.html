@@ -188,6 +188,7 @@ html, body {
           <a href="index.html" class="active">Home</a>
           <a href="https://www.etsy.com/shop/LennyEdits?ref=dashboard-header">Shop</a>
           <a href="contact.html">Contact</a>
+          <a href="videography.html">Videography</a>
 
 			<div class="dropdown">
 				<a href="photography.html">Photography</a>
@@ -202,7 +203,6 @@ html, body {
 				</div>
 				</div>
 			</div>
-			<a href="videography.html">Videography</a>
 			</nav>
 
         <!-- Hamburger for Mobile -->
@@ -453,7 +453,7 @@ html, body {
           I'm a freelance photographer based in Dublin, Ireland. Specialising in automotive photography, this covers everything from motorsport dynamic panning shots to detailed close-ups.
         </p>
         <p class="custom-subtext">
-          I also enjoy documenting my travels through the lens and creating virtual photography in my spare time, which lets me explore lighting, scenes, and compositions in ways that aren’t always possible in real life.
+          I also enjoy documenting my travels through photography and videography, capturing landscapes, cities, and experiences through the lens. In my spare time, I create virtual photography, which lets me explore lighting, scenes, and compositions in ways that aren’t always possible in real life.
         </p>
 
       </div>
@@ -472,15 +472,15 @@ html, body {
   <div class="container">
     <div class="follower-grid">
       <div class="follower-item fade-in" data-index="0">
-        <span class="count" data-target="17253">0</span>
+        <span class="count" data-target="17004">0</span>
         <p class="page-title__text">TikTok Followers</p>
       </div>
       <div class="follower-item fade-in" data-index="1">
-        <span class="count" data-target="212">0</span>
+        <span class="count" data-target="203">0</span>
         <p class="page-title__text">Instagram Followers</p>
       </div>
       <div class="follower-item fade-in" data-index="2">
-        <span class="count" data-target="365">0</span>
+        <span class="count" data-target="367">0</span>
         <p class="page-title__text">Pinterest Followers</p>
       </div>
     </div>
@@ -542,6 +542,20 @@ html, body {
     align-items: center;
     gap: 40px;
   }
+}
+
+
+.video-wrapper {
+  margin-top: 40px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.video-wrapper iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
 }
 </style>
 
@@ -641,11 +655,36 @@ document.addEventListener("DOMContentLoaded", () => {
 <!-- Load Montserrat font -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 
+<!-- Video Section -->
+<section class="about-me-section bg-gray">
+  <div class="container">
+    <div class="custom-title-section">
+      <div class="custom-title-wrapper">
+        <h2 class="custom-title-heading">Latest Video</h2>
+        <div class="custom-divider"></div>
+      </div>
 
+        <!-- Latest Video -->
+        <div class="video-wrapper">
+          <iframe
+            width="100%"
+            height="500"
+            src="https://www.youtube.com/embed/0pjSAyCvtMQ"
+            title="Latest Travel Video"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Shop Section -->
 
-<section class="shop-section bg-gray">
+<section class="shop-section">
   <div class="container">
     <div class="custom-title-section">
       <div class="custom-title-wrapper">
