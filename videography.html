@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Spider-Man Miles Morales</title>
+		<title>Videography</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<meta name="format-detection" content="telephone=no">
@@ -37,6 +37,7 @@
 
 </head>
 
+
 	<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3WD6FZML3W"></script>
 <script>
@@ -56,29 +57,10 @@
 }
 
 .work-img {
-  box-sizing: border-box;
-  width: calc(25% - 3.75px); /* (100% - 3 gaps * 5px) / 4 items */
-  margin-bottom: 5px; /* Let gap handle vertical spacing */
+  width: 100%;
+  margin-bottom: 40px;
 }
 
-
-  /* Tablet: 3 per row */
-  @media (max-width: 1024px) {
-    .work-img {
-      width: calc(33.333% - 3.33px); /* (100% - 2 * 5px gap) / 3 */
-	  margin-bottom: 5px; /* Let gap handle vertical spacing */
-    }
-  }
-
-
-
-/* Mobile: 2 per row */
-@media (max-width: 900px) {
-  .work-img {
-    width: calc(50% - 2.5px); /* Adjusted to match the new gap */
-    margin-bottom: 5px; /* Reduced from 10px */
-  }
-}
 
   .gallery-grid img {
     width: 100%;
@@ -96,16 +78,16 @@
   aspect-ratio: 2 / 3;
 }
 
+.aspect-3-2 {
+  aspect-ratio: 3 / 2;
+}
+
 .aspect-4-3 {
   aspect-ratio: 4 / 3;
 }
 
 .aspect-3-4 {
   aspect-ratio: 3 / 4;
-}
-
-.aspect-9-16 {
-  aspect-ratio: 9 / 16;
 }
 
 .img-wrapper img {
@@ -115,10 +97,21 @@
   display: block;
 }
 
+.aspect-16-9 {
+    aspect-ratio: 16 / 9;
+}
+
+.video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
 </style>
 
 
-	
+
 	<body>
 		<div class="page-wrap" id="root">
 			
@@ -138,7 +131,7 @@
           <a href="contact.html">Contact</a>
 
 			<div class="dropdown">
-				<a href="photography.html" class="active">Photography</a>
+				<a href="photography.html">Photography</a>
 				<div class="dropdown-wrapper">
 				<div class="dropdown-hover-buffer"></div>
 				<div class="dropdown-content">
@@ -150,7 +143,7 @@
 				</div>
 				</div>
 			</div>
-			<a href="videography.html">Videography</a>
+			<a href="videography.html"class="active">Videography</a>
 			</nav>
 
 
@@ -204,8 +197,8 @@
 						
 						<!-- page-title -->
 						<div class="page-title pb-40">
-							<h2 class="page-title__title">Spider-Man Miles Morales</h2>
-							<p class="page-title__text">Playstation 5</p>
+							<h2 class="page-title__title">Videography</h2>
+							<p class="page-title__text">Please click on the videos below to view my projects</p>
 							<div class="page-title__divider"></div>
 						</div><!-- End / page-title -->
 						
@@ -220,32 +213,34 @@
 						
 						<!--  -->
 						<div>
-							<p>All photos are shot using photo mode on Playstation 5</p>
+							<!--<p>All videos are shot on Sony A7IV</p>-->
 							<br>
-							<div class="gallery-grid" data-masonry='{ "itemSelector": ".work-img", "columnWidth": ".work-img", "percentPosition": true, "gutter": 5 }'>
-									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/milesmorales/mm1.jpeg" data-pswp-width="774" data-pswp-height="1376"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018891/mm1_wnx4pp.jpg" alt=""></a></div></div>
-									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/milesmorales/mm2.jpeg" data-pswp-width="774" data-pswp-height="1376"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/mm2_s88x2k.jpg" alt=""></a></div></div>
-									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/milesmorales/mm3.jpeg" data-pswp-width="774" data-pswp-height="1376"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018893/mm3_e8przy.jpg" alt=""></a></div></div>
-									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/milesmorales/mm4.jpeg" data-pswp-width="774" data-pswp-height="1376"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/mm4_dmr1is.jpg" alt=""></a></div></div>
-									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/milesmorales/mm5.jpeg" data-pswp-width="774" data-pswp-height="1376"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018891/mm5_vpnjo1.jpg" alt=""></a></div></div>
-									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/milesmorales/mm6.jpeg" data-pswp-width="774" data-pswp-height="1376"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/mm6_mnldrs.jpg" alt=""></a></div></div>
-									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/milesmorales/mm7.jpeg" data-pswp-width="774" data-pswp-height="1376"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/mm7_k7uq1a.jpg" alt=""></a></div></div>
-									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/milesmorales/mm8.jpeg" data-pswp-width="774" data-pswp-height="1376"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018893/mm8_mbseu0.jpg" alt=""></a></div></div>
-									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/milesmorales/mm9.jpeg" data-pswp-width="774" data-pswp-height="1376"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018894/mm9_zlb5fv.jpg" alt=""></a></div></div>
-									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/milesmorales/mm10.jpeg" data-pswp-width="774" data-pswp-height="1376"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018892/mm10_un1gyo.jpg" alt=""></a></div></div>
-									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/milesmorales/mm11.jpeg" data-pswp-width="774" data-pswp-height="1376"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018892/mm11_pwtuh1.jpg" alt=""></a></div></div>
-									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/milesmorales/mm12.jpeg" data-pswp-width="774" data-pswp-height="1376"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018893/mm12_zo91ws.jpg" alt=""></a></div></div>
-									<div class="work-img"><div class="img-wrapper aspect-9-16"><a href="assets/img/milesmorales/mm13.jpeg" data-pswp-width="774" data-pswp-height="1376"><img src="https://res.cloudinary.com/dm086zlrg/image/upload/f_auto,q_auto,w_800/v1748018890/mm13_pc562t.jpg" alt=""></a></div></div>						
-							</div>
-						
-						</div><!-- End /  -->
-						
-					<div class="awe-text-center mt-50">
-						<a class="md-btn md-btn--outline-primary back-to-top" href="#">BACK TO TOP</a>
-					</div>
-					</div>
-				</section>
-				<!-- End / Section -->
+                            <div class="gallery-grid">
+
+                                <div class="work-img">
+                                    <div class="img-wrapper aspect-16-9 video-wrapper">
+                                        <iframe
+                                            src="https://www.youtube.com/embed/gh07Ni3_HcM"
+                                            title="Chamonix Cinematic Travel Film"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                            allowfullscreen>
+                                        </iframe>
+                                    </div>
+                                </div>
+
+                              <!--  <div class="work-img">
+                                    <div class="img-wrapper aspect-16-9 video-wrapper">
+                                        <iframe src="https://www.youtube.com/embed/VIDEO_ID_2"></iframe>
+                                    </div>
+                                </div>-->
+
+                               <!-- <div class="work-img">
+                                    <div class="img-wrapper aspect-16-9 video-wrapper">
+                                        <iframe src="https://www.youtube.com/embed/VIDEO_ID_3"></iframe>
+                                    </div>
+                                </div>-->
+
+                            <!--</div>-->
 				
 			</div>
 			<!-- End / Content-->
@@ -295,15 +290,24 @@
 		<script type="text/javascript" src="assets/vendors/typed/typed.min.js"></script>
 		<!-- App-->
 		<script type="text/javascript" src="assets/js/main.js"></script>
-		<script>
-		document.addEventListener("DOMContentLoaded", function () {
-			document.querySelectorAll('img').forEach(img => {
-			img.loading = "lazy";
-			});
-		});
-		</script>
 
-		<script type="module">
+<!--<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('img').forEach(img => {
+      img.loading = "lazy";
+    });-->
+
+<script>  imagesLoaded('.gallery-grid', function () {
+      new Masonry('.gallery-grid', {
+        itemSelector: '.work-img',
+        percentPosition: true,
+        gutter: 5
+      });
+    });
+</script>
+
+
+<script type="module">
   import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.esm.min.js';
 
   const lightbox = new PhotoSwipeLightbox({
@@ -314,5 +318,6 @@
 
   lightbox.init();
 </script>
+
 	</body>
 </html>
